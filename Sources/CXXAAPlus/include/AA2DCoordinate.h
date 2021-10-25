@@ -37,22 +37,9 @@ to maintain a single distribution point for the source code.
 class AAPLUS_EXT_CLASS CAA2DCoordinate
 {
 public:
-//Constructors / Destructors
-  CAA2DCoordinate() noexcept : X(0),
-                               Y(0)
-  {
-  };
-  CAA2DCoordinate(const CAA2DCoordinate&) = default;
-  CAA2DCoordinate(CAA2DCoordinate&&) = default;
-  ~CAA2DCoordinate() = default;
-
-//Methods
-  CAA2DCoordinate& operator=(const CAA2DCoordinate&) = default;
-  CAA2DCoordinate& operator=(CAA2DCoordinate&&) = default;
-
 //Member variables
-  double X;
-  double Y;
+  double X = 0;
+  double Y = 0;
 };
 
 

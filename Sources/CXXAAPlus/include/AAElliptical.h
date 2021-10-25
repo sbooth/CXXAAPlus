@@ -42,111 +42,53 @@ to maintain a single distribution point for the source code.
 class AAPLUS_EXT_CLASS CAAEllipticalObjectElements
 {
 public:
-//Constructors / Destructors
-  CAAEllipticalObjectElements() noexcept : a(0),
-                                           e(0),
-                                           i(0),
-                                           w(0),
-                                           omega(0),
-                                           JDEquinox(0),
-                                           T(0)
-  {
-  };
-  CAAEllipticalObjectElements(const CAAEllipticalObjectElements&) = default;
-  CAAEllipticalObjectElements(CAAEllipticalObjectElements&&) = default;
-  ~CAAEllipticalObjectElements() = default;
-
-//Methods
-  CAAEllipticalObjectElements& operator=(const CAAEllipticalObjectElements&) = default;
-  CAAEllipticalObjectElements& operator=(CAAEllipticalObjectElements&&) = default;
-
 //Member variables
-  double a;
-  double e;
-  double i;
-  double w;
-  double omega;
-  double JDEquinox;
-  double T;
+  double a = 0;
+  double e = 0;
+  double i = 0;
+  double w = 0;
+  double omega = 0;
+  double JDEquinox = 0;
+  double T = 0;
 };
 
 class AAPLUS_EXT_CLASS CAAEllipticalPlanetaryDetails
 {
 public:
-//Constructors / Destructors
-  CAAEllipticalPlanetaryDetails() noexcept : ApparentGeocentricLongitude(0),
-                                             ApparentGeocentricLatitude(0),
-                                             ApparentGeocentricDistance(0),
-                                             ApparentLightTime(0),
-                                             ApparentGeocentricRA(0),
-                                             ApparentGeocentricDeclination(0)
-  {
-  };
-  CAAEllipticalPlanetaryDetails(const CAAEllipticalPlanetaryDetails&) = default;
-  CAAEllipticalPlanetaryDetails(CAAEllipticalPlanetaryDetails&&) = default;
-  ~CAAEllipticalPlanetaryDetails() = default;
-
-//Methods
-  CAAEllipticalPlanetaryDetails& operator=(const CAAEllipticalPlanetaryDetails&) = default;
-  CAAEllipticalPlanetaryDetails& operator=(CAAEllipticalPlanetaryDetails&&) = default;
-
 //Member variables
-  double ApparentGeocentricLongitude;
-  double ApparentGeocentricLatitude;
-  double ApparentGeocentricDistance;
-  double ApparentLightTime;
-  double ApparentGeocentricRA;
-  double ApparentGeocentricDeclination;
+  double ApparentGeocentricLongitude = 0;
+  double ApparentGeocentricLatitude = 0;
+  double ApparentGeocentricDistance = 0;
+  double ApparentLightTime = 0;
+  double ApparentGeocentricRA = 0;
+  double ApparentGeocentricDeclination = 0;
 };
 
 class AAPLUS_EXT_CLASS CAAEllipticalObjectDetails
 {
 public:
-//Constructors / Destructors
-  CAAEllipticalObjectDetails() noexcept : HeliocentricEclipticLongitude(0),
-                                          HeliocentricEclipticLatitude(0),
-                                          TrueGeocentricRA(0),
-                                          TrueGeocentricDeclination(0),
-                                          TrueGeocentricDistance(0),
-                                          TrueGeocentricLightTime(0),
-                                          AstrometricGeocentricRA(0),
-                                          AstrometricGeocentricDeclination(0),
-                                          AstrometricGeocentricDistance(0),
-                                          AstrometricGeocentricLightTime(0),
-                                          Elongation(0),
-                                          PhaseAngle(0)
-  {
-  };
-  CAAEllipticalObjectDetails(const CAAEllipticalObjectDetails&) = default;
-  CAAEllipticalObjectDetails(CAAEllipticalObjectDetails&&) = default;
-  ~CAAEllipticalObjectDetails() = default;
-
-//Methods
-  CAAEllipticalObjectDetails& operator=(const CAAEllipticalObjectDetails&) = default;
-  CAAEllipticalObjectDetails& operator=(CAAEllipticalObjectDetails&&) = default;
-
 //Member variables
   CAA3DCoordinate HeliocentricRectangularEquatorial;
   CAA3DCoordinate HeliocentricRectangularEcliptical;
-  double HeliocentricEclipticLongitude; 
-  double HeliocentricEclipticLatitude;
-  double TrueGeocentricRA;
-  double TrueGeocentricDeclination;
-  double TrueGeocentricDistance;
-  double TrueGeocentricLightTime;
-  double AstrometricGeocentricRA;
-  double AstrometricGeocentricDeclination;
-  double AstrometricGeocentricDistance;
-  double AstrometricGeocentricLightTime;
-  double Elongation;
-  double PhaseAngle;
+  double HeliocentricEclipticLongitude = 0;
+  double HeliocentricEclipticLatitude = 0;
+  double TrueGeocentricRA = 0;
+  double TrueGeocentricDeclination = 0;
+  double TrueGeocentricDistance = 0;
+  double TrueGeocentricLightTime = 0;
+  double AstrometricGeocentricRA = 0;
+  double AstrometricGeocentricDeclination = 0;
+  double AstrometricGeocentricDistance = 0;
+  double AstrometricGeocentricLightTime = 0;
+  double Elongation = 0;
+  double PhaseAngle = 0;
 };
 
 class AAPLUS_EXT_CLASS CAAElliptical
 {
 public:
 //Enums
-  enum class EllipticalObject
+  enum class Object
   {
     SUN,
     MERCURY,
@@ -165,7 +107,7 @@ public:
     return Distance * 0.0057755183;
   }
 
-  static CAAEllipticalPlanetaryDetails Calculate(double JD, EllipticalObject object, bool bHighPrecision) noexcept;
+  static CAAEllipticalPlanetaryDetails Calculate(double JD, Object object, bool bHighPrecision) noexcept;
 
   constexpr static double SemiMajorAxisFromPerihelionDistance(double q, double e)
   {

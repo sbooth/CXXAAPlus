@@ -51,26 +51,11 @@ public:
     MaxSouthernDeclination = 2,
   };
 
-//Constructors / Destructors
-  CAAMoonMaxDeclinationsDetails2() noexcept : type(Type::NotDefined),
-                                          JD(0),
-                                          Declination(0),
-                                          RA(0)
-  {
-  };
-  CAAMoonMaxDeclinationsDetails2(const CAAMoonMaxDeclinationsDetails2&) = default;
-  CAAMoonMaxDeclinationsDetails2(CAAMoonMaxDeclinationsDetails2&&) = default;
-  ~CAAMoonMaxDeclinationsDetails2() = default;
-
-//Methods
-  CAAMoonMaxDeclinationsDetails2& operator=(const CAAMoonMaxDeclinationsDetails2&) = default;
-  CAAMoonMaxDeclinationsDetails2& operator=(CAAMoonMaxDeclinationsDetails2&&) = default;
-
 //Member variables
-  Type type; //The type of the event which has occurred
-  double JD; //When the event occurred in TT
-  double Declination; //The actual max declination value in degrees
-  double RA; //The Right ascension at the time of the event
+  Type type = Type::NotDefined; //The type of the event which has occurred
+  double JD = 0; //When the event occurred in TT
+  double Declination = 0; //The actual max declination value in degrees
+  double RA = 0; //The Right ascension at the time of the event
 };
 
 class AAPLUS_EXT_CLASS CAAMoonMaxDeclinations2

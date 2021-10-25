@@ -4577,30 +4577,30 @@ constexpr array<VSOP87Coefficient2, 6> g_VSOP87A_Z_JUPITER
 
 double CAAVSOP87A_Jupiter::X(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87A_X_JUPITER.data(), g_VSOP87A_X_JUPITER.size(), false);
+  return CAAVSOP87::Calculate(JD, g_VSOP87A_X_JUPITER.data(), g_VSOP87A_X_JUPITER.size(), false);
 }
 
 double CAAVSOP87A_Jupiter::X_DASH(double JD) noexcept
 {
-  return CVSOP87::Calculate_Dash(JD, g_VSOP87A_X_JUPITER.data(), g_VSOP87A_X_JUPITER.size());
+  return CAAVSOP87::Calculate_Dash(JD, g_VSOP87A_X_JUPITER.data(), g_VSOP87A_X_JUPITER.size());
 }
 
 double CAAVSOP87A_Jupiter::Y(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87A_Y_JUPITER.data(), g_VSOP87A_Y_JUPITER.size(), false);
+  return CAAVSOP87::Calculate(JD, g_VSOP87A_Y_JUPITER.data(), g_VSOP87A_Y_JUPITER.size(), false);
 }
 
 double CAAVSOP87A_Jupiter::Y_DASH(double JD) noexcept
 {
-  return CVSOP87::Calculate_Dash(JD, g_VSOP87A_Y_JUPITER.data(), g_VSOP87A_Y_JUPITER.size());
+  return CAAVSOP87::Calculate_Dash(JD, g_VSOP87A_Y_JUPITER.data(), g_VSOP87A_Y_JUPITER.size());
 }
 
 double CAAVSOP87A_Jupiter::Z(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87A_Z_JUPITER.data(), g_VSOP87A_Z_JUPITER.size(), false);
+  return CAAVSOP87::Calculate(JD, g_VSOP87A_Z_JUPITER.data(), g_VSOP87A_Z_JUPITER.size(), false);
 }
 
 double CAAVSOP87A_Jupiter::Z_DASH(double JD) noexcept
 {
-  return CVSOP87::Calculate_Dash(JD, g_VSOP87A_Z_JUPITER.data(), g_VSOP87A_Z_JUPITER.size());
+  return CAAVSOP87::Calculate_Dash(JD, g_VSOP87A_Z_JUPITER.data(), g_VSOP87A_Z_JUPITER.size());
 }

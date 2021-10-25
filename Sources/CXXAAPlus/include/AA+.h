@@ -107,6 +107,9 @@ to maintain a single distribution point for the source code.
 #include "AASun.h"
 #include "AAUranus.h"
 #include "AAVenus.h"
+#ifndef AAPLUS_NO_VSOP2013
+#include "AAVSOP2013.h"
+#endif //#ifndef AAPLUS_NO_VSOP2013
 #ifndef AAPLUS_NO_VSOP87
 #include "AAVSOP87.h"
 #include "AAVSOP87_EMB.h"

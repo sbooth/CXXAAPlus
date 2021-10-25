@@ -38,79 +38,39 @@ class AAPLUS_EXT_CLASS CAASolarEclipseDetails
 {
 public:
 //Constants (used by Flags member variable)
-  static constexpr unsigned int TOTAL_ECLIPSE         = 0x01;
-  static constexpr unsigned int ANNULAR_ECLIPSE       = 0x02;
+  static constexpr unsigned int TOTAL_ECLIPSE = 0x01;
+  static constexpr unsigned int ANNULAR_ECLIPSE = 0x02;
   static constexpr unsigned int ANNULAR_TOTAL_ECLIPSE = 0x04;
-  static constexpr unsigned int CENTRAL_ECLIPSE       = 0x08;
-  static constexpr unsigned int PARTIAL_ECLIPSE       = 0x10;
-  static constexpr unsigned int NON_CENTRAL_ECLIPSE   = 0x20;
-
-//Constructors / Destructors
-  CAASolarEclipseDetails() noexcept : Flags(0),
-                                      TimeOfMaximumEclipse(0),
-                                      F(0),
-                                      u(0),
-                                      gamma(0),
-                                      GreatestMagnitude(0)
-  {
-  };
-  CAASolarEclipseDetails(const CAASolarEclipseDetails&) = default;
-  CAASolarEclipseDetails(CAASolarEclipseDetails&&) = default;
-  ~CAASolarEclipseDetails() = default;
-
-//Methods
-  CAASolarEclipseDetails& operator=(const CAASolarEclipseDetails&) = default;
-  CAASolarEclipseDetails& operator=(CAASolarEclipseDetails&&) = default;
+  static constexpr unsigned int CENTRAL_ECLIPSE = 0x08;
+  static constexpr unsigned int PARTIAL_ECLIPSE = 0x10;
+  static constexpr unsigned int NON_CENTRAL_ECLIPSE = 0x20;
 
 //Member variables
-  unsigned int Flags;
-  double TimeOfMaximumEclipse;
-  double F;
-  double u;
-  double gamma;
-  double GreatestMagnitude;
+  unsigned int Flags = 0;
+  double TimeOfMaximumEclipse = 0;
+  double F = 0;
+  double u = 0;
+  double gamma = 0;
+  double GreatestMagnitude = 0;
 };
 
 
 class AAPLUS_EXT_CLASS CAALunarEclipseDetails
 {
 public:
-//Constructors / Destructors
-  CAALunarEclipseDetails() noexcept : bEclipse(false),
-                                      TimeOfMaximumEclipse(0),
-                                      F(0),
-                                      u(0),
-                                      gamma(0),
-                                      PenumbralRadii(0),
-                                      UmbralRadii(0),
-                                      PenumbralMagnitude(0),
-                                      UmbralMagnitude(0),
-                                      PartialPhaseSemiDuration(0),
-                                      TotalPhaseSemiDuration(0),
-                                      PartialPhasePenumbraSemiDuration(0)
-  {
-  };
-  CAALunarEclipseDetails(const CAALunarEclipseDetails&) = default;
-  CAALunarEclipseDetails(CAALunarEclipseDetails&&) = default;
-  ~CAALunarEclipseDetails() = default;
-
-//Methods
-  CAALunarEclipseDetails& operator=(const CAALunarEclipseDetails&) = default;
-  CAALunarEclipseDetails& operator=(CAALunarEclipseDetails&&) = default;
-
 //Member variables
-  bool bEclipse;
-  double TimeOfMaximumEclipse;
-  double F;
-  double u;
-  double gamma;
-  double PenumbralRadii;
-  double UmbralRadii;
-  double PenumbralMagnitude;
-  double UmbralMagnitude;
-  double PartialPhaseSemiDuration;
-  double TotalPhaseSemiDuration;
-  double PartialPhasePenumbraSemiDuration;
+  bool bEclipse = false;
+  double TimeOfMaximumEclipse = 0;
+  double F = 0;
+  double u = 0;
+  double gamma = 0;
+  double PenumbralRadii = 0;
+  double UmbralRadii = 0;
+  double PenumbralMagnitude = 0;
+  double UmbralMagnitude = 0;
+  double PartialPhaseSemiDuration = 0;
+  double TotalPhaseSemiDuration = 0;
+  double PartialPhasePenumbraSemiDuration = 0;
 };
 
 class AAPLUS_EXT_CLASS CAAEclipses

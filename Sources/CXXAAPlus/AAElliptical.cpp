@@ -47,6 +47,7 @@ History: PJN / 24-05-2004 1. Fixed a missing break statement in CAAElliptical::C
                           set to true means the code uses the full VSOP87 theory rather than the truncated 
                           theory as presented in Meeus's book.
          PJN / 18-08-2019 1. Fixed some further compiler warnings when using VC 2019 Preview v16.3.0 Preview 2.0
+         PJN / 03-10-2021 1. Renamed CAAElliptical::EllipticalObject type to Object.
 
 Copyright (c) 2003 - 2021 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
@@ -89,7 +90,7 @@ using namespace std;
 
 ////////////////////////////// Implementation /////////////////////////////////
 
-CAAEllipticalPlanetaryDetails CAAElliptical::Calculate(double JD, EllipticalObject object, bool bHighPrecision) noexcept
+CAAEllipticalPlanetaryDetails CAAElliptical::Calculate(double JD, Object object, bool bHighPrecision) noexcept
 {
   //What will be the return value
   CAAEllipticalPlanetaryDetails details;
@@ -107,7 +108,7 @@ CAAEllipticalPlanetaryDetails CAAElliptical::Calculate(double JD, EllipticalObje
   double L = 0;
   double B = 0;
   double R = 0;
-  if (object != EllipticalObject::SUN)
+  if (object != Object::SUN)
   {
     bool bRecalc = true;
     bool bFirstRecalc = true;
@@ -118,49 +119,49 @@ CAAEllipticalPlanetaryDetails CAAElliptical::Calculate(double JD, EllipticalObje
     {
       switch (object)
       {
-        case EllipticalObject::MERCURY:
+        case Object::MERCURY:
         {
           L = CAAMercury::EclipticLongitude(JD0, bHighPrecision);
           B = CAAMercury::EclipticLatitude(JD0, bHighPrecision);
           R = CAAMercury::RadiusVector(JD0, bHighPrecision);
           break;
         }
-        case EllipticalObject::VENUS:
+        case Object::VENUS:
         {
           L = CAAVenus::EclipticLongitude(JD0, bHighPrecision);
           B = CAAVenus::EclipticLatitude(JD0, bHighPrecision);
           R = CAAVenus::RadiusVector(JD0, bHighPrecision);
           break;
         }
-        case EllipticalObject::MARS:
+        case Object::MARS:
         {
           L = CAAMars::EclipticLongitude(JD0, bHighPrecision);
           B = CAAMars::EclipticLatitude(JD0, bHighPrecision);
           R = CAAMars::RadiusVector(JD0, bHighPrecision);
           break;
         }
-        case EllipticalObject::JUPITER:
+        case Object::JUPITER:
         {
           L = CAAJupiter::EclipticLongitude(JD0, bHighPrecision);
           B = CAAJupiter::EclipticLatitude(JD0, bHighPrecision);
           R = CAAJupiter::RadiusVector(JD0, bHighPrecision);
           break;
         }
-        case EllipticalObject::SATURN:
+        case Object::SATURN:
         {
           L = CAASaturn::EclipticLongitude(JD0, bHighPrecision);
           B = CAASaturn::EclipticLatitude(JD0, bHighPrecision);
           R = CAASaturn::RadiusVector(JD0, bHighPrecision);
           break;
         }
-        case EllipticalObject::URANUS:
+        case Object::URANUS:
         {
           L = CAAUranus::EclipticLongitude(JD0, bHighPrecision);
           B = CAAUranus::EclipticLatitude(JD0, bHighPrecision);
           R = CAAUranus::RadiusVector(JD0, bHighPrecision);
           break;
         }
-        case EllipticalObject::NEPTUNE:
+        case Object::NEPTUNE:
         {
           L = CAANeptune::EclipticLongitude(JD0, bHighPrecision);
           B = CAANeptune::EclipticLatitude(JD0, bHighPrecision);
@@ -205,7 +206,7 @@ CAAEllipticalPlanetaryDetails CAAElliptical::Calculate(double JD, EllipticalObje
   double x = 0;
   double y = 0;
   double z = 0;
-  if (object != EllipticalObject::SUN)
+  if (object != Object::SUN)
   {
     const double Lrad = CAACoordinateTransformation::DegreesToRadians(L);
     const double Brad = CAACoordinateTransformation::DegreesToRadians(B);

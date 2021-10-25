@@ -42,25 +42,10 @@ to maintain a single distribution point for the source code.
 class AAPLUS_EXT_CLASS CAATopocentricEclipticDetails
 {
 public:
-//Constructors / Destructors
-  CAATopocentricEclipticDetails() noexcept : Lambda(0),
-                                             Beta(0),
-                                             Semidiameter(0)
-  {
-  };
-  CAATopocentricEclipticDetails(const CAATopocentricEclipticDetails&) = default;
-  CAATopocentricEclipticDetails(CAATopocentricEclipticDetails&&) = default;
-  ~CAATopocentricEclipticDetails() = default;
-
-//Methods
-  CAATopocentricEclipticDetails& operator=(const CAATopocentricEclipticDetails&) = default;
-  CAATopocentricEclipticDetails& operator=(CAATopocentricEclipticDetails&&) = default;
-
-
 //Member variables
-  double Lambda;
-  double Beta;
-  double Semidiameter;
+  double Lambda = 0;
+  double Beta = 0;
+  double Semidiameter = 0;
 };
 
 class AAPLUS_EXT_CLASS CAAParallax

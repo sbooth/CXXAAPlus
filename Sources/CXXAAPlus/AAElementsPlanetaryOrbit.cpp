@@ -116,7 +116,6 @@ double CAAElementsPlanetaryOrbit::EarthMeanLongitude(double JD) noexcept
   return CAACoordinateTransformation::MapTo0To360Range(100.466457 + 36000.7698278*T + 0.00030322*Tsquared + 0.000000020*Tcubed);
 }
 
-
 double CAAElementsPlanetaryOrbit::EarthLongitudePerihelion(double JD) noexcept
 {
   const double T = (JD - 2451545.0) / 36525;

@@ -1853,30 +1853,30 @@ constexpr array<VSOP87Coefficient2, 6> g_VSOP87B_R_VENUS
 
 double CAAVSOP87B_Venus::L(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87B_L_VENUS.data(), g_VSOP87B_L_VENUS.size(), true);
+  return CAAVSOP87::Calculate(JD, g_VSOP87B_L_VENUS.data(), g_VSOP87B_L_VENUS.size(), true);
 }
 
 double CAAVSOP87B_Venus::L_DASH(double JD) noexcept
 {
-  return CVSOP87::Calculate_Dash(JD, g_VSOP87B_L_VENUS.data(), g_VSOP87B_L_VENUS.size());
+  return CAAVSOP87::Calculate_Dash(JD, g_VSOP87B_L_VENUS.data(), g_VSOP87B_L_VENUS.size());
 }
 
 double CAAVSOP87B_Venus::B(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87B_B_VENUS.data(), g_VSOP87B_B_VENUS.size(), true);
+  return CAAVSOP87::Calculate(JD, g_VSOP87B_B_VENUS.data(), g_VSOP87B_B_VENUS.size(), true);
 }
 
 double CAAVSOP87B_Venus::B_DASH(double JD) noexcept
 {
-  return CVSOP87::Calculate_Dash(JD, g_VSOP87B_B_VENUS.data(), g_VSOP87B_B_VENUS.size());
+  return CAAVSOP87::Calculate_Dash(JD, g_VSOP87B_B_VENUS.data(), g_VSOP87B_B_VENUS.size());
 }
 
 double CAAVSOP87B_Venus::R(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87B_R_VENUS.data(), g_VSOP87B_R_VENUS.size(), false);
+  return CAAVSOP87::Calculate(JD, g_VSOP87B_R_VENUS.data(), g_VSOP87B_R_VENUS.size(), false);
 }
 
 double CAAVSOP87B_Venus::R_DASH(double JD) noexcept
 {
-  return CVSOP87::Calculate_Dash(JD, g_VSOP87B_R_VENUS.data(), g_VSOP87B_R_VENUS.size());
+  return CAAVSOP87::Calculate_Dash(JD, g_VSOP87B_R_VENUS.data(), g_VSOP87B_R_VENUS.size());
 }

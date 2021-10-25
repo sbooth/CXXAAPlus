@@ -2563,30 +2563,30 @@ constexpr array<VSOP87Coefficient2, 6> g_VSOP87D_R_EARTH
 
 double CAAVSOP87D_Earth::L(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87D_L_EARTH.data(), g_VSOP87D_L_EARTH.size(), true);
+  return CAAVSOP87::Calculate(JD, g_VSOP87D_L_EARTH.data(), g_VSOP87D_L_EARTH.size(), true);
 }
 
 double CAAVSOP87D_Earth::L_DASH(double JD) noexcept
 {
-  return CVSOP87::Calculate_Dash(JD, g_VSOP87D_L_EARTH.data(), g_VSOP87D_L_EARTH.size());
+  return CAAVSOP87::Calculate_Dash(JD, g_VSOP87D_L_EARTH.data(), g_VSOP87D_L_EARTH.size());
 }
 
 double CAAVSOP87D_Earth::B(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87D_B_EARTH.data(), g_VSOP87D_B_EARTH.size(), true);
+  return CAAVSOP87::Calculate(JD, g_VSOP87D_B_EARTH.data(), g_VSOP87D_B_EARTH.size(), true);
 }
 
 double CAAVSOP87D_Earth::B_DASH(double JD) noexcept
 {
-  return CVSOP87::Calculate_Dash(JD, g_VSOP87D_B_EARTH.data(), g_VSOP87D_B_EARTH.size());
+  return CAAVSOP87::Calculate_Dash(JD, g_VSOP87D_B_EARTH.data(), g_VSOP87D_B_EARTH.size());
 }
 
 double CAAVSOP87D_Earth::R(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87D_R_EARTH.data(), g_VSOP87D_R_EARTH.size(), false);
+  return CAAVSOP87::Calculate(JD, g_VSOP87D_R_EARTH.data(), g_VSOP87D_R_EARTH.size(), false);
 }
 
 double CAAVSOP87D_Earth::R_DASH(double JD) noexcept
 {
-  return CVSOP87::Calculate_Dash(JD, g_VSOP87D_R_EARTH.data(), g_VSOP87D_R_EARTH.size());
+  return CAAVSOP87::Calculate_Dash(JD, g_VSOP87D_R_EARTH.data(), g_VSOP87D_R_EARTH.size());
 }

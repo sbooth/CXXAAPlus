@@ -43,22 +43,9 @@ to maintain a single distribution point for the source code.
 class AAPLUS_EXT_CLASS CAANodeObjectDetails
 {
 public:
-//Constructors / Destructors
-  CAANodeObjectDetails() noexcept : t(0),
-                                    radius(0)
-  {
-  };
-  CAANodeObjectDetails(const CAANodeObjectDetails&) = default;
-  CAANodeObjectDetails(CAANodeObjectDetails&&) = default;
-  ~CAANodeObjectDetails() = default;
-
-//Methods
-  CAANodeObjectDetails& operator=(const CAANodeObjectDetails&) = default;
-  CAANodeObjectDetails& operator=(CAANodeObjectDetails&&) = default;
-
 //Member variables
-  double t;
-  double radius;
+  double t = 0;
+  double radius = 0;
 };
 
 class AAPLUS_EXT_CLASS CAANodes

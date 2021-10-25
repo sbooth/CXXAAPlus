@@ -53,24 +53,10 @@ public:
     SouthernSolstice = 4,
   };
 
-//Constructors / Destructors
-  CAAEquinoxSolsticeDetails2() noexcept : type(Type::NotDefined),
-                                          JD(0),
-                                          Declination(0)
-  {
-  };
-  CAAEquinoxSolsticeDetails2(const CAAEquinoxSolsticeDetails2&) = default;
-  CAAEquinoxSolsticeDetails2(CAAEquinoxSolsticeDetails2&&) = default;
-  ~CAAEquinoxSolsticeDetails2() = default;
-
-//Methods
-  CAAEquinoxSolsticeDetails2& operator=(const CAAEquinoxSolsticeDetails2&) = default;
-  CAAEquinoxSolsticeDetails2& operator=(CAAEquinoxSolsticeDetails2&&) = default;
-
 //Member variables
-  Type type; //The type of the event which has occurred
-  double JD; //When the event occurred in TT
-  double Declination; //Applicable for solstices only, the apparent declination of the Sun
+  Type type = Type::NotDefined; //The type of the event which has occurred
+  double JD = 0; //When the event occurred in TT
+  double Declination = 0; //Applicable for solstices only, the apparent declination of the Sun
 };
 
 class AAPLUS_EXT_CLASS CAAEquinoxesAndSolstices2

@@ -42,38 +42,18 @@ to maintain a single distribution point for the source code.
 class AAPLUS_EXT_CLASS CAAGalileanMoonDetail
 {
 public:
-//Constructors / Destructors
-  CAAGalileanMoonDetail() noexcept : MeanLongitude(0),
-                                     TrueLongitude(0),
-                                     TropicalLongitude(0),
-                                     EquatorialLatitude(0),
-                                     r(0),
-                                     bInTransit(false),
-                                     bInOccultation(false),
-                                     bInEclipse(false),
-                                     bInShadowTransit(false)
-  {
-  };
-  CAAGalileanMoonDetail(const CAAGalileanMoonDetail&) = default;
-  CAAGalileanMoonDetail(CAAGalileanMoonDetail&&) = default;
-  ~CAAGalileanMoonDetail() = default;
-
-//Methods
-  CAAGalileanMoonDetail& operator=(const CAAGalileanMoonDetail&) = default;
-  CAAGalileanMoonDetail& operator=(CAAGalileanMoonDetail&&) = default;
-
 //Member variables
-  double MeanLongitude;
-  double TrueLongitude;
-  double TropicalLongitude;
-  double EquatorialLatitude;
-  double r;
+  double MeanLongitude = 0;
+  double TrueLongitude = 0;
+  double TropicalLongitude = 0;
+  double EquatorialLatitude = 0;
+  double r = 0;
   CAA3DCoordinate TrueRectangularCoordinates;
   CAA3DCoordinate ApparentRectangularCoordinates;
-  bool bInTransit;
-  bool bInOccultation;
-  bool bInEclipse;
-  bool bInShadowTransit;
+  bool bInTransit = false;
+  bool bInOccultation = false;
+  bool bInEclipse = false;
+  bool bInShadowTransit = false;
 };
 
 class AAPLUS_EXT_CLASS CAAGalileanMoonsDetails

@@ -37,24 +37,10 @@ to maintain a single distribution point for the source code.
 class AAPLUS_EXT_CLASS CAABinaryStarDetails
 {
 public:
-//Constructors / Destructors
-  CAABinaryStarDetails() noexcept : r(0),
-                                    Theta(0),
-                                    Rho(0)
-  {
-  };
-  CAABinaryStarDetails(const CAABinaryStarDetails&) = default;
-  CAABinaryStarDetails(CAABinaryStarDetails&&) = default;
-  ~CAABinaryStarDetails() = default;
-
-//Methods
-  CAABinaryStarDetails& operator=(const CAABinaryStarDetails&) = default;
-  CAABinaryStarDetails& operator=(CAABinaryStarDetails&&) = default;
-
 //Member variables
-  double r;
-  double Theta;
-  double Rho;
+  double r = 0;
+  double Theta = 0;
+  double Rho = 0;
 };
 
 class AAPLUS_EXT_CLASS CAABinaryStar

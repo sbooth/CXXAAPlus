@@ -6777,30 +6777,30 @@ constexpr array<VSOP87Coefficient2, 6> g_VSOP87E_Z_SUN
 
 double CAAVSOP87E_Sun::X(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87E_X_SUN.data(), g_VSOP87E_X_SUN.size(), false);
+  return CAAVSOP87::Calculate(JD, g_VSOP87E_X_SUN.data(), g_VSOP87E_X_SUN.size(), false);
 }
 
 double CAAVSOP87E_Sun::X_DASH(double JD) noexcept
 {
-  return CVSOP87::Calculate_Dash(JD, g_VSOP87E_X_SUN.data(), g_VSOP87E_X_SUN.size());
+  return CAAVSOP87::Calculate_Dash(JD, g_VSOP87E_X_SUN.data(), g_VSOP87E_X_SUN.size());
 }
 
 double CAAVSOP87E_Sun::Y(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87E_Y_SUN.data(), g_VSOP87E_Y_SUN.size(), false);
+  return CAAVSOP87::Calculate(JD, g_VSOP87E_Y_SUN.data(), g_VSOP87E_Y_SUN.size(), false);
 }
 
 double CAAVSOP87E_Sun::Y_DASH(double JD) noexcept
 {
-  return CVSOP87::Calculate_Dash(JD, g_VSOP87E_Y_SUN.data(), g_VSOP87E_Y_SUN.size());
+  return CAAVSOP87::Calculate_Dash(JD, g_VSOP87E_Y_SUN.data(), g_VSOP87E_Y_SUN.size());
 }
 
 double CAAVSOP87E_Sun::Z(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87E_Z_SUN.data(), g_VSOP87E_Z_SUN.size(), false);
+  return CAAVSOP87::Calculate(JD, g_VSOP87E_Z_SUN.data(), g_VSOP87E_Z_SUN.size(), false);
 }
 
 double CAAVSOP87E_Sun::Z_DASH(double JD) noexcept
 {
-  return CVSOP87::Calculate_Dash(JD, g_VSOP87E_Z_SUN.data(), g_VSOP87E_Z_SUN.size());
+  return CAAVSOP87::Calculate_Dash(JD, g_VSOP87E_Z_SUN.data(), g_VSOP87E_Z_SUN.size());
 }

@@ -37,24 +37,10 @@ to maintain a single distribution point for the source code.
 class AAPLUS_EXT_CLASS CAAEclipticalElementDetails
 {
 public:
-//Constructors / Destructors
-  CAAEclipticalElementDetails() noexcept : i(0),
-                                           w(0),
-                                           omega(0)
-  {
-  };
-  CAAEclipticalElementDetails(const CAAEclipticalElementDetails&) = default;
-  CAAEclipticalElementDetails(CAAEclipticalElementDetails&&) = default;
-  ~CAAEclipticalElementDetails() = default;
-
-//Methods
-  CAAEclipticalElementDetails& operator=(const CAAEclipticalElementDetails&) = default;
-  CAAEclipticalElementDetails& operator=(CAAEclipticalElementDetails&&) = default;
-
 //Member variables
-  double i;
-  double w;
-  double omega;
+  double i = 0;
+  double w = 0;
+  double omega = 0;
 };
 
 class AAPLUS_EXT_CLASS CAAEclipticalElements

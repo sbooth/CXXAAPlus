@@ -51,24 +51,10 @@ public:
     Aphelion = 2
   };
 
-//Constructors / Destructors
-  CAAPlanetPerihelionAphelionDetails2() noexcept : type(Type::NotDefined),
-                                                   JD(0),
-                                                   Value(0)
-  {
-  };
-  CAAPlanetPerihelionAphelionDetails2(const CAAPlanetPerihelionAphelionDetails2&) = default;
-  CAAPlanetPerihelionAphelionDetails2(CAAPlanetPerihelionAphelionDetails2&&) = default;
-  ~CAAPlanetPerihelionAphelionDetails2() = default;
-
-//Methods
-  CAAPlanetPerihelionAphelionDetails2& operator=(const CAAPlanetPerihelionAphelionDetails2&) = default;
-  CAAPlanetPerihelionAphelionDetails2& operator=(CAAPlanetPerihelionAphelionDetails2&&) = default;
-
 //Member variables
-  Type type; //The type of the event which has occurred
-  double JD; //When the event occurred in TT
-  double Value; //The actual distance in AU
+  Type type = Type::NotDefined; //The type of the event which has occurred
+  double JD = 0; //When the event occurred in TT
+  double Value = 0; //The actual distance in AU
 };
 
 class AAPLUS_EXT_CLASS CAAPlanetPerihelionAphelion2

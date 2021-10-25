@@ -42,28 +42,12 @@ to maintain a single distribution point for the source code.
 class AAPLUS_EXT_CLASS CAASaturnMoonDetail
 {
 public:
-//Constructors / Destructors
-  CAASaturnMoonDetail() noexcept : bInTransit(false),
-                                   bInOccultation(false),
-                                   bInEclipse(false),
-                                   bInShadowTransit(false)
-  {
-  };
-  CAASaturnMoonDetail(const CAASaturnMoonDetail&) = default;
-  CAASaturnMoonDetail(CAASaturnMoonDetail&&) = default;
-  ~CAASaturnMoonDetail() = default;
-
-//Methods
-  CAASaturnMoonDetail& operator=(const CAASaturnMoonDetail&) = default;
-  CAASaturnMoonDetail& operator=(CAASaturnMoonDetail&&) = default;
-
-//Member variables
   CAA3DCoordinate TrueRectangularCoordinates;
   CAA3DCoordinate ApparentRectangularCoordinates;
-  bool bInTransit;
-  bool bInOccultation;
-  bool bInEclipse;
-  bool bInShadowTransit;
+  bool bInTransit = false;
+  bool bInOccultation = false;
+  bool bInEclipse = false;
+  bool bInShadowTransit = false;
 };
 
 class AAPLUS_EXT_CLASS CAASaturnMoonsDetails

@@ -38,7 +38,7 @@ class AAPLUS_EXT_CLASS CAAPlanetaryPhenomena
 {
 public:
 //Enums
-  enum class PlanetaryObject
+  enum class Planet
   {
     MERCURY,
     VENUS,
@@ -49,7 +49,7 @@ public:
     NEPTUNE
   };
 
-  enum class EventType
+  enum class Type
   {
     INFERIOR_CONJUNCTION,
     SUPERIOR_CONJUNCTION,
@@ -62,10 +62,10 @@ public:
   };
 
 //Static methods
-  static double K(double Year, PlanetaryObject object, EventType type) noexcept;
-  static double Mean(double k, PlanetaryObject object, EventType type) noexcept;
-  static double True(double k, PlanetaryObject object, EventType type) noexcept;
-  static double ElongationValue(double k, PlanetaryObject object, bool bEastern) noexcept;
+  static double K(double Year, Planet planet, Type type) noexcept;
+  static double Mean(double k, Planet planet, Type type) noexcept;
+  static double True(double k, Planet planet, Type type) noexcept;
+  static double ElongationValue(double k, Planet planet, bool bEastern) noexcept;
 };
 
 

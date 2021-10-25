@@ -336,43 +336,43 @@ vector<CAARiseTransitSetDetails2> CAARiseTransitSet2::Calculate(double StartJD, 
       }
       case Object::MERCURY:
       {
-        details = CAAElliptical::Calculate(JD, CAAElliptical::EllipticalObject::MERCURY, bHighPrecision);
+        details = CAAElliptical::Calculate(JD, CAAElliptical::Object::MERCURY, bHighPrecision);
         Topo = CAAParallax::Equatorial2Topocentric(details.ApparentGeocentricRA, details.ApparentGeocentricDeclination, details.ApparentGeocentricDistance, Longitude, Latitude, 0, JD);
         break;
       }
       case Object::VENUS:
       {
-        details = CAAElliptical::Calculate(JD, CAAElliptical::EllipticalObject::VENUS, bHighPrecision);
+        details = CAAElliptical::Calculate(JD, CAAElliptical::Object::VENUS, bHighPrecision);
         Topo = CAAParallax::Equatorial2Topocentric(details.ApparentGeocentricRA, details.ApparentGeocentricDeclination, details.ApparentGeocentricDistance, Longitude, Latitude, 0, JD);
         break;
       }
       case Object::MARS:
       {
-        details = CAAElliptical::Calculate(JD, CAAElliptical::EllipticalObject::MARS, bHighPrecision);
+        details = CAAElliptical::Calculate(JD, CAAElliptical::Object::MARS, bHighPrecision);
         Topo = CAAParallax::Equatorial2Topocentric(details.ApparentGeocentricRA, details.ApparentGeocentricDeclination, details.ApparentGeocentricDistance, Longitude, Latitude, 0, JD);
         break;
       }
       case Object::JUPITER:
       {
-        details = CAAElliptical::Calculate(JD, CAAElliptical::EllipticalObject::JUPITER, bHighPrecision);
+        details = CAAElliptical::Calculate(JD, CAAElliptical::Object::JUPITER, bHighPrecision);
         Topo = CAAParallax::Equatorial2Topocentric(details.ApparentGeocentricRA, details.ApparentGeocentricDeclination, details.ApparentGeocentricDistance, Longitude, Latitude, 0, JD);
         break;
       }
       case Object::SATURN:
       {
-        details = CAAElliptical::Calculate(JD, CAAElliptical::EllipticalObject::SATURN, bHighPrecision);
+        details = CAAElliptical::Calculate(JD, CAAElliptical::Object::SATURN, bHighPrecision);
         Topo = CAAParallax::Equatorial2Topocentric(details.ApparentGeocentricRA, details.ApparentGeocentricDeclination, details.ApparentGeocentricDistance, Longitude, Latitude, 0, JD);
         break;
       }
       case Object::URANUS:
       {
-        details = CAAElliptical::Calculate(JD, CAAElliptical::EllipticalObject::URANUS, bHighPrecision);
+        details = CAAElliptical::Calculate(JD, CAAElliptical::Object::URANUS, bHighPrecision);
         Topo = CAAParallax::Equatorial2Topocentric(details.ApparentGeocentricRA, details.ApparentGeocentricDeclination, details.ApparentGeocentricDistance, Longitude, Latitude, 0, JD);
         break;
       }
       case Object::NEPTUNE:
       {
-        details = CAAElliptical::Calculate(JD, CAAElliptical::EllipticalObject::NEPTUNE, bHighPrecision);
+        details = CAAElliptical::Calculate(JD, CAAElliptical::Object::NEPTUNE, bHighPrecision);
         Topo = CAAParallax::Equatorial2Topocentric(details.ApparentGeocentricRA, details.ApparentGeocentricDeclination, details.ApparentGeocentricDistance, Longitude, Latitude, 0, JD);
         break;
       }

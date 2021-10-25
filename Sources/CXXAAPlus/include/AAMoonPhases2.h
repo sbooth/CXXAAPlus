@@ -52,22 +52,9 @@ public:
     LastQuarter = 4
   };
 
-//Constructors / Destructors
-  CAAMoonPhasesDetails2() noexcept : type(Type::NotDefined),
-                                     JD(0)
-  {
-  };
-  CAAMoonPhasesDetails2(const CAAMoonPhasesDetails2&) = default;
-  CAAMoonPhasesDetails2(CAAMoonPhasesDetails2&&) = default;
-  ~CAAMoonPhasesDetails2() = default;
-
-//Methods
-  CAAMoonPhasesDetails2& operator=(const CAAMoonPhasesDetails2&) = default;
-  CAAMoonPhasesDetails2& operator=(CAAMoonPhasesDetails2&&) = default;
-
 //Member variables
-  Type type; //The type of the event which has occurred
-  double JD; //When the event occurred in TT
+  Type type = Type::NotDefined; //The type of the event which has occurred
+  double JD = 0; //When the event occurred in TT
 };
 
 class AAPLUS_EXT_CLASS CAAMoonPhases2

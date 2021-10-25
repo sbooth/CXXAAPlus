@@ -44,7 +44,7 @@ using namespace std;
 #ifdef _MSC_VER
 #pragma warning(suppress : 26429)
 #endif //#ifdef _MSC_VER
-double CVSOP87::Calculate(double JD, const VSOP87Coefficient2* pTable, size_t nTableSize, bool bAngle) noexcept
+double CAAVSOP87::Calculate(double JD, const VSOP87Coefficient2* pTable, size_t nTableSize, bool bAngle) noexcept
 {
 //Validate our parameters
   assert(pTable != nullptr);
@@ -77,7 +77,7 @@ double CVSOP87::Calculate(double JD, const VSOP87Coefficient2* pTable, size_t nT
 #ifdef _MSC_VER
 #pragma warning(suppress : 26429)
 #endif //#ifdef _MSC_VER
-double CVSOP87::Calculate_Dash(double JD, const VSOP87Coefficient2* pTable, size_t nTableSize) noexcept
+double CAAVSOP87::Calculate_Dash(double JD, const VSOP87Coefficient2* pTable, size_t nTableSize) noexcept
 {
 //Validate our parameters
   assert(pTable != nullptr);

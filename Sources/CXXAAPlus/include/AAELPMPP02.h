@@ -65,4 +65,5 @@ public:
   static CAA3DCoordinate EclipticRectangularCoordinatesJ2000(const double* pT, int nTSize, Correction correction = Correction::LLR, CAA3DCoordinate* pDerivative = nullptr) noexcept;
 };
 
+
 #endif //#ifndef __AAELPMPP02_H__

@@ -52,43 +52,43 @@ vector<CAAPlanetaryPhenomenaDetails2> CAAPlanetaryPhenomena2::Calculate(double S
   double LastStationValueInRA1 = -1;
   while (JD < EndJD)
   {
-    const CAAEllipticalPlanetaryDetails SunDetails = CAAElliptical::Calculate(JD, CAAElliptical::EllipticalObject::SUN, bHighPrecision);
+    const CAAEllipticalPlanetaryDetails SunDetails = CAAElliptical::Calculate(JD, CAAElliptical::Object::SUN, bHighPrecision);
     CAAEllipticalPlanetaryDetails ObjectDetails;
     switch (object)
     {
       case Object::MERCURY:
       {
-        ObjectDetails = CAAElliptical::Calculate(JD, CAAElliptical::EllipticalObject::MERCURY, bHighPrecision);
+        ObjectDetails = CAAElliptical::Calculate(JD, CAAElliptical::Object::MERCURY, bHighPrecision);
         break;
       }
       case Object::VENUS:
       {
-        ObjectDetails = CAAElliptical::Calculate(JD, CAAElliptical::EllipticalObject::VENUS, bHighPrecision);
+        ObjectDetails = CAAElliptical::Calculate(JD, CAAElliptical::Object::VENUS, bHighPrecision);
         break;
       }
       case Object::MARS:
       {
-        ObjectDetails = CAAElliptical::Calculate(JD, CAAElliptical::EllipticalObject::MARS, bHighPrecision);
+        ObjectDetails = CAAElliptical::Calculate(JD, CAAElliptical::Object::MARS, bHighPrecision);
         break;
       }
       case Object::JUPITER:
       {
-        ObjectDetails = CAAElliptical::Calculate(JD, CAAElliptical::EllipticalObject::JUPITER, bHighPrecision);
+        ObjectDetails = CAAElliptical::Calculate(JD, CAAElliptical::Object::JUPITER, bHighPrecision);
         break;
       }
       case Object::SATURN:
       {
-        ObjectDetails = CAAElliptical::Calculate(JD, CAAElliptical::EllipticalObject::SATURN, bHighPrecision);
+        ObjectDetails = CAAElliptical::Calculate(JD, CAAElliptical::Object::SATURN, bHighPrecision);
         break;
       }
       case Object::URANUS:
       {
-        ObjectDetails = CAAElliptical::Calculate(JD, CAAElliptical::EllipticalObject::URANUS, bHighPrecision);
+        ObjectDetails = CAAElliptical::Calculate(JD, CAAElliptical::Object::URANUS, bHighPrecision);
         break;
       }
       case Object::NEPTUNE:
       {
-        ObjectDetails = CAAElliptical::Calculate(JD, CAAElliptical::EllipticalObject::NEPTUNE, bHighPrecision);
+        ObjectDetails = CAAElliptical::Calculate(JD, CAAElliptical::Object::NEPTUNE, bHighPrecision);
         break;
       }
       default:

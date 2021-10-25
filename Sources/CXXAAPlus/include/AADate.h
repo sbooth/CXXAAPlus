@@ -42,32 +42,17 @@ to maintain a single distribution point for the source code.
 class AAPLUS_EXT_CLASS CAACalendarDate
 {
 public:
-//Constructors / Destructors
-  CAACalendarDate() noexcept : Year(0),
-                               Month(0),
-                               Day(0)
-  {
-  };
-  CAACalendarDate(const CAACalendarDate&) = default;
-  CAACalendarDate(CAACalendarDate&&) = default;
-  ~CAACalendarDate() = default;
-
-//Methods
-  CAACalendarDate& operator=(const CAACalendarDate&) = default;
-  CAACalendarDate& operator=(CAACalendarDate&&) = default;
-
 //Member variables
-  long Year;
-  long Month;
-  long Day;
+  long Year = 0;
+  long Month = 0;
+  long Day = 0;
 };
-
 
 class AAPLUS_EXT_CLASS CAADate
 {
 public:
 //Enums
-  enum class DAY_OF_WEEK
+  enum class DOW
   {
     SUNDAY = 0,
     MONDAY = 1,
@@ -118,7 +103,7 @@ public:
   void Set(double JD, bool bGregorianCalendar) noexcept;
   void SetInGregorianCalendar(bool bGregorianCalendar) noexcept;
   void Get(long& Year, long& Month, long& Day, long& Hour, long& Minute, double& Second) const noexcept;
-  [[nodiscard]] DAY_OF_WEEK DayOfWeek() const noexcept;
+  [[nodiscard]] DOW DayOfWeek() const noexcept;
   [[nodiscard]] double DayOfYear() const noexcept;
   [[nodiscard]] long DaysInMonth() const noexcept;
   [[nodiscard]] long DaysInYear() const noexcept;

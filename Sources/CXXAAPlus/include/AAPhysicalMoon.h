@@ -42,55 +42,23 @@ to maintain a single distribution point for the source code.
 class AAPLUS_EXT_CLASS CAAPhysicalMoonDetails
 {
 public:
-//Constructors / Destructors
-  CAAPhysicalMoonDetails() noexcept : ldash(0),
-                                      bdash(0),
-                                      ldash2(0),
-                                      bdash2(0),
-                                      l(0),
-                                      b(0),
-                                      P(0)
-  {
-  };
-  CAAPhysicalMoonDetails(const CAAPhysicalMoonDetails&) = default;
-  CAAPhysicalMoonDetails(CAAPhysicalMoonDetails&&) = default;
-  ~CAAPhysicalMoonDetails() = default;
-
-//Methods
-  CAAPhysicalMoonDetails& operator=(const CAAPhysicalMoonDetails&) = default;
-  CAAPhysicalMoonDetails& operator=(CAAPhysicalMoonDetails&&) = default;
-
 //Member variables
-  double ldash;
-  double bdash;
-  double ldash2;
-  double bdash2;
-  double l;
-  double b;
-  double P;
+  double ldash = 0;
+  double bdash = 0;
+  double ldash2 = 0;
+  double bdash2 = 0;
+  double l = 0;
+  double b = 0;
+  double P = 0;
 };
 
 class AAPLUS_EXT_CLASS CAASelenographicMoonDetails
 {
 public:
-//Constructors / Destructors
-  CAASelenographicMoonDetails() noexcept : l0(0),
-                                           b0(0),
-                                           c0(0)
-  {
-  };
-  CAASelenographicMoonDetails(const CAASelenographicMoonDetails&) = default;
-  CAASelenographicMoonDetails(CAASelenographicMoonDetails&&) = default;
-  ~CAASelenographicMoonDetails() = default;
-
-//Methods
-  CAASelenographicMoonDetails& operator=(const CAASelenographicMoonDetails&) = default;
-  CAASelenographicMoonDetails& operator=(CAASelenographicMoonDetails&&) = default;
-
 //Member variables
-  double l0;
-  double b0;
-  double c0;
+  double l0 = 0;
+  double b0 = 0;
+  double c0 = 0;
 };
 
 class AAPLUS_EXT_CLASS CAAPhysicalMoon

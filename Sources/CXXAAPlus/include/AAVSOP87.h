@@ -52,7 +52,7 @@ struct VSOP87Coefficient2
   size_t nCoefficientsSize;
 };
 
-class AAPLUS_EXT_CLASS CVSOP87
+class AAPLUS_EXT_CLASS CAAVSOP87
 {
 public:
 //Static methods

@@ -51,24 +51,10 @@ public:
     Apogee = 2,
   };
 
-//Constructors / Destructors
-  CAAMoonPerigeeApogeeDetails2() noexcept : type(Type::NotDefined),
-                                            JD(0),
-                                            Value(0)
-  {
-  };
-  CAAMoonPerigeeApogeeDetails2(const CAAMoonPerigeeApogeeDetails2&) = default;
-  CAAMoonPerigeeApogeeDetails2(CAAMoonPerigeeApogeeDetails2&&) = default;
-  ~CAAMoonPerigeeApogeeDetails2() = default;
-
-//Methods
-  CAAMoonPerigeeApogeeDetails2& operator=(const CAAMoonPerigeeApogeeDetails2&) = default;
-  CAAMoonPerigeeApogeeDetails2& operator=(CAAMoonPerigeeApogeeDetails2&&) = default;
-
 //Member variables
-  Type type; //The type of the event which has occurred
-  double JD; //When the event occurred in TT
-  double Value; //The actual distance in KM
+  Type type = Type::NotDefined; //The type of the event which has occurred
+  double JD = 0; //When the event occurred in TT
+  double Value = 0; //The actual distance in KM
 };
 
 class AAPLUS_EXT_CLASS CAAMoonPerigeeApogee2

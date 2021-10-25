@@ -7665,30 +7665,30 @@ constexpr array<VSOP87Coefficient2, 6> g_VSOP87E_Z_SATURN
 
 double CAAVSOP87E_Saturn::X(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87E_X_SATURN.data(), g_VSOP87E_X_SATURN.size(), false);
+  return CAAVSOP87::Calculate(JD, g_VSOP87E_X_SATURN.data(), g_VSOP87E_X_SATURN.size(), false);
 }
 
 double CAAVSOP87E_Saturn::X_DASH(double JD) noexcept
 {
-  return CVSOP87::Calculate_Dash(JD, g_VSOP87E_X_SATURN.data(), g_VSOP87E_X_SATURN.size());
+  return CAAVSOP87::Calculate_Dash(JD, g_VSOP87E_X_SATURN.data(), g_VSOP87E_X_SATURN.size());
 }
 
 double CAAVSOP87E_Saturn::Y(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87E_Y_SATURN.data(), g_VSOP87E_Y_SATURN.size(), false);
+  return CAAVSOP87::Calculate(JD, g_VSOP87E_Y_SATURN.data(), g_VSOP87E_Y_SATURN.size(), false);
 }
 
 double CAAVSOP87E_Saturn::Y_DASH(double JD) noexcept
 {
-  return CVSOP87::Calculate_Dash(JD, g_VSOP87E_Y_SATURN.data(), g_VSOP87E_Y_SATURN.size());
+  return CAAVSOP87::Calculate_Dash(JD, g_VSOP87E_Y_SATURN.data(), g_VSOP87E_Y_SATURN.size());
 }
 
 double CAAVSOP87E_Saturn::Z(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87E_Z_SATURN.data(), g_VSOP87E_Z_SATURN.size(), false);
+  return CAAVSOP87::Calculate(JD, g_VSOP87E_Z_SATURN.data(), g_VSOP87E_Z_SATURN.size(), false);
 }
 
 double CAAVSOP87E_Saturn::Z_DASH(double JD) noexcept
 {
-  return CVSOP87::Calculate_Dash(JD, g_VSOP87E_Z_SATURN.data(), g_VSOP87E_Z_SATURN.size());
+  return CAAVSOP87::Calculate_Dash(JD, g_VSOP87E_Z_SATURN.data(), g_VSOP87E_Z_SATURN.size());
 }

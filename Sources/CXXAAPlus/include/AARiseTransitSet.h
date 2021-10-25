@@ -37,32 +37,14 @@ to maintain a single distribution point for the source code.
 class AAPLUS_EXT_CLASS CAARiseTransitSetDetails
 {
 public:
-//Constructors / Destructors
-  CAARiseTransitSetDetails() noexcept : bRiseValid(false),
-                                        Rise(0),
-                                        bTransitValid(false),
-                                        bTransitAboveHorizon(false),
-                                        Transit(0),
-                                        bSetValid(false),
-                                        Set(0)
-  {
-  };
-  CAARiseTransitSetDetails(const CAARiseTransitSetDetails&) = default;
-  CAARiseTransitSetDetails(CAARiseTransitSetDetails&&) = default;
-  ~CAARiseTransitSetDetails() = default;
-
-//Methods
-  CAARiseTransitSetDetails& operator=(const CAARiseTransitSetDetails&) = default;
-  CAARiseTransitSetDetails& operator=(CAARiseTransitSetDetails&&) = default;
-
 //Member variables
-  bool bRiseValid;
-  double Rise;
-  bool bTransitValid;
-  bool bTransitAboveHorizon;
-  double Transit;
-  bool bSetValid;
-  double Set;
+  bool bRiseValid = false;
+  double Rise = 0;
+  bool bTransitValid = false;
+  bool bTransitAboveHorizon = false;
+  double Transit = 0;
+  bool bSetValid = false;
+  double Set = 0;
 };
 
 class AAPLUS_EXT_CLASS CAARiseTransitSet

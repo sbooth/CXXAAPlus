@@ -50,22 +50,9 @@ public:
     Descending = 2
   };
 
-//Constructors / Destructors
-  CAAMoonNodesDetails2() noexcept : type(Type::NotDefined),
-                                    JD(0)
-  {
-  };
-  CAAMoonNodesDetails2(const CAAMoonNodesDetails2&) = default;
-  CAAMoonNodesDetails2(CAAMoonNodesDetails2&&) = default;
-  ~CAAMoonNodesDetails2() = default;
-
-//Methods
-  CAAMoonNodesDetails2& operator=(const CAAMoonNodesDetails2&) = default;
-  CAAMoonNodesDetails2& operator=(CAAMoonNodesDetails2&&) = default;
-
 //Member variables
-  Type type; //The type of the event which has occurred
-  double JD; //When the event occurred in TT
+  Type type = Type::NotDefined; //The type of the event which has occurred
+  double JD = 0; //When the event occurred in TT
 };
 
 class AAPLUS_EXT_CLASS CAAMoonNodes2

@@ -46,6 +46,7 @@ History: PJN / 10-11-2004 1. Fix for CAADate::Get so that it works correctly for
          PJN / 18-04-2020 1. Made a number of the CAADate methods [[nodiscard]] when compiled as C++ 17
          PJN / 29-04-2020 1. Fixed a compilation issue on GCC where size_t was undefined in various modules. Thanks to
                           Bert Devlieghe for reporting this bug.
+         PJN / 03-10-2021 1. enamed CAADate::DAY_OF_WEEK type to DOW.
 
 Copyright (c) 2003 - 2021 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
@@ -275,9 +276,9 @@ double CAADate::Second() const noexcept
   return Second;
 }
 
-CAADate::DAY_OF_WEEK CAADate::DayOfWeek() const noexcept
+CAADate::DOW CAADate::DayOfWeek() const noexcept
 {
-  return static_cast<DAY_OF_WEEK>((static_cast<long>(m_dblJulian + 1.5) % 7));
+  return static_cast<DOW>((static_cast<long>(m_dblJulian + 1.5) % 7));
 }
 
 long CAADate::DaysInMonth(long Month, bool bLeap) noexcept

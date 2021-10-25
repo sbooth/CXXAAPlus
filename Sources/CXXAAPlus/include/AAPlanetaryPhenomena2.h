@@ -77,24 +77,10 @@ public:
     EasternQuadratureInAngularDistance = 28
   };
 
-//Constructors / Destructors
-  CAAPlanetaryPhenomenaDetails2() noexcept : type(Type::NotDefined),
-                                             JD(0),
-                                             Value(0)
-  {
-  };
-  CAAPlanetaryPhenomenaDetails2(const CAAPlanetaryPhenomenaDetails2&) = default;
-  CAAPlanetaryPhenomenaDetails2(CAAPlanetaryPhenomenaDetails2&&) = default;
-  ~CAAPlanetaryPhenomenaDetails2() = default;
-
-//Methods
-  CAAPlanetaryPhenomenaDetails2& operator=(const CAAPlanetaryPhenomenaDetails2&) = default;
-  CAAPlanetaryPhenomenaDetails2& operator=(CAAPlanetaryPhenomenaDetails2&&) = default;
-
 //Member variables
-  Type type; //The type of the event which has occurred
-  double JD; //When the event occurred in TT
-  double Value; //The value associated with the event
+  Type type = Type::NotDefined; //The type of the event which has occurred
+  double JD = 0; //When the event occurred in TT
+  double Value = 0; //The value associated with the event
 };
 
 class AAPLUS_EXT_CLASS CAAPlanetaryPhenomena2

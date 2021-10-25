@@ -37,33 +37,15 @@ to maintain a single distribution point for the source code.
 class AAPLUS_EXT_CLASS CAAPhysicalMarsDetails
 {
 public:
-  CAAPhysicalMarsDetails() noexcept : DE(0),
-                                      DS(0),
-                                      w(0),
-                                      P(0),
-                                      X(0),
-                                      k(0),
-                                      q(0),
-                                      d(0)
-  {
-  };
-  CAAPhysicalMarsDetails(const CAAPhysicalMarsDetails&) = default;
-  CAAPhysicalMarsDetails(CAAPhysicalMarsDetails&&) = default;
-  ~CAAPhysicalMarsDetails() = default;
-
-//Methods
-  CAAPhysicalMarsDetails& operator=(const CAAPhysicalMarsDetails&) = default;
-  CAAPhysicalMarsDetails& operator=(CAAPhysicalMarsDetails&&) = default;
-
 //Member variables
-  double DE;
-  double DS;
-  double w;
-  double P;
-  double X;
-  double k;
-  double q;
-  double d;
+  double DE = 0;
+  double DS = 0;
+  double w = 0;
+  double P = 0;
+  double X = 0;
+  double k = 0;
+  double q = 0;
+  double d = 0;
 };
 
 class AAPLUS_EXT_CLASS CAAPhysicalMars

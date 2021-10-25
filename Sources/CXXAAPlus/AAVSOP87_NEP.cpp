@@ -4,7 +4,7 @@ Purpose: Implementation for the algorithms for VSOP87
 Created: PJN / 13-09-2015
 History: PJN / 13-09-2015 1. Initial public release.
          PJN / 22-04-2020 1. Reworked C arrays to use std::array.
-         PJN / 10-01-2021 1. Reworked the K, H, Q and P methods to pass false for bAngle to CVSOP87::Calculate.
+         PJN / 10-01-2021 1. Reworked the K, H, Q and P methods to pass false for bAngle to CAAVSOP87::Calculate.
                           These values are not angular values in the true sense of the word and by passing
                           false, the values returned are now in exact agreement with the vsop87.chk test
                           values. Thanks to Cao Yu for reporting this issue.
@@ -8246,30 +8246,30 @@ constexpr array<VSOP87Coefficient2, 4> g_VSOP87_P_NEPTUNE
 
 double CAAVSOP87_Neptune::A(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87_A_NEPTUNE.data(), g_VSOP87_A_NEPTUNE.size(), false);
+  return CAAVSOP87::Calculate(JD, g_VSOP87_A_NEPTUNE.data(), g_VSOP87_A_NEPTUNE.size(), false);
 }
 
 double CAAVSOP87_Neptune::L(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87_L_NEPTUNE.data(), g_VSOP87_L_NEPTUNE.size(), true);
+  return CAAVSOP87::Calculate(JD, g_VSOP87_L_NEPTUNE.data(), g_VSOP87_L_NEPTUNE.size(), true);
 }
 
 double CAAVSOP87_Neptune::K(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87_K_NEPTUNE.data(), g_VSOP87_K_NEPTUNE.size(), false);
+  return CAAVSOP87::Calculate(JD, g_VSOP87_K_NEPTUNE.data(), g_VSOP87_K_NEPTUNE.size(), false);
 }
 
 double CAAVSOP87_Neptune::H(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87_H_NEPTUNE.data(), g_VSOP87_H_NEPTUNE.size(), false);
+  return CAAVSOP87::Calculate(JD, g_VSOP87_H_NEPTUNE.data(), g_VSOP87_H_NEPTUNE.size(), false);
 }
 
 double CAAVSOP87_Neptune::Q(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87_Q_NEPTUNE.data(), g_VSOP87_Q_NEPTUNE.size(), false);
+  return CAAVSOP87::Calculate(JD, g_VSOP87_Q_NEPTUNE.data(), g_VSOP87_Q_NEPTUNE.size(), false);
 }
 
 double CAAVSOP87_Neptune::P(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87_P_NEPTUNE.data(), g_VSOP87_P_NEPTUNE.size(), false);
+  return CAAVSOP87::Calculate(JD, g_VSOP87_P_NEPTUNE.data(), g_VSOP87_P_NEPTUNE.size(), false);
 }

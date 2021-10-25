@@ -7718,30 +7718,30 @@ constexpr array<VSOP87Coefficient2, 6> g_VSOP87E_Z_MARS
 
 double CAAVSOP87E_Mars::X(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87E_X_MARS.data(), g_VSOP87E_X_MARS.size(), false);
+  return CAAVSOP87::Calculate(JD, g_VSOP87E_X_MARS.data(), g_VSOP87E_X_MARS.size(), false);
 }
 
 double CAAVSOP87E_Mars::X_DASH(double JD) noexcept
 {
-  return CVSOP87::Calculate_Dash(JD, g_VSOP87E_X_MARS.data(), g_VSOP87E_X_MARS.size());
+  return CAAVSOP87::Calculate_Dash(JD, g_VSOP87E_X_MARS.data(), g_VSOP87E_X_MARS.size());
 }
 
 double CAAVSOP87E_Mars::Y(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87E_Y_MARS.data(), g_VSOP87E_Y_MARS.size(), false);
+  return CAAVSOP87::Calculate(JD, g_VSOP87E_Y_MARS.data(), g_VSOP87E_Y_MARS.size(), false);
 }
 
 double CAAVSOP87E_Mars::Y_DASH(double JD) noexcept
 {
-  return CVSOP87::Calculate_Dash(JD, g_VSOP87E_Y_MARS.data(), g_VSOP87E_Y_MARS.size());
+  return CAAVSOP87::Calculate_Dash(JD, g_VSOP87E_Y_MARS.data(), g_VSOP87E_Y_MARS.size());
 }
 
 double CAAVSOP87E_Mars::Z(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87E_Z_MARS.data(), g_VSOP87E_Z_MARS.size(), false);
+  return CAAVSOP87::Calculate(JD, g_VSOP87E_Z_MARS.data(), g_VSOP87E_Z_MARS.size(), false);
 }
 
 double CAAVSOP87E_Mars::Z_DASH(double JD) noexcept
 {
-  return CVSOP87::Calculate_Dash(JD, g_VSOP87E_Z_MARS.data(), g_VSOP87E_Z_MARS.size());
+  return CAAVSOP87::Calculate_Dash(JD, g_VSOP87E_Z_MARS.data(), g_VSOP87E_Z_MARS.size());
 }

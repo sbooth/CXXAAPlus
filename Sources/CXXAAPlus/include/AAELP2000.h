@@ -118,4 +118,5 @@ protected:
   static double Accumulate_3(const double* pT, int nTSize, const ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient* pCoefficients, size_t nCoefficients, double fD, double fldash, double fl, double fF) noexcept;
 };
 
+
 #endif //#ifndef __AAELP2000_H__

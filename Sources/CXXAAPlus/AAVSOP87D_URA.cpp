@@ -4122,30 +4122,30 @@ constexpr array<VSOP87Coefficient2, 5> g_VSOP87D_R_URANUS
 
 double CAAVSOP87D_Uranus::L(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87D_L_URANUS.data(), g_VSOP87D_L_URANUS.size(), true);
+  return CAAVSOP87::Calculate(JD, g_VSOP87D_L_URANUS.data(), g_VSOP87D_L_URANUS.size(), true);
 }
 
 double CAAVSOP87D_Uranus::L_DASH(double JD) noexcept
 {
-  return CVSOP87::Calculate_Dash(JD, g_VSOP87D_L_URANUS.data(), g_VSOP87D_L_URANUS.size());
+  return CAAVSOP87::Calculate_Dash(JD, g_VSOP87D_L_URANUS.data(), g_VSOP87D_L_URANUS.size());
 }
 
 double CAAVSOP87D_Uranus::B(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87D_B_URANUS.data(), g_VSOP87D_B_URANUS.size(), true);
+  return CAAVSOP87::Calculate(JD, g_VSOP87D_B_URANUS.data(), g_VSOP87D_B_URANUS.size(), true);
 }
 
 double CAAVSOP87D_Uranus::B_DASH(double JD) noexcept
 {
-  return CVSOP87::Calculate_Dash(JD, g_VSOP87D_B_URANUS.data(), g_VSOP87D_B_URANUS.size());
+  return CAAVSOP87::Calculate_Dash(JD, g_VSOP87D_B_URANUS.data(), g_VSOP87D_B_URANUS.size());
 }
 
 double CAAVSOP87D_Uranus::R(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87D_R_URANUS.data(), g_VSOP87D_R_URANUS.size(), false);
+  return CAAVSOP87::Calculate(JD, g_VSOP87D_R_URANUS.data(), g_VSOP87D_R_URANUS.size(), false);
 }
 
 double CAAVSOP87D_Uranus::R_DASH(double JD) noexcept
 {
-  return CVSOP87::Calculate_Dash(JD, g_VSOP87D_R_URANUS.data(), g_VSOP87D_R_URANUS.size());
+  return CAAVSOP87::Calculate_Dash(JD, g_VSOP87D_R_URANUS.data(), g_VSOP87D_R_URANUS.size());
 }

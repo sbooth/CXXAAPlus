@@ -6970,30 +6970,30 @@ constexpr array<VSOP87Coefficient2, 6> g_VSOP87D_R_MERCURY
 
 double CAAVSOP87D_Mercury::L(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87D_L_MERCURY.data(), g_VSOP87D_L_MERCURY.size(), true);
+  return CAAVSOP87::Calculate(JD, g_VSOP87D_L_MERCURY.data(), g_VSOP87D_L_MERCURY.size(), true);
 }
 
 double CAAVSOP87D_Mercury::L_DASH(double JD) noexcept
 {
-  return CVSOP87::Calculate_Dash(JD, g_VSOP87D_L_MERCURY.data(), g_VSOP87D_L_MERCURY.size());
+  return CAAVSOP87::Calculate_Dash(JD, g_VSOP87D_L_MERCURY.data(), g_VSOP87D_L_MERCURY.size());
 }
 
 double CAAVSOP87D_Mercury::B(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87D_B_MERCURY.data(), g_VSOP87D_B_MERCURY.size(), true);
+  return CAAVSOP87::Calculate(JD, g_VSOP87D_B_MERCURY.data(), g_VSOP87D_B_MERCURY.size(), true);
 }
 
 double CAAVSOP87D_Mercury::B_DASH(double JD) noexcept
 {
-  return CVSOP87::Calculate_Dash(JD, g_VSOP87D_B_MERCURY.data(), g_VSOP87D_B_MERCURY.size());
+  return CAAVSOP87::Calculate_Dash(JD, g_VSOP87D_B_MERCURY.data(), g_VSOP87D_B_MERCURY.size());
 }
 
 double CAAVSOP87D_Mercury::R(double JD) noexcept
 {
-  return CVSOP87::Calculate(JD, g_VSOP87D_R_MERCURY.data(), g_VSOP87D_R_MERCURY.size(), false);
+  return CAAVSOP87::Calculate(JD, g_VSOP87D_R_MERCURY.data(), g_VSOP87D_R_MERCURY.size(), false);
 }
 
 double CAAVSOP87D_Mercury::R_DASH(double JD) noexcept
 {
-  return CVSOP87::Calculate_Dash(JD, g_VSOP87D_R_MERCURY.data(), g_VSOP87D_R_MERCURY.size());
+  return CAAVSOP87::Calculate_Dash(JD, g_VSOP87D_R_MERCURY.data(), g_VSOP87D_R_MERCURY.size());
 }

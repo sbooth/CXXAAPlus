@@ -37,34 +37,15 @@ to maintain a single distribution point for the source code.
 class AAPLUS_EXT_CLASS CAASaturnRingDetails
 {
 public:
-//Constructors / Destructors
-  CAASaturnRingDetails() noexcept : B(0),
-                                    Bdash(0),
-                                    P(0),
-                                    a(0),
-                                    b(0),
-                                    DeltaU(0),
-                                    U1(0),
-                                    U2(0)
-  {
-  };
-  CAASaturnRingDetails(const CAASaturnRingDetails&) = default;
-  CAASaturnRingDetails(CAASaturnRingDetails&&) = default;
-  ~CAASaturnRingDetails() = default;
-
-//Methods
-  CAASaturnRingDetails& operator=(const CAASaturnRingDetails&) = default;
-  CAASaturnRingDetails& operator=(CAASaturnRingDetails&&) = default;
-
 //Member variables
-  double B;
-  double Bdash;
-  double P;
-  double a;
-  double b;
-  double DeltaU;
-  double U1;
-  double U2;
+  double B = 0;
+  double Bdash = 0;
+  double P = 0;
+  double a = 0;
+  double b = 0;
+  double DeltaU = 0;
+  double U1 = 0;
+  double U2 = 0;
 };
 
 class AAPLUS_EXT_CLASS CAASaturnRings

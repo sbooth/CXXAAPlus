@@ -37,24 +37,10 @@ to maintain a single distribution point for the source code.
 class AAPLUS_EXT_CLASS CAAPhysicalSunDetails
 {
 public:
-//Constructors / Destructors
-  CAAPhysicalSunDetails() noexcept : P(0),
-                                     B0(0),
-                                     L0(0)
-  {
-  };
-  CAAPhysicalSunDetails(const CAAPhysicalSunDetails&) = default;
-  CAAPhysicalSunDetails(CAAPhysicalSunDetails&&) = default;
-  ~CAAPhysicalSunDetails() = default;
-
-//Methods
-  CAAPhysicalSunDetails& operator=(const CAAPhysicalSunDetails&) = default;
-  CAAPhysicalSunDetails& operator=(CAAPhysicalSunDetails&&) = default;
-
 //Member variables
-  double P;
-  double B0;
-  double L0;
+  double P = 0;
+  double B0 = 0;
+  double L0 = 0;
 };
 
 class AAPLUS_EXT_CLASS CAAPhysicalSun

@@ -59,28 +59,12 @@ public:
     CivilDawn = 10
   };
 
-//Constructors / Destructors
-  CAARiseTransitSetDetails2() noexcept : type(Type::NotDefined),
-                                         JD(0),
-                                         Bearing(0),
-                                         GeometricAltitude(false),
-                                         bAboveHorizon(false)
-  {
-  };
-  CAARiseTransitSetDetails2(const CAARiseTransitSetDetails2&) = default;
-  CAARiseTransitSetDetails2(CAARiseTransitSetDetails2&&) = default;
-  ~CAARiseTransitSetDetails2() = default;
-
-//Methods
-  CAARiseTransitSetDetails2& operator=(const CAARiseTransitSetDetails2&) = default;
-  CAARiseTransitSetDetails2& operator=(CAARiseTransitSetDetails2&&) = default;
-
 //Member variables
-  Type type; //The type of the event which has occurred
-  double JD; //When the event occurred in TT
-  double Bearing; //Applicable for rise or sets only, this will be the bearing (degrees west of south) of the event
-  double GeometricAltitude; //For transits only, this will contain the geometric altitude in degrees of the center of the object not including correction for refraction
-  bool bAboveHorizon; //For transits only, this will be true if the transit is visible
+  Type type = Type::NotDefined; //The type of the event which has occurred
+  double JD = 0; //When the event occurred in TT
+  double Bearing = 0; //Applicable for rise or sets only, this will be the bearing (degrees west of south) of the event
+  double GeometricAltitude = false; //For transits only, this will contain the geometric altitude in degrees of the center of the object not including correction for refraction
+  bool bAboveHorizon = false; //For transits only, this will be true if the transit is visible
 };
 
 class AAPLUS_EXT_CLASS CAARiseTransitSet2

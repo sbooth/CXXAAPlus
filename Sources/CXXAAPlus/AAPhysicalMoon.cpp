@@ -10,6 +10,9 @@ History: PJN / 19-02-2004 1. The optical libration in longitude is now returned 
                           to true means the code uses the full VSOP87 theory rather than the truncated theory 
                           as presented in Meeus's book.
          PJN / 18-08-2019 1. Fixed some further compiler warnings when using VC 2019 Preview v16.3.0 Preview 2.0
+         PJN / 06-11-2021 1. Fixed a bug in CAAPhysicalMoon::CalculateOpticalLibration where the value of the
+                          variable "W" was being calculated incorrectly. Thanks to Don Cross for reporting this
+                          issue.
 
 Copyright (c) 2004 - 2021 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
@@ -53,7 +56,7 @@ void CAAPhysicalMoon::CalculateOpticalLibration(double JD, double Lambda, double
   epsilon = CAANutation::MeanObliquityOfEcliptic(JD) + CAANutation::NutationInObliquity(JD)/3600;
 
   //Calculate the optical librations
-  const double W = Lambdarad - DeltaU/3600 - omega;
+  const double W = Lambdarad - DeltaU - omega;
   const double A = atan2(sin(W)*cos(Betarad)*cos(I) - sin(Betarad)*sin(I), cos(W)*cos(Betarad));
   ldash = CAACoordinateTransformation::MapTo0To360Range(CAACoordinateTransformation::RadiansToDegrees(A) - CAACoordinateTransformation::RadiansToDegrees(F));
   if (ldash > 180)
@@ -135,11 +138,11 @@ CAAPhysicalMoonDetails CAAPhysicalMoon::CalculateHelper(double JD, double& Lambd
   Beta = CAAMoon::EclipticLatitude(JD);
 
   //Calculate the optical libration
-  double omega;
-  double DeltaU;
-  double sigma;
-  double I;
-  double rho;
+  double omega = 0;
+  double DeltaU = 0;
+  double sigma = 0;
+  double I = 0;
+  double rho = 0;
   CalculateOpticalLibration(JD, Lambda, Beta, details.ldash, details.bdash, details.ldash2, details.bdash2, epsilon, omega, DeltaU, sigma, I, rho);
   const double epsilonrad = CAACoordinateTransformation::DegreesToRadians(epsilon);
 
@@ -166,9 +169,9 @@ CAAPhysicalMoonDetails CAAPhysicalMoon::CalculateHelper(double JD, double& Lambd
 
 CAAPhysicalMoonDetails CAAPhysicalMoon::CalculateGeocentric(double JD) noexcept
 {
-  double Lambda;
-  double Beta;
-  double epsilon;
+  double Lambda = 0;
+  double Beta = 0;
+  double epsilon = 0;
   CAA2DCoordinate Equatorial;
   return CalculateHelper(JD, Lambda, Beta, epsilon, Equatorial);
 }
@@ -179,9 +182,9 @@ CAAPhysicalMoonDetails CAAPhysicalMoon::CalculateTopocentric(double JD, double L
   Longitude = CAACoordinateTransformation::DegreesToRadians(Longitude);
   Latitude = CAACoordinateTransformation::DegreesToRadians(Latitude);
 
-  double Lambda;
-  double Beta;
-  double epsilon;
+  double Lambda = 0;
+  double Beta = 0;
+  double epsilon = 0;
   CAA2DCoordinate Equatorial;
   CAAPhysicalMoonDetails details = CalculateHelper(JD, Lambda, Beta, epsilon, Equatorial);
 
@@ -224,16 +227,16 @@ CAASelenographicMoonDetails CAAPhysicalMoon::CalculateSelenographicPositionOfSun
   CAASelenographicMoonDetails details;
 
   //Calculate the optical libration
-  double omega;
-  double DeltaU;
-  double sigma;
-  double I;
-  double rho;
-  double ldash0;
-  double bdash0;
-  double ldash20;
-  double bdash20;
-  double epsilon;
+  double omega = 0;
+  double DeltaU = 0;
+  double sigma = 0;
+  double I = 0;
+  double rho = 0;
+  double ldash0 = 0;
+  double bdash0 = 0;
+  double ldash20 = 0;
+  double bdash20 = 0;
+  double epsilon = 0;
   CalculateOpticalLibration(JD, lambdah, betah, ldash0, bdash0, ldash20, bdash20, epsilon, omega, DeltaU, sigma, I, rho);
 
   details.l0 = ldash0 + ldash20;

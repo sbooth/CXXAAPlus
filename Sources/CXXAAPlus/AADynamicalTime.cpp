@@ -142,6 +142,8 @@ History: PJN / 01-02-2005 1. Fixed a problem with the declaration of the variabl
                           17 September 2022 from https://cddis.nasa.gov/archive/products/iers/finals2000A.all.
          PJN / 23-10-2021 1. Updated the g_DeltaTValues lookup table to use observed DeltaT values to 21 October 2021 and predicted values to
                           29 October 2022 from https://cddis.nasa.gov/archive/products/iers/finals2000A.all.
+         PJN / 06-11-2021 1. Updated the g_DeltaTValues lookup table to use observed DeltaT values to 4 November 2021 and predicted values to
+                          12 November 2022 from https://cddis.nasa.gov/archive/products/iers/finals2000A.all.
 
 Copyright (c) 2003 - 2021 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
@@ -185,7 +187,7 @@ struct DeltaTValue
   double DeltaT;
 };
 
-constexpr array<DeltaTValue, 18850> g_DeltaTValues
+constexpr array<DeltaTValue, 18864> g_DeltaTValues
 { {
 //Values from https://cddis.nasa.gov/archive/products/iers/historic_deltat.data
   { 2326267.50, 44.000    }, //1657.00
@@ -18288,738 +18290,752 @@ constexpr array<DeltaTValue, 18850> g_DeltaTValues
   { 2459147.50, 69.357321 }, //25 October 2020, UT1-UTC=-0.1733207, Accumulated Leap Seconds=37
   { 2459148.50, 69.357498 }, //26 October 2020, UT1-UTC=-0.1734985, Accumulated Leap Seconds=37
   { 2459149.50, 69.357762 }, //27 October 2020, UT1-UTC=-0.1737620, Accumulated Leap Seconds=37
-  { 2459150.50, 69.358106 }, //28 October 2020, UT1-UTC=-0.1741065, Accumulated Leap Seconds=37
-  { 2459151.50, 69.358464 }, //29 October 2020, UT1-UTC=-0.1744636, Accumulated Leap Seconds=37
-  { 2459152.50, 69.358772 }, //30 October 2020, UT1-UTC=-0.1747723, Accumulated Leap Seconds=37
-  { 2459153.50, 69.359063 }, //31 October 2020, UT1-UTC=-0.1750629, Accumulated Leap Seconds=37
-  { 2459154.50, 69.359324 }, //01 November 2020, UT1-UTC=-0.1753240, Accumulated Leap Seconds=37
-  { 2459155.50, 69.359491 }, //02 November 2020, UT1-UTC=-0.1754913, Accumulated Leap Seconds=37
-  { 2459156.50, 69.359538 }, //03 November 2020, UT1-UTC=-0.1755383, Accumulated Leap Seconds=37
-  { 2459157.50, 69.359484 }, //04 November 2020, UT1-UTC=-0.1754840, Accumulated Leap Seconds=37
-  { 2459158.50, 69.359309 }, //05 November 2020, UT1-UTC=-0.1753094, Accumulated Leap Seconds=37
-  { 2459159.50, 69.359029 }, //06 November 2020, UT1-UTC=-0.1750295, Accumulated Leap Seconds=37
-  { 2459160.50, 69.358722 }, //07 November 2020, UT1-UTC=-0.1747225, Accumulated Leap Seconds=37
-  { 2459161.50, 69.358517 }, //08 November 2020, UT1-UTC=-0.1745167, Accumulated Leap Seconds=37
-  { 2459162.50, 69.358567 }, //09 November 2020, UT1-UTC=-0.1745674, Accumulated Leap Seconds=37
-  { 2459163.50, 69.358926 }, //10 November 2020, UT1-UTC=-0.1749256, Accumulated Leap Seconds=37
-  { 2459164.50, 69.359490 }, //11 November 2020, UT1-UTC=-0.1754903, Accumulated Leap Seconds=37
-  { 2459165.50, 69.360261 }, //12 November 2020, UT1-UTC=-0.1762609, Accumulated Leap Seconds=37
-  { 2459166.50, 69.361148 }, //13 November 2020, UT1-UTC=-0.1771478, Accumulated Leap Seconds=37
-  { 2459167.50, 69.361972 }, //14 November 2020, UT1-UTC=-0.1779725, Accumulated Leap Seconds=37
-  { 2459168.50, 69.362636 }, //15 November 2020, UT1-UTC=-0.1786361, Accumulated Leap Seconds=37
-  { 2459169.50, 69.363015 }, //16 November 2020, UT1-UTC=-0.1790146, Accumulated Leap Seconds=37
+  { 2459150.50, 69.358107 }, //28 October 2020, UT1-UTC=-0.1741066, Accumulated Leap Seconds=37
+  { 2459151.50, 69.358464 }, //29 October 2020, UT1-UTC=-0.1744639, Accumulated Leap Seconds=37
+  { 2459152.50, 69.358771 }, //30 October 2020, UT1-UTC=-0.1747709, Accumulated Leap Seconds=37
+  { 2459153.50, 69.359062 }, //31 October 2020, UT1-UTC=-0.1750625, Accumulated Leap Seconds=37
+  { 2459154.50, 69.359324 }, //01 November 2020, UT1-UTC=-0.1753242, Accumulated Leap Seconds=37
+  { 2459155.50, 69.359492 }, //02 November 2020, UT1-UTC=-0.1754919, Accumulated Leap Seconds=37
+  { 2459156.50, 69.359538 }, //03 November 2020, UT1-UTC=-0.1755382, Accumulated Leap Seconds=37
+  { 2459157.50, 69.359484 }, //04 November 2020, UT1-UTC=-0.1754841, Accumulated Leap Seconds=37
+  { 2459158.50, 69.359309 }, //05 November 2020, UT1-UTC=-0.1753093, Accumulated Leap Seconds=37
+  { 2459159.50, 69.359030 }, //06 November 2020, UT1-UTC=-0.1750298, Accumulated Leap Seconds=37
+  { 2459160.50, 69.358723 }, //07 November 2020, UT1-UTC=-0.1747231, Accumulated Leap Seconds=37
+  { 2459161.50, 69.358517 }, //08 November 2020, UT1-UTC=-0.1745166, Accumulated Leap Seconds=37
+  { 2459162.50, 69.358566 }, //09 November 2020, UT1-UTC=-0.1745658, Accumulated Leap Seconds=37
+  { 2459163.50, 69.358925 }, //10 November 2020, UT1-UTC=-0.1749252, Accumulated Leap Seconds=37
+  { 2459164.50, 69.359489 }, //11 November 2020, UT1-UTC=-0.1754893, Accumulated Leap Seconds=37
+  { 2459165.50, 69.360260 }, //12 November 2020, UT1-UTC=-0.1762603, Accumulated Leap Seconds=37
+  { 2459166.50, 69.361148 }, //13 November 2020, UT1-UTC=-0.1771482, Accumulated Leap Seconds=37
+  { 2459167.50, 69.361972 }, //14 November 2020, UT1-UTC=-0.1779723, Accumulated Leap Seconds=37
+  { 2459168.50, 69.362636 }, //15 November 2020, UT1-UTC=-0.1786364, Accumulated Leap Seconds=37
+  { 2459169.50, 69.363015 }, //16 November 2020, UT1-UTC=-0.1790150, Accumulated Leap Seconds=37
   { 2459170.50, 69.363119 }, //17 November 2020, UT1-UTC=-0.1791188, Accumulated Leap Seconds=37
-  { 2459171.50, 69.363019 }, //18 November 2020, UT1-UTC=-0.1790193, Accumulated Leap Seconds=37
-  { 2459172.50, 69.362741 }, //19 November 2020, UT1-UTC=-0.1787412, Accumulated Leap Seconds=37
-  { 2459173.50, 69.362450 }, //20 November 2020, UT1-UTC=-0.1784498, Accumulated Leap Seconds=37
-  { 2459174.50, 69.362193 }, //21 November 2020, UT1-UTC=-0.1781933, Accumulated Leap Seconds=37
-  { 2459175.50, 69.362074 }, //22 November 2020, UT1-UTC=-0.1780740, Accumulated Leap Seconds=37
-  { 2459176.50, 69.362147 }, //23 November 2020, UT1-UTC=-0.1781474, Accumulated Leap Seconds=37
-  { 2459177.50, 69.362354 }, //24 November 2020, UT1-UTC=-0.1783543, Accumulated Leap Seconds=37
-  { 2459178.50, 69.362640 }, //25 November 2020, UT1-UTC=-0.1786395, Accumulated Leap Seconds=37
-  { 2459179.50, 69.362967 }, //26 November 2020, UT1-UTC=-0.1789667, Accumulated Leap Seconds=37
-  { 2459180.50, 69.363135 }, //27 November 2020, UT1-UTC=-0.1791346, Accumulated Leap Seconds=37
-  { 2459181.50, 69.363289 }, //28 November 2020, UT1-UTC=-0.1792891, Accumulated Leap Seconds=37
-  { 2459182.50, 69.363304 }, //29 November 2020, UT1-UTC=-0.1793042, Accumulated Leap Seconds=37
-  { 2459183.50, 69.363212 }, //30 November 2020, UT1-UTC=-0.1792119, Accumulated Leap Seconds=37
-  { 2459184.50, 69.363024 }, //01 December 2020, UT1-UTC=-0.1790237, Accumulated Leap Seconds=37
-  { 2459185.50, 69.362716 }, //02 December 2020, UT1-UTC=-0.1787162, Accumulated Leap Seconds=37
-  { 2459186.50, 69.362320 }, //03 December 2020, UT1-UTC=-0.1783200, Accumulated Leap Seconds=37
-  { 2459187.50, 69.361923 }, //04 December 2020, UT1-UTC=-0.1779229, Accumulated Leap Seconds=37
-  { 2459188.50, 69.361627 }, //05 December 2020, UT1-UTC=-0.1776268, Accumulated Leap Seconds=37
-  { 2459189.50, 69.361540 }, //06 December 2020, UT1-UTC=-0.1775400, Accumulated Leap Seconds=37
-  { 2459190.50, 69.361644 }, //07 December 2020, UT1-UTC=-0.1776444, Accumulated Leap Seconds=37
-  { 2459191.50, 69.361973 }, //08 December 2020, UT1-UTC=-0.1779734, Accumulated Leap Seconds=37
-  { 2459192.50, 69.362491 }, //09 December 2020, UT1-UTC=-0.1784914, Accumulated Leap Seconds=37
-  { 2459193.50, 69.363096 }, //10 December 2020, UT1-UTC=-0.1790955, Accumulated Leap Seconds=37
-  { 2459194.50, 69.363734 }, //11 December 2020, UT1-UTC=-0.1797340, Accumulated Leap Seconds=37
-  { 2459195.50, 69.364180 }, //12 December 2020, UT1-UTC=-0.1801796, Accumulated Leap Seconds=37
-  { 2459196.50, 69.364398 }, //13 December 2020, UT1-UTC=-0.1803985, Accumulated Leap Seconds=37
-  { 2459197.50, 69.364376 }, //14 December 2020, UT1-UTC=-0.1803756, Accumulated Leap Seconds=37
+  { 2459171.50, 69.363019 }, //18 November 2020, UT1-UTC=-0.1790194, Accumulated Leap Seconds=37
+  { 2459172.50, 69.362740 }, //19 November 2020, UT1-UTC=-0.1787397, Accumulated Leap Seconds=37
+  { 2459173.50, 69.362450 }, //20 November 2020, UT1-UTC=-0.1784497, Accumulated Leap Seconds=37
+  { 2459174.50, 69.362193 }, //21 November 2020, UT1-UTC=-0.1781930, Accumulated Leap Seconds=37
+  { 2459175.50, 69.362074 }, //22 November 2020, UT1-UTC=-0.1780739, Accumulated Leap Seconds=37
+  { 2459176.50, 69.362148 }, //23 November 2020, UT1-UTC=-0.1781481, Accumulated Leap Seconds=37
+  { 2459177.50, 69.362355 }, //24 November 2020, UT1-UTC=-0.1783546, Accumulated Leap Seconds=37
+  { 2459178.50, 69.362639 }, //25 November 2020, UT1-UTC=-0.1786391, Accumulated Leap Seconds=37
+  { 2459179.50, 69.362969 }, //26 November 2020, UT1-UTC=-0.1789688, Accumulated Leap Seconds=37
+  { 2459180.50, 69.363134 }, //27 November 2020, UT1-UTC=-0.1791344, Accumulated Leap Seconds=37
+  { 2459181.50, 69.363291 }, //28 November 2020, UT1-UTC=-0.1792910, Accumulated Leap Seconds=37
+  { 2459182.50, 69.363304 }, //29 November 2020, UT1-UTC=-0.1793038, Accumulated Leap Seconds=37
+  { 2459183.50, 69.363213 }, //30 November 2020, UT1-UTC=-0.1792127, Accumulated Leap Seconds=37
+  { 2459184.50, 69.363023 }, //01 December 2020, UT1-UTC=-0.1790232, Accumulated Leap Seconds=37
+  { 2459185.50, 69.362716 }, //02 December 2020, UT1-UTC=-0.1787157, Accumulated Leap Seconds=37
+  { 2459186.50, 69.362320 }, //03 December 2020, UT1-UTC=-0.1783201, Accumulated Leap Seconds=37
+  { 2459187.50, 69.361923 }, //04 December 2020, UT1-UTC=-0.1779228, Accumulated Leap Seconds=37
+  { 2459188.50, 69.361626 }, //05 December 2020, UT1-UTC=-0.1776265, Accumulated Leap Seconds=37
+  { 2459189.50, 69.361540 }, //06 December 2020, UT1-UTC=-0.1775401, Accumulated Leap Seconds=37
+  { 2459190.50, 69.361643 }, //07 December 2020, UT1-UTC=-0.1776431, Accumulated Leap Seconds=37
+  { 2459191.50, 69.361972 }, //08 December 2020, UT1-UTC=-0.1779725, Accumulated Leap Seconds=37
+  { 2459192.50, 69.362490 }, //09 December 2020, UT1-UTC=-0.1784904, Accumulated Leap Seconds=37
+  { 2459193.50, 69.363091 }, //10 December 2020, UT1-UTC=-0.1790915, Accumulated Leap Seconds=37
+  { 2459194.50, 69.363734 }, //11 December 2020, UT1-UTC=-0.1797338, Accumulated Leap Seconds=37
+  { 2459195.50, 69.364179 }, //12 December 2020, UT1-UTC=-0.1801792, Accumulated Leap Seconds=37
+  { 2459196.50, 69.364398 }, //13 December 2020, UT1-UTC=-0.1803983, Accumulated Leap Seconds=37
+  { 2459197.50, 69.364375 }, //14 December 2020, UT1-UTC=-0.1803752, Accumulated Leap Seconds=37
   { 2459198.50, 69.364117 }, //15 December 2020, UT1-UTC=-0.1801169, Accumulated Leap Seconds=37
-  { 2459199.50, 69.363682 }, //16 December 2020, UT1-UTC=-0.1796819, Accumulated Leap Seconds=37
-  { 2459200.50, 69.363156 }, //17 December 2020, UT1-UTC=-0.1791559, Accumulated Leap Seconds=37
-  { 2459201.50, 69.362767 }, //18 December 2020, UT1-UTC=-0.1787669, Accumulated Leap Seconds=37
-  { 2459202.50, 69.362461 }, //19 December 2020, UT1-UTC=-0.1784610, Accumulated Leap Seconds=37
-  { 2459203.50, 69.362312 }, //20 December 2020, UT1-UTC=-0.1783116, Accumulated Leap Seconds=37
-  { 2459204.50, 69.362297 }, //21 December 2020, UT1-UTC=-0.1782974, Accumulated Leap Seconds=37
-  { 2459205.50, 69.362393 }, //22 December 2020, UT1-UTC=-0.1783934, Accumulated Leap Seconds=37
-  { 2459206.50, 69.362561 }, //23 December 2020, UT1-UTC=-0.1785605, Accumulated Leap Seconds=37
-  { 2459207.50, 69.362635 }, //24 December 2020, UT1-UTC=-0.1786350, Accumulated Leap Seconds=37
-  { 2459208.50, 69.362632 }, //25 December 2020, UT1-UTC=-0.1786320, Accumulated Leap Seconds=37
-  { 2459209.50, 69.362500 }, //26 December 2020, UT1-UTC=-0.1784996, Accumulated Leap Seconds=37
-  { 2459210.50, 69.362207 }, //27 December 2020, UT1-UTC=-0.1782067, Accumulated Leap Seconds=37
-  { 2459211.50, 69.361771 }, //28 December 2020, UT1-UTC=-0.1777706, Accumulated Leap Seconds=37
+  { 2459199.50, 69.363681 }, //16 December 2020, UT1-UTC=-0.1796810, Accumulated Leap Seconds=37
+  { 2459200.50, 69.363148 }, //17 December 2020, UT1-UTC=-0.1791479, Accumulated Leap Seconds=37
+  { 2459201.50, 69.362766 }, //18 December 2020, UT1-UTC=-0.1787659, Accumulated Leap Seconds=37
+  { 2459202.50, 69.362460 }, //19 December 2020, UT1-UTC=-0.1784602, Accumulated Leap Seconds=37
+  { 2459203.50, 69.362312 }, //20 December 2020, UT1-UTC=-0.1783120, Accumulated Leap Seconds=37
+  { 2459204.50, 69.362298 }, //21 December 2020, UT1-UTC=-0.1782978, Accumulated Leap Seconds=37
+  { 2459205.50, 69.362394 }, //22 December 2020, UT1-UTC=-0.1783936, Accumulated Leap Seconds=37
+  { 2459206.50, 69.362560 }, //23 December 2020, UT1-UTC=-0.1785602, Accumulated Leap Seconds=37
+  { 2459207.50, 69.362634 }, //24 December 2020, UT1-UTC=-0.1786335, Accumulated Leap Seconds=37
+  { 2459208.50, 69.362633 }, //25 December 2020, UT1-UTC=-0.1786329, Accumulated Leap Seconds=37
+  { 2459209.50, 69.362501 }, //26 December 2020, UT1-UTC=-0.1785012, Accumulated Leap Seconds=37
+  { 2459210.50, 69.362207 }, //27 December 2020, UT1-UTC=-0.1782072, Accumulated Leap Seconds=37
+  { 2459211.50, 69.361770 }, //28 December 2020, UT1-UTC=-0.1777701, Accumulated Leap Seconds=37
   { 2459212.50, 69.361240 }, //29 December 2020, UT1-UTC=-0.1772400, Accumulated Leap Seconds=37
-  { 2459213.50, 69.360642 }, //30 December 2020, UT1-UTC=-0.1766425, Accumulated Leap Seconds=37
-  { 2459214.50, 69.359980 }, //31 December 2020, UT1-UTC=-0.1759799, Accumulated Leap Seconds=37
-  { 2459215.50, 69.359331 }, //01 January 2021, UT1-UTC=-0.1753311, Accumulated Leap Seconds=37
-  { 2459216.50, 69.358809 }, //02 January 2021, UT1-UTC=-0.1748090, Accumulated Leap Seconds=37
-  { 2459217.50, 69.358472 }, //03 January 2021, UT1-UTC=-0.1744718, Accumulated Leap Seconds=37
-  { 2459218.50, 69.358326 }, //04 January 2021, UT1-UTC=-0.1743261, Accumulated Leap Seconds=37
-  { 2459219.50, 69.358378 }, //05 January 2021, UT1-UTC=-0.1743780, Accumulated Leap Seconds=37
-  { 2459220.50, 69.358573 }, //06 January 2021, UT1-UTC=-0.1745728, Accumulated Leap Seconds=37
-  { 2459221.50, 69.358835 }, //07 January 2021, UT1-UTC=-0.1748348, Accumulated Leap Seconds=37
-  { 2459222.50, 69.359060 }, //08 January 2021, UT1-UTC=-0.1750597, Accumulated Leap Seconds=37
-  { 2459223.50, 69.359087 }, //09 January 2021, UT1-UTC=-0.1750870, Accumulated Leap Seconds=37
-  { 2459224.50, 69.358866 }, //10 January 2021, UT1-UTC=-0.1748663, Accumulated Leap Seconds=37
-  { 2459225.50, 69.358463 }, //11 January 2021, UT1-UTC=-0.1744631, Accumulated Leap Seconds=37
-  { 2459226.50, 69.357966 }, //12 January 2021, UT1-UTC=-0.1739662, Accumulated Leap Seconds=37
+  { 2459213.50, 69.360642 }, //30 December 2020, UT1-UTC=-0.1766422, Accumulated Leap Seconds=37
+  { 2459214.50, 69.359979 }, //31 December 2020, UT1-UTC=-0.1759794, Accumulated Leap Seconds=37
+  { 2459215.50, 69.359330 }, //01 January 2021, UT1-UTC=-0.1753296, Accumulated Leap Seconds=37
+  { 2459216.50, 69.358808 }, //02 January 2021, UT1-UTC=-0.1748079, Accumulated Leap Seconds=37
+  { 2459217.50, 69.358472 }, //03 January 2021, UT1-UTC=-0.1744717, Accumulated Leap Seconds=37
+  { 2459218.50, 69.358326 }, //04 January 2021, UT1-UTC=-0.1743263, Accumulated Leap Seconds=37
+  { 2459219.50, 69.358378 }, //05 January 2021, UT1-UTC=-0.1743779, Accumulated Leap Seconds=37
+  { 2459220.50, 69.358572 }, //06 January 2021, UT1-UTC=-0.1745725, Accumulated Leap Seconds=37
+  { 2459221.50, 69.358835 }, //07 January 2021, UT1-UTC=-0.1748346, Accumulated Leap Seconds=37
+  { 2459222.50, 69.359059 }, //08 January 2021, UT1-UTC=-0.1750592, Accumulated Leap Seconds=37
+  { 2459223.50, 69.359086 }, //09 January 2021, UT1-UTC=-0.1750862, Accumulated Leap Seconds=37
+  { 2459224.50, 69.358866 }, //10 January 2021, UT1-UTC=-0.1748664, Accumulated Leap Seconds=37
+  { 2459225.50, 69.358463 }, //11 January 2021, UT1-UTC=-0.1744632, Accumulated Leap Seconds=37
+  { 2459226.50, 69.357966 }, //12 January 2021, UT1-UTC=-0.1739659, Accumulated Leap Seconds=37
   { 2459227.50, 69.357417 }, //13 January 2021, UT1-UTC=-0.1734175, Accumulated Leap Seconds=37
-  { 2459228.50, 69.356886 }, //14 January 2021, UT1-UTC=-0.1728858, Accumulated Leap Seconds=37
-  { 2459229.50, 69.356468 }, //15 January 2021, UT1-UTC=-0.1724677, Accumulated Leap Seconds=37
-  { 2459230.50, 69.356041 }, //16 January 2021, UT1-UTC=-0.1720411, Accumulated Leap Seconds=37
-  { 2459231.50, 69.355765 }, //17 January 2021, UT1-UTC=-0.1717649, Accumulated Leap Seconds=37
-  { 2459232.50, 69.355584 }, //18 January 2021, UT1-UTC=-0.1715840, Accumulated Leap Seconds=37
-  { 2459233.50, 69.355418 }, //19 January 2021, UT1-UTC=-0.1714183, Accumulated Leap Seconds=37
-  { 2459234.50, 69.355263 }, //20 January 2021, UT1-UTC=-0.1712633, Accumulated Leap Seconds=37
-  { 2459235.50, 69.355078 }, //21 January 2021, UT1-UTC=-0.1710778, Accumulated Leap Seconds=37
-  { 2459236.50, 69.354795 }, //22 January 2021, UT1-UTC=-0.1707953, Accumulated Leap Seconds=37
-  { 2459237.50, 69.354477 }, //23 January 2021, UT1-UTC=-0.1704765, Accumulated Leap Seconds=37
-  { 2459238.50, 69.354008 }, //24 January 2021, UT1-UTC=-0.1700083, Accumulated Leap Seconds=37
-  { 2459239.50, 69.353415 }, //25 January 2021, UT1-UTC=-0.1694146, Accumulated Leap Seconds=37
-  { 2459240.50, 69.352720 }, //26 January 2021, UT1-UTC=-0.1687198, Accumulated Leap Seconds=37
-  { 2459241.50, 69.351955 }, //27 January 2021, UT1-UTC=-0.1679554, Accumulated Leap Seconds=37
-  { 2459242.50, 69.351309 }, //28 January 2021, UT1-UTC=-0.1673090, Accumulated Leap Seconds=37
-  { 2459243.50, 69.350907 }, //29 January 2021, UT1-UTC=-0.1669074, Accumulated Leap Seconds=37
-  { 2459244.50, 69.350680 }, //30 January 2021, UT1-UTC=-0.1666801, Accumulated Leap Seconds=37
-  { 2459245.50, 69.350687 }, //31 January 2021, UT1-UTC=-0.1666873, Accumulated Leap Seconds=37
-  { 2459246.50, 69.351011 }, //01 February 2021, UT1-UTC=-0.1670106, Accumulated Leap Seconds=37
-  { 2459247.50, 69.351561 }, //02 February 2021, UT1-UTC=-0.1675612, Accumulated Leap Seconds=37
-  { 2459248.50, 69.352216 }, //03 February 2021, UT1-UTC=-0.1682156, Accumulated Leap Seconds=37
-  { 2459249.50, 69.352831 }, //04 February 2021, UT1-UTC=-0.1688306, Accumulated Leap Seconds=37
-  { 2459250.50, 69.353285 }, //05 February 2021, UT1-UTC=-0.1692854, Accumulated Leap Seconds=37
-  { 2459251.50, 69.353532 }, //06 February 2021, UT1-UTC=-0.1695316, Accumulated Leap Seconds=37
-  { 2459252.50, 69.353576 }, //07 February 2021, UT1-UTC=-0.1695757, Accumulated Leap Seconds=37
-  { 2459253.50, 69.353476 }, //08 February 2021, UT1-UTC=-0.1694764, Accumulated Leap Seconds=37
-  { 2459254.50, 69.353331 }, //09 February 2021, UT1-UTC=-0.1693306, Accumulated Leap Seconds=37
-  { 2459255.50, 69.353250 }, //10 February 2021, UT1-UTC=-0.1692503, Accumulated Leap Seconds=37
+  { 2459228.50, 69.356884 }, //14 January 2021, UT1-UTC=-0.1728842, Accumulated Leap Seconds=37
+  { 2459229.50, 69.356468 }, //15 January 2021, UT1-UTC=-0.1724681, Accumulated Leap Seconds=37
+  { 2459230.50, 69.356040 }, //16 January 2021, UT1-UTC=-0.1720400, Accumulated Leap Seconds=37
+  { 2459231.50, 69.355765 }, //17 January 2021, UT1-UTC=-0.1717652, Accumulated Leap Seconds=37
+  { 2459232.50, 69.355586 }, //18 January 2021, UT1-UTC=-0.1715861, Accumulated Leap Seconds=37
+  { 2459233.50, 69.355419 }, //19 January 2021, UT1-UTC=-0.1714191, Accumulated Leap Seconds=37
+  { 2459234.50, 69.355265 }, //20 January 2021, UT1-UTC=-0.1712645, Accumulated Leap Seconds=37
+  { 2459235.50, 69.355081 }, //21 January 2021, UT1-UTC=-0.1710810, Accumulated Leap Seconds=37
+  { 2459236.50, 69.354795 }, //22 January 2021, UT1-UTC=-0.1707954, Accumulated Leap Seconds=37
+  { 2459237.50, 69.354478 }, //23 January 2021, UT1-UTC=-0.1704775, Accumulated Leap Seconds=37
+  { 2459238.50, 69.354008 }, //24 January 2021, UT1-UTC=-0.1700085, Accumulated Leap Seconds=37
+  { 2459239.50, 69.353414 }, //25 January 2021, UT1-UTC=-0.1694145, Accumulated Leap Seconds=37
+  { 2459240.50, 69.352720 }, //26 January 2021, UT1-UTC=-0.1687199, Accumulated Leap Seconds=37
+  { 2459241.50, 69.351955 }, //27 January 2021, UT1-UTC=-0.1679550, Accumulated Leap Seconds=37
+  { 2459242.50, 69.351309 }, //28 January 2021, UT1-UTC=-0.1673086, Accumulated Leap Seconds=37
+  { 2459243.50, 69.350908 }, //29 January 2021, UT1-UTC=-0.1669084, Accumulated Leap Seconds=37
+  { 2459244.50, 69.350681 }, //30 January 2021, UT1-UTC=-0.1666806, Accumulated Leap Seconds=37
+  { 2459245.50, 69.350687 }, //31 January 2021, UT1-UTC=-0.1666872, Accumulated Leap Seconds=37
+  { 2459246.50, 69.351012 }, //01 February 2021, UT1-UTC=-0.1670118, Accumulated Leap Seconds=37
+  { 2459247.50, 69.351562 }, //02 February 2021, UT1-UTC=-0.1675615, Accumulated Leap Seconds=37
+  { 2459248.50, 69.352216 }, //03 February 2021, UT1-UTC=-0.1682160, Accumulated Leap Seconds=37
+  { 2459249.50, 69.352832 }, //04 February 2021, UT1-UTC=-0.1688318, Accumulated Leap Seconds=37
+  { 2459250.50, 69.353285 }, //05 February 2021, UT1-UTC=-0.1692850, Accumulated Leap Seconds=37
+  { 2459251.50, 69.353532 }, //06 February 2021, UT1-UTC=-0.1695315, Accumulated Leap Seconds=37
+  { 2459252.50, 69.353576 }, //07 February 2021, UT1-UTC=-0.1695758, Accumulated Leap Seconds=37
+  { 2459253.50, 69.353477 }, //08 February 2021, UT1-UTC=-0.1694768, Accumulated Leap Seconds=37
+  { 2459254.50, 69.353330 }, //09 February 2021, UT1-UTC=-0.1693304, Accumulated Leap Seconds=37
+  { 2459255.50, 69.353251 }, //10 February 2021, UT1-UTC=-0.1692507, Accumulated Leap Seconds=37
   { 2459256.50, 69.353256 }, //11 February 2021, UT1-UTC=-0.1692555, Accumulated Leap Seconds=37
-  { 2459257.50, 69.353403 }, //12 February 2021, UT1-UTC=-0.1694031, Accumulated Leap Seconds=37
-  { 2459258.50, 69.353721 }, //13 February 2021, UT1-UTC=-0.1697208, Accumulated Leap Seconds=37
-  { 2459259.50, 69.354180 }, //14 February 2021, UT1-UTC=-0.1701797, Accumulated Leap Seconds=37
-  { 2459260.50, 69.354724 }, //15 February 2021, UT1-UTC=-0.1707239, Accumulated Leap Seconds=37
-  { 2459261.50, 69.355224 }, //16 February 2021, UT1-UTC=-0.1712244, Accumulated Leap Seconds=37
-  { 2459262.50, 69.355659 }, //17 February 2021, UT1-UTC=-0.1716585, Accumulated Leap Seconds=37
-  { 2459263.50, 69.355935 }, //18 February 2021, UT1-UTC=-0.1719353, Accumulated Leap Seconds=37
-  { 2459264.50, 69.355998 }, //19 February 2021, UT1-UTC=-0.1719984, Accumulated Leap Seconds=37
-  { 2459265.50, 69.355895 }, //20 February 2021, UT1-UTC=-0.1718949, Accumulated Leap Seconds=37
-  { 2459266.50, 69.355558 }, //21 February 2021, UT1-UTC=-0.1715578, Accumulated Leap Seconds=37
-  { 2459267.50, 69.355045 }, //22 February 2021, UT1-UTC=-0.1710452, Accumulated Leap Seconds=37
-  { 2459268.50, 69.354456 }, //23 February 2021, UT1-UTC=-0.1704555, Accumulated Leap Seconds=37
-  { 2459269.50, 69.353821 }, //24 February 2021, UT1-UTC=-0.1698206, Accumulated Leap Seconds=37
-  { 2459270.50, 69.353330 }, //25 February 2021, UT1-UTC=-0.1693304, Accumulated Leap Seconds=37
-  { 2459271.50, 69.353049 }, //26 February 2021, UT1-UTC=-0.1690494, Accumulated Leap Seconds=37
-  { 2459272.50, 69.353039 }, //27 February 2021, UT1-UTC=-0.1690389, Accumulated Leap Seconds=37
-  { 2459273.50, 69.353288 }, //28 February 2021, UT1-UTC=-0.1692881, Accumulated Leap Seconds=37
-  { 2459274.50, 69.353788 }, //01 March 2021, UT1-UTC=-0.1697881, Accumulated Leap Seconds=37
-  { 2459275.50, 69.354406 }, //02 March 2021, UT1-UTC=-0.1704059, Accumulated Leap Seconds=37
-  { 2459276.50, 69.355009 }, //03 March 2021, UT1-UTC=-0.1710087, Accumulated Leap Seconds=37
-  { 2459277.50, 69.355573 }, //04 March 2021, UT1-UTC=-0.1715732, Accumulated Leap Seconds=37
-  { 2459278.50, 69.355905 }, //05 March 2021, UT1-UTC=-0.1719050, Accumulated Leap Seconds=37
-  { 2459279.50, 69.355957 }, //06 March 2021, UT1-UTC=-0.1719566, Accumulated Leap Seconds=37
-  { 2459280.50, 69.355829 }, //07 March 2021, UT1-UTC=-0.1718292, Accumulated Leap Seconds=37
-  { 2459281.50, 69.355593 }, //08 March 2021, UT1-UTC=-0.1715933, Accumulated Leap Seconds=37
+  { 2459257.50, 69.353403 }, //12 February 2021, UT1-UTC=-0.1694029, Accumulated Leap Seconds=37
+  { 2459258.50, 69.353721 }, //13 February 2021, UT1-UTC=-0.1697211, Accumulated Leap Seconds=37
+  { 2459259.50, 69.354179 }, //14 February 2021, UT1-UTC=-0.1701794, Accumulated Leap Seconds=37
+  { 2459260.50, 69.354726 }, //15 February 2021, UT1-UTC=-0.1707258, Accumulated Leap Seconds=37
+  { 2459261.50, 69.355225 }, //16 February 2021, UT1-UTC=-0.1712247, Accumulated Leap Seconds=37
+  { 2459262.50, 69.355657 }, //17 February 2021, UT1-UTC=-0.1716574, Accumulated Leap Seconds=37
+  { 2459263.50, 69.355935 }, //18 February 2021, UT1-UTC=-0.1719348, Accumulated Leap Seconds=37
+  { 2459264.50, 69.355997 }, //19 February 2021, UT1-UTC=-0.1719972, Accumulated Leap Seconds=37
+  { 2459265.50, 69.355895 }, //20 February 2021, UT1-UTC=-0.1718948, Accumulated Leap Seconds=37
+  { 2459266.50, 69.355558 }, //21 February 2021, UT1-UTC=-0.1715580, Accumulated Leap Seconds=37
+  { 2459267.50, 69.355043 }, //22 February 2021, UT1-UTC=-0.1710434, Accumulated Leap Seconds=37
+  { 2459268.50, 69.354455 }, //23 February 2021, UT1-UTC=-0.1704547, Accumulated Leap Seconds=37
+  { 2459269.50, 69.353818 }, //24 February 2021, UT1-UTC=-0.1698184, Accumulated Leap Seconds=37
+  { 2459270.50, 69.353331 }, //25 February 2021, UT1-UTC=-0.1693310, Accumulated Leap Seconds=37
+  { 2459271.50, 69.353050 }, //26 February 2021, UT1-UTC=-0.1690499, Accumulated Leap Seconds=37
+  { 2459272.50, 69.353040 }, //27 February 2021, UT1-UTC=-0.1690397, Accumulated Leap Seconds=37
+  { 2459273.50, 69.353288 }, //28 February 2021, UT1-UTC=-0.1692878, Accumulated Leap Seconds=37
+  { 2459274.50, 69.353789 }, //01 March 2021, UT1-UTC=-0.1697890, Accumulated Leap Seconds=37
+  { 2459275.50, 69.354406 }, //02 March 2021, UT1-UTC=-0.1704065, Accumulated Leap Seconds=37
+  { 2459276.50, 69.355007 }, //03 March 2021, UT1-UTC=-0.1710074, Accumulated Leap Seconds=37
+  { 2459277.50, 69.355574 }, //04 March 2021, UT1-UTC=-0.1715736, Accumulated Leap Seconds=37
+  { 2459278.50, 69.355906 }, //05 March 2021, UT1-UTC=-0.1719057, Accumulated Leap Seconds=37
+  { 2459279.50, 69.355957 }, //06 March 2021, UT1-UTC=-0.1719572, Accumulated Leap Seconds=37
+  { 2459280.50, 69.355829 }, //07 March 2021, UT1-UTC=-0.1718290, Accumulated Leap Seconds=37
+  { 2459281.50, 69.355594 }, //08 March 2021, UT1-UTC=-0.1715937, Accumulated Leap Seconds=37
   { 2459282.50, 69.355316 }, //09 March 2021, UT1-UTC=-0.1713159, Accumulated Leap Seconds=37
-  { 2459283.50, 69.355105 }, //10 March 2021, UT1-UTC=-0.1711047, Accumulated Leap Seconds=37
-  { 2459284.50, 69.355020 }, //11 March 2021, UT1-UTC=-0.1710198, Accumulated Leap Seconds=37
-  { 2459285.50, 69.355071 }, //12 March 2021, UT1-UTC=-0.1710710, Accumulated Leap Seconds=37
-  { 2459286.50, 69.355278 }, //13 March 2021, UT1-UTC=-0.1712779, Accumulated Leap Seconds=37
-  { 2459287.50, 69.355602 }, //14 March 2021, UT1-UTC=-0.1716018, Accumulated Leap Seconds=37
-  { 2459288.50, 69.355943 }, //15 March 2021, UT1-UTC=-0.1719434, Accumulated Leap Seconds=37
-  { 2459289.50, 69.356229 }, //16 March 2021, UT1-UTC=-0.1722291, Accumulated Leap Seconds=37
-  { 2459290.50, 69.356373 }, //17 March 2021, UT1-UTC=-0.1723731, Accumulated Leap Seconds=37
-  { 2459291.50, 69.356381 }, //18 March 2021, UT1-UTC=-0.1723813, Accumulated Leap Seconds=37
-  { 2459292.50, 69.356282 }, //19 March 2021, UT1-UTC=-0.1722825, Accumulated Leap Seconds=37
-  { 2459293.50, 69.356015 }, //20 March 2021, UT1-UTC=-0.1720145, Accumulated Leap Seconds=37
+  { 2459283.50, 69.355105 }, //10 March 2021, UT1-UTC=-0.1711048, Accumulated Leap Seconds=37
+  { 2459284.50, 69.355020 }, //11 March 2021, UT1-UTC=-0.1710202, Accumulated Leap Seconds=37
+  { 2459285.50, 69.355072 }, //12 March 2021, UT1-UTC=-0.1710716, Accumulated Leap Seconds=37
+  { 2459286.50, 69.355278 }, //13 March 2021, UT1-UTC=-0.1712782, Accumulated Leap Seconds=37
+  { 2459287.50, 69.355602 }, //14 March 2021, UT1-UTC=-0.1716022, Accumulated Leap Seconds=37
+  { 2459288.50, 69.355943 }, //15 March 2021, UT1-UTC=-0.1719430, Accumulated Leap Seconds=37
+  { 2459289.50, 69.356229 }, //16 March 2021, UT1-UTC=-0.1722288, Accumulated Leap Seconds=37
+  { 2459290.50, 69.356372 }, //17 March 2021, UT1-UTC=-0.1723719, Accumulated Leap Seconds=37
+  { 2459291.50, 69.356378 }, //18 March 2021, UT1-UTC=-0.1723784, Accumulated Leap Seconds=37
+  { 2459292.50, 69.356282 }, //19 March 2021, UT1-UTC=-0.1722818, Accumulated Leap Seconds=37
+  { 2459293.50, 69.356014 }, //20 March 2021, UT1-UTC=-0.1720142, Accumulated Leap Seconds=37
   { 2459294.50, 69.355667 }, //21 March 2021, UT1-UTC=-0.1716667, Accumulated Leap Seconds=37
-  { 2459295.50, 69.355310 }, //22 March 2021, UT1-UTC=-0.1713099, Accumulated Leap Seconds=37
+  { 2459295.50, 69.355310 }, //22 March 2021, UT1-UTC=-0.1713100, Accumulated Leap Seconds=37
   { 2459296.50, 69.354963 }, //23 March 2021, UT1-UTC=-0.1709633, Accumulated Leap Seconds=37
-  { 2459297.50, 69.354676 }, //24 March 2021, UT1-UTC=-0.1706756, Accumulated Leap Seconds=37
+  { 2459297.50, 69.354675 }, //24 March 2021, UT1-UTC=-0.1706752, Accumulated Leap Seconds=37
   { 2459298.50, 69.354525 }, //25 March 2021, UT1-UTC=-0.1705248, Accumulated Leap Seconds=37
-  { 2459299.50, 69.354586 }, //26 March 2021, UT1-UTC=-0.1705858, Accumulated Leap Seconds=37
-  { 2459300.50, 69.354924 }, //27 March 2021, UT1-UTC=-0.1709236, Accumulated Leap Seconds=37
+  { 2459299.50, 69.354585 }, //26 March 2021, UT1-UTC=-0.1705852, Accumulated Leap Seconds=37
+  { 2459300.50, 69.354924 }, //27 March 2021, UT1-UTC=-0.1709242, Accumulated Leap Seconds=37
   { 2459301.50, 69.355478 }, //28 March 2021, UT1-UTC=-0.1714784, Accumulated Leap Seconds=37
-  { 2459302.50, 69.356248 }, //29 March 2021, UT1-UTC=-0.1722481, Accumulated Leap Seconds=37
-  { 2459303.50, 69.357045 }, //30 March 2021, UT1-UTC=-0.1730449, Accumulated Leap Seconds=37
-  { 2459304.50, 69.357725 }, //31 March 2021, UT1-UTC=-0.1737248, Accumulated Leap Seconds=37
-  { 2459305.50, 69.358222 }, //01 April 2021, UT1-UTC=-0.1742218, Accumulated Leap Seconds=37
-  { 2459306.50, 69.358483 }, //02 April 2021, UT1-UTC=-0.1744828, Accumulated Leap Seconds=37
-  { 2459307.50, 69.358553 }, //03 April 2021, UT1-UTC=-0.1745528, Accumulated Leap Seconds=37
-  { 2459308.50, 69.358474 }, //04 April 2021, UT1-UTC=-0.1744745, Accumulated Leap Seconds=37
-  { 2459309.50, 69.358376 }, //05 April 2021, UT1-UTC=-0.1743761, Accumulated Leap Seconds=37
-  { 2459310.50, 69.358413 }, //06 April 2021, UT1-UTC=-0.1744131, Accumulated Leap Seconds=37
-  { 2459311.50, 69.358600 }, //07 April 2021, UT1-UTC=-0.1745996, Accumulated Leap Seconds=37
-  { 2459312.50, 69.358865 }, //08 April 2021, UT1-UTC=-0.1748655, Accumulated Leap Seconds=37
-  { 2459313.50, 69.359281 }, //09 April 2021, UT1-UTC=-0.1752806, Accumulated Leap Seconds=37
-  { 2459314.50, 69.359752 }, //10 April 2021, UT1-UTC=-0.1757518, Accumulated Leap Seconds=37
-  { 2459315.50, 69.360282 }, //11 April 2021, UT1-UTC=-0.1762825, Accumulated Leap Seconds=37
-  { 2459316.50, 69.360827 }, //12 April 2021, UT1-UTC=-0.1768266, Accumulated Leap Seconds=37
-  { 2459317.50, 69.361254 }, //13 April 2021, UT1-UTC=-0.1772537, Accumulated Leap Seconds=37
-  { 2459318.50, 69.361614 }, //14 April 2021, UT1-UTC=-0.1776138, Accumulated Leap Seconds=37
-  { 2459319.50, 69.361856 }, //15 April 2021, UT1-UTC=-0.1778564, Accumulated Leap Seconds=37
-  { 2459320.50, 69.361991 }, //16 April 2021, UT1-UTC=-0.1779910, Accumulated Leap Seconds=37
-  { 2459321.50, 69.362016 }, //17 April 2021, UT1-UTC=-0.1780164, Accumulated Leap Seconds=37
-  { 2459322.50, 69.361971 }, //18 April 2021, UT1-UTC=-0.1779707, Accumulated Leap Seconds=37
-  { 2459323.50, 69.361875 }, //19 April 2021, UT1-UTC=-0.1778748, Accumulated Leap Seconds=37
-  { 2459324.50, 69.361845 }, //20 April 2021, UT1-UTC=-0.1778445, Accumulated Leap Seconds=37
-  { 2459325.50, 69.361868 }, //21 April 2021, UT1-UTC=-0.1778679, Accumulated Leap Seconds=37
-  { 2459326.50, 69.362056 }, //22 April 2021, UT1-UTC=-0.1780557, Accumulated Leap Seconds=37
-  { 2459327.50, 69.362525 }, //23 April 2021, UT1-UTC=-0.1785251, Accumulated Leap Seconds=37
-  { 2459328.50, 69.363155 }, //24 April 2021, UT1-UTC=-0.1791551, Accumulated Leap Seconds=37
-  { 2459329.50, 69.363961 }, //25 April 2021, UT1-UTC=-0.1799605, Accumulated Leap Seconds=37
-  { 2459330.50, 69.364885 }, //26 April 2021, UT1-UTC=-0.1808852, Accumulated Leap Seconds=37
-  { 2459331.50, 69.365896 }, //27 April 2021, UT1-UTC=-0.1818964, Accumulated Leap Seconds=37
-  { 2459332.50, 69.366705 }, //28 April 2021, UT1-UTC=-0.1827046, Accumulated Leap Seconds=37
+  { 2459302.50, 69.356249 }, //29 March 2021, UT1-UTC=-0.1722494, Accumulated Leap Seconds=37
+  { 2459303.50, 69.357045 }, //30 March 2021, UT1-UTC=-0.1730453, Accumulated Leap Seconds=37
+  { 2459304.50, 69.357725 }, //31 March 2021, UT1-UTC=-0.1737249, Accumulated Leap Seconds=37
+  { 2459305.50, 69.358222 }, //01 April 2021, UT1-UTC=-0.1742219, Accumulated Leap Seconds=37
+  { 2459306.50, 69.358482 }, //02 April 2021, UT1-UTC=-0.1744818, Accumulated Leap Seconds=37
+  { 2459307.50, 69.358552 }, //03 April 2021, UT1-UTC=-0.1745522, Accumulated Leap Seconds=37
+  { 2459308.50, 69.358475 }, //04 April 2021, UT1-UTC=-0.1744748, Accumulated Leap Seconds=37
+  { 2459309.50, 69.358373 }, //05 April 2021, UT1-UTC=-0.1743733, Accumulated Leap Seconds=37
+  { 2459310.50, 69.358410 }, //06 April 2021, UT1-UTC=-0.1744100, Accumulated Leap Seconds=37
+  { 2459311.50, 69.358600 }, //07 April 2021, UT1-UTC=-0.1746000, Accumulated Leap Seconds=37
+  { 2459312.50, 69.358864 }, //08 April 2021, UT1-UTC=-0.1748639, Accumulated Leap Seconds=37
+  { 2459313.50, 69.359280 }, //09 April 2021, UT1-UTC=-0.1752801, Accumulated Leap Seconds=37
+  { 2459314.50, 69.359753 }, //10 April 2021, UT1-UTC=-0.1757528, Accumulated Leap Seconds=37
+  { 2459315.50, 69.360282 }, //11 April 2021, UT1-UTC=-0.1762824, Accumulated Leap Seconds=37
+  { 2459316.50, 69.360829 }, //12 April 2021, UT1-UTC=-0.1768293, Accumulated Leap Seconds=37
+  { 2459317.50, 69.361254 }, //13 April 2021, UT1-UTC=-0.1772544, Accumulated Leap Seconds=37
+  { 2459318.50, 69.361615 }, //14 April 2021, UT1-UTC=-0.1776145, Accumulated Leap Seconds=37
+  { 2459319.50, 69.361856 }, //15 April 2021, UT1-UTC=-0.1778559, Accumulated Leap Seconds=37
+  { 2459320.50, 69.361991 }, //16 April 2021, UT1-UTC=-0.1779905, Accumulated Leap Seconds=37
+  { 2459321.50, 69.362017 }, //17 April 2021, UT1-UTC=-0.1780169, Accumulated Leap Seconds=37
+  { 2459322.50, 69.361971 }, //18 April 2021, UT1-UTC=-0.1779714, Accumulated Leap Seconds=37
+  { 2459323.50, 69.361871 }, //19 April 2021, UT1-UTC=-0.1778712, Accumulated Leap Seconds=37
+  { 2459324.50, 69.361843 }, //20 April 2021, UT1-UTC=-0.1778435, Accumulated Leap Seconds=37
+  { 2459325.50, 69.361864 }, //21 April 2021, UT1-UTC=-0.1778638, Accumulated Leap Seconds=37
+  { 2459326.50, 69.362050 }, //22 April 2021, UT1-UTC=-0.1780499, Accumulated Leap Seconds=37
+  { 2459327.50, 69.362525 }, //23 April 2021, UT1-UTC=-0.1785246, Accumulated Leap Seconds=37
+  { 2459328.50, 69.363155 }, //24 April 2021, UT1-UTC=-0.1791546, Accumulated Leap Seconds=37
+  { 2459329.50, 69.363961 }, //25 April 2021, UT1-UTC=-0.1799607, Accumulated Leap Seconds=37
+  { 2459330.50, 69.364885 }, //26 April 2021, UT1-UTC=-0.1808845, Accumulated Leap Seconds=37
+  { 2459331.50, 69.365897 }, //27 April 2021, UT1-UTC=-0.1818969, Accumulated Leap Seconds=37
+  { 2459332.50, 69.366703 }, //28 April 2021, UT1-UTC=-0.1827035, Accumulated Leap Seconds=37
   { 2459333.50, 69.367200 }, //29 April 2021, UT1-UTC=-0.1832005, Accumulated Leap Seconds=37
-  { 2459334.50, 69.367370 }, //30 April 2021, UT1-UTC=-0.1833703, Accumulated Leap Seconds=37
-  { 2459335.50, 69.367302 }, //01 May 2021, UT1-UTC=-0.1833024, Accumulated Leap Seconds=37
-  { 2459336.50, 69.367085 }, //02 May 2021, UT1-UTC=-0.1830851, Accumulated Leap Seconds=37
-  { 2459337.50, 69.366788 }, //03 May 2021, UT1-UTC=-0.1827880, Accumulated Leap Seconds=37
-  { 2459338.50, 69.366518 }, //04 May 2021, UT1-UTC=-0.1825185, Accumulated Leap Seconds=37
-  { 2459339.50, 69.366386 }, //05 May 2021, UT1-UTC=-0.1823859, Accumulated Leap Seconds=37
-  { 2459340.50, 69.366396 }, //06 May 2021, UT1-UTC=-0.1823958, Accumulated Leap Seconds=37
-  { 2459341.50, 69.366558 }, //07 May 2021, UT1-UTC=-0.1825576, Accumulated Leap Seconds=37
-  { 2459342.50, 69.366820 }, //08 May 2021, UT1-UTC=-0.1828201, Accumulated Leap Seconds=37
-  { 2459343.50, 69.367047 }, //09 May 2021, UT1-UTC=-0.1830466, Accumulated Leap Seconds=37
-  { 2459344.50, 69.367221 }, //10 May 2021, UT1-UTC=-0.1832205, Accumulated Leap Seconds=37
-  { 2459345.50, 69.367355 }, //11 May 2021, UT1-UTC=-0.1833548, Accumulated Leap Seconds=37
-  { 2459346.50, 69.367438 }, //12 May 2021, UT1-UTC=-0.1834377, Accumulated Leap Seconds=37
-  { 2459347.50, 69.367304 }, //13 May 2021, UT1-UTC=-0.1833037, Accumulated Leap Seconds=37
-  { 2459348.50, 69.367098 }, //14 May 2021, UT1-UTC=-0.1830979, Accumulated Leap Seconds=37
-  { 2459349.50, 69.366823 }, //15 May 2021, UT1-UTC=-0.1828234, Accumulated Leap Seconds=37
-  { 2459350.50, 69.366536 }, //16 May 2021, UT1-UTC=-0.1825360, Accumulated Leap Seconds=37
-  { 2459351.50, 69.366260 }, //17 May 2021, UT1-UTC=-0.1822605, Accumulated Leap Seconds=37
-  { 2459352.50, 69.366028 }, //18 May 2021, UT1-UTC=-0.1820285, Accumulated Leap Seconds=37
-  { 2459353.50, 69.365971 }, //19 May 2021, UT1-UTC=-0.1819709, Accumulated Leap Seconds=37
-  { 2459354.50, 69.366078 }, //20 May 2021, UT1-UTC=-0.1820778, Accumulated Leap Seconds=37
-  { 2459355.50, 69.366505 }, //21 May 2021, UT1-UTC=-0.1825048, Accumulated Leap Seconds=37
-  { 2459356.50, 69.367029 }, //22 May 2021, UT1-UTC=-0.1830291, Accumulated Leap Seconds=37
-  { 2459357.50, 69.367716 }, //23 May 2021, UT1-UTC=-0.1837160, Accumulated Leap Seconds=37
-  { 2459358.50, 69.368436 }, //24 May 2021, UT1-UTC=-0.1844357, Accumulated Leap Seconds=37
-  { 2459359.50, 69.369040 }, //25 May 2021, UT1-UTC=-0.1850403, Accumulated Leap Seconds=37
-  { 2459360.50, 69.369417 }, //26 May 2021, UT1-UTC=-0.1854171, Accumulated Leap Seconds=37
-  { 2459361.50, 69.369541 }, //27 May 2021, UT1-UTC=-0.1855412, Accumulated Leap Seconds=37
+  { 2459334.50, 69.367370 }, //30 April 2021, UT1-UTC=-0.1833696, Accumulated Leap Seconds=37
+  { 2459335.50, 69.367301 }, //01 May 2021, UT1-UTC=-0.1833009, Accumulated Leap Seconds=37
+  { 2459336.50, 69.367084 }, //02 May 2021, UT1-UTC=-0.1830843, Accumulated Leap Seconds=37
+  { 2459337.50, 69.366788 }, //03 May 2021, UT1-UTC=-0.1827881, Accumulated Leap Seconds=37
+  { 2459338.50, 69.366518 }, //04 May 2021, UT1-UTC=-0.1825183, Accumulated Leap Seconds=37
+  { 2459339.50, 69.366386 }, //05 May 2021, UT1-UTC=-0.1823862, Accumulated Leap Seconds=37
+  { 2459340.50, 69.366396 }, //06 May 2021, UT1-UTC=-0.1823956, Accumulated Leap Seconds=37
+  { 2459341.50, 69.366557 }, //07 May 2021, UT1-UTC=-0.1825573, Accumulated Leap Seconds=37
+  { 2459342.50, 69.366821 }, //08 May 2021, UT1-UTC=-0.1828205, Accumulated Leap Seconds=37
+  { 2459343.50, 69.367047 }, //09 May 2021, UT1-UTC=-0.1830468, Accumulated Leap Seconds=37
+  { 2459344.50, 69.367221 }, //10 May 2021, UT1-UTC=-0.1832212, Accumulated Leap Seconds=37
+  { 2459345.50, 69.367354 }, //11 May 2021, UT1-UTC=-0.1833544, Accumulated Leap Seconds=37
+  { 2459346.50, 69.367439 }, //12 May 2021, UT1-UTC=-0.1834392, Accumulated Leap Seconds=37
+  { 2459347.50, 69.367302 }, //13 May 2021, UT1-UTC=-0.1833022, Accumulated Leap Seconds=37
+  { 2459348.50, 69.367098 }, //14 May 2021, UT1-UTC=-0.1830977, Accumulated Leap Seconds=37
+  { 2459349.50, 69.366823 }, //15 May 2021, UT1-UTC=-0.1828231, Accumulated Leap Seconds=37
+  { 2459350.50, 69.366536 }, //16 May 2021, UT1-UTC=-0.1825361, Accumulated Leap Seconds=37
+  { 2459351.50, 69.366261 }, //17 May 2021, UT1-UTC=-0.1822608, Accumulated Leap Seconds=37
+  { 2459352.50, 69.366026 }, //18 May 2021, UT1-UTC=-0.1820262, Accumulated Leap Seconds=37
+  { 2459353.50, 69.365970 }, //19 May 2021, UT1-UTC=-0.1819702, Accumulated Leap Seconds=37
+  { 2459354.50, 69.366075 }, //20 May 2021, UT1-UTC=-0.1820750, Accumulated Leap Seconds=37
+  { 2459355.50, 69.366505 }, //21 May 2021, UT1-UTC=-0.1825054, Accumulated Leap Seconds=37
+  { 2459356.50, 69.367028 }, //22 May 2021, UT1-UTC=-0.1830279, Accumulated Leap Seconds=37
+  { 2459357.50, 69.367716 }, //23 May 2021, UT1-UTC=-0.1837164, Accumulated Leap Seconds=37
+  { 2459358.50, 69.368436 }, //24 May 2021, UT1-UTC=-0.1844356, Accumulated Leap Seconds=37
+  { 2459359.50, 69.369041 }, //25 May 2021, UT1-UTC=-0.1850409, Accumulated Leap Seconds=37
+  { 2459360.50, 69.369417 }, //26 May 2021, UT1-UTC=-0.1854172, Accumulated Leap Seconds=37
+  { 2459361.50, 69.369541 }, //27 May 2021, UT1-UTC=-0.1855413, Accumulated Leap Seconds=37
   { 2459362.50, 69.369405 }, //28 May 2021, UT1-UTC=-0.1854054, Accumulated Leap Seconds=37
-  { 2459363.50, 69.369050 }, //29 May 2021, UT1-UTC=-0.1850497, Accumulated Leap Seconds=37
-  { 2459364.50, 69.368589 }, //30 May 2021, UT1-UTC=-0.1845894, Accumulated Leap Seconds=37
-  { 2459365.50, 69.368158 }, //31 May 2021, UT1-UTC=-0.1841578, Accumulated Leap Seconds=37
-  { 2459366.50, 69.367864 }, //01 June 2021, UT1-UTC=-0.1838636, Accumulated Leap Seconds=37
-  { 2459367.50, 69.367704 }, //02 June 2021, UT1-UTC=-0.1837043, Accumulated Leap Seconds=37
-  { 2459368.50, 69.367660 }, //03 June 2021, UT1-UTC=-0.1836601, Accumulated Leap Seconds=37
-  { 2459369.50, 69.367711 }, //04 June 2021, UT1-UTC=-0.1837107, Accumulated Leap Seconds=37
-  { 2459370.50, 69.367741 }, //05 June 2021, UT1-UTC=-0.1837413, Accumulated Leap Seconds=37
-  { 2459371.50, 69.367666 }, //06 June 2021, UT1-UTC=-0.1836657, Accumulated Leap Seconds=37
+  { 2459363.50, 69.369050 }, //29 May 2021, UT1-UTC=-0.1850502, Accumulated Leap Seconds=37
+  { 2459364.50, 69.368589 }, //30 May 2021, UT1-UTC=-0.1845893, Accumulated Leap Seconds=37
+  { 2459365.50, 69.368158 }, //31 May 2021, UT1-UTC=-0.1841582, Accumulated Leap Seconds=37
+  { 2459366.50, 69.367863 }, //01 June 2021, UT1-UTC=-0.1838633, Accumulated Leap Seconds=37
+  { 2459367.50, 69.367704 }, //02 June 2021, UT1-UTC=-0.1837038, Accumulated Leap Seconds=37
+  { 2459368.50, 69.367660 }, //03 June 2021, UT1-UTC=-0.1836598, Accumulated Leap Seconds=37
+  { 2459369.50, 69.367711 }, //04 June 2021, UT1-UTC=-0.1837110, Accumulated Leap Seconds=37
+  { 2459370.50, 69.367740 }, //05 June 2021, UT1-UTC=-0.1837405, Accumulated Leap Seconds=37
+  { 2459371.50, 69.367666 }, //06 June 2021, UT1-UTC=-0.1836658, Accumulated Leap Seconds=37
   { 2459372.50, 69.367470 }, //07 June 2021, UT1-UTC=-0.1834705, Accumulated Leap Seconds=37
-  { 2459373.50, 69.367127 }, //08 June 2021, UT1-UTC=-0.1831267, Accumulated Leap Seconds=37
-  { 2459374.50, 69.366575 }, //09 June 2021, UT1-UTC=-0.1825755, Accumulated Leap Seconds=37
-  { 2459375.50, 69.365905 }, //10 June 2021, UT1-UTC=-0.1819048, Accumulated Leap Seconds=37
-  { 2459376.50, 69.365098 }, //11 June 2021, UT1-UTC=-0.1810983, Accumulated Leap Seconds=37
-  { 2459377.50, 69.364173 }, //12 June 2021, UT1-UTC=-0.1801728, Accumulated Leap Seconds=37
-  { 2459378.50, 69.363265 }, //13 June 2021, UT1-UTC=-0.1792647, Accumulated Leap Seconds=37
-  { 2459379.50, 69.362345 }, //14 June 2021, UT1-UTC=-0.1783448, Accumulated Leap Seconds=37
-  { 2459380.50, 69.361577 }, //15 June 2021, UT1-UTC=-0.1775772, Accumulated Leap Seconds=37
-  { 2459381.50, 69.360978 }, //16 June 2021, UT1-UTC=-0.1769779, Accumulated Leap Seconds=37
-  { 2459382.50, 69.360509 }, //17 June 2021, UT1-UTC=-0.1765094, Accumulated Leap Seconds=37
-  { 2459383.50, 69.360284 }, //18 June 2021, UT1-UTC=-0.1762837, Accumulated Leap Seconds=37
-  { 2459384.50, 69.360208 }, //19 June 2021, UT1-UTC=-0.1762083, Accumulated Leap Seconds=37
+  { 2459373.50, 69.367127 }, //08 June 2021, UT1-UTC=-0.1831272, Accumulated Leap Seconds=37
+  { 2459374.50, 69.366575 }, //09 June 2021, UT1-UTC=-0.1825750, Accumulated Leap Seconds=37
+  { 2459375.50, 69.365904 }, //10 June 2021, UT1-UTC=-0.1819043, Accumulated Leap Seconds=37
+  { 2459376.50, 69.365099 }, //11 June 2021, UT1-UTC=-0.1810988, Accumulated Leap Seconds=37
+  { 2459377.50, 69.364171 }, //12 June 2021, UT1-UTC=-0.1801713, Accumulated Leap Seconds=37
+  { 2459378.50, 69.363266 }, //13 June 2021, UT1-UTC=-0.1792657, Accumulated Leap Seconds=37
+  { 2459379.50, 69.362344 }, //14 June 2021, UT1-UTC=-0.1783443, Accumulated Leap Seconds=37
+  { 2459380.50, 69.361576 }, //15 June 2021, UT1-UTC=-0.1775765, Accumulated Leap Seconds=37
+  { 2459381.50, 69.360978 }, //16 June 2021, UT1-UTC=-0.1769776, Accumulated Leap Seconds=37
+  { 2459382.50, 69.360508 }, //17 June 2021, UT1-UTC=-0.1765076, Accumulated Leap Seconds=37
+  { 2459383.50, 69.360283 }, //18 June 2021, UT1-UTC=-0.1762829, Accumulated Leap Seconds=37
+  { 2459384.50, 69.360208 }, //19 June 2021, UT1-UTC=-0.1762076, Accumulated Leap Seconds=37
   { 2459385.50, 69.360239 }, //20 June 2021, UT1-UTC=-0.1762388, Accumulated Leap Seconds=37
-  { 2459386.50, 69.360203 }, //21 June 2021, UT1-UTC=-0.1762031, Accumulated Leap Seconds=37
-  { 2459387.50, 69.359952 }, //22 June 2021, UT1-UTC=-0.1759519, Accumulated Leap Seconds=37
-  { 2459388.50, 69.359469 }, //23 June 2021, UT1-UTC=-0.1754689, Accumulated Leap Seconds=37
-  { 2459389.50, 69.358660 }, //24 June 2021, UT1-UTC=-0.1746598, Accumulated Leap Seconds=37
-  { 2459390.50, 69.357581 }, //25 June 2021, UT1-UTC=-0.1735813, Accumulated Leap Seconds=37
-  { 2459391.50, 69.356387 }, //26 June 2021, UT1-UTC=-0.1723874, Accumulated Leap Seconds=37
-  { 2459392.50, 69.355139 }, //27 June 2021, UT1-UTC=-0.1711390, Accumulated Leap Seconds=37
-  { 2459393.50, 69.353968 }, //28 June 2021, UT1-UTC=-0.1699678, Accumulated Leap Seconds=37
-  { 2459394.50, 69.352983 }, //29 June 2021, UT1-UTC=-0.1689827, Accumulated Leap Seconds=37
-  { 2459395.50, 69.352189 }, //30 June 2021, UT1-UTC=-0.1681891, Accumulated Leap Seconds=37
-  { 2459396.50, 69.351419 }, //01 July 2021, UT1-UTC=-0.1674192, Accumulated Leap Seconds=37
-  { 2459397.50, 69.350725 }, //02 July 2021, UT1-UTC=-0.1667252, Accumulated Leap Seconds=37
-  { 2459398.50, 69.349989 }, //03 July 2021, UT1-UTC=-0.1659887, Accumulated Leap Seconds=37
-  { 2459399.50, 69.349171 }, //04 July 2021, UT1-UTC=-0.1651714, Accumulated Leap Seconds=37
-  { 2459400.50, 69.348175 }, //05 July 2021, UT1-UTC=-0.1641748, Accumulated Leap Seconds=37
-  { 2459401.50, 69.347000 }, //06 July 2021, UT1-UTC=-0.1629998, Accumulated Leap Seconds=37
-  { 2459402.50, 69.345811 }, //07 July 2021, UT1-UTC=-0.1618108, Accumulated Leap Seconds=37
-  { 2459403.50, 69.344454 }, //08 July 2021, UT1-UTC=-0.1604540, Accumulated Leap Seconds=37
+  { 2459386.50, 69.360204 }, //21 June 2021, UT1-UTC=-0.1762039, Accumulated Leap Seconds=37
+  { 2459387.50, 69.359952 }, //22 June 2021, UT1-UTC=-0.1759516, Accumulated Leap Seconds=37
+  { 2459388.50, 69.359470 }, //23 June 2021, UT1-UTC=-0.1754696, Accumulated Leap Seconds=37
+  { 2459389.50, 69.358661 }, //24 June 2021, UT1-UTC=-0.1746608, Accumulated Leap Seconds=37
+  { 2459390.50, 69.357580 }, //25 June 2021, UT1-UTC=-0.1735802, Accumulated Leap Seconds=37
+  { 2459391.50, 69.356387 }, //26 June 2021, UT1-UTC=-0.1723870, Accumulated Leap Seconds=37
+  { 2459392.50, 69.355139 }, //27 June 2021, UT1-UTC=-0.1711392, Accumulated Leap Seconds=37
+  { 2459393.50, 69.353968 }, //28 June 2021, UT1-UTC=-0.1699677, Accumulated Leap Seconds=37
+  { 2459394.50, 69.352982 }, //29 June 2021, UT1-UTC=-0.1689820, Accumulated Leap Seconds=37
+  { 2459395.50, 69.352191 }, //30 June 2021, UT1-UTC=-0.1681907, Accumulated Leap Seconds=37
+  { 2459396.50, 69.351419 }, //01 July 2021, UT1-UTC=-0.1674186, Accumulated Leap Seconds=37
+  { 2459397.50, 69.350724 }, //02 July 2021, UT1-UTC=-0.1667245, Accumulated Leap Seconds=37
+  { 2459398.50, 69.349989 }, //03 July 2021, UT1-UTC=-0.1659886, Accumulated Leap Seconds=37
+  { 2459399.50, 69.349172 }, //04 July 2021, UT1-UTC=-0.1651716, Accumulated Leap Seconds=37
+  { 2459400.50, 69.348173 }, //05 July 2021, UT1-UTC=-0.1641732, Accumulated Leap Seconds=37
+  { 2459401.50, 69.346992 }, //06 July 2021, UT1-UTC=-0.1629925, Accumulated Leap Seconds=37
+  { 2459402.50, 69.345809 }, //07 July 2021, UT1-UTC=-0.1618093, Accumulated Leap Seconds=37
+  { 2459403.50, 69.344452 }, //08 July 2021, UT1-UTC=-0.1604523, Accumulated Leap Seconds=37
   { 2459404.50, 69.343025 }, //09 July 2021, UT1-UTC=-0.1590249, Accumulated Leap Seconds=37
-  { 2459405.50, 69.341566 }, //10 July 2021, UT1-UTC=-0.1575657, Accumulated Leap Seconds=37
-  { 2459406.50, 69.340216 }, //11 July 2021, UT1-UTC=-0.1562164, Accumulated Leap Seconds=37
-  { 2459407.50, 69.338969 }, //12 July 2021, UT1-UTC=-0.1549689, Accumulated Leap Seconds=37
-  { 2459408.50, 69.337897 }, //13 July 2021, UT1-UTC=-0.1538974, Accumulated Leap Seconds=37
-  { 2459409.50, 69.337010 }, //14 July 2021, UT1-UTC=-0.1530104, Accumulated Leap Seconds=37
-  { 2459410.50, 69.336395 }, //15 July 2021, UT1-UTC=-0.1523946, Accumulated Leap Seconds=37
-  { 2459411.50, 69.335994 }, //16 July 2021, UT1-UTC=-0.1519935, Accumulated Leap Seconds=37
-  { 2459412.50, 69.335745 }, //17 July 2021, UT1-UTC=-0.1517451, Accumulated Leap Seconds=37
-  { 2459413.50, 69.335532 }, //18 July 2021, UT1-UTC=-0.1515316, Accumulated Leap Seconds=37
-  { 2459414.50, 69.335194 }, //19 July 2021, UT1-UTC=-0.1511938, Accumulated Leap Seconds=37
-  { 2459415.50, 69.334706 }, //20 July 2021, UT1-UTC=-0.1507061, Accumulated Leap Seconds=37
-  { 2459416.50, 69.334078 }, //21 July 2021, UT1-UTC=-0.1500782, Accumulated Leap Seconds=37
-  { 2459417.50, 69.333294 }, //22 July 2021, UT1-UTC=-0.1492942, Accumulated Leap Seconds=37
-  { 2459418.50, 69.332384 }, //23 July 2021, UT1-UTC=-0.1483844, Accumulated Leap Seconds=37
-  { 2459419.50, 69.331477 }, //24 July 2021, UT1-UTC=-0.1474771, Accumulated Leap Seconds=37
-  { 2459420.50, 69.330703 }, //25 July 2021, UT1-UTC=-0.1467035, Accumulated Leap Seconds=37
-  { 2459421.50, 69.330076 }, //26 July 2021, UT1-UTC=-0.1460757, Accumulated Leap Seconds=37
-  { 2459422.50, 69.329537 }, //27 July 2021, UT1-UTC=-0.1455371, Accumulated Leap Seconds=37
-  { 2459423.50, 69.329118 }, //28 July 2021, UT1-UTC=-0.1451181, Accumulated Leap Seconds=37
-  { 2459424.50, 69.328754 }, //29 July 2021, UT1-UTC=-0.1447537, Accumulated Leap Seconds=37
-  { 2459425.50, 69.328366 }, //30 July 2021, UT1-UTC=-0.1443658, Accumulated Leap Seconds=37
-  { 2459426.50, 69.327927 }, //31 July 2021, UT1-UTC=-0.1439269, Accumulated Leap Seconds=37
-  { 2459427.50, 69.327345 }, //01 August 2021, UT1-UTC=-0.1433450, Accumulated Leap Seconds=37
-  { 2459428.50, 69.326646 }, //02 August 2021, UT1-UTC=-0.1426457, Accumulated Leap Seconds=37
-  { 2459429.50, 69.325829 }, //03 August 2021, UT1-UTC=-0.1418288, Accumulated Leap Seconds=37
-  { 2459430.50, 69.324888 }, //04 August 2021, UT1-UTC=-0.1408884, Accumulated Leap Seconds=37
-  { 2459431.50, 69.323859 }, //05 August 2021, UT1-UTC=-0.1398586, Accumulated Leap Seconds=37
-  { 2459432.50, 69.322772 }, //06 August 2021, UT1-UTC=-0.1387721, Accumulated Leap Seconds=37
-  { 2459433.50, 69.321752 }, //07 August 2021, UT1-UTC=-0.1377521, Accumulated Leap Seconds=37
-  { 2459434.50, 69.320745 }, //08 August 2021, UT1-UTC=-0.1367448, Accumulated Leap Seconds=37
-  { 2459435.50, 69.319826 }, //09 August 2021, UT1-UTC=-0.1358261, Accumulated Leap Seconds=37
+  { 2459405.50, 69.341565 }, //10 July 2021, UT1-UTC=-0.1575650, Accumulated Leap Seconds=37
+  { 2459406.50, 69.340218 }, //11 July 2021, UT1-UTC=-0.1562176, Accumulated Leap Seconds=37
+  { 2459407.50, 69.338970 }, //12 July 2021, UT1-UTC=-0.1549697, Accumulated Leap Seconds=37
+  { 2459408.50, 69.337897 }, //13 July 2021, UT1-UTC=-0.1538969, Accumulated Leap Seconds=37
+  { 2459409.50, 69.337010 }, //14 July 2021, UT1-UTC=-0.1530097, Accumulated Leap Seconds=37
+  { 2459410.50, 69.336396 }, //15 July 2021, UT1-UTC=-0.1523961, Accumulated Leap Seconds=37
+  { 2459411.50, 69.335993 }, //16 July 2021, UT1-UTC=-0.1519926, Accumulated Leap Seconds=37
+  { 2459412.50, 69.335745 }, //17 July 2021, UT1-UTC=-0.1517446, Accumulated Leap Seconds=37
+  { 2459413.50, 69.335532 }, //18 July 2021, UT1-UTC=-0.1515319, Accumulated Leap Seconds=37
+  { 2459414.50, 69.335193 }, //19 July 2021, UT1-UTC=-0.1511926, Accumulated Leap Seconds=37
+  { 2459415.50, 69.334706 }, //20 July 2021, UT1-UTC=-0.1507057, Accumulated Leap Seconds=37
+  { 2459416.50, 69.334078 }, //21 July 2021, UT1-UTC=-0.1500781, Accumulated Leap Seconds=37
+  { 2459417.50, 69.333295 }, //22 July 2021, UT1-UTC=-0.1492949, Accumulated Leap Seconds=37
+  { 2459418.50, 69.332383 }, //23 July 2021, UT1-UTC=-0.1483829, Accumulated Leap Seconds=37
+  { 2459419.50, 69.331477 }, //24 July 2021, UT1-UTC=-0.1474768, Accumulated Leap Seconds=37
+  { 2459420.50, 69.330703 }, //25 July 2021, UT1-UTC=-0.1467031, Accumulated Leap Seconds=37
+  { 2459421.50, 69.330076 }, //26 July 2021, UT1-UTC=-0.1460760, Accumulated Leap Seconds=37
+  { 2459422.50, 69.329537 }, //27 July 2021, UT1-UTC=-0.1455372, Accumulated Leap Seconds=37
+  { 2459423.50, 69.329119 }, //28 July 2021, UT1-UTC=-0.1451190, Accumulated Leap Seconds=37
+  { 2459424.50, 69.328756 }, //29 July 2021, UT1-UTC=-0.1447557, Accumulated Leap Seconds=37
+  { 2459425.50, 69.328366 }, //30 July 2021, UT1-UTC=-0.1443657, Accumulated Leap Seconds=37
+  { 2459426.50, 69.327927 }, //31 July 2021, UT1-UTC=-0.1439265, Accumulated Leap Seconds=37
+  { 2459427.50, 69.327345 }, //01 August 2021, UT1-UTC=-0.1433448, Accumulated Leap Seconds=37
+  { 2459428.50, 69.326647 }, //02 August 2021, UT1-UTC=-0.1426469, Accumulated Leap Seconds=37
+  { 2459429.50, 69.325829 }, //03 August 2021, UT1-UTC=-0.1418292, Accumulated Leap Seconds=37
+  { 2459430.50, 69.324889 }, //04 August 2021, UT1-UTC=-0.1408885, Accumulated Leap Seconds=37
+  { 2459431.50, 69.323859 }, //05 August 2021, UT1-UTC=-0.1398585, Accumulated Leap Seconds=37
+  { 2459432.50, 69.322770 }, //06 August 2021, UT1-UTC=-0.1387696, Accumulated Leap Seconds=37
+  { 2459433.50, 69.321752 }, //07 August 2021, UT1-UTC=-0.1377524, Accumulated Leap Seconds=37
+  { 2459434.50, 69.320745 }, //08 August 2021, UT1-UTC=-0.1367452, Accumulated Leap Seconds=37
+  { 2459435.50, 69.319826 }, //09 August 2021, UT1-UTC=-0.1358257, Accumulated Leap Seconds=37
   { 2459436.50, 69.319085 }, //10 August 2021, UT1-UTC=-0.1350848, Accumulated Leap Seconds=37
-  { 2459437.50, 69.318518 }, //11 August 2021, UT1-UTC=-0.1345179, Accumulated Leap Seconds=37
-  { 2459438.50, 69.318094 }, //12 August 2021, UT1-UTC=-0.1340944, Accumulated Leap Seconds=37
-  { 2459439.50, 69.317836 }, //13 August 2021, UT1-UTC=-0.1338358, Accumulated Leap Seconds=37
-  { 2459440.50, 69.317512 }, //14 August 2021, UT1-UTC=-0.1335121, Accumulated Leap Seconds=37
-  { 2459441.50, 69.317123 }, //15 August 2021, UT1-UTC=-0.1331230, Accumulated Leap Seconds=37
-  { 2459442.50, 69.316558 }, //16 August 2021, UT1-UTC=-0.1325584, Accumulated Leap Seconds=37
-  { 2459443.50, 69.315752 }, //17 August 2021, UT1-UTC=-0.1317522, Accumulated Leap Seconds=37
-  { 2459444.50, 69.314714 }, //18 August 2021, UT1-UTC=-0.1307144, Accumulated Leap Seconds=37
-  { 2459445.50, 69.313561 }, //19 August 2021, UT1-UTC=-0.1295614, Accumulated Leap Seconds=37
+  { 2459437.50, 69.318518 }, //11 August 2021, UT1-UTC=-0.1345184, Accumulated Leap Seconds=37
+  { 2459438.50, 69.318093 }, //12 August 2021, UT1-UTC=-0.1340930, Accumulated Leap Seconds=37
+  { 2459439.50, 69.317836 }, //13 August 2021, UT1-UTC=-0.1338362, Accumulated Leap Seconds=37
+  { 2459440.50, 69.317511 }, //14 August 2021, UT1-UTC=-0.1335107, Accumulated Leap Seconds=37
+  { 2459441.50, 69.317125 }, //15 August 2021, UT1-UTC=-0.1331246, Accumulated Leap Seconds=37
+  { 2459442.50, 69.316561 }, //16 August 2021, UT1-UTC=-0.1325607, Accumulated Leap Seconds=37
+  { 2459443.50, 69.315754 }, //17 August 2021, UT1-UTC=-0.1317545, Accumulated Leap Seconds=37
+  { 2459444.50, 69.314714 }, //18 August 2021, UT1-UTC=-0.1307143, Accumulated Leap Seconds=37
+  { 2459445.50, 69.313562 }, //19 August 2021, UT1-UTC=-0.1295619, Accumulated Leap Seconds=37
   { 2459446.50, 69.312361 }, //20 August 2021, UT1-UTC=-0.1283609, Accumulated Leap Seconds=37
-  { 2459447.50, 69.311235 }, //21 August 2021, UT1-UTC=-0.1272346, Accumulated Leap Seconds=37
-  { 2459448.50, 69.310319 }, //22 August 2021, UT1-UTC=-0.1263193, Accumulated Leap Seconds=37
-  { 2459449.50, 69.309577 }, //23 August 2021, UT1-UTC=-0.1255774, Accumulated Leap Seconds=37
-  { 2459450.50, 69.308967 }, //24 August 2021, UT1-UTC=-0.1249673, Accumulated Leap Seconds=37
-  { 2459451.50, 69.308454 }, //25 August 2021, UT1-UTC=-0.1244543, Accumulated Leap Seconds=37
-  { 2459452.50, 69.307998 }, //26 August 2021, UT1-UTC=-0.1239981, Accumulated Leap Seconds=37
-  { 2459453.50, 69.307491 }, //27 August 2021, UT1-UTC=-0.1234912, Accumulated Leap Seconds=37
-  { 2459454.50, 69.306891 }, //28 August 2021, UT1-UTC=-0.1228906, Accumulated Leap Seconds=37
-  { 2459455.50, 69.306107 }, //29 August 2021, UT1-UTC=-0.1221071, Accumulated Leap Seconds=37
-  { 2459456.50, 69.305262 }, //30 August 2021, UT1-UTC=-0.1212622, Accumulated Leap Seconds=37
-  { 2459457.50, 69.304326 }, //31 August 2021, UT1-UTC=-0.1203261, Accumulated Leap Seconds=37
-  { 2459458.50, 69.303338 }, //01 September 2021, UT1-UTC=-0.1193379, Accumulated Leap Seconds=37
-  { 2459459.50, 69.302269 }, //02 September 2021, UT1-UTC=-0.1182687, Accumulated Leap Seconds=37
-  { 2459460.50, 69.301217 }, //03 September 2021, UT1-UTC=-0.1172169, Accumulated Leap Seconds=37
-  { 2459461.50, 69.300331 }, //04 September 2021, UT1-UTC=-0.1163305, Accumulated Leap Seconds=37
-  { 2459462.50, 69.299529 }, //05 September 2021, UT1-UTC=-0.1155289, Accumulated Leap Seconds=37
-  { 2459463.50, 69.298927 }, //06 September 2021, UT1-UTC=-0.1149271, Accumulated Leap Seconds=37
-  { 2459464.50, 69.298568 }, //07 September 2021, UT1-UTC=-0.1145682, Accumulated Leap Seconds=37
-  { 2459465.50, 69.298431 }, //08 September 2021, UT1-UTC=-0.1144314, Accumulated Leap Seconds=37
-  { 2459466.50, 69.298451 }, //09 September 2021, UT1-UTC=-0.1144513, Accumulated Leap Seconds=37
-  { 2459467.50, 69.298498 }, //10 September 2021, UT1-UTC=-0.1144985, Accumulated Leap Seconds=37
-  { 2459468.50, 69.298508 }, //11 September 2021, UT1-UTC=-0.1145084, Accumulated Leap Seconds=37
-  { 2459469.50, 69.298316 }, //12 September 2021, UT1-UTC=-0.1143161, Accumulated Leap Seconds=37
-  { 2459470.50, 69.297917 }, //13 September 2021, UT1-UTC=-0.1139174, Accumulated Leap Seconds=37
-  { 2459471.50, 69.297242 }, //14 September 2021, UT1-UTC=-0.1132421, Accumulated Leap Seconds=37
-  { 2459472.50, 69.296449 }, //15 September 2021, UT1-UTC=-0.1124495, Accumulated Leap Seconds=37
-  { 2459473.50, 69.295580 }, //16 September 2021, UT1-UTC=-0.1115803, Accumulated Leap Seconds=37
-  { 2459474.50, 69.294782 }, //17 September 2021, UT1-UTC=-0.1107819, Accumulated Leap Seconds=37
-  { 2459475.50, 69.294156 }, //18 September 2021, UT1-UTC=-0.1101561, Accumulated Leap Seconds=37
-  { 2459476.50, 69.293789 }, //19 September 2021, UT1-UTC=-0.1097893, Accumulated Leap Seconds=37
-  { 2459477.50, 69.293512 }, //20 September 2021, UT1-UTC=-0.1095125, Accumulated Leap Seconds=37
-  { 2459478.50, 69.293379 }, //21 September 2021, UT1-UTC=-0.1093790, Accumulated Leap Seconds=37
-  { 2459479.50, 69.293243 }, //22 September 2021, UT1-UTC=-0.1092431, Accumulated Leap Seconds=37
-  { 2459480.50, 69.293181 }, //23 September 2021, UT1-UTC=-0.1091806, Accumulated Leap Seconds=37
-  { 2459481.50, 69.293065 }, //24 September 2021, UT1-UTC=-0.1090655, Accumulated Leap Seconds=37
-  { 2459482.50, 69.292848 }, //25 September 2021, UT1-UTC=-0.1088479, Accumulated Leap Seconds=37
-  { 2459483.50, 69.292504 }, //26 September 2021, UT1-UTC=-0.1085037, Accumulated Leap Seconds=37
-  { 2459484.50, 69.292030 }, //27 September 2021, UT1-UTC=-0.1080304, Accumulated Leap Seconds=37
-  { 2459485.50, 69.291398 }, //28 September 2021, UT1-UTC=-0.1073983, Accumulated Leap Seconds=37
-  { 2459486.50, 69.290718 }, //29 September 2021, UT1-UTC=-0.1067176, Accumulated Leap Seconds=37
-  { 2459487.50, 69.289978 }, //30 September 2021, UT1-UTC=-0.1059782, Accumulated Leap Seconds=37
-  { 2459488.50, 69.289244 }, //01 October 2021, UT1-UTC=-0.1052436, Accumulated Leap Seconds=37
-  { 2459489.50, 69.288688 }, //02 October 2021, UT1-UTC=-0.1046884, Accumulated Leap Seconds=37
-  { 2459490.50, 69.288305 }, //03 October 2021, UT1-UTC=-0.1043047, Accumulated Leap Seconds=37
-  { 2459491.50, 69.288102 }, //04 October 2021, UT1-UTC=-0.1041017, Accumulated Leap Seconds=37
-  { 2459492.50, 69.288157 }, //05 October 2021, UT1-UTC=-0.1041572, Accumulated Leap Seconds=37
-  { 2459493.50, 69.288503 }, //06 October 2021, UT1-UTC=-0.1045032, Accumulated Leap Seconds=37
-  { 2459494.50, 69.289041 }, //07 October 2021, UT1-UTC=-0.1050410, Accumulated Leap Seconds=37
-  { 2459495.50, 69.289556 }, //08 October 2021, UT1-UTC=-0.1055558, Accumulated Leap Seconds=37
-  { 2459496.50, 69.289932 }, //09 October 2021, UT1-UTC=-0.1059317, Accumulated Leap Seconds=37
-  { 2459497.50, 69.290061 }, //10 October 2021, UT1-UTC=-0.1060609, Accumulated Leap Seconds=37
-  { 2459498.50, 69.289962 }, //11 October 2021, UT1-UTC=-0.1059616, Accumulated Leap Seconds=37
-  { 2459499.50, 69.289698 }, //12 October 2021, UT1-UTC=-0.1056983, Accumulated Leap Seconds=37
-  { 2459500.50, 69.289348 }, //13 October 2021, UT1-UTC=-0.1053484, Accumulated Leap Seconds=37
-  { 2459501.50, 69.289047 }, //14 October 2021, UT1-UTC=-0.1050472, Accumulated Leap Seconds=37
-  { 2459502.50, 69.288811 }, //15 October 2021, UT1-UTC=-0.1048110, Accumulated Leap Seconds=37
-  { 2459503.50, 69.288710 }, //16 October 2021, UT1-UTC=-0.1047105, Accumulated Leap Seconds=37
-  { 2459504.50, 69.288777 }, //17 October 2021, UT1-UTC=-0.1047770, Accumulated Leap Seconds=37
-  { 2459505.50, 69.288986 }, //18 October 2021, UT1-UTC=-0.1049864, Accumulated Leap Seconds=37
-  { 2459506.50, 69.289299 }, //19 October 2021, UT1-UTC=-0.1052994, Accumulated Leap Seconds=37
-  { 2459507.50, 69.289653 }, //20 October 2021, UT1-UTC=-0.1056526, Accumulated Leap Seconds=37
-  { 2459508.50, 69.289947 }, //21 October 2021, UT1-UTC=-0.1059473, Accumulated Leap Seconds=37
-  { 2459509.50, 69.290115 }, //22 October 2021, UT1-UTC=-0.1061153, Accumulated Leap Seconds=37, Predicted value
-  { 2459510.50, 69.290095 }, //23 October 2021, UT1-UTC=-0.1060950, Accumulated Leap Seconds=37, Predicted value
-  { 2459511.50, 69.289876 }, //24 October 2021, UT1-UTC=-0.1058763, Accumulated Leap Seconds=37, Predicted value
-  { 2459512.50, 69.289498 }, //25 October 2021, UT1-UTC=-0.1054983, Accumulated Leap Seconds=37, Predicted value
-  { 2459513.50, 69.289040 }, //26 October 2021, UT1-UTC=-0.1050397, Accumulated Leap Seconds=37, Predicted value
-  { 2459514.50, 69.288556 }, //27 October 2021, UT1-UTC=-0.1045558, Accumulated Leap Seconds=37, Predicted value
-  { 2459515.50, 69.288095 }, //28 October 2021, UT1-UTC=-0.1040952, Accumulated Leap Seconds=37, Predicted value
-  { 2459516.50, 69.287729 }, //29 October 2021, UT1-UTC=-0.1037291, Accumulated Leap Seconds=37, Predicted value
-  { 2459517.50, 69.287534 }, //30 October 2021, UT1-UTC=-0.1035340, Accumulated Leap Seconds=37, Predicted value
-  { 2459518.50, 69.287567 }, //31 October 2021, UT1-UTC=-0.1035674, Accumulated Leap Seconds=37, Predicted value
-  { 2459519.50, 69.287843 }, //01 November 2021, UT1-UTC=-0.1038434, Accumulated Leap Seconds=37, Predicted value
-  { 2459520.50, 69.288370 }, //02 November 2021, UT1-UTC=-0.1043697, Accumulated Leap Seconds=37, Predicted value
-  { 2459521.50, 69.289071 }, //03 November 2021, UT1-UTC=-0.1050712, Accumulated Leap Seconds=37, Predicted value
-  { 2459522.50, 69.289795 }, //04 November 2021, UT1-UTC=-0.1057952, Accumulated Leap Seconds=37, Predicted value
-  { 2459523.50, 69.290386 }, //05 November 2021, UT1-UTC=-0.1063857, Accumulated Leap Seconds=37, Predicted value
-  { 2459524.50, 69.290742 }, //06 November 2021, UT1-UTC=-0.1067417, Accumulated Leap Seconds=37, Predicted value
-  { 2459525.50, 69.290830 }, //07 November 2021, UT1-UTC=-0.1068303, Accumulated Leap Seconds=37, Predicted value
-  { 2459526.50, 69.290688 }, //08 November 2021, UT1-UTC=-0.1066877, Accumulated Leap Seconds=37, Predicted value
-  { 2459527.50, 69.290412 }, //09 November 2021, UT1-UTC=-0.1064116, Accumulated Leap Seconds=37, Predicted value
-  { 2459528.50, 69.290117 }, //10 November 2021, UT1-UTC=-0.1061174, Accumulated Leap Seconds=37, Predicted value
-  { 2459529.50, 69.289894 }, //11 November 2021, UT1-UTC=-0.1058937, Accumulated Leap Seconds=37, Predicted value
-  { 2459530.50, 69.289812 }, //12 November 2021, UT1-UTC=-0.1058119, Accumulated Leap Seconds=37, Predicted value
-  { 2459531.50, 69.289886 }, //13 November 2021, UT1-UTC=-0.1058861, Accumulated Leap Seconds=37, Predicted value
-  { 2459532.50, 69.290092 }, //14 November 2021, UT1-UTC=-0.1060918, Accumulated Leap Seconds=37, Predicted value
-  { 2459533.50, 69.290372 }, //15 November 2021, UT1-UTC=-0.1063722, Accumulated Leap Seconds=37, Predicted value
-  { 2459534.50, 69.290655 }, //16 November 2021, UT1-UTC=-0.1066552, Accumulated Leap Seconds=37, Predicted value
-  { 2459535.50, 69.290866 }, //17 November 2021, UT1-UTC=-0.1068665, Accumulated Leap Seconds=37, Predicted value
-  { 2459536.50, 69.290948 }, //18 November 2021, UT1-UTC=-0.1069478, Accumulated Leap Seconds=37, Predicted value
-  { 2459537.50, 69.290867 }, //19 November 2021, UT1-UTC=-0.1068672, Accumulated Leap Seconds=37, Predicted value
-  { 2459538.50, 69.290606 }, //20 November 2021, UT1-UTC=-0.1066063, Accumulated Leap Seconds=37, Predicted value
-  { 2459539.50, 69.290178 }, //21 November 2021, UT1-UTC=-0.1061785, Accumulated Leap Seconds=37, Predicted value
-  { 2459540.50, 69.289623 }, //22 November 2021, UT1-UTC=-0.1056228, Accumulated Leap Seconds=37, Predicted value
-  { 2459541.50, 69.288994 }, //23 November 2021, UT1-UTC=-0.1049943, Accumulated Leap Seconds=37, Predicted value
-  { 2459542.50, 69.288359 }, //24 November 2021, UT1-UTC=-0.1043587, Accumulated Leap Seconds=37, Predicted value
-  { 2459543.50, 69.287790 }, //25 November 2021, UT1-UTC=-0.1037896, Accumulated Leap Seconds=37, Predicted value
-  { 2459544.50, 69.287360 }, //26 November 2021, UT1-UTC=-0.1033597, Accumulated Leap Seconds=37, Predicted value
-  { 2459545.50, 69.287127 }, //27 November 2021, UT1-UTC=-0.1031273, Accumulated Leap Seconds=37, Predicted value
-  { 2459546.50, 69.287129 }, //28 November 2021, UT1-UTC=-0.1031295, Accumulated Leap Seconds=37, Predicted value
-  { 2459547.50, 69.287366 }, //29 November 2021, UT1-UTC=-0.1033659, Accumulated Leap Seconds=37, Predicted value
-  { 2459548.50, 69.287791 }, //30 November 2021, UT1-UTC=-0.1037911, Accumulated Leap Seconds=37, Predicted value
-  { 2459549.50, 69.288309 }, //01 December 2021, UT1-UTC=-0.1043094, Accumulated Leap Seconds=37, Predicted value
-  { 2459550.50, 69.288786 }, //02 December 2021, UT1-UTC=-0.1047858, Accumulated Leap Seconds=37, Predicted value
-  { 2459551.50, 69.289089 }, //03 December 2021, UT1-UTC=-0.1050888, Accumulated Leap Seconds=37, Predicted value
-  { 2459552.50, 69.289134 }, //04 December 2021, UT1-UTC=-0.1051339, Accumulated Leap Seconds=37, Predicted value
-  { 2459553.50, 69.288921 }, //05 December 2021, UT1-UTC=-0.1049210, Accumulated Leap Seconds=37, Predicted value
-  { 2459554.50, 69.288531 }, //06 December 2021, UT1-UTC=-0.1045314, Accumulated Leap Seconds=37, Predicted value
-  { 2459555.50, 69.288091 }, //07 December 2021, UT1-UTC=-0.1040913, Accumulated Leap Seconds=37, Predicted value
-  { 2459556.50, 69.287726 }, //08 December 2021, UT1-UTC=-0.1037258, Accumulated Leap Seconds=37, Predicted value
-  { 2459557.50, 69.287519 }, //09 December 2021, UT1-UTC=-0.1035193, Accumulated Leap Seconds=37, Predicted value
-  { 2459558.50, 69.287498 }, //10 December 2021, UT1-UTC=-0.1034984, Accumulated Leap Seconds=37, Predicted value
-  { 2459559.50, 69.287633 }, //11 December 2021, UT1-UTC=-0.1036330, Accumulated Leap Seconds=37, Predicted value
-  { 2459560.50, 69.287859 }, //12 December 2021, UT1-UTC=-0.1038595, Accumulated Leap Seconds=37, Predicted value
-  { 2459561.50, 69.288104 }, //13 December 2021, UT1-UTC=-0.1041041, Accumulated Leap Seconds=37, Predicted value
-  { 2459562.50, 69.288300 }, //14 December 2021, UT1-UTC=-0.1042997, Accumulated Leap Seconds=37, Predicted value
-  { 2459563.50, 69.288392 }, //15 December 2021, UT1-UTC=-0.1043920, Accumulated Leap Seconds=37, Predicted value
-  { 2459564.50, 69.288343 }, //16 December 2021, UT1-UTC=-0.1043435, Accumulated Leap Seconds=37, Predicted value
-  { 2459565.50, 69.288138 }, //17 December 2021, UT1-UTC=-0.1041381, Accumulated Leap Seconds=37, Predicted value
-  { 2459566.50, 69.287780 }, //18 December 2021, UT1-UTC=-0.1037796, Accumulated Leap Seconds=37, Predicted value
-  { 2459567.50, 69.287294 }, //19 December 2021, UT1-UTC=-0.1032939, Accumulated Leap Seconds=37, Predicted value
-  { 2459568.50, 69.286725 }, //20 December 2021, UT1-UTC=-0.1027252, Accumulated Leap Seconds=37, Predicted value
-  { 2459569.50, 69.286136 }, //21 December 2021, UT1-UTC=-0.1021360, Accumulated Leap Seconds=37, Predicted value
-  { 2459570.50, 69.285594 }, //22 December 2021, UT1-UTC=-0.1015938, Accumulated Leap Seconds=37, Predicted value
-  { 2459571.50, 69.285165 }, //23 December 2021, UT1-UTC=-0.1011653, Accumulated Leap Seconds=37, Predicted value
-  { 2459572.50, 69.284906 }, //24 December 2021, UT1-UTC=-0.1009058, Accumulated Leap Seconds=37, Predicted value
-  { 2459573.50, 69.284848 }, //25 December 2021, UT1-UTC=-0.1008481, Accumulated Leap Seconds=37, Predicted value
-  { 2459574.50, 69.284999 }, //26 December 2021, UT1-UTC=-0.1009994, Accumulated Leap Seconds=37, Predicted value
-  { 2459575.50, 69.285331 }, //27 December 2021, UT1-UTC=-0.1013305, Accumulated Leap Seconds=37, Predicted value
-  { 2459576.50, 69.285775 }, //28 December 2021, UT1-UTC=-0.1017755, Accumulated Leap Seconds=37, Predicted value
-  { 2459577.50, 69.286230 }, //29 December 2021, UT1-UTC=-0.1022296, Accumulated Leap Seconds=37, Predicted value
-  { 2459578.50, 69.286572 }, //30 December 2021, UT1-UTC=-0.1025723, Accumulated Leap Seconds=37, Predicted value
-  { 2459579.50, 69.286705 }, //31 December 2021, UT1-UTC=-0.1027054, Accumulated Leap Seconds=37, Predicted value
-  { 2459580.50, 69.286594 }, //01 January 2022, UT1-UTC=-0.1025939, Accumulated Leap Seconds=37, Predicted value
-  { 2459581.50, 69.286282 }, //02 January 2022, UT1-UTC=-0.1022817, Accumulated Leap Seconds=37, Predicted value
-  { 2459582.50, 69.285877 }, //03 January 2022, UT1-UTC=-0.1018775, Accumulated Leap Seconds=37, Predicted value
-  { 2459583.50, 69.285515 }, //04 January 2022, UT1-UTC=-0.1015147, Accumulated Leap Seconds=37, Predicted value
-  { 2459584.50, 69.285302 }, //05 January 2022, UT1-UTC=-0.1013015, Accumulated Leap Seconds=37, Predicted value
-  { 2459585.50, 69.285287 }, //06 January 2022, UT1-UTC=-0.1012869, Accumulated Leap Seconds=37, Predicted value
-  { 2459586.50, 69.285452 }, //07 January 2022, UT1-UTC=-0.1014516, Accumulated Leap Seconds=37, Predicted value
-  { 2459587.50, 69.285729 }, //08 January 2022, UT1-UTC=-0.1017290, Accumulated Leap Seconds=37, Predicted value
-  { 2459588.50, 69.286034 }, //09 January 2022, UT1-UTC=-0.1020342, Accumulated Leap Seconds=37, Predicted value
-  { 2459589.50, 69.286290 }, //10 January 2022, UT1-UTC=-0.1022898, Accumulated Leap Seconds=37, Predicted value
-  { 2459590.50, 69.286437 }, //11 January 2022, UT1-UTC=-0.1024372, Accumulated Leap Seconds=37, Predicted value
-  { 2459591.50, 69.286437 }, //12 January 2022, UT1-UTC=-0.1024374, Accumulated Leap Seconds=37, Predicted value
-  { 2459592.50, 69.286271 }, //13 January 2022, UT1-UTC=-0.1022712, Accumulated Leap Seconds=37, Predicted value
-  { 2459593.50, 69.285942 }, //14 January 2022, UT1-UTC=-0.1019422, Accumulated Leap Seconds=37, Predicted value
-  { 2459594.50, 69.285478 }, //15 January 2022, UT1-UTC=-0.1014778, Accumulated Leap Seconds=37, Predicted value
-  { 2459595.50, 69.284922 }, //16 January 2022, UT1-UTC=-0.1009223, Accumulated Leap Seconds=37, Predicted value
-  { 2459596.50, 69.284337 }, //17 January 2022, UT1-UTC=-0.1003373, Accumulated Leap Seconds=37, Predicted value
-  { 2459597.50, 69.283795 }, //18 January 2022, UT1-UTC=-0.0997950, Accumulated Leap Seconds=37, Predicted value
-  { 2459598.50, 69.283368 }, //19 January 2022, UT1-UTC=-0.0993678, Accumulated Leap Seconds=37, Predicted value
-  { 2459599.50, 69.283115 }, //20 January 2022, UT1-UTC=-0.0991151, Accumulated Leap Seconds=37, Predicted value
-  { 2459600.50, 69.283073 }, //21 January 2022, UT1-UTC=-0.0990729, Accumulated Leap Seconds=37, Predicted value
-  { 2459601.50, 69.283244 }, //22 January 2022, UT1-UTC=-0.0992442, Accumulated Leap Seconds=37, Predicted value
-  { 2459602.50, 69.283598 }, //23 January 2022, UT1-UTC=-0.0995982, Accumulated Leap Seconds=37, Predicted value
-  { 2459603.50, 69.284070 }, //24 January 2022, UT1-UTC=-0.1000696, Accumulated Leap Seconds=37, Predicted value
-  { 2459604.50, 69.284568 }, //25 January 2022, UT1-UTC=-0.1005681, Accumulated Leap Seconds=37, Predicted value
-  { 2459605.50, 69.284990 }, //26 January 2022, UT1-UTC=-0.1009900, Accumulated Leap Seconds=37, Predicted value
-  { 2459606.50, 69.285244 }, //27 January 2022, UT1-UTC=-0.1012443, Accumulated Leap Seconds=37, Predicted value
-  { 2459607.50, 69.285283 }, //28 January 2022, UT1-UTC=-0.1012830, Accumulated Leap Seconds=37, Predicted value
-  { 2459608.50, 69.285121 }, //29 January 2022, UT1-UTC=-0.1011211, Accumulated Leap Seconds=37, Predicted value
-  { 2459609.50, 69.284840 }, //30 January 2022, UT1-UTC=-0.1008399, Accumulated Leap Seconds=37, Predicted value
-  { 2459610.50, 69.284561 }, //31 January 2022, UT1-UTC=-0.1005614, Accumulated Leap Seconds=37, Predicted value
-  { 2459611.50, 69.284410 }, //01 February 2022, UT1-UTC=-0.1004101, Accumulated Leap Seconds=37, Predicted value
-  { 2459612.50, 69.284468 }, //02 February 2022, UT1-UTC=-0.1004678, Accumulated Leap Seconds=37, Predicted value
-  { 2459613.50, 69.284746 }, //03 February 2022, UT1-UTC=-0.1007462, Accumulated Leap Seconds=37, Predicted value
-  { 2459614.50, 69.285192 }, //04 February 2022, UT1-UTC=-0.1011919, Accumulated Leap Seconds=37, Predicted value
-  { 2459615.50, 69.285713 }, //05 February 2022, UT1-UTC=-0.1017126, Accumulated Leap Seconds=37, Predicted value
-  { 2459616.50, 69.286210 }, //06 February 2022, UT1-UTC=-0.1022103, Accumulated Leap Seconds=37, Predicted value
-  { 2459617.50, 69.286548 }, //07 February 2022, UT1-UTC=-0.1025480, Accumulated Leap Seconds=37, Predicted value
-  { 2459618.50, 69.286736 }, //08 February 2022, UT1-UTC=-0.1027357, Accumulated Leap Seconds=37, Predicted value
-  { 2459619.50, 69.286749 }, //09 February 2022, UT1-UTC=-0.1027495, Accumulated Leap Seconds=37, Predicted value
-  { 2459620.50, 69.286591 }, //10 February 2022, UT1-UTC=-0.1025905, Accumulated Leap Seconds=37, Predicted value
-  { 2459621.50, 69.286282 }, //11 February 2022, UT1-UTC=-0.1022824, Accumulated Leap Seconds=37, Predicted value
-  { 2459622.50, 69.285869 }, //12 February 2022, UT1-UTC=-0.1018694, Accumulated Leap Seconds=37, Predicted value
-  { 2459623.50, 69.285411 }, //13 February 2022, UT1-UTC=-0.1014113, Accumulated Leap Seconds=37, Predicted value
-  { 2459624.50, 69.284979 }, //14 February 2022, UT1-UTC=-0.1009788, Accumulated Leap Seconds=37, Predicted value
-  { 2459625.50, 69.284646 }, //15 February 2022, UT1-UTC=-0.1006462, Accumulated Leap Seconds=37, Predicted value
-  { 2459626.50, 69.284481 }, //16 February 2022, UT1-UTC=-0.1004809, Accumulated Leap Seconds=37, Predicted value
-  { 2459627.50, 69.284531 }, //17 February 2022, UT1-UTC=-0.1005306, Accumulated Leap Seconds=37, Predicted value
-  { 2459628.50, 69.284810 }, //18 February 2022, UT1-UTC=-0.1008104, Accumulated Leap Seconds=37, Predicted value
-  { 2459629.50, 69.285293 }, //19 February 2022, UT1-UTC=-0.1012934, Accumulated Leap Seconds=37, Predicted value
-  { 2459630.50, 69.285912 }, //20 February 2022, UT1-UTC=-0.1019123, Accumulated Leap Seconds=37, Predicted value
-  { 2459631.50, 69.286570 }, //21 February 2022, UT1-UTC=-0.1025701, Accumulated Leap Seconds=37, Predicted value
-  { 2459632.50, 69.287161 }, //22 February 2022, UT1-UTC=-0.1031607, Accumulated Leap Seconds=37, Predicted value
-  { 2459633.50, 69.287594 }, //23 February 2022, UT1-UTC=-0.1035943, Accumulated Leap Seconds=37, Predicted value
-  { 2459634.50, 69.287820 }, //24 February 2022, UT1-UTC=-0.1038197, Accumulated Leap Seconds=37, Predicted value
-  { 2459635.50, 69.287841 }, //25 February 2022, UT1-UTC=-0.1038412, Accumulated Leap Seconds=37, Predicted value
-  { 2459636.50, 69.287722 }, //26 February 2022, UT1-UTC=-0.1037219, Accumulated Leap Seconds=37, Predicted value
-  { 2459637.50, 69.287570 }, //27 February 2022, UT1-UTC=-0.1035702, Accumulated Leap Seconds=37, Predicted value
-  { 2459638.50, 69.287509 }, //28 February 2022, UT1-UTC=-0.1035092, Accumulated Leap Seconds=37, Predicted value
-  { 2459639.50, 69.287638 }, //01 March 2022, UT1-UTC=-0.1036384, Accumulated Leap Seconds=37, Predicted value
-  { 2459640.50, 69.288001 }, //02 March 2022, UT1-UTC=-0.1040015, Accumulated Leap Seconds=37, Predicted value
-  { 2459641.50, 69.288576 }, //03 March 2022, UT1-UTC=-0.1045759, Accumulated Leap Seconds=37, Predicted value
-  { 2459642.50, 69.289284 }, //04 March 2022, UT1-UTC=-0.1052843, Accumulated Leap Seconds=37, Predicted value
-  { 2459643.50, 69.290024 }, //05 March 2022, UT1-UTC=-0.1060237, Accumulated Leap Seconds=37, Predicted value
-  { 2459644.50, 69.290696 }, //06 March 2022, UT1-UTC=-0.1066960, Accumulated Leap Seconds=37, Predicted value
-  { 2459645.50, 69.291228 }, //07 March 2022, UT1-UTC=-0.1072282, Accumulated Leap Seconds=37, Predicted value
-  { 2459646.50, 69.291580 }, //08 March 2022, UT1-UTC=-0.1075800, Accumulated Leap Seconds=37, Predicted value
-  { 2459647.50, 69.291742 }, //09 March 2022, UT1-UTC=-0.1077418, Accumulated Leap Seconds=37, Predicted value
-  { 2459648.50, 69.291731 }, //10 March 2022, UT1-UTC=-0.1077314, Accumulated Leap Seconds=37, Predicted value
-  { 2459649.50, 69.291590 }, //11 March 2022, UT1-UTC=-0.1075901, Accumulated Leap Seconds=37, Predicted value
-  { 2459650.50, 69.291376 }, //12 March 2022, UT1-UTC=-0.1073765, Accumulated Leap Seconds=37, Predicted value
-  { 2459651.50, 69.291161 }, //13 March 2022, UT1-UTC=-0.1071611, Accumulated Leap Seconds=37, Predicted value
-  { 2459652.50, 69.291019 }, //14 March 2022, UT1-UTC=-0.1070193, Accumulated Leap Seconds=37, Predicted value
-  { 2459653.50, 69.291024 }, //15 March 2022, UT1-UTC=-0.1070236, Accumulated Leap Seconds=37, Predicted value
-  { 2459654.50, 69.291234 }, //16 March 2022, UT1-UTC=-0.1072335, Accumulated Leap Seconds=37, Predicted value
-  { 2459655.50, 69.291683 }, //17 March 2022, UT1-UTC=-0.1076826, Accumulated Leap Seconds=37, Predicted value
-  { 2459656.50, 69.292362 }, //18 March 2022, UT1-UTC=-0.1083623, Accumulated Leap Seconds=37, Predicted value
-  { 2459657.50, 69.293215 }, //19 March 2022, UT1-UTC=-0.1092146, Accumulated Leap Seconds=37, Predicted value
-  { 2459658.50, 69.294137 }, //20 March 2022, UT1-UTC=-0.1101374, Accumulated Leap Seconds=37, Predicted value
-  { 2459659.50, 69.295009 }, //21 March 2022, UT1-UTC=-0.1110092, Accumulated Leap Seconds=37, Predicted value
-  { 2459660.50, 69.295720 }, //22 March 2022, UT1-UTC=-0.1117197, Accumulated Leap Seconds=37, Predicted value
-  { 2459661.50, 69.296202 }, //23 March 2022, UT1-UTC=-0.1122023, Accumulated Leap Seconds=37, Predicted value
-  { 2459662.50, 69.296452 }, //24 March 2022, UT1-UTC=-0.1124516, Accumulated Leap Seconds=37, Predicted value
-  { 2459663.50, 69.296524 }, //25 March 2022, UT1-UTC=-0.1125240, Accumulated Leap Seconds=37, Predicted value
-  { 2459664.50, 69.296520 }, //26 March 2022, UT1-UTC=-0.1125204, Accumulated Leap Seconds=37, Predicted value
-  { 2459665.50, 69.296560 }, //27 March 2022, UT1-UTC=-0.1125600, Accumulated Leap Seconds=37, Predicted value
-  { 2459666.50, 69.296747 }, //28 March 2022, UT1-UTC=-0.1127472, Accumulated Leap Seconds=37, Predicted value
-  { 2459667.50, 69.297145 }, //29 March 2022, UT1-UTC=-0.1131445, Accumulated Leap Seconds=37, Predicted value
-  { 2459668.50, 69.297757 }, //30 March 2022, UT1-UTC=-0.1137567, Accumulated Leap Seconds=37, Predicted value
-  { 2459669.50, 69.298532 }, //31 March 2022, UT1-UTC=-0.1145319, Accumulated Leap Seconds=37, Predicted value
-  { 2459670.50, 69.299380 }, //01 April 2022, UT1-UTC=-0.1153804, Accumulated Leap Seconds=37, Predicted value
-  { 2459671.50, 69.300201 }, //02 April 2022, UT1-UTC=-0.1162010, Accumulated Leap Seconds=37, Predicted value
-  { 2459672.50, 69.300906 }, //03 April 2022, UT1-UTC=-0.1169056, Accumulated Leap Seconds=37, Predicted value
-  { 2459673.50, 69.301434 }, //04 April 2022, UT1-UTC=-0.1174345, Accumulated Leap Seconds=37, Predicted value
-  { 2459674.50, 69.301762 }, //05 April 2022, UT1-UTC=-0.1177624, Accumulated Leap Seconds=37, Predicted value
-  { 2459675.50, 69.301896 }, //06 April 2022, UT1-UTC=-0.1178957, Accumulated Leap Seconds=37, Predicted value
-  { 2459676.50, 69.301868 }, //07 April 2022, UT1-UTC=-0.1178682, Accumulated Leap Seconds=37, Predicted value
-  { 2459677.50, 69.301736 }, //08 April 2022, UT1-UTC=-0.1177356, Accumulated Leap Seconds=37, Predicted value
-  { 2459678.50, 69.301567 }, //09 April 2022, UT1-UTC=-0.1175674, Accumulated Leap Seconds=37, Predicted value
-  { 2459679.50, 69.301439 }, //10 April 2022, UT1-UTC=-0.1174389, Accumulated Leap Seconds=37, Predicted value
-  { 2459680.50, 69.301423 }, //11 April 2022, UT1-UTC=-0.1174231, Accumulated Leap Seconds=37, Predicted value
-  { 2459681.50, 69.301585 }, //12 April 2022, UT1-UTC=-0.1175853, Accumulated Leap Seconds=37, Predicted value
-  { 2459682.50, 69.301973 }, //13 April 2022, UT1-UTC=-0.1179731, Accumulated Leap Seconds=37, Predicted value
-  { 2459683.50, 69.302603 }, //14 April 2022, UT1-UTC=-0.1186032, Accumulated Leap Seconds=37, Predicted value
-  { 2459684.50, 69.303446 }, //15 April 2022, UT1-UTC=-0.1194464, Accumulated Leap Seconds=37, Predicted value
-  { 2459685.50, 69.304421 }, //16 April 2022, UT1-UTC=-0.1204209, Accumulated Leap Seconds=37, Predicted value
-  { 2459686.50, 69.305405 }, //17 April 2022, UT1-UTC=-0.1214047, Accumulated Leap Seconds=37, Predicted value
-  { 2459687.50, 69.306268 }, //18 April 2022, UT1-UTC=-0.1222677, Accumulated Leap Seconds=37, Predicted value
-  { 2459688.50, 69.306913 }, //19 April 2022, UT1-UTC=-0.1229132, Accumulated Leap Seconds=37, Predicted value
-  { 2459689.50, 69.307311 }, //20 April 2022, UT1-UTC=-0.1233113, Accumulated Leap Seconds=37, Predicted value
-  { 2459690.50, 69.307508 }, //21 April 2022, UT1-UTC=-0.1235081, Accumulated Leap Seconds=37, Predicted value
-  { 2459691.50, 69.307607 }, //22 April 2022, UT1-UTC=-0.1236073, Accumulated Leap Seconds=37, Predicted value
-  { 2459692.50, 69.307737 }, //23 April 2022, UT1-UTC=-0.1237366, Accumulated Leap Seconds=37, Predicted value
-  { 2459693.50, 69.308010 }, //24 April 2022, UT1-UTC=-0.1240105, Accumulated Leap Seconds=37, Predicted value
-  { 2459694.50, 69.308502 }, //25 April 2022, UT1-UTC=-0.1245022, Accumulated Leap Seconds=37, Predicted value
-  { 2459695.50, 69.309230 }, //26 April 2022, UT1-UTC=-0.1252298, Accumulated Leap Seconds=37, Predicted value
-  { 2459696.50, 69.310158 }, //27 April 2022, UT1-UTC=-0.1261577, Accumulated Leap Seconds=37, Predicted value
-  { 2459697.50, 69.311208 }, //28 April 2022, UT1-UTC=-0.1272081, Accumulated Leap Seconds=37, Predicted value
-  { 2459698.50, 69.312280 }, //29 April 2022, UT1-UTC=-0.1282800, Accumulated Leap Seconds=37, Predicted value
-  { 2459699.50, 69.313270 }, //30 April 2022, UT1-UTC=-0.1292704, Accumulated Leap Seconds=37, Predicted value
-  { 2459700.50, 69.314093 }, //01 May 2022, UT1-UTC=-0.1300927, Accumulated Leap Seconds=37, Predicted value
-  { 2459701.50, 69.314689 }, //02 May 2022, UT1-UTC=-0.1306887, Accumulated Leap Seconds=37, Predicted value
-  { 2459702.50, 69.315034 }, //03 May 2022, UT1-UTC=-0.1310345, Accumulated Leap Seconds=37, Predicted value
-  { 2459703.50, 69.315139 }, //04 May 2022, UT1-UTC=-0.1311388, Accumulated Leap Seconds=37, Predicted value
-  { 2459704.50, 69.315039 }, //05 May 2022, UT1-UTC=-0.1310395, Accumulated Leap Seconds=37, Predicted value
-  { 2459705.50, 69.314797 }, //06 May 2022, UT1-UTC=-0.1307969, Accumulated Leap Seconds=37, Predicted value
-  { 2459706.50, 69.314485 }, //07 May 2022, UT1-UTC=-0.1304852, Accumulated Leap Seconds=37, Predicted value
-  { 2459707.50, 69.314184 }, //08 May 2022, UT1-UTC=-0.1301836, Accumulated Leap Seconds=37, Predicted value
-  { 2459708.50, 69.313968 }, //09 May 2022, UT1-UTC=-0.1299680, Accumulated Leap Seconds=37, Predicted value
-  { 2459709.50, 69.313904 }, //10 May 2022, UT1-UTC=-0.1299040, Accumulated Leap Seconds=37, Predicted value
-  { 2459710.50, 69.314036 }, //11 May 2022, UT1-UTC=-0.1300360, Accumulated Leap Seconds=37, Predicted value
-  { 2459711.50, 69.314371 }, //12 May 2022, UT1-UTC=-0.1303709, Accumulated Leap Seconds=37, Predicted value
-  { 2459712.50, 69.314862 }, //13 May 2022, UT1-UTC=-0.1308623, Accumulated Leap Seconds=37, Predicted value
-  { 2459713.50, 69.315409 }, //14 May 2022, UT1-UTC=-0.1314086, Accumulated Leap Seconds=37, Predicted value
-  { 2459714.50, 69.315873 }, //15 May 2022, UT1-UTC=-0.1318729, Accumulated Leap Seconds=37, Predicted value
-  { 2459715.50, 69.316124 }, //16 May 2022, UT1-UTC=-0.1321235, Accumulated Leap Seconds=37, Predicted value
-  { 2459716.50, 69.316080 }, //17 May 2022, UT1-UTC=-0.1320805, Accumulated Leap Seconds=37, Predicted value
-  { 2459717.50, 69.315747 }, //18 May 2022, UT1-UTC=-0.1317467, Accumulated Leap Seconds=37, Predicted value
-  { 2459718.50, 69.315208 }, //19 May 2022, UT1-UTC=-0.1312078, Accumulated Leap Seconds=37, Predicted value
-  { 2459719.50, 69.314600 }, //20 May 2022, UT1-UTC=-0.1306003, Accumulated Leap Seconds=37, Predicted value
-  { 2459720.50, 69.314060 }, //21 May 2022, UT1-UTC=-0.1300598, Accumulated Leap Seconds=37, Predicted value
-  { 2459721.50, 69.313677 }, //22 May 2022, UT1-UTC=-0.1296770, Accumulated Leap Seconds=37, Predicted value
-  { 2459722.50, 69.313474 }, //23 May 2022, UT1-UTC=-0.1294742, Accumulated Leap Seconds=37, Predicted value
-  { 2459723.50, 69.313408 }, //24 May 2022, UT1-UTC=-0.1294082, Accumulated Leap Seconds=37, Predicted value
-  { 2459724.50, 69.313390 }, //25 May 2022, UT1-UTC=-0.1293899, Accumulated Leap Seconds=37, Predicted value
-  { 2459725.50, 69.313320 }, //26 May 2022, UT1-UTC=-0.1293204, Accumulated Leap Seconds=37, Predicted value
-  { 2459726.50, 69.313122 }, //27 May 2022, UT1-UTC=-0.1291225, Accumulated Leap Seconds=37, Predicted value
-  { 2459727.50, 69.312732 }, //28 May 2022, UT1-UTC=-0.1287319, Accumulated Leap Seconds=37, Predicted value
-  { 2459728.50, 69.312100 }, //29 May 2022, UT1-UTC=-0.1280996, Accumulated Leap Seconds=37, Predicted value
-  { 2459729.50, 69.311214 }, //30 May 2022, UT1-UTC=-0.1272141, Accumulated Leap Seconds=37, Predicted value
-  { 2459730.50, 69.310112 }, //31 May 2022, UT1-UTC=-0.1261123, Accumulated Leap Seconds=37, Predicted value
-  { 2459731.50, 69.308846 }, //01 June 2022, UT1-UTC=-0.1248457, Accumulated Leap Seconds=37, Predicted value
-  { 2459732.50, 69.307450 }, //02 June 2022, UT1-UTC=-0.1234504, Accumulated Leap Seconds=37, Predicted value
-  { 2459733.50, 69.306060 }, //03 June 2022, UT1-UTC=-0.1220600, Accumulated Leap Seconds=37, Predicted value
-  { 2459734.50, 69.304721 }, //04 June 2022, UT1-UTC=-0.1207208, Accumulated Leap Seconds=37, Predicted value
-  { 2459735.50, 69.303514 }, //05 June 2022, UT1-UTC=-0.1195142, Accumulated Leap Seconds=37, Predicted value
-  { 2459736.50, 69.302485 }, //06 June 2022, UT1-UTC=-0.1184851, Accumulated Leap Seconds=37, Predicted value
-  { 2459737.50, 69.301653 }, //07 June 2022, UT1-UTC=-0.1176533, Accumulated Leap Seconds=37, Predicted value
-  { 2459738.50, 69.300995 }, //08 June 2022, UT1-UTC=-0.1169945, Accumulated Leap Seconds=37, Predicted value
-  { 2459739.50, 69.300438 }, //09 June 2022, UT1-UTC=-0.1164383, Accumulated Leap Seconds=37, Predicted value
-  { 2459740.50, 69.299943 }, //10 June 2022, UT1-UTC=-0.1159432, Accumulated Leap Seconds=37, Predicted value
-  { 2459741.50, 69.299468 }, //11 June 2022, UT1-UTC=-0.1154683, Accumulated Leap Seconds=37, Predicted value
-  { 2459742.50, 69.298828 }, //12 June 2022, UT1-UTC=-0.1148279, Accumulated Leap Seconds=37, Predicted value
-  { 2459743.50, 69.297974 }, //13 June 2022, UT1-UTC=-0.1139740, Accumulated Leap Seconds=37, Predicted value
-  { 2459744.50, 69.296920 }, //14 June 2022, UT1-UTC=-0.1129205, Accumulated Leap Seconds=37, Predicted value
-  { 2459745.50, 69.295688 }, //15 June 2022, UT1-UTC=-0.1116877, Accumulated Leap Seconds=37, Predicted value
-  { 2459746.50, 69.294382 }, //16 June 2022, UT1-UTC=-0.1103820, Accumulated Leap Seconds=37, Predicted value
-  { 2459747.50, 69.293103 }, //17 June 2022, UT1-UTC=-0.1091029, Accumulated Leap Seconds=37, Predicted value
-  { 2459748.50, 69.291965 }, //18 June 2022, UT1-UTC=-0.1079649, Accumulated Leap Seconds=37, Predicted value
-  { 2459749.50, 69.291047 }, //19 June 2022, UT1-UTC=-0.1070473, Accumulated Leap Seconds=37, Predicted value
-  { 2459750.50, 69.290313 }, //20 June 2022, UT1-UTC=-0.1063132, Accumulated Leap Seconds=37, Predicted value
-  { 2459751.50, 69.289689 }, //21 June 2022, UT1-UTC=-0.1056886, Accumulated Leap Seconds=37, Predicted value
-  { 2459752.50, 69.289100 }, //22 June 2022, UT1-UTC=-0.1051001, Accumulated Leap Seconds=37, Predicted value
-  { 2459753.50, 69.288430 }, //23 June 2022, UT1-UTC=-0.1044298, Accumulated Leap Seconds=37, Predicted value
-  { 2459754.50, 69.287598 }, //24 June 2022, UT1-UTC=-0.1035983, Accumulated Leap Seconds=37, Predicted value
-  { 2459755.50, 69.286620 }, //25 June 2022, UT1-UTC=-0.1026204, Accumulated Leap Seconds=37, Predicted value
-  { 2459756.50, 69.285445 }, //26 June 2022, UT1-UTC=-0.1014449, Accumulated Leap Seconds=37, Predicted value
-  { 2459757.50, 69.283960 }, //27 June 2022, UT1-UTC=-0.0999603, Accumulated Leap Seconds=37, Predicted value
-  { 2459758.50, 69.282297 }, //28 June 2022, UT1-UTC=-0.0982975, Accumulated Leap Seconds=37, Predicted value
-  { 2459759.50, 69.280513 }, //29 June 2022, UT1-UTC=-0.0965132, Accumulated Leap Seconds=37, Predicted value
-  { 2459760.50, 69.278653 }, //30 June 2022, UT1-UTC=-0.0946533, Accumulated Leap Seconds=37, Predicted value
-  { 2459761.50, 69.276837 }, //01 July 2022, UT1-UTC=-0.0928372, Accumulated Leap Seconds=37, Predicted value
-  { 2459762.50, 69.275111 }, //02 July 2022, UT1-UTC=-0.0911109, Accumulated Leap Seconds=37, Predicted value
-  { 2459763.50, 69.273526 }, //03 July 2022, UT1-UTC=-0.0895259, Accumulated Leap Seconds=37, Predicted value
-  { 2459764.50, 69.272090 }, //04 July 2022, UT1-UTC=-0.0880900, Accumulated Leap Seconds=37, Predicted value
-  { 2459765.50, 69.270913 }, //05 July 2022, UT1-UTC=-0.0869126, Accumulated Leap Seconds=37, Predicted value
-  { 2459766.50, 69.269933 }, //06 July 2022, UT1-UTC=-0.0859332, Accumulated Leap Seconds=37, Predicted value
-  { 2459767.50, 69.269149 }, //07 July 2022, UT1-UTC=-0.0851490, Accumulated Leap Seconds=37, Predicted value
-  { 2459768.50, 69.268507 }, //08 July 2022, UT1-UTC=-0.0845075, Accumulated Leap Seconds=37, Predicted value
-  { 2459769.50, 69.267831 }, //09 July 2022, UT1-UTC=-0.0838315, Accumulated Leap Seconds=37, Predicted value
-  { 2459770.50, 69.267083 }, //10 July 2022, UT1-UTC=-0.0830832, Accumulated Leap Seconds=37, Predicted value
-  { 2459771.50, 69.266180 }, //11 July 2022, UT1-UTC=-0.0821802, Accumulated Leap Seconds=37, Predicted value
-  { 2459772.50, 69.265091 }, //12 July 2022, UT1-UTC=-0.0810913, Accumulated Leap Seconds=37, Predicted value
-  { 2459773.50, 69.263939 }, //13 July 2022, UT1-UTC=-0.0799390, Accumulated Leap Seconds=37, Predicted value
-  { 2459774.50, 69.262790 }, //14 July 2022, UT1-UTC=-0.0787903, Accumulated Leap Seconds=37, Predicted value
-  { 2459775.50, 69.261774 }, //15 July 2022, UT1-UTC=-0.0777740, Accumulated Leap Seconds=37, Predicted value
-  { 2459776.50, 69.260971 }, //16 July 2022, UT1-UTC=-0.0769706, Accumulated Leap Seconds=37, Predicted value
-  { 2459777.50, 69.260403 }, //17 July 2022, UT1-UTC=-0.0764027, Accumulated Leap Seconds=37, Predicted value
-  { 2459778.50, 69.260010 }, //18 July 2022, UT1-UTC=-0.0760096, Accumulated Leap Seconds=37, Predicted value
-  { 2459779.50, 69.259621 }, //19 July 2022, UT1-UTC=-0.0756206, Accumulated Leap Seconds=37, Predicted value
-  { 2459780.50, 69.259142 }, //20 July 2022, UT1-UTC=-0.0751421, Accumulated Leap Seconds=37, Predicted value
-  { 2459781.50, 69.258504 }, //21 July 2022, UT1-UTC=-0.0745036, Accumulated Leap Seconds=37, Predicted value
-  { 2459782.50, 69.257669 }, //22 July 2022, UT1-UTC=-0.0736690, Accumulated Leap Seconds=37, Predicted value
-  { 2459783.50, 69.256634 }, //23 July 2022, UT1-UTC=-0.0726341, Accumulated Leap Seconds=37, Predicted value
-  { 2459784.50, 69.255419 }, //24 July 2022, UT1-UTC=-0.0714189, Accumulated Leap Seconds=37, Predicted value
-  { 2459785.50, 69.254033 }, //25 July 2022, UT1-UTC=-0.0700326, Accumulated Leap Seconds=37, Predicted value
-  { 2459786.50, 69.252497 }, //26 July 2022, UT1-UTC=-0.0684974, Accumulated Leap Seconds=37, Predicted value
-  { 2459787.50, 69.250858 }, //27 July 2022, UT1-UTC=-0.0668583, Accumulated Leap Seconds=37, Predicted value
-  { 2459788.50, 69.249165 }, //28 July 2022, UT1-UTC=-0.0651654, Accumulated Leap Seconds=37, Predicted value
-  { 2459789.50, 69.247585 }, //29 July 2022, UT1-UTC=-0.0635846, Accumulated Leap Seconds=37, Predicted value
-  { 2459790.50, 69.246196 }, //30 July 2022, UT1-UTC=-0.0621957, Accumulated Leap Seconds=37, Predicted value
-  { 2459791.50, 69.244890 }, //31 July 2022, UT1-UTC=-0.0608903, Accumulated Leap Seconds=37, Predicted value
-  { 2459792.50, 69.243716 }, //01 August 2022, UT1-UTC=-0.0597164, Accumulated Leap Seconds=37, Predicted value
-  { 2459793.50, 69.242761 }, //02 August 2022, UT1-UTC=-0.0587612, Accumulated Leap Seconds=37, Predicted value
-  { 2459794.50, 69.241947 }, //03 August 2022, UT1-UTC=-0.0579470, Accumulated Leap Seconds=37, Predicted value
-  { 2459795.50, 69.241189 }, //04 August 2022, UT1-UTC=-0.0571892, Accumulated Leap Seconds=37, Predicted value
-  { 2459796.50, 69.240411 }, //05 August 2022, UT1-UTC=-0.0564114, Accumulated Leap Seconds=37, Predicted value
-  { 2459797.50, 69.239422 }, //06 August 2022, UT1-UTC=-0.0554223, Accumulated Leap Seconds=37, Predicted value
-  { 2459798.50, 69.238248 }, //07 August 2022, UT1-UTC=-0.0542485, Accumulated Leap Seconds=37, Predicted value
-  { 2459799.50, 69.236855 }, //08 August 2022, UT1-UTC=-0.0528550, Accumulated Leap Seconds=37, Predicted value
-  { 2459800.50, 69.235308 }, //09 August 2022, UT1-UTC=-0.0513078, Accumulated Leap Seconds=37, Predicted value
-  { 2459801.50, 69.233772 }, //10 August 2022, UT1-UTC=-0.0497717, Accumulated Leap Seconds=37, Predicted value
-  { 2459802.50, 69.232355 }, //11 August 2022, UT1-UTC=-0.0483549, Accumulated Leap Seconds=37, Predicted value
-  { 2459803.50, 69.231150 }, //12 August 2022, UT1-UTC=-0.0471497, Accumulated Leap Seconds=37, Predicted value
-  { 2459804.50, 69.230366 }, //13 August 2022, UT1-UTC=-0.0463658, Accumulated Leap Seconds=37, Predicted value
-  { 2459805.50, 69.229810 }, //14 August 2022, UT1-UTC=-0.0458097, Accumulated Leap Seconds=37, Predicted value
-  { 2459806.50, 69.229402 }, //15 August 2022, UT1-UTC=-0.0454020, Accumulated Leap Seconds=37, Predicted value
-  { 2459807.50, 69.228986 }, //16 August 2022, UT1-UTC=-0.0449856, Accumulated Leap Seconds=37, Predicted value
-  { 2459808.50, 69.228396 }, //17 August 2022, UT1-UTC=-0.0443958, Accumulated Leap Seconds=37, Predicted value
-  { 2459809.50, 69.227591 }, //18 August 2022, UT1-UTC=-0.0435910, Accumulated Leap Seconds=37, Predicted value
-  { 2459810.50, 69.226608 }, //19 August 2022, UT1-UTC=-0.0426083, Accumulated Leap Seconds=37, Predicted value
-  { 2459811.50, 69.225464 }, //20 August 2022, UT1-UTC=-0.0414637, Accumulated Leap Seconds=37, Predicted value
-  { 2459812.50, 69.224130 }, //21 August 2022, UT1-UTC=-0.0401300, Accumulated Leap Seconds=37, Predicted value
-  { 2459813.50, 69.222667 }, //22 August 2022, UT1-UTC=-0.0386667, Accumulated Leap Seconds=37, Predicted value
-  { 2459814.50, 69.221159 }, //23 August 2022, UT1-UTC=-0.0371592, Accumulated Leap Seconds=37, Predicted value
-  { 2459815.50, 69.219687 }, //24 August 2022, UT1-UTC=-0.0356868, Accumulated Leap Seconds=37, Predicted value
-  { 2459816.50, 69.218345 }, //25 August 2022, UT1-UTC=-0.0343446, Accumulated Leap Seconds=37, Predicted value
-  { 2459817.50, 69.217176 }, //26 August 2022, UT1-UTC=-0.0331757, Accumulated Leap Seconds=37, Predicted value
-  { 2459818.50, 69.216222 }, //27 August 2022, UT1-UTC=-0.0322220, Accumulated Leap Seconds=37, Predicted value
-  { 2459819.50, 69.215534 }, //28 August 2022, UT1-UTC=-0.0315336, Accumulated Leap Seconds=37, Predicted value
-  { 2459820.50, 69.215093 }, //29 August 2022, UT1-UTC=-0.0310927, Accumulated Leap Seconds=37, Predicted value
-  { 2459821.50, 69.214784 }, //30 August 2022, UT1-UTC=-0.0307842, Accumulated Leap Seconds=37, Predicted value
-  { 2459822.50, 69.214514 }, //31 August 2022, UT1-UTC=-0.0305139, Accumulated Leap Seconds=37, Predicted value
-  { 2459823.50, 69.214220 }, //01 September 2022, UT1-UTC=-0.0302205, Accumulated Leap Seconds=37, Predicted value
-  { 2459824.50, 69.213840 }, //02 September 2022, UT1-UTC=-0.0298399, Accumulated Leap Seconds=37, Predicted value
-  { 2459825.50, 69.213306 }, //03 September 2022, UT1-UTC=-0.0293055, Accumulated Leap Seconds=37, Predicted value
-  { 2459826.50, 69.212589 }, //04 September 2022, UT1-UTC=-0.0285895, Accumulated Leap Seconds=37, Predicted value
-  { 2459827.50, 69.211795 }, //05 September 2022, UT1-UTC=-0.0277954, Accumulated Leap Seconds=37, Predicted value
-  { 2459828.50, 69.210904 }, //06 September 2022, UT1-UTC=-0.0269042, Accumulated Leap Seconds=37, Predicted value
-  { 2459829.50, 69.210050 }, //07 September 2022, UT1-UTC=-0.0260496, Accumulated Leap Seconds=37, Predicted value
-  { 2459830.50, 69.209364 }, //08 September 2022, UT1-UTC=-0.0253642, Accumulated Leap Seconds=37, Predicted value
-  { 2459831.50, 69.208918 }, //09 September 2022, UT1-UTC=-0.0249178, Accumulated Leap Seconds=37, Predicted value
-  { 2459832.50, 69.208769 }, //10 September 2022, UT1-UTC=-0.0247687, Accumulated Leap Seconds=37, Predicted value
-  { 2459833.50, 69.208733 }, //11 September 2022, UT1-UTC=-0.0247326, Accumulated Leap Seconds=37, Predicted value
-  { 2459834.50, 69.208823 }, //12 September 2022, UT1-UTC=-0.0248229, Accumulated Leap Seconds=37, Predicted value
-  { 2459835.50, 69.208889 }, //13 September 2022, UT1-UTC=-0.0248890, Accumulated Leap Seconds=37, Predicted value
-  { 2459836.50, 69.208806 }, //14 September 2022, UT1-UTC=-0.0248059, Accumulated Leap Seconds=37, Predicted value
-  { 2459837.50, 69.208500 }, //15 September 2022, UT1-UTC=-0.0244997, Accumulated Leap Seconds=37, Predicted value
-  { 2459838.50, 69.207995 }, //16 September 2022, UT1-UTC=-0.0239951, Accumulated Leap Seconds=37, Predicted value
-  { 2459839.50, 69.207393 }, //17 September 2022, UT1-UTC=-0.0233935, Accumulated Leap Seconds=37, Predicted value
-  { 2459840.50, 69.206651 }, //18 September 2022, UT1-UTC=-0.0226508, Accumulated Leap Seconds=37, Predicted value
-  { 2459841.50, 69.205897 }, //19 September 2022, UT1-UTC=-0.0218971, Accumulated Leap Seconds=37, Predicted value
-  { 2459842.50, 69.205174 }, //20 September 2022, UT1-UTC=-0.0211742, Accumulated Leap Seconds=37, Predicted value
-  { 2459843.50, 69.204538 }, //21 September 2022, UT1-UTC=-0.0205384, Accumulated Leap Seconds=37, Predicted value
-  { 2459844.50, 69.204062 }, //22 September 2022, UT1-UTC=-0.0200617, Accumulated Leap Seconds=37, Predicted value
-  { 2459845.50, 69.203718 }, //23 September 2022, UT1-UTC=-0.0197182, Accumulated Leap Seconds=37, Predicted value
-  { 2459846.50, 69.203569 }, //24 September 2022, UT1-UTC=-0.0195690, Accumulated Leap Seconds=37, Predicted value
-  { 2459847.50, 69.203635 }, //25 September 2022, UT1-UTC=-0.0196350, Accumulated Leap Seconds=37, Predicted value
-  { 2459848.50, 69.203895 }, //26 September 2022, UT1-UTC=-0.0198945, Accumulated Leap Seconds=37, Predicted value
-  { 2459849.50, 69.204251 }, //27 September 2022, UT1-UTC=-0.0202508, Accumulated Leap Seconds=37, Predicted value
-  { 2459850.50, 69.204553 }, //28 September 2022, UT1-UTC=-0.0205532, Accumulated Leap Seconds=37, Predicted value
-  { 2459851.50, 69.204711 }, //29 September 2022, UT1-UTC=-0.0207107, Accumulated Leap Seconds=37, Predicted value
-  { 2459852.50, 69.204702 }, //30 September 2022, UT1-UTC=-0.0207021, Accumulated Leap Seconds=37, Predicted value
-  { 2459853.50, 69.204415 }, //01 October 2022, UT1-UTC=-0.0204149, Accumulated Leap Seconds=37, Predicted value
-  { 2459854.50, 69.204077 }, //02 October 2022, UT1-UTC=-0.0200770, Accumulated Leap Seconds=37, Predicted value
-  { 2459855.50, 69.203624 }, //03 October 2022, UT1-UTC=-0.0196243, Accumulated Leap Seconds=37, Predicted value
-  { 2459856.50, 69.203185 }, //04 October 2022, UT1-UTC=-0.0191847, Accumulated Leap Seconds=37, Predicted value
-  { 2459857.50, 69.202858 }, //05 October 2022, UT1-UTC=-0.0188576, Accumulated Leap Seconds=37, Predicted value
-  { 2459858.50, 69.202690 }, //06 October 2022, UT1-UTC=-0.0186896, Accumulated Leap Seconds=37, Predicted value
-  { 2459859.50, 69.202759 }, //07 October 2022, UT1-UTC=-0.0187589, Accumulated Leap Seconds=37, Predicted value
-  { 2459860.50, 69.203088 }, //08 October 2022, UT1-UTC=-0.0190879, Accumulated Leap Seconds=37, Predicted value
-  { 2459861.50, 69.203551 }, //09 October 2022, UT1-UTC=-0.0195514, Accumulated Leap Seconds=37, Predicted value
-  { 2459862.50, 69.204086 }, //10 October 2022, UT1-UTC=-0.0200862, Accumulated Leap Seconds=37, Predicted value
-  { 2459863.50, 69.204499 }, //11 October 2022, UT1-UTC=-0.0204989, Accumulated Leap Seconds=37, Predicted value
-  { 2459864.50, 69.204718 }, //12 October 2022, UT1-UTC=-0.0207176, Accumulated Leap Seconds=37, Predicted value
-  { 2459865.50, 69.204731 }, //13 October 2022, UT1-UTC=-0.0207307, Accumulated Leap Seconds=37, Predicted value
-  { 2459866.50, 69.204515 }, //14 October 2022, UT1-UTC=-0.0205149, Accumulated Leap Seconds=37, Predicted value
-  { 2459867.50, 69.204158 }, //15 October 2022, UT1-UTC=-0.0201579, Accumulated Leap Seconds=37, Predicted value
-  { 2459868.50, 69.203693 }, //16 October 2022, UT1-UTC=-0.0196935, Accumulated Leap Seconds=37, Predicted value
-  { 2459869.50, 69.203214 }, //17 October 2022, UT1-UTC=-0.0192141, Accumulated Leap Seconds=37, Predicted value
-  { 2459870.50, 69.202838 }, //18 October 2022, UT1-UTC=-0.0188376, Accumulated Leap Seconds=37, Predicted value
-  { 2459871.50, 69.202512 }, //19 October 2022, UT1-UTC=-0.0185120, Accumulated Leap Seconds=37, Predicted value
-  { 2459872.50, 69.202282 }, //20 October 2022, UT1-UTC=-0.0182817, Accumulated Leap Seconds=37, Predicted value
-  { 2459873.50, 69.202258 }, //21 October 2022, UT1-UTC=-0.0182584, Accumulated Leap Seconds=37, Predicted value
-  { 2459874.50, 69.202501 }, //22 October 2022, UT1-UTC=-0.0185013, Accumulated Leap Seconds=37, Predicted value
-  { 2459875.50, 69.202996 }, //23 October 2022, UT1-UTC=-0.0189964, Accumulated Leap Seconds=37, Predicted value
-  { 2459876.50, 69.203644 }, //24 October 2022, UT1-UTC=-0.0196442, Accumulated Leap Seconds=37, Predicted value
-  { 2459877.50, 69.204297 }, //25 October 2022, UT1-UTC=-0.0202966, Accumulated Leap Seconds=37, Predicted value
-  { 2459878.50, 69.204850 }, //26 October 2022, UT1-UTC=-0.0208501, Accumulated Leap Seconds=37, Predicted value
-  { 2459879.50, 69.205194 }, //27 October 2022, UT1-UTC=-0.0211937, Accumulated Leap Seconds=37, Predicted value
-  { 2459880.50, 69.205246 }, //28 October 2022, UT1-UTC=-0.0212457, Accumulated Leap Seconds=37, Predicted value
-  { 2459881.50, 69.205058 }, //29 October 2022, UT1-UTC=-0.0210580, Accumulated Leap Seconds=37, Predicted value
+  { 2459447.50, 69.311234 }, //21 August 2021, UT1-UTC=-0.1272343, Accumulated Leap Seconds=37
+  { 2459448.50, 69.310319 }, //22 August 2021, UT1-UTC=-0.1263192, Accumulated Leap Seconds=37
+  { 2459449.50, 69.309577 }, //23 August 2021, UT1-UTC=-0.1255767, Accumulated Leap Seconds=37
+  { 2459450.50, 69.308967 }, //24 August 2021, UT1-UTC=-0.1249675, Accumulated Leap Seconds=37
+  { 2459451.50, 69.308453 }, //25 August 2021, UT1-UTC=-0.1244531, Accumulated Leap Seconds=37
+  { 2459452.50, 69.307999 }, //26 August 2021, UT1-UTC=-0.1239991, Accumulated Leap Seconds=37
+  { 2459453.50, 69.307490 }, //27 August 2021, UT1-UTC=-0.1234902, Accumulated Leap Seconds=37
+  { 2459454.50, 69.306890 }, //28 August 2021, UT1-UTC=-0.1228901, Accumulated Leap Seconds=37
+  { 2459455.50, 69.306107 }, //29 August 2021, UT1-UTC=-0.1221067, Accumulated Leap Seconds=37
+  { 2459456.50, 69.305264 }, //30 August 2021, UT1-UTC=-0.1212643, Accumulated Leap Seconds=37
+  { 2459457.50, 69.304327 }, //31 August 2021, UT1-UTC=-0.1203266, Accumulated Leap Seconds=37
+  { 2459458.50, 69.303340 }, //01 September 2021, UT1-UTC=-0.1193403, Accumulated Leap Seconds=37
+  { 2459459.50, 69.302271 }, //02 September 2021, UT1-UTC=-0.1182709, Accumulated Leap Seconds=37
+  { 2459460.50, 69.301217 }, //03 September 2021, UT1-UTC=-0.1172167, Accumulated Leap Seconds=37
+  { 2459461.50, 69.300331 }, //04 September 2021, UT1-UTC=-0.1163314, Accumulated Leap Seconds=37
+  { 2459462.50, 69.299527 }, //05 September 2021, UT1-UTC=-0.1155274, Accumulated Leap Seconds=37
+  { 2459463.50, 69.298926 }, //06 September 2021, UT1-UTC=-0.1149262, Accumulated Leap Seconds=37
+  { 2459464.50, 69.298568 }, //07 September 2021, UT1-UTC=-0.1145683, Accumulated Leap Seconds=37
+  { 2459465.50, 69.298431 }, //08 September 2021, UT1-UTC=-0.1144311, Accumulated Leap Seconds=37
+  { 2459466.50, 69.298452 }, //09 September 2021, UT1-UTC=-0.1144522, Accumulated Leap Seconds=37
+  { 2459467.50, 69.298498 }, //10 September 2021, UT1-UTC=-0.1144981, Accumulated Leap Seconds=37
+  { 2459468.50, 69.298509 }, //11 September 2021, UT1-UTC=-0.1145091, Accumulated Leap Seconds=37
+  { 2459469.50, 69.298316 }, //12 September 2021, UT1-UTC=-0.1143155, Accumulated Leap Seconds=37
+  { 2459470.50, 69.297921 }, //13 September 2021, UT1-UTC=-0.1139205, Accumulated Leap Seconds=37
+  { 2459471.50, 69.297241 }, //14 September 2021, UT1-UTC=-0.1132412, Accumulated Leap Seconds=37
+  { 2459472.50, 69.296450 }, //15 September 2021, UT1-UTC=-0.1124500, Accumulated Leap Seconds=37
+  { 2459473.50, 69.295580 }, //16 September 2021, UT1-UTC=-0.1115795, Accumulated Leap Seconds=37
+  { 2459474.50, 69.294781 }, //17 September 2021, UT1-UTC=-0.1107811, Accumulated Leap Seconds=37
+  { 2459475.50, 69.294154 }, //18 September 2021, UT1-UTC=-0.1101539, Accumulated Leap Seconds=37
+  { 2459476.50, 69.293790 }, //19 September 2021, UT1-UTC=-0.1097900, Accumulated Leap Seconds=37
+  { 2459477.50, 69.293508 }, //20 September 2021, UT1-UTC=-0.1095075, Accumulated Leap Seconds=37
+  { 2459478.50, 69.293378 }, //21 September 2021, UT1-UTC=-0.1093776, Accumulated Leap Seconds=37
+  { 2459479.50, 69.293240 }, //22 September 2021, UT1-UTC=-0.1092400, Accumulated Leap Seconds=37
+  { 2459480.50, 69.293180 }, //23 September 2021, UT1-UTC=-0.1091802, Accumulated Leap Seconds=37
+  { 2459481.50, 69.293067 }, //24 September 2021, UT1-UTC=-0.1090669, Accumulated Leap Seconds=37
+  { 2459482.50, 69.292849 }, //25 September 2021, UT1-UTC=-0.1088489, Accumulated Leap Seconds=37
+  { 2459483.50, 69.292503 }, //26 September 2021, UT1-UTC=-0.1085034, Accumulated Leap Seconds=37
+  { 2459484.50, 69.292035 }, //27 September 2021, UT1-UTC=-0.1080348, Accumulated Leap Seconds=37
+  { 2459485.50, 69.291399 }, //28 September 2021, UT1-UTC=-0.1073988, Accumulated Leap Seconds=37
+  { 2459486.50, 69.290721 }, //29 September 2021, UT1-UTC=-0.1067207, Accumulated Leap Seconds=37
+  { 2459487.50, 69.289981 }, //30 September 2021, UT1-UTC=-0.1059811, Accumulated Leap Seconds=37
+  { 2459488.50, 69.289243 }, //01 October 2021, UT1-UTC=-0.1052427, Accumulated Leap Seconds=37
+  { 2459489.50, 69.288691 }, //02 October 2021, UT1-UTC=-0.1046914, Accumulated Leap Seconds=37
+  { 2459490.50, 69.288314 }, //03 October 2021, UT1-UTC=-0.1043143, Accumulated Leap Seconds=37
+  { 2459491.50, 69.288106 }, //04 October 2021, UT1-UTC=-0.1041065, Accumulated Leap Seconds=37
+  { 2459492.50, 69.288156 }, //05 October 2021, UT1-UTC=-0.1041557, Accumulated Leap Seconds=37
+  { 2459493.50, 69.288503 }, //06 October 2021, UT1-UTC=-0.1045030, Accumulated Leap Seconds=37
+  { 2459494.50, 69.289042 }, //07 October 2021, UT1-UTC=-0.1050422, Accumulated Leap Seconds=37
+  { 2459495.50, 69.289556 }, //08 October 2021, UT1-UTC=-0.1055557, Accumulated Leap Seconds=37
+  { 2459496.50, 69.289933 }, //09 October 2021, UT1-UTC=-0.1059326, Accumulated Leap Seconds=37
+  { 2459497.50, 69.290061 }, //10 October 2021, UT1-UTC=-0.1060606, Accumulated Leap Seconds=37
+  { 2459498.50, 69.289959 }, //11 October 2021, UT1-UTC=-0.1059587, Accumulated Leap Seconds=37
+  { 2459499.50, 69.289702 }, //12 October 2021, UT1-UTC=-0.1057016, Accumulated Leap Seconds=37
+  { 2459500.50, 69.289373 }, //13 October 2021, UT1-UTC=-0.1053735, Accumulated Leap Seconds=37
+  { 2459501.50, 69.289053 }, //14 October 2021, UT1-UTC=-0.1050530, Accumulated Leap Seconds=37
+  { 2459502.50, 69.288817 }, //15 October 2021, UT1-UTC=-0.1048170, Accumulated Leap Seconds=37
+  { 2459503.50, 69.288712 }, //16 October 2021, UT1-UTC=-0.1047120, Accumulated Leap Seconds=37
+  { 2459504.50, 69.288777 }, //17 October 2021, UT1-UTC=-0.1047766, Accumulated Leap Seconds=37
+  { 2459505.50, 69.288981 }, //18 October 2021, UT1-UTC=-0.1049815, Accumulated Leap Seconds=37
+  { 2459506.50, 69.289298 }, //19 October 2021, UT1-UTC=-0.1052975, Accumulated Leap Seconds=37
+  { 2459507.50, 69.289645 }, //20 October 2021, UT1-UTC=-0.1056446, Accumulated Leap Seconds=37
+  { 2459508.50, 69.289933 }, //21 October 2021, UT1-UTC=-0.1059328, Accumulated Leap Seconds=37
+  { 2459509.50, 69.290147 }, //22 October 2021, UT1-UTC=-0.1061472, Accumulated Leap Seconds=37
+  { 2459510.50, 69.290161 }, //23 October 2021, UT1-UTC=-0.1061609, Accumulated Leap Seconds=37
+  { 2459511.50, 69.289932 }, //24 October 2021, UT1-UTC=-0.1059322, Accumulated Leap Seconds=37
+  { 2459512.50, 69.289561 }, //25 October 2021, UT1-UTC=-0.1055614, Accumulated Leap Seconds=37
+  { 2459513.50, 69.289059 }, //26 October 2021, UT1-UTC=-0.1050593, Accumulated Leap Seconds=37
+  { 2459514.50, 69.288560 }, //27 October 2021, UT1-UTC=-0.1045598, Accumulated Leap Seconds=37
+  { 2459515.50, 69.288135 }, //28 October 2021, UT1-UTC=-0.1041346, Accumulated Leap Seconds=37
+  { 2459516.50, 69.287768 }, //29 October 2021, UT1-UTC=-0.1037683, Accumulated Leap Seconds=37
+  { 2459517.50, 69.287559 }, //30 October 2021, UT1-UTC=-0.1035592, Accumulated Leap Seconds=37
+  { 2459518.50, 69.287635 }, //31 October 2021, UT1-UTC=-0.1036348, Accumulated Leap Seconds=37
+  { 2459519.50, 69.288058 }, //01 November 2021, UT1-UTC=-0.1040585, Accumulated Leap Seconds=37
+  { 2459520.50, 69.288709 }, //02 November 2021, UT1-UTC=-0.1047095, Accumulated Leap Seconds=37
+  { 2459521.50, 69.289521 }, //03 November 2021, UT1-UTC=-0.1055211, Accumulated Leap Seconds=37
+  { 2459522.50, 69.290354 }, //04 November 2021, UT1-UTC=-0.1063542, Accumulated Leap Seconds=37
+  { 2459523.50, 69.291007 }, //05 November 2021, UT1-UTC=-0.1070067, Accumulated Leap Seconds=37, Predicted value
+  { 2459524.50, 69.291380 }, //06 November 2021, UT1-UTC=-0.1073802, Accumulated Leap Seconds=37, Predicted value
+  { 2459525.50, 69.291489 }, //07 November 2021, UT1-UTC=-0.1074894, Accumulated Leap Seconds=37, Predicted value
+  { 2459526.50, 69.291387 }, //08 November 2021, UT1-UTC=-0.1073866, Accumulated Leap Seconds=37, Predicted value
+  { 2459527.50, 69.291174 }, //09 November 2021, UT1-UTC=-0.1071738, Accumulated Leap Seconds=37, Predicted value
+  { 2459528.50, 69.290979 }, //10 November 2021, UT1-UTC=-0.1069792, Accumulated Leap Seconds=37, Predicted value
+  { 2459529.50, 69.290905 }, //11 November 2021, UT1-UTC=-0.1069051, Accumulated Leap Seconds=37, Predicted value
+  { 2459530.50, 69.290993 }, //12 November 2021, UT1-UTC=-0.1069928, Accumulated Leap Seconds=37, Predicted value
+  { 2459531.50, 69.291238 }, //13 November 2021, UT1-UTC=-0.1072384, Accumulated Leap Seconds=37, Predicted value
+  { 2459532.50, 69.291587 }, //14 November 2021, UT1-UTC=-0.1075872, Accumulated Leap Seconds=37, Predicted value
+  { 2459533.50, 69.291973 }, //15 November 2021, UT1-UTC=-0.1079730, Accumulated Leap Seconds=37, Predicted value
+  { 2459534.50, 69.292337 }, //16 November 2021, UT1-UTC=-0.1083369, Accumulated Leap Seconds=37, Predicted value
+  { 2459535.50, 69.292653 }, //17 November 2021, UT1-UTC=-0.1086528, Accumulated Leap Seconds=37, Predicted value
+  { 2459536.50, 69.292866 }, //18 November 2021, UT1-UTC=-0.1088656, Accumulated Leap Seconds=37, Predicted value
+  { 2459537.50, 69.292912 }, //19 November 2021, UT1-UTC=-0.1089115, Accumulated Leap Seconds=37, Predicted value
+  { 2459538.50, 69.292766 }, //20 November 2021, UT1-UTC=-0.1087663, Accumulated Leap Seconds=37, Predicted value
+  { 2459539.50, 69.292441 }, //21 November 2021, UT1-UTC=-0.1084407, Accumulated Leap Seconds=37, Predicted value
+  { 2459540.50, 69.291968 }, //22 November 2021, UT1-UTC=-0.1079676, Accumulated Leap Seconds=37, Predicted value
+  { 2459541.50, 69.291418 }, //23 November 2021, UT1-UTC=-0.1074178, Accumulated Leap Seconds=37, Predicted value
+  { 2459542.50, 69.290860 }, //24 November 2021, UT1-UTC=-0.1068601, Accumulated Leap Seconds=37, Predicted value
+  { 2459543.50, 69.290358 }, //25 November 2021, UT1-UTC=-0.1063578, Accumulated Leap Seconds=37, Predicted value
+  { 2459544.50, 69.289975 }, //26 November 2021, UT1-UTC=-0.1059747, Accumulated Leap Seconds=37, Predicted value
+  { 2459545.50, 69.289776 }, //27 November 2021, UT1-UTC=-0.1057763, Accumulated Leap Seconds=37, Predicted value
+  { 2459546.50, 69.289810 }, //28 November 2021, UT1-UTC=-0.1058097, Accumulated Leap Seconds=37, Predicted value
+  { 2459547.50, 69.290077 }, //29 November 2021, UT1-UTC=-0.1060775, Accumulated Leap Seconds=37, Predicted value
+  { 2459548.50, 69.290533 }, //30 November 2021, UT1-UTC=-0.1065334, Accumulated Leap Seconds=37, Predicted value
+  { 2459549.50, 69.291075 }, //01 December 2021, UT1-UTC=-0.1070749, Accumulated Leap Seconds=37, Predicted value
+  { 2459550.50, 69.291557 }, //02 December 2021, UT1-UTC=-0.1075567, Accumulated Leap Seconds=37, Predicted value
+  { 2459551.50, 69.291854 }, //03 December 2021, UT1-UTC=-0.1078543, Accumulated Leap Seconds=37, Predicted value
+  { 2459552.50, 69.291887 }, //04 December 2021, UT1-UTC=-0.1078868, Accumulated Leap Seconds=37, Predicted value
+  { 2459553.50, 69.291657 }, //05 December 2021, UT1-UTC=-0.1076572, Accumulated Leap Seconds=37, Predicted value
+  { 2459554.50, 69.291246 }, //06 December 2021, UT1-UTC=-0.1072458, Accumulated Leap Seconds=37, Predicted value
+  { 2459555.50, 69.290776 }, //07 December 2021, UT1-UTC=-0.1067762, Accumulated Leap Seconds=37, Predicted value
+  { 2459556.50, 69.290368 }, //08 December 2021, UT1-UTC=-0.1063677, Accumulated Leap Seconds=37, Predicted value
+  { 2459557.50, 69.290099 }, //09 December 2021, UT1-UTC=-0.1060988, Accumulated Leap Seconds=37, Predicted value
+  { 2459558.50, 69.289994 }, //10 December 2021, UT1-UTC=-0.1059944, Accumulated Leap Seconds=37, Predicted value
+  { 2459559.50, 69.290020 }, //11 December 2021, UT1-UTC=-0.1060204, Accumulated Leap Seconds=37, Predicted value
+  { 2459560.50, 69.290118 }, //12 December 2021, UT1-UTC=-0.1061177, Accumulated Leap Seconds=37, Predicted value
+  { 2459561.50, 69.290219 }, //13 December 2021, UT1-UTC=-0.1062188, Accumulated Leap Seconds=37, Predicted value
+  { 2459562.50, 69.290258 }, //14 December 2021, UT1-UTC=-0.1062583, Accumulated Leap Seconds=37, Predicted value
+  { 2459563.50, 69.290182 }, //15 December 2021, UT1-UTC=-0.1061815, Accumulated Leap Seconds=37, Predicted value
+  { 2459564.50, 69.289952 }, //16 December 2021, UT1-UTC=-0.1059525, Accumulated Leap Seconds=37, Predicted value
+  { 2459565.50, 69.289557 }, //17 December 2021, UT1-UTC=-0.1055574, Accumulated Leap Seconds=37, Predicted value
+  { 2459566.50, 69.289001 }, //18 December 2021, UT1-UTC=-0.1050012, Accumulated Leap Seconds=37, Predicted value
+  { 2459567.50, 69.288311 }, //19 December 2021, UT1-UTC=-0.1043108, Accumulated Leap Seconds=37, Predicted value
+  { 2459568.50, 69.287531 }, //20 December 2021, UT1-UTC=-0.1035308, Accumulated Leap Seconds=37, Predicted value
+  { 2459569.50, 69.286724 }, //21 December 2021, UT1-UTC=-0.1027241, Accumulated Leap Seconds=37, Predicted value
+  { 2459570.50, 69.285962 }, //22 December 2021, UT1-UTC=-0.1019621, Accumulated Leap Seconds=37, Predicted value
+  { 2459571.50, 69.285312 }, //23 December 2021, UT1-UTC=-0.1013123, Accumulated Leap Seconds=37, Predicted value
+  { 2459572.50, 69.284831 }, //24 December 2021, UT1-UTC=-0.1008315, Accumulated Leap Seconds=37, Predicted value
+  { 2459573.50, 69.284556 }, //25 December 2021, UT1-UTC=-0.1005556, Accumulated Leap Seconds=37, Predicted value
+  { 2459574.50, 69.284496 }, //26 December 2021, UT1-UTC=-0.1004956, Accumulated Leap Seconds=37, Predicted value
+  { 2459575.50, 69.284627 }, //27 December 2021, UT1-UTC=-0.1006272, Accumulated Leap Seconds=37, Predicted value
+  { 2459576.50, 69.284882 }, //28 December 2021, UT1-UTC=-0.1008824, Accumulated Leap Seconds=37, Predicted value
+  { 2459577.50, 69.285158 }, //29 December 2021, UT1-UTC=-0.1011581, Accumulated Leap Seconds=37, Predicted value
+  { 2459578.50, 69.285338 }, //30 December 2021, UT1-UTC=-0.1013383, Accumulated Leap Seconds=37, Predicted value
+  { 2459579.50, 69.285330 }, //31 December 2021, UT1-UTC=-0.1013301, Accumulated Leap Seconds=37, Predicted value
+  { 2459580.50, 69.285097 }, //01 January 2022, UT1-UTC=-0.1010966, Accumulated Leap Seconds=37, Predicted value
+  { 2459581.50, 69.284677 }, //02 January 2022, UT1-UTC=-0.1006769, Accumulated Leap Seconds=37, Predicted value
+  { 2459582.50, 69.284176 }, //03 January 2022, UT1-UTC=-0.1001764, Accumulated Leap Seconds=37, Predicted value
+  { 2459583.50, 69.283727 }, //04 January 2022, UT1-UTC=-0.0997270, Accumulated Leap Seconds=37, Predicted value
+  { 2459584.50, 69.283436 }, //05 January 2022, UT1-UTC=-0.0994359, Accumulated Leap Seconds=37, Predicted value
+  { 2459585.50, 69.283351 }, //06 January 2022, UT1-UTC=-0.0993508, Accumulated Leap Seconds=37, Predicted value
+  { 2459586.50, 69.283454 }, //07 January 2022, UT1-UTC=-0.0994545, Accumulated Leap Seconds=37, Predicted value
+  { 2459587.50, 69.283681 }, //08 January 2022, UT1-UTC=-0.0996806, Accumulated Leap Seconds=37, Predicted value
+  { 2459588.50, 69.283944 }, //09 January 2022, UT1-UTC=-0.0999436, Accumulated Leap Seconds=37, Predicted value
+  { 2459589.50, 69.284161 }, //10 January 2022, UT1-UTC=-0.1001614, Accumulated Leap Seconds=37, Predicted value
+  { 2459590.50, 69.284272 }, //11 January 2022, UT1-UTC=-0.1002719, Accumulated Leap Seconds=37, Predicted value
+  { 2459591.50, 69.284233 }, //12 January 2022, UT1-UTC=-0.1002330, Accumulated Leap Seconds=37, Predicted value
+  { 2459592.50, 69.284026 }, //13 January 2022, UT1-UTC=-0.1000259, Accumulated Leap Seconds=37, Predicted value
+  { 2459593.50, 69.283654 }, //14 January 2022, UT1-UTC=-0.0996538, Accumulated Leap Seconds=37, Predicted value
+  { 2459594.50, 69.283140 }, //15 January 2022, UT1-UTC=-0.0991399, Accumulated Leap Seconds=37, Predicted value
+  { 2459595.50, 69.282528 }, //16 January 2022, UT1-UTC=-0.0985283, Accumulated Leap Seconds=37, Predicted value
+  { 2459596.50, 69.281879 }, //17 January 2022, UT1-UTC=-0.0978789, Accumulated Leap Seconds=37, Predicted value
+  { 2459597.50, 69.281264 }, //18 January 2022, UT1-UTC=-0.0972645, Accumulated Leap Seconds=37, Predicted value
+  { 2459598.50, 69.280756 }, //19 January 2022, UT1-UTC=-0.0967557, Accumulated Leap Seconds=37, Predicted value
+  { 2459599.50, 69.280411 }, //20 January 2022, UT1-UTC=-0.0964111, Accumulated Leap Seconds=37, Predicted value
+  { 2459600.50, 69.280268 }, //21 January 2022, UT1-UTC=-0.0962682, Accumulated Leap Seconds=37, Predicted value
+  { 2459601.50, 69.280337 }, //22 January 2022, UT1-UTC=-0.0963369, Accumulated Leap Seconds=37, Predicted value
+  { 2459602.50, 69.280591 }, //23 January 2022, UT1-UTC=-0.0965914, Accumulated Leap Seconds=37, Predicted value
+  { 2459603.50, 69.280970 }, //24 January 2022, UT1-UTC=-0.0969701, Accumulated Leap Seconds=37, Predicted value
+  { 2459604.50, 69.281383 }, //25 January 2022, UT1-UTC=-0.0973834, Accumulated Leap Seconds=37, Predicted value
+  { 2459605.50, 69.281729 }, //26 January 2022, UT1-UTC=-0.0977292, Accumulated Leap Seconds=37, Predicted value
+  { 2459606.50, 69.281918 }, //27 January 2022, UT1-UTC=-0.0979181, Accumulated Leap Seconds=37, Predicted value
+  { 2459607.50, 69.281900 }, //28 January 2022, UT1-UTC=-0.0978998, Accumulated Leap Seconds=37, Predicted value
+  { 2459608.50, 69.281687 }, //29 January 2022, UT1-UTC=-0.0976873, Accumulated Leap Seconds=37, Predicted value
+  { 2459609.50, 69.281360 }, //30 January 2022, UT1-UTC=-0.0973599, Accumulated Leap Seconds=37, Predicted value
+  { 2459610.50, 69.281042 }, //31 January 2022, UT1-UTC=-0.0970418, Accumulated Leap Seconds=37, Predicted value
+  { 2459611.50, 69.280858 }, //01 February 2022, UT1-UTC=-0.0968581, Accumulated Leap Seconds=37, Predicted value
+  { 2459612.50, 69.280888 }, //02 February 2022, UT1-UTC=-0.0968881, Accumulated Leap Seconds=37, Predicted value
+  { 2459613.50, 69.281142 }, //03 February 2022, UT1-UTC=-0.0971420, Accumulated Leap Seconds=37, Predicted value
+  { 2459614.50, 69.281567 }, //04 February 2022, UT1-UTC=-0.0975668, Accumulated Leap Seconds=37, Predicted value
+  { 2459615.50, 69.282074 }, //05 February 2022, UT1-UTC=-0.0980741, Accumulated Leap Seconds=37, Predicted value
+  { 2459616.50, 69.282566 }, //06 February 2022, UT1-UTC=-0.0985664, Accumulated Leap Seconds=37, Predicted value
+  { 2459617.50, 69.282964 }, //07 February 2022, UT1-UTC=-0.0989644, Accumulated Leap Seconds=37, Predicted value
+  { 2459618.50, 69.283217 }, //08 February 2022, UT1-UTC=-0.0992169, Accumulated Leap Seconds=37, Predicted value
+  { 2459619.50, 69.283301 }, //09 February 2022, UT1-UTC=-0.0993010, Accumulated Leap Seconds=37, Predicted value
+  { 2459620.50, 69.283217 }, //10 February 2022, UT1-UTC=-0.0992172, Accumulated Leap Seconds=37, Predicted value
+  { 2459621.50, 69.282988 }, //11 February 2022, UT1-UTC=-0.0989881, Accumulated Leap Seconds=37, Predicted value
+  { 2459622.50, 69.282655 }, //12 February 2022, UT1-UTC=-0.0986548, Accumulated Leap Seconds=37, Predicted value
+  { 2459623.50, 69.282276 }, //13 February 2022, UT1-UTC=-0.0982758, Accumulated Leap Seconds=37, Predicted value
+  { 2459624.50, 69.281920 }, //14 February 2022, UT1-UTC=-0.0979197, Accumulated Leap Seconds=37, Predicted value
+  { 2459625.50, 69.281661 }, //15 February 2022, UT1-UTC=-0.0976607, Accumulated Leap Seconds=37, Predicted value
+  { 2459626.50, 69.281565 }, //16 February 2022, UT1-UTC=-0.0975647, Accumulated Leap Seconds=37, Predicted value
+  { 2459627.50, 69.281679 }, //17 February 2022, UT1-UTC=-0.0976789, Accumulated Leap Seconds=37, Predicted value
+  { 2459628.50, 69.282021 }, //18 February 2022, UT1-UTC=-0.0980206, Accumulated Leap Seconds=37, Predicted value
+  { 2459629.50, 69.282565 }, //19 February 2022, UT1-UTC=-0.0985649, Accumulated Leap Seconds=37, Predicted value
+  { 2459630.50, 69.283245 }, //20 February 2022, UT1-UTC=-0.0992452, Accumulated Leap Seconds=37, Predicted value
+  { 2459631.50, 69.283898 }, //21 February 2022, UT1-UTC=-0.0998982, Accumulated Leap Seconds=37, Predicted value
+  { 2459632.50, 69.284485 }, //22 February 2022, UT1-UTC=-0.1004849, Accumulated Leap Seconds=37, Predicted value
+  { 2459633.50, 69.284916 }, //23 February 2022, UT1-UTC=-0.1009158, Accumulated Leap Seconds=37, Predicted value
+  { 2459634.50, 69.285140 }, //24 February 2022, UT1-UTC=-0.1011404, Accumulated Leap Seconds=37, Predicted value
+  { 2459635.50, 69.285163 }, //25 February 2022, UT1-UTC=-0.1011629, Accumulated Leap Seconds=37, Predicted value
+  { 2459636.50, 69.285046 }, //26 February 2022, UT1-UTC=-0.1010464, Accumulated Leap Seconds=37, Predicted value
+  { 2459637.50, 69.284899 }, //27 February 2022, UT1-UTC=-0.1008995, Accumulated Leap Seconds=37, Predicted value
+  { 2459638.50, 69.284845 }, //28 February 2022, UT1-UTC=-0.1008453, Accumulated Leap Seconds=37, Predicted value
+  { 2459639.50, 69.284983 }, //01 March 2022, UT1-UTC=-0.1009831, Accumulated Leap Seconds=37, Predicted value
+  { 2459640.50, 69.285356 }, //02 March 2022, UT1-UTC=-0.1013564, Accumulated Leap Seconds=37, Predicted value
+  { 2459641.50, 69.285942 }, //03 March 2022, UT1-UTC=-0.1019417, Accumulated Leap Seconds=37, Predicted value
+  { 2459642.50, 69.286661 }, //04 March 2022, UT1-UTC=-0.1026613, Accumulated Leap Seconds=37, Predicted value
+  { 2459643.50, 69.287412 }, //05 March 2022, UT1-UTC=-0.1034118, Accumulated Leap Seconds=37, Predicted value
+  { 2459644.50, 69.288095 }, //06 March 2022, UT1-UTC=-0.1040955, Accumulated Leap Seconds=37, Predicted value
+  { 2459645.50, 69.288640 }, //07 March 2022, UT1-UTC=-0.1046397, Accumulated Leap Seconds=37, Predicted value
+  { 2459646.50, 69.289004 }, //08 March 2022, UT1-UTC=-0.1050039, Accumulated Leap Seconds=37, Predicted value
+  { 2459647.50, 69.289179 }, //09 March 2022, UT1-UTC=-0.1051786, Accumulated Leap Seconds=37, Predicted value
+  { 2459648.50, 69.289182 }, //10 March 2022, UT1-UTC=-0.1051823, Accumulated Leap Seconds=37, Predicted value
+  { 2459649.50, 69.289056 }, //11 March 2022, UT1-UTC=-0.1050563, Accumulated Leap Seconds=37, Predicted value
+  { 2459650.50, 69.288859 }, //12 March 2022, UT1-UTC=-0.1048594, Accumulated Leap Seconds=37, Predicted value
+  { 2459651.50, 69.288662 }, //13 March 2022, UT1-UTC=-0.1046618, Accumulated Leap Seconds=37, Predicted value
+  { 2459652.50, 69.288538 }, //14 March 2022, UT1-UTC=-0.1045378, Accumulated Leap Seconds=37, Predicted value
+  { 2459653.50, 69.288559 }, //15 March 2022, UT1-UTC=-0.1045593, Accumulated Leap Seconds=37, Predicted value
+  { 2459654.50, 69.288786 }, //16 March 2022, UT1-UTC=-0.1047860, Accumulated Leap Seconds=37, Predicted value
+  { 2459655.50, 69.289251 }, //17 March 2022, UT1-UTC=-0.1052506, Accumulated Leap Seconds=37, Predicted value
+  { 2459656.50, 69.289945 }, //18 March 2022, UT1-UTC=-0.1059448, Accumulated Leap Seconds=37, Predicted value
+  { 2459657.50, 69.290811 }, //19 March 2022, UT1-UTC=-0.1068108, Accumulated Leap Seconds=37, Predicted value
+  { 2459658.50, 69.291747 }, //20 March 2022, UT1-UTC=-0.1077473, Accumulated Leap Seconds=37, Predicted value
+  { 2459659.50, 69.292632 }, //21 March 2022, UT1-UTC=-0.1086323, Accumulated Leap Seconds=37, Predicted value
+  { 2459660.50, 69.293355 }, //22 March 2022, UT1-UTC=-0.1093554, Accumulated Leap Seconds=37, Predicted value
+  { 2459661.50, 69.293850 }, //23 March 2022, UT1-UTC=-0.1098499, Accumulated Leap Seconds=37, Predicted value
+  { 2459662.50, 69.294111 }, //24 March 2022, UT1-UTC=-0.1101105, Accumulated Leap Seconds=37, Predicted value
+  { 2459663.50, 69.294194 }, //25 March 2022, UT1-UTC=-0.1101937, Accumulated Leap Seconds=37, Predicted value
+  { 2459664.50, 69.294201 }, //26 March 2022, UT1-UTC=-0.1102012, Accumulated Leap Seconds=37, Predicted value
+  { 2459665.50, 69.294252 }, //27 March 2022, UT1-UTC=-0.1102518, Accumulated Leap Seconds=37, Predicted value
+  { 2459666.50, 69.294450 }, //28 March 2022, UT1-UTC=-0.1104496, Accumulated Leap Seconds=37, Predicted value
+  { 2459667.50, 69.294856 }, //29 March 2022, UT1-UTC=-0.1108565, Accumulated Leap Seconds=37, Predicted value
+  { 2459668.50, 69.295476 }, //30 March 2022, UT1-UTC=-0.1114764, Accumulated Leap Seconds=37, Predicted value
+  { 2459669.50, 69.296258 }, //31 March 2022, UT1-UTC=-0.1122579, Accumulated Leap Seconds=37, Predicted value
+  { 2459670.50, 69.297111 }, //01 April 2022, UT1-UTC=-0.1131110, Accumulated Leap Seconds=37, Predicted value
+  { 2459671.50, 69.297934 }, //02 April 2022, UT1-UTC=-0.1139342, Accumulated Leap Seconds=37, Predicted value
+  { 2459672.50, 69.298639 }, //03 April 2022, UT1-UTC=-0.1146390, Accumulated Leap Seconds=37, Predicted value
+  { 2459673.50, 69.299166 }, //04 April 2022, UT1-UTC=-0.1151658, Accumulated Leap Seconds=37, Predicted value
+  { 2459674.50, 69.299489 }, //05 April 2022, UT1-UTC=-0.1154892, Accumulated Leap Seconds=37, Predicted value
+  { 2459675.50, 69.299615 }, //06 April 2022, UT1-UTC=-0.1156149, Accumulated Leap Seconds=37, Predicted value
+  { 2459676.50, 69.299576 }, //07 April 2022, UT1-UTC=-0.1155762, Accumulated Leap Seconds=37, Predicted value
+  { 2459677.50, 69.299429 }, //08 April 2022, UT1-UTC=-0.1154286, Accumulated Leap Seconds=37, Predicted value
+  { 2459678.50, 69.299241 }, //09 April 2022, UT1-UTC=-0.1152407, Accumulated Leap Seconds=37, Predicted value
+  { 2459679.50, 69.299087 }, //10 April 2022, UT1-UTC=-0.1150871, Accumulated Leap Seconds=37, Predicted value
+  { 2459680.50, 69.299041 }, //11 April 2022, UT1-UTC=-0.1150409, Accumulated Leap Seconds=37, Predicted value
+  { 2459681.50, 69.299167 }, //12 April 2022, UT1-UTC=-0.1151668, Accumulated Leap Seconds=37, Predicted value
+  { 2459682.50, 69.299512 }, //13 April 2022, UT1-UTC=-0.1155116, Accumulated Leap Seconds=37, Predicted value
+  { 2459683.50, 69.300091 }, //14 April 2022, UT1-UTC=-0.1160915, Accumulated Leap Seconds=37, Predicted value
+  { 2459684.50, 69.300875 }, //15 April 2022, UT1-UTC=-0.1168754, Accumulated Leap Seconds=37, Predicted value
+  { 2459685.50, 69.301780 }, //16 April 2022, UT1-UTC=-0.1177798, Accumulated Leap Seconds=37, Predicted value
+  { 2459686.50, 69.302680 }, //17 April 2022, UT1-UTC=-0.1186803, Accumulated Leap Seconds=37, Predicted value
+  { 2459687.50, 69.303445 }, //18 April 2022, UT1-UTC=-0.1194449, Accumulated Leap Seconds=37, Predicted value
+  { 2459688.50, 69.303974 }, //19 April 2022, UT1-UTC=-0.1199744, Accumulated Leap Seconds=37, Predicted value
+  { 2459689.50, 69.304236 }, //20 April 2022, UT1-UTC=-0.1202360, Accumulated Leap Seconds=37, Predicted value
+  { 2459690.50, 69.304271 }, //21 April 2022, UT1-UTC=-0.1202715, Accumulated Leap Seconds=37, Predicted value
+  { 2459691.50, 69.304181 }, //22 April 2022, UT1-UTC=-0.1201811, Accumulated Leap Seconds=37, Predicted value
+  { 2459692.50, 69.304088 }, //23 April 2022, UT1-UTC=-0.1200877, Accumulated Leap Seconds=37, Predicted value
+  { 2459693.50, 69.304102 }, //24 April 2022, UT1-UTC=-0.1201020, Accumulated Leap Seconds=37, Predicted value
+  { 2459694.50, 69.304294 }, //25 April 2022, UT1-UTC=-0.1202937, Accumulated Leap Seconds=37, Predicted value
+  { 2459695.50, 69.304680 }, //26 April 2022, UT1-UTC=-0.1206803, Accumulated Leap Seconds=37, Predicted value
+  { 2459696.50, 69.305228 }, //27 April 2022, UT1-UTC=-0.1212282, Accumulated Leap Seconds=37, Predicted value
+  { 2459697.50, 69.305866 }, //28 April 2022, UT1-UTC=-0.1218660, Accumulated Leap Seconds=37, Predicted value
+  { 2459698.50, 69.306505 }, //29 April 2022, UT1-UTC=-0.1225049, Accumulated Leap Seconds=37, Predicted value
+  { 2459699.50, 69.307059 }, //30 April 2022, UT1-UTC=-0.1230586, Accumulated Leap Seconds=37, Predicted value
+  { 2459700.50, 69.307461 }, //01 May 2022, UT1-UTC=-0.1234606, Accumulated Leap Seconds=37, Predicted value
+  { 2459701.50, 69.307674 }, //02 May 2022, UT1-UTC=-0.1236737, Accumulated Leap Seconds=37, Predicted value
+  { 2459702.50, 69.307694 }, //03 May 2022, UT1-UTC=-0.1236937, Accumulated Leap Seconds=37, Predicted value
+  { 2459703.50, 69.307547 }, //04 May 2022, UT1-UTC=-0.1235469, Accumulated Leap Seconds=37, Predicted value
+  { 2459704.50, 69.307285 }, //05 May 2022, UT1-UTC=-0.1232852, Accumulated Leap Seconds=37, Predicted value
+  { 2459705.50, 69.306979 }, //06 May 2022, UT1-UTC=-0.1229786, Accumulated Leap Seconds=37, Predicted value
+  { 2459706.50, 69.306706 }, //07 May 2022, UT1-UTC=-0.1227058, Accumulated Leap Seconds=37, Predicted value
+  { 2459707.50, 69.306544 }, //08 May 2022, UT1-UTC=-0.1225435, Accumulated Leap Seconds=37, Predicted value
+  { 2459708.50, 69.306559 }, //09 May 2022, UT1-UTC=-0.1225589, Accumulated Leap Seconds=37, Predicted value
+  { 2459709.50, 69.306803 }, //10 May 2022, UT1-UTC=-0.1228029, Accumulated Leap Seconds=37, Predicted value
+  { 2459710.50, 69.307301 }, //11 May 2022, UT1-UTC=-0.1233013, Accumulated Leap Seconds=37, Predicted value
+  { 2459711.50, 69.308041 }, //12 May 2022, UT1-UTC=-0.1240410, Accumulated Leap Seconds=37, Predicted value
+  { 2459712.50, 69.308958 }, //13 May 2022, UT1-UTC=-0.1249578, Accumulated Leap Seconds=37, Predicted value
+  { 2459713.50, 69.309936 }, //14 May 2022, UT1-UTC=-0.1259356, Accumulated Leap Seconds=37, Predicted value
+  { 2459714.50, 69.310828 }, //15 May 2022, UT1-UTC=-0.1268281, Accumulated Leap Seconds=37, Predicted value
+  { 2459715.50, 69.311501 }, //16 May 2022, UT1-UTC=-0.1275009, Accumulated Leap Seconds=37, Predicted value
+  { 2459716.50, 69.311877 }, //17 May 2022, UT1-UTC=-0.1278769, Accumulated Leap Seconds=37, Predicted value
+  { 2459717.50, 69.311962 }, //18 May 2022, UT1-UTC=-0.1279620, Accumulated Leap Seconds=37, Predicted value
+  { 2459718.50, 69.311839 }, //19 May 2022, UT1-UTC=-0.1278387, Accumulated Leap Seconds=37, Predicted value
+  { 2459719.50, 69.311631 }, //20 May 2022, UT1-UTC=-0.1276314, Accumulated Leap Seconds=37, Predicted value
+  { 2459720.50, 69.311460 }, //21 May 2022, UT1-UTC=-0.1274598, Accumulated Leap Seconds=37, Predicted value
+  { 2459721.50, 69.311401 }, //22 May 2022, UT1-UTC=-0.1274014, Accumulated Leap Seconds=37, Predicted value
+  { 2459722.50, 69.311475 }, //23 May 2022, UT1-UTC=-0.1274747, Accumulated Leap Seconds=37, Predicted value
+  { 2459723.50, 69.311644 }, //24 May 2022, UT1-UTC=-0.1276442, Accumulated Leap Seconds=37, Predicted value
+  { 2459724.50, 69.311839 }, //25 May 2022, UT1-UTC=-0.1278394, Accumulated Leap Seconds=37, Predicted value
+  { 2459725.50, 69.311978 }, //26 May 2022, UT1-UTC=-0.1279783, Accumulated Leap Seconds=37, Predicted value
+  { 2459726.50, 69.311987 }, //27 May 2022, UT1-UTC=-0.1279867, Accumulated Leap Seconds=37, Predicted value
+  { 2459727.50, 69.311812 }, //28 May 2022, UT1-UTC=-0.1278117, Accumulated Leap Seconds=37, Predicted value
+  { 2459728.50, 69.311427 }, //29 May 2022, UT1-UTC=-0.1274270, Accumulated Leap Seconds=37, Predicted value
+  { 2459729.50, 69.310833 }, //30 May 2022, UT1-UTC=-0.1268334, Accumulated Leap Seconds=37, Predicted value
+  { 2459730.50, 69.310055 }, //31 May 2022, UT1-UTC=-0.1260552, Accumulated Leap Seconds=37, Predicted value
+  { 2459731.50, 69.309135 }, //01 June 2022, UT1-UTC=-0.1251346, Accumulated Leap Seconds=37, Predicted value
+  { 2459732.50, 69.308127 }, //02 June 2022, UT1-UTC=-0.1241269, Accumulated Leap Seconds=37, Predicted value
+  { 2459733.50, 69.307097 }, //03 June 2022, UT1-UTC=-0.1230975, Accumulated Leap Seconds=37, Predicted value
+  { 2459734.50, 69.306119 }, //04 June 2022, UT1-UTC=-0.1221194, Accumulated Leap Seconds=37, Predicted value
+  { 2459735.50, 69.305265 }, //05 June 2022, UT1-UTC=-0.1212654, Accumulated Leap Seconds=37, Predicted value
+  { 2459736.50, 69.304592 }, //06 June 2022, UT1-UTC=-0.1205915, Accumulated Leap Seconds=37, Predicted value
+  { 2459737.50, 69.304123 }, //07 June 2022, UT1-UTC=-0.1201227, Accumulated Leap Seconds=37, Predicted value
+  { 2459738.50, 69.303852 }, //08 June 2022, UT1-UTC=-0.1198518, Accumulated Leap Seconds=37, Predicted value
+  { 2459739.50, 69.303737 }, //09 June 2022, UT1-UTC=-0.1197367, Accumulated Leap Seconds=37, Predicted value
+  { 2459740.50, 69.303696 }, //10 June 2022, UT1-UTC=-0.1196960, Accumulated Leap Seconds=37, Predicted value
+  { 2459741.50, 69.303611 }, //11 June 2022, UT1-UTC=-0.1196110, Accumulated Leap Seconds=37, Predicted value
+  { 2459742.50, 69.303350 }, //12 June 2022, UT1-UTC=-0.1193502, Accumulated Leap Seconds=37, Predicted value
+  { 2459743.50, 69.302816 }, //13 June 2022, UT1-UTC=-0.1188156, Accumulated Leap Seconds=37, Predicted value
+  { 2459744.50, 69.301983 }, //14 June 2022, UT1-UTC=-0.1179826, Accumulated Leap Seconds=37, Predicted value
+  { 2459745.50, 69.300952 }, //15 June 2022, UT1-UTC=-0.1169525, Accumulated Leap Seconds=37, Predicted value
+  { 2459746.50, 69.299813 }, //16 June 2022, UT1-UTC=-0.1158126, Accumulated Leap Seconds=37, Predicted value
+  { 2459747.50, 69.298708 }, //17 June 2022, UT1-UTC=-0.1147083, Accumulated Leap Seconds=37, Predicted value
+  { 2459748.50, 69.297799 }, //18 June 2022, UT1-UTC=-0.1137994, Accumulated Leap Seconds=37, Predicted value
+  { 2459749.50, 69.297073 }, //19 June 2022, UT1-UTC=-0.1130731, Accumulated Leap Seconds=37, Predicted value
+  { 2459750.50, 69.296584 }, //20 June 2022, UT1-UTC=-0.1125842, Accumulated Leap Seconds=37, Predicted value
+  { 2459751.50, 69.296148 }, //21 June 2022, UT1-UTC=-0.1121484, Accumulated Leap Seconds=37, Predicted value
+  { 2459752.50, 69.295620 }, //22 June 2022, UT1-UTC=-0.1116201, Accumulated Leap Seconds=37, Predicted value
+  { 2459753.50, 69.294980 }, //23 June 2022, UT1-UTC=-0.1109796, Accumulated Leap Seconds=37, Predicted value
+  { 2459754.50, 69.294179 }, //24 June 2022, UT1-UTC=-0.1101794, Accumulated Leap Seconds=37, Predicted value
+  { 2459755.50, 69.293135 }, //25 June 2022, UT1-UTC=-0.1091355, Accumulated Leap Seconds=37, Predicted value
+  { 2459756.50, 69.291848 }, //26 June 2022, UT1-UTC=-0.1078480, Accumulated Leap Seconds=37, Predicted value
+  { 2459757.50, 69.290314 }, //27 June 2022, UT1-UTC=-0.1063142, Accumulated Leap Seconds=37, Predicted value
+  { 2459758.50, 69.288614 }, //28 June 2022, UT1-UTC=-0.1046139, Accumulated Leap Seconds=37, Predicted value
+  { 2459759.50, 69.286812 }, //29 June 2022, UT1-UTC=-0.1028116, Accumulated Leap Seconds=37, Predicted value
+  { 2459760.50, 69.284926 }, //30 June 2022, UT1-UTC=-0.1009261, Accumulated Leap Seconds=37, Predicted value
+  { 2459761.50, 69.283122 }, //01 July 2022, UT1-UTC=-0.0991225, Accumulated Leap Seconds=37, Predicted value
+  { 2459762.50, 69.281423 }, //02 July 2022, UT1-UTC=-0.0974229, Accumulated Leap Seconds=37, Predicted value
+  { 2459763.50, 69.279902 }, //03 July 2022, UT1-UTC=-0.0959025, Accumulated Leap Seconds=37, Predicted value
+  { 2459764.50, 69.278584 }, //04 July 2022, UT1-UTC=-0.0945842, Accumulated Leap Seconds=37, Predicted value
+  { 2459765.50, 69.277464 }, //05 July 2022, UT1-UTC=-0.0934638, Accumulated Leap Seconds=37, Predicted value
+  { 2459766.50, 69.276489 }, //06 July 2022, UT1-UTC=-0.0924890, Accumulated Leap Seconds=37, Predicted value
+  { 2459767.50, 69.275565 }, //07 July 2022, UT1-UTC=-0.0915650, Accumulated Leap Seconds=37, Predicted value
+  { 2459768.50, 69.274637 }, //08 July 2022, UT1-UTC=-0.0906366, Accumulated Leap Seconds=37, Predicted value
+  { 2459769.50, 69.273669 }, //09 July 2022, UT1-UTC=-0.0896687, Accumulated Leap Seconds=37, Predicted value
+  { 2459770.50, 69.272494 }, //10 July 2022, UT1-UTC=-0.0884943, Accumulated Leap Seconds=37, Predicted value
+  { 2459771.50, 69.271110 }, //11 July 2022, UT1-UTC=-0.0871102, Accumulated Leap Seconds=37, Predicted value
+  { 2459772.50, 69.269577 }, //12 July 2022, UT1-UTC=-0.0855766, Accumulated Leap Seconds=37, Predicted value
+  { 2459773.50, 69.267950 }, //13 July 2022, UT1-UTC=-0.0839504, Accumulated Leap Seconds=37, Predicted value
+  { 2459774.50, 69.266360 }, //14 July 2022, UT1-UTC=-0.0823596, Accumulated Leap Seconds=37, Predicted value
+  { 2459775.50, 69.264897 }, //15 July 2022, UT1-UTC=-0.0808969, Accumulated Leap Seconds=37, Predicted value
+  { 2459776.50, 69.263649 }, //16 July 2022, UT1-UTC=-0.0796487, Accumulated Leap Seconds=37, Predicted value
+  { 2459777.50, 69.262651 }, //17 July 2022, UT1-UTC=-0.0786508, Accumulated Leap Seconds=37, Predicted value
+  { 2459778.50, 69.261821 }, //18 July 2022, UT1-UTC=-0.0778214, Accumulated Leap Seconds=37, Predicted value
+  { 2459779.50, 69.261053 }, //19 July 2022, UT1-UTC=-0.0770532, Accumulated Leap Seconds=37, Predicted value
+  { 2459780.50, 69.260260 }, //20 July 2022, UT1-UTC=-0.0762599, Accumulated Leap Seconds=37, Predicted value
+  { 2459781.50, 69.259327 }, //21 July 2022, UT1-UTC=-0.0753265, Accumulated Leap Seconds=37, Predicted value
+  { 2459782.50, 69.258194 }, //22 July 2022, UT1-UTC=-0.0741944, Accumulated Leap Seconds=37, Predicted value
+  { 2459783.50, 69.256904 }, //23 July 2022, UT1-UTC=-0.0729042, Accumulated Leap Seconds=37, Predicted value
+  { 2459784.50, 69.255432 }, //24 July 2022, UT1-UTC=-0.0714323, Accumulated Leap Seconds=37, Predicted value
+  { 2459785.50, 69.253686 }, //25 July 2022, UT1-UTC=-0.0696858, Accumulated Leap Seconds=37, Predicted value
+  { 2459786.50, 69.251819 }, //26 July 2022, UT1-UTC=-0.0678188, Accumulated Leap Seconds=37, Predicted value
+  { 2459787.50, 69.249900 }, //27 July 2022, UT1-UTC=-0.0658998, Accumulated Leap Seconds=37, Predicted value
+  { 2459788.50, 69.247975 }, //28 July 2022, UT1-UTC=-0.0639752, Accumulated Leap Seconds=37, Predicted value
+  { 2459789.50, 69.246165 }, //29 July 2022, UT1-UTC=-0.0621650, Accumulated Leap Seconds=37, Predicted value
+  { 2459790.50, 69.244503 }, //30 July 2022, UT1-UTC=-0.0605033, Accumulated Leap Seconds=37, Predicted value
+  { 2459791.50, 69.243028 }, //31 July 2022, UT1-UTC=-0.0590278, Accumulated Leap Seconds=37, Predicted value
+  { 2459792.50, 69.241716 }, //01 August 2022, UT1-UTC=-0.0577159, Accumulated Leap Seconds=37, Predicted value
+  { 2459793.50, 69.240654 }, //02 August 2022, UT1-UTC=-0.0566541, Accumulated Leap Seconds=37, Predicted value
+  { 2459794.50, 69.239746 }, //03 August 2022, UT1-UTC=-0.0557464, Accumulated Leap Seconds=37, Predicted value
+  { 2459795.50, 69.238971 }, //04 August 2022, UT1-UTC=-0.0549715, Accumulated Leap Seconds=37, Predicted value
+  { 2459796.50, 69.238268 }, //05 August 2022, UT1-UTC=-0.0542682, Accumulated Leap Seconds=37, Predicted value
+  { 2459797.50, 69.237472 }, //06 August 2022, UT1-UTC=-0.0534725, Accumulated Leap Seconds=37, Predicted value
+  { 2459798.50, 69.236587 }, //07 August 2022, UT1-UTC=-0.0525873, Accumulated Leap Seconds=37, Predicted value
+  { 2459799.50, 69.235577 }, //08 August 2022, UT1-UTC=-0.0515767, Accumulated Leap Seconds=37, Predicted value
+  { 2459800.50, 69.234458 }, //09 August 2022, UT1-UTC=-0.0504576, Accumulated Leap Seconds=37, Predicted value
+  { 2459801.50, 69.233385 }, //10 August 2022, UT1-UTC=-0.0493847, Accumulated Leap Seconds=37, Predicted value
+  { 2459802.50, 69.232420 }, //11 August 2022, UT1-UTC=-0.0484204, Accumulated Leap Seconds=37, Predicted value
+  { 2459803.50, 69.231675 }, //12 August 2022, UT1-UTC=-0.0476747, Accumulated Leap Seconds=37, Predicted value
+  { 2459804.50, 69.231188 }, //13 August 2022, UT1-UTC=-0.0471877, Accumulated Leap Seconds=37, Predicted value
+  { 2459805.50, 69.230940 }, //14 August 2022, UT1-UTC=-0.0469404, Accumulated Leap Seconds=37, Predicted value
+  { 2459806.50, 69.230839 }, //15 August 2022, UT1-UTC=-0.0468393, Accumulated Leap Seconds=37, Predicted value
+  { 2459807.50, 69.230692 }, //16 August 2022, UT1-UTC=-0.0466923, Accumulated Leap Seconds=37, Predicted value
+  { 2459808.50, 69.230405 }, //17 August 2022, UT1-UTC=-0.0464053, Accumulated Leap Seconds=37, Predicted value
+  { 2459809.50, 69.229918 }, //18 August 2022, UT1-UTC=-0.0459179, Accumulated Leap Seconds=37, Predicted value
+  { 2459810.50, 69.229214 }, //19 August 2022, UT1-UTC=-0.0452139, Accumulated Leap Seconds=37, Predicted value
+  { 2459811.50, 69.228311 }, //20 August 2022, UT1-UTC=-0.0443106, Accumulated Leap Seconds=37, Predicted value
+  { 2459812.50, 69.227255 }, //21 August 2022, UT1-UTC=-0.0432553, Accumulated Leap Seconds=37, Predicted value
+  { 2459813.50, 69.226074 }, //22 August 2022, UT1-UTC=-0.0420738, Accumulated Leap Seconds=37, Predicted value
+  { 2459814.50, 69.224802 }, //23 August 2022, UT1-UTC=-0.0408024, Accumulated Leap Seconds=37, Predicted value
+  { 2459815.50, 69.223496 }, //24 August 2022, UT1-UTC=-0.0394965, Accumulated Leap Seconds=37, Predicted value
+  { 2459816.50, 69.222202 }, //25 August 2022, UT1-UTC=-0.0382016, Accumulated Leap Seconds=37, Predicted value
+  { 2459817.50, 69.221078 }, //26 August 2022, UT1-UTC=-0.0370778, Accumulated Leap Seconds=37, Predicted value
+  { 2459818.50, 69.220193 }, //27 August 2022, UT1-UTC=-0.0361930, Accumulated Leap Seconds=37, Predicted value
+  { 2459819.50, 69.219415 }, //28 August 2022, UT1-UTC=-0.0354155, Accumulated Leap Seconds=37, Predicted value
+  { 2459820.50, 69.218769 }, //29 August 2022, UT1-UTC=-0.0347691, Accumulated Leap Seconds=37, Predicted value
+  { 2459821.50, 69.218312 }, //30 August 2022, UT1-UTC=-0.0343120, Accumulated Leap Seconds=37, Predicted value
+  { 2459822.50, 69.217936 }, //31 August 2022, UT1-UTC=-0.0339365, Accumulated Leap Seconds=37, Predicted value
+  { 2459823.50, 69.217539 }, //01 September 2022, UT1-UTC=-0.0335390, Accumulated Leap Seconds=37, Predicted value
+  { 2459824.50, 69.217046 }, //02 September 2022, UT1-UTC=-0.0330465, Accumulated Leap Seconds=37, Predicted value
+  { 2459825.50, 69.216289 }, //03 September 2022, UT1-UTC=-0.0322887, Accumulated Leap Seconds=37, Predicted value
+  { 2459826.50, 69.215348 }, //04 September 2022, UT1-UTC=-0.0313482, Accumulated Leap Seconds=37, Predicted value
+  { 2459827.50, 69.214235 }, //05 September 2022, UT1-UTC=-0.0302351, Accumulated Leap Seconds=37, Predicted value
+  { 2459828.50, 69.213054 }, //06 September 2022, UT1-UTC=-0.0290542, Accumulated Leap Seconds=37, Predicted value
+  { 2459829.50, 69.211987 }, //07 September 2022, UT1-UTC=-0.0279870, Accumulated Leap Seconds=37, Predicted value
+  { 2459830.50, 69.211121 }, //08 September 2022, UT1-UTC=-0.0271211, Accumulated Leap Seconds=37, Predicted value
+  { 2459831.50, 69.210509 }, //09 September 2022, UT1-UTC=-0.0265090, Accumulated Leap Seconds=37, Predicted value
+  { 2459832.50, 69.210324 }, //10 September 2022, UT1-UTC=-0.0263239, Accumulated Leap Seconds=37, Predicted value
+  { 2459833.50, 69.210331 }, //11 September 2022, UT1-UTC=-0.0263307, Accumulated Leap Seconds=37, Predicted value
+  { 2459834.50, 69.210436 }, //12 September 2022, UT1-UTC=-0.0264360, Accumulated Leap Seconds=37, Predicted value
+  { 2459835.50, 69.210477 }, //13 September 2022, UT1-UTC=-0.0264771, Accumulated Leap Seconds=37, Predicted value
+  { 2459836.50, 69.210299 }, //14 September 2022, UT1-UTC=-0.0262995, Accumulated Leap Seconds=37, Predicted value
+  { 2459837.50, 69.209878 }, //15 September 2022, UT1-UTC=-0.0258783, Accumulated Leap Seconds=37, Predicted value
+  { 2459838.50, 69.209267 }, //16 September 2022, UT1-UTC=-0.0252675, Accumulated Leap Seconds=37, Predicted value
+  { 2459839.50, 69.208504 }, //17 September 2022, UT1-UTC=-0.0245040, Accumulated Leap Seconds=37, Predicted value
+  { 2459840.50, 69.207579 }, //18 September 2022, UT1-UTC=-0.0235791, Accumulated Leap Seconds=37, Predicted value
+  { 2459841.50, 69.206566 }, //19 September 2022, UT1-UTC=-0.0225660, Accumulated Leap Seconds=37, Predicted value
+  { 2459842.50, 69.205560 }, //20 September 2022, UT1-UTC=-0.0215596, Accumulated Leap Seconds=37, Predicted value
+  { 2459843.50, 69.204641 }, //21 September 2022, UT1-UTC=-0.0206414, Accumulated Leap Seconds=37, Predicted value
+  { 2459844.50, 69.203901 }, //22 September 2022, UT1-UTC=-0.0199013, Accumulated Leap Seconds=37, Predicted value
+  { 2459845.50, 69.203369 }, //23 September 2022, UT1-UTC=-0.0193694, Accumulated Leap Seconds=37, Predicted value
+  { 2459846.50, 69.203070 }, //24 September 2022, UT1-UTC=-0.0190705, Accumulated Leap Seconds=37, Predicted value
+  { 2459847.50, 69.203037 }, //25 September 2022, UT1-UTC=-0.0190369, Accumulated Leap Seconds=37, Predicted value
+  { 2459848.50, 69.203226 }, //26 September 2022, UT1-UTC=-0.0192257, Accumulated Leap Seconds=37, Predicted value
+  { 2459849.50, 69.203496 }, //27 September 2022, UT1-UTC=-0.0194963, Accumulated Leap Seconds=37, Predicted value
+  { 2459850.50, 69.203730 }, //28 September 2022, UT1-UTC=-0.0197297, Accumulated Leap Seconds=37, Predicted value
+  { 2459851.50, 69.203856 }, //29 September 2022, UT1-UTC=-0.0198559, Accumulated Leap Seconds=37, Predicted value
+  { 2459852.50, 69.203825 }, //30 September 2022, UT1-UTC=-0.0198247, Accumulated Leap Seconds=37, Predicted value
+  { 2459853.50, 69.203605 }, //01 October 2022, UT1-UTC=-0.0196048, Accumulated Leap Seconds=37, Predicted value
+  { 2459854.50, 69.203212 }, //02 October 2022, UT1-UTC=-0.0192125, Accumulated Leap Seconds=37, Predicted value
+  { 2459855.50, 69.202802 }, //03 October 2022, UT1-UTC=-0.0188021, Accumulated Leap Seconds=37, Predicted value
+  { 2459856.50, 69.202378 }, //04 October 2022, UT1-UTC=-0.0183778, Accumulated Leap Seconds=37, Predicted value
+  { 2459857.50, 69.202066 }, //05 October 2022, UT1-UTC=-0.0180656, Accumulated Leap Seconds=37, Predicted value
+  { 2459858.50, 69.201964 }, //06 October 2022, UT1-UTC=-0.0179638, Accumulated Leap Seconds=37, Predicted value
+  { 2459859.50, 69.202093 }, //07 October 2022, UT1-UTC=-0.0180927, Accumulated Leap Seconds=37, Predicted value
+  { 2459860.50, 69.202477 }, //08 October 2022, UT1-UTC=-0.0184773, Accumulated Leap Seconds=37, Predicted value
+  { 2459861.50, 69.202890 }, //09 October 2022, UT1-UTC=-0.0188897, Accumulated Leap Seconds=37, Predicted value
+  { 2459862.50, 69.203361 }, //10 October 2022, UT1-UTC=-0.0193614, Accumulated Leap Seconds=37, Predicted value
+  { 2459863.50, 69.203750 }, //11 October 2022, UT1-UTC=-0.0197501, Accumulated Leap Seconds=37, Predicted value
+  { 2459864.50, 69.203949 }, //12 October 2022, UT1-UTC=-0.0199490, Accumulated Leap Seconds=37, Predicted value
+  { 2459865.50, 69.203906 }, //13 October 2022, UT1-UTC=-0.0199061, Accumulated Leap Seconds=37, Predicted value
+  { 2459866.50, 69.203663 }, //14 October 2022, UT1-UTC=-0.0196635, Accumulated Leap Seconds=37, Predicted value
+  { 2459867.50, 69.203343 }, //15 October 2022, UT1-UTC=-0.0193426, Accumulated Leap Seconds=37, Predicted value
+  { 2459868.50, 69.202901 }, //16 October 2022, UT1-UTC=-0.0189012, Accumulated Leap Seconds=37, Predicted value
+  { 2459869.50, 69.202488 }, //17 October 2022, UT1-UTC=-0.0184876, Accumulated Leap Seconds=37, Predicted value
+  { 2459870.50, 69.202144 }, //18 October 2022, UT1-UTC=-0.0181438, Accumulated Leap Seconds=37, Predicted value
+  { 2459871.50, 69.201920 }, //19 October 2022, UT1-UTC=-0.0179197, Accumulated Leap Seconds=37, Predicted value
+  { 2459872.50, 69.201881 }, //20 October 2022, UT1-UTC=-0.0178808, Accumulated Leap Seconds=37, Predicted value
+  { 2459873.50, 69.201984 }, //21 October 2022, UT1-UTC=-0.0179838, Accumulated Leap Seconds=37, Predicted value
+  { 2459874.50, 69.202274 }, //22 October 2022, UT1-UTC=-0.0182736, Accumulated Leap Seconds=37, Predicted value
+  { 2459875.50, 69.202753 }, //23 October 2022, UT1-UTC=-0.0187529, Accumulated Leap Seconds=37, Predicted value
+  { 2459876.50, 69.203379 }, //24 October 2022, UT1-UTC=-0.0193790, Accumulated Leap Seconds=37, Predicted value
+  { 2459877.50, 69.204036 }, //25 October 2022, UT1-UTC=-0.0200363, Accumulated Leap Seconds=37, Predicted value
+  { 2459878.50, 69.204566 }, //26 October 2022, UT1-UTC=-0.0205662, Accumulated Leap Seconds=37, Predicted value
+  { 2459879.50, 69.204875 }, //27 October 2022, UT1-UTC=-0.0208748, Accumulated Leap Seconds=37, Predicted value
+  { 2459880.50, 69.204972 }, //28 October 2022, UT1-UTC=-0.0209719, Accumulated Leap Seconds=37, Predicted value
+  { 2459881.50, 69.204777 }, //29 October 2022, UT1-UTC=-0.0207768, Accumulated Leap Seconds=37, Predicted value
+  { 2459882.50, 69.204573 }, //30 October 2022, UT1-UTC=-0.0205729, Accumulated Leap Seconds=37, Predicted value
+  { 2459883.50, 69.204321 }, //31 October 2022, UT1-UTC=-0.0203211, Accumulated Leap Seconds=37, Predicted value
+  { 2459884.50, 69.204157 }, //01 November 2022, UT1-UTC=-0.0201573, Accumulated Leap Seconds=37, Predicted value
+  { 2459885.50, 69.204154 }, //02 November 2022, UT1-UTC=-0.0201544, Accumulated Leap Seconds=37, Predicted value
+  { 2459886.50, 69.204308 }, //03 November 2022, UT1-UTC=-0.0203077, Accumulated Leap Seconds=37, Predicted value
+  { 2459887.50, 69.204644 }, //04 November 2022, UT1-UTC=-0.0206441, Accumulated Leap Seconds=37, Predicted value
+  { 2459888.50, 69.205154 }, //05 November 2022, UT1-UTC=-0.0211538, Accumulated Leap Seconds=37, Predicted value
+  { 2459889.50, 69.205698 }, //06 November 2022, UT1-UTC=-0.0216978, Accumulated Leap Seconds=37, Predicted value
+  { 2459890.50, 69.206232 }, //07 November 2022, UT1-UTC=-0.0222324, Accumulated Leap Seconds=37, Predicted value
+  { 2459891.50, 69.206589 }, //08 November 2022, UT1-UTC=-0.0225889, Accumulated Leap Seconds=37, Predicted value
+  { 2459892.50, 69.206726 }, //09 November 2022, UT1-UTC=-0.0227256, Accumulated Leap Seconds=37, Predicted value
+  { 2459893.50, 69.206655 }, //10 November 2022, UT1-UTC=-0.0226552, Accumulated Leap Seconds=37, Predicted value
+  { 2459894.50, 69.206371 }, //11 November 2022, UT1-UTC=-0.0223706, Accumulated Leap Seconds=37, Predicted value
+  { 2459895.50, 69.205974 }, //12 November 2022, UT1-UTC=-0.0219741, Accumulated Leap Seconds=37, Predicted value
 
 //Values from https://cddis.nasa.gov/archive/products/iers/deltat.preds
   { 2459945.50, 71.400    }, //2023.00, Predicted value

@@ -25,6 +25,8 @@ History: PJN / 07-02-2009 1. Optimized the layout of the MoonCoefficient1 struct
          PJN / 01-08-2017 1. Fixed up alignment of lookup tables in AAMoon.cpp module
          PJN / 18-08-2019 1. Fixed some further compiler warnings when using VC 2019 Preview v16.3.0 Preview 2.0
          PJN / 18-04-2020 1. Reworked C arrays to use std::array
+         PJN / 06-11-2021 1. Fix a minor layout problem in the g_MoonCoefficients3 lookup table. Thanks to Jud McCranie
+                          for reporting this issue.
 
 Copyright (c) 2003 - 2021 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
@@ -228,13 +230,13 @@ constexpr array<MoonCoefficient1, 60> g_MoonCoefficients3
   { 0,  0,  0,  3 },
   { 0,  1, -1,  1 },
   { 1,  0,  0,  1 },
-  { 0,  1,  1,  1,},
+  { 0,  1,  1,  1 },
   { 0,  1,  1, -1 },
   { 0,  1,  0, -1 },
   { 1,  0,  0, -1 },
   { 0,  0,  3,  1 },
   { 4,  0,  0, -1 },
-  { 4,  0, -1,  1,},
+  { 4,  0, -1,  1 },
   { 0,  0,  1, -3 },
   { 4,  0, -2,  1 },
   { 2,  0,  0, -3 },

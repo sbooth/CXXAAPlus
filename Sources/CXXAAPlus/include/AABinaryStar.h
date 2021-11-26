@@ -41,6 +41,8 @@ public:
   double r = 0;
   double Theta = 0;
   double Rho = 0;
+  double x = 0;
+  double y = 0;
 };
 
 class AAPLUS_EXT_CLASS CAABinaryStar

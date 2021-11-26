@@ -2,7 +2,7 @@
 Module : AAKepler.cpp
 Purpose: Implementation for the algorithms which solve Kepler's equation
 Created: PJN / 29-12-2003
-History: None
+History: PJN / 22-11-2021 1. Made some minor optimizations to the CAAKepler::Calculate method.
 
 Copyright (c) 2003 - 2021 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
@@ -39,26 +39,27 @@ double CAAKepler::Calculate(double M, double e, int nIterations) noexcept
   double F = 1;
   if (M < 0)
     F = -1;
-  M = fabs(M) / ( 2 * PI);
+  M = fabs(M) / (2*PI);
   M = (M - static_cast<int>(M))*2*PI*F;
   if (M < 0)
     M += 2*PI;
   F = 1;
   if (M > PI)
+  {
+    M = (2*PI) - M;
     F = -1;
-  if (M > PI)
-    M = 2*PI - M;
+  }
 
-  double E = PI / 2; 
-  double scale = PI / 4;
+  double E = PI / 2;
+  double D = PI / 4;
   for (int i=0; i<nIterations; i++)
   {
-    const double R = E - e*sin(E);
-    if (M > R)
-      E += scale;
+    const double M1 = E - (e*sin(E));
+    if (M > M1)
+      E += D;
     else
-      E -= scale;
-    scale /= 2; 
+      E -= D;
+    D /= 2;
   }
 
   //Convert the result back to degrees

@@ -25,8 +25,9 @@ let package = Package(
 		.target(
 			name: "CXXAAPlus",
 			dependencies: []),
-		.testTarget(name: "CXXAAPlusTests",
-				   dependencies: ["CXXAAPlus"])
+		.testTarget(
+			name: "CXXAAPlusTests",
+			dependencies: ["CXXAAPlus"]),
 	],
 	cxxLanguageStandard: .cxx20
 )

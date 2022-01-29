@@ -28,7 +28,7 @@ History: PJN / 07-02-2009 1. Optimized the layout of the MoonCoefficient1 struct
          PJN / 06-11-2021 1. Fix a minor layout problem in the g_MoonCoefficients3 lookup table. Thanks to Jud McCranie
                           for reporting this issue.
 
-Copyright (c) 2003 - 2021 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 

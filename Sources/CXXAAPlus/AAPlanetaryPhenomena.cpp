@@ -21,7 +21,7 @@ History: PJN / 08-05-2011 1. Fixed a compilation issue on GCC where size_t was u
          PJN / 03-10-2021 1. Renamed CAAPlanetaryPhenomena::PlanetaryObject type to Planet.
                           2. Renamed CAAPlanetaryPhenomena::EventType type to Type.
 
-Copyright (c) 2003 - 2021 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 

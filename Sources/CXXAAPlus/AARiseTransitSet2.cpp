@@ -34,7 +34,7 @@ History: PJN / 13-07-2019 1. Initial implementation
                           where Height is the altitude above sea-level in meters. Thanks to Stephen F. Booth for 
                           reporting this issue.
 
-Copyright (c) 2019 - 2021 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2019 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 

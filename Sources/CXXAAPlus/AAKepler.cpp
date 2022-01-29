@@ -4,7 +4,7 @@ Purpose: Implementation for the algorithms which solve Kepler's equation
 Created: PJN / 29-12-2003
 History: PJN / 22-11-2021 1. Made some minor optimizations to the CAAKepler::Calculate method.
 
-Copyright (c) 2003 - 2021 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 

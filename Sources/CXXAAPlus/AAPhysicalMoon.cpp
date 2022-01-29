@@ -14,7 +14,7 @@ History: PJN / 19-02-2004 1. The optical libration in longitude is now returned 
                           variable "W" was being calculated incorrectly. Thanks to Don Cross for reporting this
                           issue.
 
-Copyright (c) 2004 - 2021 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2004 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 

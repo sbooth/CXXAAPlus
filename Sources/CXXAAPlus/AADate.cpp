@@ -48,7 +48,7 @@ History: PJN / 10-11-2004 1. Fix for CAADate::Get so that it works correctly for
                           Bert Devlieghe for reporting this bug.
          PJN / 03-10-2021 1. enamed CAADate::DAY_OF_WEEK type to DOW.
 
-Copyright (c) 2003 - 2021 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 

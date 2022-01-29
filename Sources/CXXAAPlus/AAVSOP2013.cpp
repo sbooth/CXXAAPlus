@@ -3,7 +3,7 @@ Module : AAVSOP2013.cpp
 Purpose: Implementation for the algorithms for VSOP2013
 Created: PJN / 01-08-2021
 
-Copyright (c) 2021 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2021 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 

@@ -15,7 +15,7 @@ History: PJN / 18-08-2019 1. Fixed some further compiler warnings when using VC 
                           3. Fixed a bug in CAAPlanetPerihelionAphelion::EarthAphelion where the kdash and 
                           ksquared values were not being calculated correctly.
 
-Copyright (c) 2003 - 2021 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 

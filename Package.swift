@@ -29,5 +29,5 @@ let package = Package(
 			name: "CXXAAPlusTests",
 			dependencies: ["CXXAAPlus"]),
 	],
-	cxxLanguageStandard: .cxx20
+	cxxLanguageStandard: .cxx17
 )

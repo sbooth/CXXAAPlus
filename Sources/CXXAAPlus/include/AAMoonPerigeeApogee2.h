@@ -18,7 +18,7 @@ to maintain a single distribution point for the source code.
 */
 
 
-/////////////////////// Macros / Defines //////////////////////////////////////
+//////////////////// Macros / Defines /////////////////////////////////////////
 
 #if _MSC_VER > 1000
 #pragma once
@@ -32,13 +32,13 @@ to maintain a single distribution point for the source code.
 #endif //#ifndef AAPLUS_EXT_CLASS
 
 
-/////////////////////// Includes //////////////////////////////////////////////
+//////////////////// Includes /////////////////////////////////////////////////
 
 #include "AA2DCoordinate.h"
 #include <vector>
 
 
-/////////////////////// Classes ///////////////////////////////////////////////
+//////////////////// Classes //////////////////////////////////////////////////
 
 class AAPLUS_EXT_CLASS CAAMoonPerigeeApogeeDetails2
 {
@@ -52,9 +52,9 @@ public:
   };
 
 //Member variables
-  Type type = Type::NotDefined; //The type of the event which has occurred
-  double JD = 0; //When the event occurred in TT
-  double Value = 0; //The actual distance in KM
+  Type type{Type::NotDefined}; //The type of the event which has occurred
+  double JD{0}; //When the event occurred in TT
+  double Value{0}; //The actual distance in KM
 };
 
 class AAPLUS_EXT_CLASS CAAMoonPerigeeApogee2

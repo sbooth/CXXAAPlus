@@ -18,7 +18,7 @@ to maintain a single distribution point for the source code.
 */
 
 
-/////////////////////// Macros / Defines //////////////////////////////////////
+//////////////////// Macros / Defines /////////////////////////////////////////
 
 #if _MSC_VER > 1000
 #pragma once
@@ -32,7 +32,7 @@ to maintain a single distribution point for the source code.
 #endif //#ifndef AAPLUS_EXT_CLASS
 
 
-/////////////////////// Classes ///////////////////////////////////////////////
+//////////////////// Classes //////////////////////////////////////////////////
 
 class AAPLUS_EXT_CLASS CAAMoonPhases
 {
@@ -49,12 +49,12 @@ public:
   static double MeanPhase(double k) noexcept
   {
     //convert from K to T
-    const double T = k / 1236.85;
-    const double T2 = T * T;
-    const double T3 = T2 * T;
-    const double T4 = T3 * T;
+    const double T{k/1236.85};
+    const double T2{T*T};
+    const double T3{T2*T};
+    const double T4{T3*T};
 
-    return 2451550.09766 + 29.530588861*k + 0.00015437*T2 - 0.000000150*T3 + 0.00000000073*T4;
+    return 2451550.09766 + (29.530588861*k) + (0.00015437*T2) - (0.000000150*T3) + (0.00000000073*T4);
   }
 
   static double TruePhase(double k) noexcept;

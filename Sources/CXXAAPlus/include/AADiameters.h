@@ -18,7 +18,7 @@ to maintain a single distribution point for the source code.
 */
 
 
-/////////////////////// Macros / Defines //////////////////////////////////////
+//////////////////// Macros / Defines /////////////////////////////////////////
 
 #if _MSC_VER > 1000
 #pragma once
@@ -32,12 +32,12 @@ to maintain a single distribution point for the source code.
 #endif //#ifndef AAPLUS_EXT_CLASS
 
 
-/////////////////////// Includes //////////////////////////////////////////////
+//////////////////// Includes /////////////////////////////////////////////////
 
 #include "AACoordinateTransformation.h"
 
 
-/////////////////////// Classes ///////////////////////////////////////////////
+//////////////////// Classes //////////////////////////////////////////////////
 
 class AAPLUS_EXT_CLASS CAADiameters
 {
@@ -150,7 +150,7 @@ public:
 
   constexpr static double ApparentAsteroidDiameter(double Delta, double d)
   {
-    return 0.0013788*d / Delta;
+    return (0.0013788*d) / Delta;
   }
 
   static double ApparentSaturnPolarSemidiameterA(double Delta, double B) noexcept;

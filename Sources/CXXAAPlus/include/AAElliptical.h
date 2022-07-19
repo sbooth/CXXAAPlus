@@ -18,7 +18,7 @@ to maintain a single distribution point for the source code.
 */
 
 
-/////////////////////// Macros / Defines //////////////////////////////////////
+//////////////////// Macros / Defines /////////////////////////////////////////
 
 #if _MSC_VER > 1000
 #pragma once
@@ -32,36 +32,36 @@ to maintain a single distribution point for the source code.
 #endif //#ifndef AAPLUS_EXT_CLASS
 
 
-/////////////////////// Includes //////////////////////////////////////////////
+//////////////////// Includes /////////////////////////////////////////////////
 
 #include "AA3DCoordinate.h"
 
 
-/////////////////////// Classes ///////////////////////////////////////////////
+//////////////////// Classes //////////////////////////////////////////////////
 
 class AAPLUS_EXT_CLASS CAAEllipticalObjectElements
 {
 public:
 //Member variables
-  double a = 0;
-  double e = 0;
-  double i = 0;
-  double w = 0;
-  double omega = 0;
-  double JDEquinox = 0;
-  double T = 0;
+  double a{0};
+  double e{0};
+  double i{0};
+  double w{0};
+  double omega{0};
+  double JDEquinox{0};
+  double T{0};
 };
 
 class AAPLUS_EXT_CLASS CAAEllipticalPlanetaryDetails
 {
 public:
 //Member variables
-  double ApparentGeocentricLongitude = 0;
-  double ApparentGeocentricLatitude = 0;
-  double ApparentGeocentricDistance = 0;
-  double ApparentLightTime = 0;
-  double ApparentGeocentricRA = 0;
-  double ApparentGeocentricDeclination = 0;
+  double ApparentGeocentricLongitude{0};
+  double ApparentGeocentricLatitude{0};
+  double ApparentGeocentricDistance{0};
+  double ApparentLightTime{0};
+  double ApparentGeocentricRA{0};
+  double ApparentGeocentricDeclination{0};
 };
 
 class AAPLUS_EXT_CLASS CAAEllipticalObjectDetails
@@ -70,18 +70,18 @@ public:
 //Member variables
   CAA3DCoordinate HeliocentricRectangularEquatorial;
   CAA3DCoordinate HeliocentricRectangularEcliptical;
-  double HeliocentricEclipticLongitude = 0;
-  double HeliocentricEclipticLatitude = 0;
-  double TrueGeocentricRA = 0;
-  double TrueGeocentricDeclination = 0;
-  double TrueGeocentricDistance = 0;
-  double TrueGeocentricLightTime = 0;
-  double AstrometricGeocentricRA = 0;
-  double AstrometricGeocentricDeclination = 0;
-  double AstrometricGeocentricDistance = 0;
-  double AstrometricGeocentricLightTime = 0;
-  double Elongation = 0;
-  double PhaseAngle = 0;
+  double HeliocentricEclipticLongitude{0};
+  double HeliocentricEclipticLatitude{0};
+  double TrueGeocentricRA{0};
+  double TrueGeocentricDeclination{0};
+  double TrueGeocentricDistance{0};
+  double TrueGeocentricLightTime{0};
+  double AstrometricGeocentricRA{0};
+  double AstrometricGeocentricDeclination{0};
+  double AstrometricGeocentricDistance{0};
+  double AstrometricGeocentricLightTime{0};
+  double Elongation{0};
+  double PhaseAngle{0};
 };
 
 class AAPLUS_EXT_CLASS CAAElliptical
@@ -104,14 +104,14 @@ public:
 
   constexpr static double DistanceToLightTime(double Distance)
   {
-    return Distance * 0.0057755183;
+    return Distance*0.0057755183;
   }
 
   static CAAEllipticalPlanetaryDetails Calculate(double JD, Object object, bool bHighPrecision) noexcept;
 
   constexpr static double SemiMajorAxisFromPerihelionDistance(double q, double e)
   {
-    return q / (1 - e);
+    return q/(1 - e);
   }
 
   static double MeanMotionFromSemiMajorAxis(double a) noexcept;

@@ -11,6 +11,8 @@ History: PJN / 18-08-2019 1. Fixed some further compiler warnings when using VC 
                           as projected ellipses when the inclination value (i) approached 90 degrees.
                           2. Updated CAABinaryStarDetails class to include rectangular coordinates as well as 
                           the existing polar coordinates.
+         PJN / 12-06-2022 1. Updated all the code in AABinaryStar.cpp to use C++ uniform initialization for all 
+                          variable declarations.
 
 Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
@@ -27,7 +29,7 @@ to maintain a single distribution point for the source code.
 */
 
 
-/////////////////////////////////// Includes //////////////////////////////////
+//////////////////// Includes /////////////////////////////////////////////////
 
 #include "stdafx.h"
 #include "AABinaryStar.h"
@@ -37,30 +39,30 @@ to maintain a single distribution point for the source code.
 using namespace std;
 
 
-////////////////////////////////// Implementation /////////////////////////////
+//////////////////// Implementation ///////////////////////////////////////////
 
 CAABinaryStarDetails CAABinaryStar::Calculate(double t, double P, double T, double e, double a, double i, double omega, double w) noexcept
 {
-  const double n = 360 / P;
-  const double M = CAACoordinateTransformation::MapTo0To360Range(n*(t - T));
-  const double E = CAACoordinateTransformation::DegreesToRadians(CAAKepler::Calculate(M, e));
+  const double n{360 / P};
+  const double M{CAACoordinateTransformation::MapTo0To360Range(n*(t - T))};
+  const double E{CAACoordinateTransformation::DegreesToRadians(CAAKepler::Calculate(M, e))};
   i = CAACoordinateTransformation::DegreesToRadians(i);
   w = CAACoordinateTransformation::DegreesToRadians(w);
   omega = CAACoordinateTransformation::DegreesToRadians(omega);
-  const double cosi = cos(i);
-  const double cosomega = cos(omega);
-  const double sinomega = sin(omega);
-  const double cosw = cos(w);
-  const double sinw = sin(w);
+  const double cosi{cos(i)};
+  const double cosomega{cos(omega)};
+  const double sinomega{sin(omega)};
+  const double cosw{cos(w)};
+  const double sinw{sin(w)};
   //Use the Thiele-Innes elements for calculating the rectangular as well as polar coordinates
   //as taken from Chapter 7 of the book "Observing and Measuring Visual Double Stars"
-  const double A = a*((cosw*cosomega) - (sinw*sinomega*cosi));
-  const double B = a*((cosw*sinomega) + (sinw*cosomega*cosi));
-  const double F = a*((-sinw*cosomega) - (cosw*sinomega*cosi));
-  const double G = a*((-sinw*sinomega) + (cosw*cosomega*cosi));
-  const double cosE = cos(E);
-  const double X = cosE - e;
-  const double Y = sqrt(1 - (e*e))*sin(E);
+  const double A{a*((cosw*cosomega) - (sinw*sinomega*cosi))};
+  const double B{a*((cosw*sinomega) + (sinw*cosomega*cosi))};
+  const double F{a*((-sinw*cosomega) - (cosw*sinomega*cosi))};
+  const double G{a*((-sinw*sinomega) + (cosw*cosomega*cosi))};
+  const double cosE{cos(E)};
+  const double X{cosE - e};
+  const double Y{sqrt(1 - (e*e))*sin(E)};
   CAABinaryStarDetails details;
   details.x = A*X + F*Y;
   details.y = B*X + G*Y;
@@ -75,15 +77,15 @@ double CAABinaryStar::ApparentEccentricity(double e, double i, double w) noexcep
   i = CAACoordinateTransformation::DegreesToRadians(i);
   w = CAACoordinateTransformation::DegreesToRadians(w);
 
-  const double cosi = cos(i);
-  const double cosw = cos(w);
-  const double sinw = sin(w);
-  const double esquared = e*e;
-  const double A = (1 - esquared*cosw*cosw)*cosi*cosi;
-  const double B =  esquared*sinw*cosw*cosi;
-  const double C = 1 - esquared*sinw*sinw;
-  const double D = (A - C)*(A - C) + 4*B*B;
+  const double cosi{cos(i)};
+  const double cosw{cos(w)};
+  const double sinw{sin(w)};
+  const double esquared{e*e};
+  const double A{(1 - (esquared*cosw*cosw))*cosi*cosi};
+  const double B{esquared*sinw*cosw*cosi};
+  const double C{1 - (esquared*sinw*sinw)};
+  const double D{(A-C)*(A-C) + (4*B*B)};
 
-  const double sqrtD = sqrt(D);
-  return sqrt(2*sqrtD / (A + C + sqrtD));
+  const double sqrtD{sqrt(D)};
+  return sqrt((2*sqrtD)/(A+C+sqrtD));
 }

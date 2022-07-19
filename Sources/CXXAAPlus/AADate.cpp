@@ -49,8 +49,8 @@ History: PJN / 10-11-2004 1. Fix for CAADate::Get so that it works correctly for
          PJN / 03-10-2021 1. Renamed CAADate::DAY_OF_WEEK type to DOW.
          PJN / 22-03-2022 1. Fixed an issue in CAADate::DayOfWeek for dates which are close to or prior to the julian
                           day epoch. Thanks to "znight" for reporting this issue.
-                          2. Updated all the code in the CAADate class to use C++ uniform initialization for all 
-                          variable declarations.
+                          2. Updated all the code in the AADate.cpp to use C++ uniform initialization for all variable
+                          declarations.
 
 Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
@@ -62,12 +62,12 @@ You are allowed to include the source code in any product (commercial, shareware
 when your product is released in binary form. You are allowed to modify the source code in any way you want 
 except you cannot modify the copyright details at the top of each module. If you want to distribute source 
 code with your application, then you are only allowed to distribute versions released by the author. This is 
-to maintain a single distribution point for the source code. 
+to maintain a single distribution point for the source code.
 
 */
 
 
-//////////////////////////// Includes /////////////////////////////////////////
+//////////////////// Includes /////////////////////////////////////////////////
 
 #include "stdafx.h"
 #include "AADate.h"
@@ -78,7 +78,7 @@ to maintain a single distribution point for the source code.
 using namespace std;
 
 
-//////////////////////////// Implementation ///////////////////////////////////
+//////////////////// Implementation ///////////////////////////////////////////
 
 CAADate::CAADate() noexcept : m_dblJulian{0},
                               m_bGregorianCalendar{false}
@@ -297,13 +297,13 @@ CAADate::DOW CAADate::DayOfWeek() const noexcept
 long CAADate::DaysInMonth(long Month, bool bLeap) noexcept
 {
   //Validate our parameters
-  assert(Month >= 1 && Month <= 12);
+  assert((Month >= 1) && (Month <= 12));
 #ifdef _MSC_VER
   __analysis_assume(Month >= 1 && Month <= 12);
 #endif //#ifdef _MSC_VER
 
-  static constexpr array<int, 12> g_NonLeapMonths{ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-  static constexpr array<int, 12> g_LeapMonths{ 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+  static constexpr array<int, 12> g_NonLeapMonths{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+  static constexpr array<int, 12> g_LeapMonths{31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
   if (bLeap)
   {
@@ -413,7 +413,7 @@ long CAADate::INT(double value) noexcept
 
 CAACalendarDate CAADate::JulianToGregorian(long Year, long Month, long Day) noexcept
 {
-  CAADate date(Year, Month, Day, false);
+  CAADate date{Year, Month, static_cast<double>(Day), false};
   date.SetInGregorianCalendar(true);
 
   CAACalendarDate GregorianDate;
@@ -427,7 +427,7 @@ CAACalendarDate CAADate::JulianToGregorian(long Year, long Month, long Day) noex
 
 CAACalendarDate CAADate::GregorianToJulian(long Year, long Month, long Day) noexcept
 {
-  CAADate date(Year, Month, Day, true);
+  CAADate date{Year, Month, static_cast<double>(Day), true};
   date.SetInGregorianCalendar(false);
 
   CAACalendarDate JulianDate;

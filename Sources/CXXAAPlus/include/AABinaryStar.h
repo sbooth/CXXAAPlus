@@ -18,7 +18,7 @@ to maintain a single distribution point for the source code.
 */
 
 
-/////////////////////// Macros / Defines //////////////////////////////////////
+//////////////////// Macros / Defines /////////////////////////////////////////
 
 #if _MSC_VER > 1000
 #pragma once
@@ -32,17 +32,17 @@ to maintain a single distribution point for the source code.
 #endif //#ifndef AAPLUS_EXT_CLASS
 
 
-/////////////////////// Classes ///////////////////////////////////////////////
+//////////////////// Classes //////////////////////////////////////////////////
 
 class AAPLUS_EXT_CLASS CAABinaryStarDetails
 {
 public:
 //Member variables
-  double r = 0;
-  double Theta = 0;
-  double Rho = 0;
-  double x = 0;
-  double y = 0;
+  double r{0};
+  double Theta{0};
+  double Rho{0};
+  double x{0};
+  double y{0};
 };
 
 class AAPLUS_EXT_CLASS CAABinaryStar

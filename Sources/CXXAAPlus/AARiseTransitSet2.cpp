@@ -33,6 +33,8 @@ History: PJN / 13-07-2019 1. Initial implementation
                           double H0 = -0.8333 - CAACoordinateTransformation::RadiansToDegrees(acos(6371008 / (6371008 + Height)))
                           where Height is the altitude above sea-level in meters. Thanks to Stephen F. Booth for 
                           reporting this issue.
+         PJN / 06-07-2022 1. Updated all the code in AARiseTransitSet2.cpp to use C++ uniform initialization for
+                          all variable declarations.
 
 Copyright (c) 2019 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
@@ -49,7 +51,7 @@ to maintain a single distribution point for the source code.
 */
 
 
-///////////////////////////// Includes ////////////////////////////////////////
+//////////////////// Includes /////////////////////////////////////////////////
 
 #include "stdafx.h"
 #include "AARiseTransitSet2.h"
@@ -73,7 +75,7 @@ to maintain a single distribution point for the source code.
 using namespace std;
 
 
-///////////////////////////// Implementation //////////////////////////////////
+//////////////////// Implementation ///////////////////////////////////////////
 
 void CAARiseTransitSet2::AddEvents(vector<CAARiseTransitSetDetails2>& events, double LastAltitudeForDetectingRiseSet, double AltitudeForDetectingRiseSet,
                                    double LastAltitudeForInterpolation, double h0, const CAA2DCoordinate& Horizontal, double LastJD, double StepInterval, double LastBearing, 
@@ -85,12 +87,12 @@ void CAARiseTransitSet2::AddEvents(vector<CAARiseTransitSetDetails2>& events, do
     {
       CAARiseTransitSetDetails2 event;
       event.type = CAARiseTransitSetDetails2::Type::AstronomicalDawn;
-      const double fraction = (-18 - LastAltitudeForInterpolation) / (Horizontal.Y - LastAltitudeForInterpolation);
-      event.JD = LastJD + (fraction * StepInterval);
+      const double fraction{(-18 - LastAltitudeForInterpolation)/(Horizontal.Y - LastAltitudeForInterpolation)};
+      event.JD = LastJD + (fraction*StepInterval);
 
       //Ensure the LastBearing and Horizontal.X values are correct for interpolation
-      double LastBearing2 = LastBearing;
-      double HorizontalX2 = Horizontal.X;
+      double LastBearing2{LastBearing};
+      double HorizontalX2{Horizontal.X};
       if (fabs(HorizontalX2 - LastBearing2) > 180)
       {
         if (HorizontalX2 > LastBearing2)
@@ -99,19 +101,19 @@ void CAARiseTransitSet2::AddEvents(vector<CAARiseTransitSetDetails2>& events, do
           HorizontalX2 += 360;
       }
 
-      event.Bearing = CAACoordinateTransformation::MapTo0To360Range(LastBearing2 + (fraction * (HorizontalX2 - LastBearing2)));
+      event.Bearing = CAACoordinateTransformation::MapTo0To360Range(LastBearing2 + (fraction*(HorizontalX2 - LastBearing2)));
       events.push_back(event);
     }
     else if ((LastAltitudeForDetectingTwilight < -12) && (AltitudeForTwilight >= -12))
     {
       CAARiseTransitSetDetails2 event;
       event.type = CAARiseTransitSetDetails2::Type::NauticalDawn;
-      const double fraction = (-12 - LastAltitudeForInterpolation) / (Horizontal.Y - LastAltitudeForInterpolation);
-      event.JD = LastJD + (fraction * StepInterval);
+      const double fraction{(-12 - LastAltitudeForInterpolation)/(Horizontal.Y - LastAltitudeForInterpolation)};
+      event.JD = LastJD + (fraction*StepInterval);
 
       //Ensure the LastBearing and Horizontal.X values are correct for interpolation
-      double LastBearing2 = LastBearing;
-      double HorizontalX2 = Horizontal.X;
+      double LastBearing2{LastBearing};
+      double HorizontalX2{Horizontal.X};
       if (fabs(HorizontalX2 - LastBearing2) > 180)
       {
         if (HorizontalX2 > LastBearing2)
@@ -120,19 +122,19 @@ void CAARiseTransitSet2::AddEvents(vector<CAARiseTransitSetDetails2>& events, do
           HorizontalX2 += 360;
       }
 
-      event.Bearing = CAACoordinateTransformation::MapTo0To360Range(LastBearing2 + (fraction * (HorizontalX2 - LastBearing2)));
+      event.Bearing = CAACoordinateTransformation::MapTo0To360Range(LastBearing2 + (fraction*(HorizontalX2 - LastBearing2)));
       events.push_back(event);
     }
     else if ((LastAltitudeForDetectingTwilight < -6) && (AltitudeForTwilight >= -6))
     {
       CAARiseTransitSetDetails2 event;
       event.type = CAARiseTransitSetDetails2::Type::CivilDawn;
-      const double fraction = (-6 - LastAltitudeForInterpolation) / (Horizontal.Y - LastAltitudeForInterpolation);
-      event.JD = LastJD + (fraction * StepInterval);
+      const double fraction{(-6 - LastAltitudeForInterpolation)/(Horizontal.Y - LastAltitudeForInterpolation)};
+      event.JD = LastJD + (fraction*StepInterval);
 
       //Ensure the LastBearing and Horizontal.X values are correct for interpolation
-      double LastBearing2 = LastBearing;
-      double HorizontalX2 = Horizontal.X;
+      double LastBearing2{LastBearing};
+      double HorizontalX2{Horizontal.X};
       if (fabs(HorizontalX2 - LastBearing2) > 180)
       {
         if (HorizontalX2 > LastBearing2)
@@ -141,19 +143,19 @@ void CAARiseTransitSet2::AddEvents(vector<CAARiseTransitSetDetails2>& events, do
           HorizontalX2 += 360;
       }
 
-      event.Bearing = CAACoordinateTransformation::MapTo0To360Range(LastBearing2 + (fraction * (HorizontalX2 - LastBearing2)));
+      event.Bearing = CAACoordinateTransformation::MapTo0To360Range(LastBearing2 + (fraction*(HorizontalX2 - LastBearing2)));
       events.push_back(event);
     }
     else if ((LastAltitudeForDetectingTwilight > -18) && (AltitudeForTwilight <= -18))
     {
       CAARiseTransitSetDetails2 event;
       event.type = CAARiseTransitSetDetails2::Type::AstronomicalDusk;
-      const double fraction = (-18 - LastAltitudeForInterpolation) / (Horizontal.Y - LastAltitudeForInterpolation);
+      const double fraction{(-18 - LastAltitudeForInterpolation)/(Horizontal.Y - LastAltitudeForInterpolation)};
       event.JD = LastJD + (fraction * StepInterval);
 
       //Ensure the LastBearing and Horizontal.X values are correct for interpolation
-      double LastBearing2 = LastBearing;
-      double HorizontalX2 = Horizontal.X;
+      double LastBearing2{LastBearing};
+      double HorizontalX2{Horizontal.X};
       if (fabs(HorizontalX2 - LastBearing2) > 180)
       {
         if (HorizontalX2 > LastBearing2)
@@ -162,19 +164,19 @@ void CAARiseTransitSet2::AddEvents(vector<CAARiseTransitSetDetails2>& events, do
           HorizontalX2 += 360;
       }
 
-      event.Bearing = CAACoordinateTransformation::MapTo0To360Range(LastBearing2 + (fraction * (HorizontalX2 - LastBearing2)));
+      event.Bearing = CAACoordinateTransformation::MapTo0To360Range(LastBearing2 + (fraction*(HorizontalX2 - LastBearing2)));
       events.push_back(event);
     }
     else if ((LastAltitudeForDetectingTwilight > -12) && (AltitudeForTwilight <= -12))
     {
       CAARiseTransitSetDetails2 event;
       event.type = CAARiseTransitSetDetails2::Type::NauticalDusk;
-      const double fraction = (-12 - LastAltitudeForInterpolation) / (Horizontal.Y - LastAltitudeForInterpolation);
-      event.JD = LastJD + (fraction * StepInterval);
+      const double fraction{(-12 - LastAltitudeForInterpolation)/(Horizontal.Y - LastAltitudeForInterpolation)};
+      event.JD = LastJD + (fraction*StepInterval);
 
       //Ensure the LastBearing and Horizontal.X values are correct for interpolation
-      double LastBearing2 = LastBearing;
-      double HorizontalX2 = Horizontal.X;
+      double LastBearing2{LastBearing};
+      double HorizontalX2{Horizontal.X};
       if (fabs(HorizontalX2 - LastBearing2) > 180)
       {
         if (HorizontalX2 > LastBearing2)
@@ -183,19 +185,19 @@ void CAARiseTransitSet2::AddEvents(vector<CAARiseTransitSetDetails2>& events, do
           HorizontalX2 += 360;
       }
 
-      event.Bearing = CAACoordinateTransformation::MapTo0To360Range(LastBearing2 + (fraction * (HorizontalX2 - LastBearing2)));
+      event.Bearing = CAACoordinateTransformation::MapTo0To360Range(LastBearing2 + (fraction*(HorizontalX2 - LastBearing2)));
       events.push_back(event);
     }
     else if ((LastAltitudeForDetectingTwilight > -6) && (AltitudeForTwilight <= -6))
     {
       CAARiseTransitSetDetails2 event;
       event.type = CAARiseTransitSetDetails2::Type::CivilDusk;
-      const double fraction = (-6 - LastAltitudeForInterpolation) / (Horizontal.Y - LastAltitudeForInterpolation);
-      event.JD = LastJD + (fraction * StepInterval);
+      const double fraction{(-6 - LastAltitudeForInterpolation)/(Horizontal.Y - LastAltitudeForInterpolation)};
+      event.JD = LastJD + (fraction*StepInterval);
 
       //Ensure the LastBearing and Horizontal.X values are correct for interpolation
-      double LastBearing2 = LastBearing;
-      double HorizontalX2 = Horizontal.X;
+      double LastBearing2{LastBearing};
+      double HorizontalX2{Horizontal.X};
       if (fabs(HorizontalX2 - LastBearing2) > 180)
       {
         if (HorizontalX2 > LastBearing2)
@@ -204,7 +206,7 @@ void CAARiseTransitSet2::AddEvents(vector<CAARiseTransitSetDetails2>& events, do
           HorizontalX2 += 360;
       }
 
-      event.Bearing = CAACoordinateTransformation::MapTo0To360Range(LastBearing2 + (fraction * (HorizontalX2 - LastBearing2)));
+      event.Bearing = CAACoordinateTransformation::MapTo0To360Range(LastBearing2 + (fraction*(HorizontalX2 - LastBearing2)));
       events.push_back(event);
     }
   }
@@ -214,12 +216,12 @@ void CAARiseTransitSet2::AddEvents(vector<CAARiseTransitSetDetails2>& events, do
     {
       CAARiseTransitSetDetails2 event;
       event.type = CAARiseTransitSetDetails2::Type::Rise;
-      const double fraction = (0 - LastAltitudeForInterpolation + h0) / (Horizontal.Y - LastAltitudeForInterpolation);
-      event.JD = LastJD + (fraction * StepInterval);
+      const double fraction{(0 - LastAltitudeForInterpolation + h0)/(Horizontal.Y - LastAltitudeForInterpolation)};
+      event.JD = LastJD + (fraction*StepInterval);
 
       //Ensure the LastBearing and Horizontal.X values are correct for interpolation
-      double LastBearing2 = LastBearing;
-      double HorizontalX2 = Horizontal.X;
+      double LastBearing2{LastBearing};
+      double HorizontalX2{Horizontal.X};
       if (fabs(HorizontalX2 - LastBearing2) > 180)
       {
         if (HorizontalX2 > LastBearing2)
@@ -228,19 +230,19 @@ void CAARiseTransitSet2::AddEvents(vector<CAARiseTransitSetDetails2>& events, do
           HorizontalX2 += 360;
       }
 
-      event.Bearing = CAACoordinateTransformation::MapTo0To360Range(LastBearing2 + (fraction * (HorizontalX2 - LastBearing2)));
+      event.Bearing = CAACoordinateTransformation::MapTo0To360Range(LastBearing2 + (fraction*(HorizontalX2 - LastBearing2)));
       events.push_back(event);
     }
     else if ((LastAltitudeForDetectingRiseSet > 0) && (AltitudeForDetectingRiseSet <= 0)) //We have just set below the horizon
     {
       CAARiseTransitSetDetails2 event;
       event.type = CAARiseTransitSetDetails2::Type::Set;
-      const double fraction = (0 - LastAltitudeForInterpolation + h0) / (Horizontal.Y - LastAltitudeForInterpolation);
-      event.JD = LastJD + (fraction * StepInterval);
+      const double fraction{(0 - LastAltitudeForInterpolation + h0)/(Horizontal.Y - LastAltitudeForInterpolation)};
+      event.JD = LastJD + (fraction*StepInterval);
 
       //Ensure the LastBearing and Horizontal.X values are correct for interpolation
-      double LastBearing2 = LastBearing;
-      double HorizontalX2 = Horizontal.X;
+      double LastBearing2{LastBearing};
+      double HorizontalX2{Horizontal.X};
       if (fabs(HorizontalX2 - LastBearing2) > 180)
       {
         if (HorizontalX2 > LastBearing2)
@@ -249,7 +251,7 @@ void CAARiseTransitSet2::AddEvents(vector<CAARiseTransitSetDetails2>& events, do
           HorizontalX2 += 360;
       }
 
-      event.Bearing = CAACoordinateTransformation::MapTo0To360Range(LastBearing2 + (fraction * (HorizontalX2 - LastBearing2)));
+      event.Bearing = CAACoordinateTransformation::MapTo0To360Range(LastBearing2 + (fraction*(HorizontalX2 - LastBearing2)));
       events.push_back(event);
     }
   }
@@ -259,9 +261,9 @@ void CAARiseTransitSet2::AddEvents(vector<CAARiseTransitSetDetails2>& events, do
     {
       CAARiseTransitSetDetails2 event;
       event.type = CAARiseTransitSetDetails2::Type::SouthernTransit;
-      const double fraction = (360 - LastBearing) / (Horizontal.X + (360 - LastBearing));
-      event.JD = LastJD + (fraction * StepInterval);
-      event.GeometricAltitude = LastAltitudeForInterpolation + (fraction * (Horizontal.Y - LastAltitudeForInterpolation));
+      const double fraction{(360 - LastBearing)/(Horizontal.X + (360 - LastBearing))};
+      event.JD = LastJD + (fraction*StepInterval);
+      event.GeometricAltitude = LastAltitudeForInterpolation + (fraction*(Horizontal.Y - LastAltitudeForInterpolation));
       event.bAboveHorizon = (AltitudeForDetectingRiseSet > 0);
       events.push_back(event);
     }
@@ -269,9 +271,9 @@ void CAARiseTransitSet2::AddEvents(vector<CAARiseTransitSetDetails2>& events, do
     {
       CAARiseTransitSetDetails2 event;
       event.type = CAARiseTransitSetDetails2::Type::SouthernTransit;
-      const double fraction = LastBearing / (360 - Horizontal.X + LastBearing);
-      event.JD = LastJD + (fraction * StepInterval);
-      event.GeometricAltitude = LastAltitudeForInterpolation + (fraction * (Horizontal.Y - LastAltitudeForInterpolation));
+      const double fraction{LastBearing/(360 - Horizontal.X + LastBearing)};
+      event.JD = LastJD + (fraction*StepInterval);
+      event.GeometricAltitude = LastAltitudeForInterpolation + (fraction*(Horizontal.Y - LastAltitudeForInterpolation));
       event.bAboveHorizon = (AltitudeForDetectingRiseSet > 0);
       events.push_back(event);
     }
@@ -279,9 +281,9 @@ void CAARiseTransitSet2::AddEvents(vector<CAARiseTransitSetDetails2>& events, do
     {
       CAARiseTransitSetDetails2 event;
       event.type = CAARiseTransitSetDetails2::Type::NorthernTransit;
-      const double fraction = (180 - LastBearing) / (Horizontal.X - LastBearing);
-      event.JD = LastJD + (fraction * StepInterval);
-      event.GeometricAltitude = LastAltitudeForInterpolation + (fraction * (Horizontal.Y - LastAltitudeForInterpolation));
+      const double fraction{(180 - LastBearing)/(Horizontal.X - LastBearing)};
+      event.JD = LastJD + (fraction*StepInterval);
+      event.GeometricAltitude = LastAltitudeForInterpolation + (fraction*(Horizontal.Y - LastAltitudeForInterpolation));
       event.bAboveHorizon = (AltitudeForDetectingRiseSet > 0);
       events.push_back(event);
     }
@@ -289,9 +291,9 @@ void CAARiseTransitSet2::AddEvents(vector<CAARiseTransitSetDetails2>& events, do
     {
       CAARiseTransitSetDetails2 event;
       event.type = CAARiseTransitSetDetails2::Type::NorthernTransit;
-      const double fraction = ((LastBearing - 180) / (LastBearing - Horizontal.X));
-      event.JD = LastJD + (fraction * StepInterval);
-      event.GeometricAltitude = LastAltitudeForInterpolation + (fraction * (Horizontal.Y - LastAltitudeForInterpolation));
+      const double fraction{((LastBearing - 180)/(LastBearing - Horizontal.X))};
+      event.JD = LastJD + (fraction*StepInterval);
+      event.GeometricAltitude = LastAltitudeForInterpolation + (fraction*(Horizontal.Y - LastAltitudeForInterpolation));
       event.bAboveHorizon = (AltitudeForDetectingRiseSet > 0);
       events.push_back(event);
     }
@@ -303,12 +305,12 @@ vector<CAARiseTransitSetDetails2> CAARiseTransitSet2::Calculate(double StartJD, 
   //What will be the return value
   vector<CAARiseTransitSetDetails2> events;
 
-  const double LongtitudeAsHourAngle = CAACoordinateTransformation::DegreesToHours(Longitude);
-  double JD = StartJD;
-  double LastJD = 0;
-  double LastAltitudeForDetectingRiseSet = -90;
-  double LastAltitudeForInterpolation = -90;
-  double LastAltitudeForDetectingTwilight = -90;
+  const double LongtitudeAsHourAngle{CAACoordinateTransformation::DegreesToHours(Longitude)};
+  double JD{StartJD};
+  double LastJD{0};
+  double LastAltitudeForDetectingRiseSet{-90};
+  double LastAltitudeForInterpolation{-90};
+  double LastAltitudeForDetectingTwilight{-90};
   double LastBearing = -1;
   while (JD < EndJD)
   {
@@ -318,19 +320,19 @@ vector<CAARiseTransitSetDetails2> CAARiseTransitSet2::Calculate(double StartJD, 
     {
       case Object::SUN:
       {
-        const double Long = CAASun::ApparentEclipticLongitude(JD, bHighPrecision);
-        const double Lat = CAASun::ApparentEclipticLatitude(JD, bHighPrecision);
-        const CAA2DCoordinate Equatorial = CAACoordinateTransformation::Ecliptic2Equatorial(Long, Lat, CAANutation::TrueObliquityOfEcliptic(JD));
-        const double SunRad = CAAEarth::RadiusVector(JD, bHighPrecision);
+        const double Long{CAASun::ApparentEclipticLongitude(JD, bHighPrecision)};
+        const double Lat{CAASun::ApparentEclipticLatitude(JD, bHighPrecision)};
+        const CAA2DCoordinate Equatorial{CAACoordinateTransformation::Ecliptic2Equatorial(Long, Lat, CAANutation::TrueObliquityOfEcliptic(JD))};
+        const double SunRad{CAAEarth::RadiusVector(JD, bHighPrecision)};
         Topo = CAAParallax::Equatorial2Topocentric(Equatorial.X, Equatorial.Y, SunRad, Longitude, Latitude, 0, JD);
         break;
       }
       case Object::MOON:
       {
-        const double Long = CAAMoon::EclipticLongitude(JD);
-        const double Lat = CAAMoon::EclipticLatitude(JD);
-        const CAA2DCoordinate Equatorial = CAACoordinateTransformation::Ecliptic2Equatorial(Long, Lat, CAANutation::TrueObliquityOfEcliptic(JD));
-        const double MoonRad = CAAMoon::RadiusVector(JD) / 149597871; //Convert Kms to AUs
+        const double Long{CAAMoon::EclipticLongitude(JD)};
+        const double Lat{CAAMoon::EclipticLatitude(JD)};
+        const CAA2DCoordinate Equatorial{CAACoordinateTransformation::Ecliptic2Equatorial(Long, Lat, CAANutation::TrueObliquityOfEcliptic(JD))};
+        const double MoonRad{CAAMoon::RadiusVector(JD)/149597871}; //Convert Kms to AUs
         Topo = CAAParallax::Equatorial2Topocentric(Equatorial.X, Equatorial.Y, MoonRad, Longitude, Latitude, 0, JD);
         break;
       }
@@ -382,10 +384,10 @@ vector<CAARiseTransitSetDetails2> CAARiseTransitSet2::Calculate(double StartJD, 
         break;
       }
     }
-    const double AST = CAASidereal::ApparentGreenwichSiderealTime(JD);
-    const double LocalHourAngle = AST - LongtitudeAsHourAngle - Topo.X;
-    const CAA2DCoordinate Horizontal = CAACoordinateTransformation::Equatorial2Horizontal(LocalHourAngle, Topo.Y, Latitude);
-    const double AltitudeForDetectingRiseSet = Horizontal.Y - h0;
+    const double AST{CAASidereal::ApparentGreenwichSiderealTime(JD)};
+    const double LocalHourAngle{AST - LongtitudeAsHourAngle - Topo.X};
+    const CAA2DCoordinate Horizontal{CAACoordinateTransformation::Equatorial2Horizontal(LocalHourAngle, Topo.Y, Latitude)};
+    const double AltitudeForDetectingRiseSet{Horizontal.Y - h0};
 
     //Call the helper method to add any found events
     AddEvents(events, LastAltitudeForDetectingRiseSet, AltitudeForDetectingRiseSet, LastAltitudeForInterpolation, h0, Horizontal, LastJD, StepInterval, LastBearing, object, LastAltitudeForDetectingTwilight, Horizontal.Y);
@@ -408,16 +410,16 @@ vector<CAARiseTransitSetDetails2> CAARiseTransitSet2::CalculateMoon(double Start
   //What will be the return value
   vector<CAARiseTransitSetDetails2> events;
 
-  const double LongtitudeAsHourAngle = CAACoordinateTransformation::DegreesToHours(Longitude);
-  double JD = StartJD;
-  double LastJD = 0;
-  double LastAltitudeForDetectingRiseSet = -90;
-  double LastAltitudeForInterpolation = -90;
-  double LastBearing = -1;
+  const double LongtitudeAsHourAngle{CAACoordinateTransformation::DegreesToHours(Longitude)};
+  double JD{StartJD};
+  double LastJD{0};
+  double LastAltitudeForDetectingRiseSet{-90};
+  double LastAltitudeForInterpolation{-90};
+  double LastBearing{-1};
   while (JD < EndJD)
   {
     CAA2DCoordinate MoonPos;
-    double MoonRad = 0;
+    double MoonRad{0};
     switch (algorithm)
     {
       case MoonAlgorithm::MeeusTruncated:
@@ -468,13 +470,13 @@ vector<CAARiseTransitSetDetails2> CAARiseTransitSet2::CalculateMoon(double Start
       }
     }
 
-    const CAA2DCoordinate Equatorial = CAACoordinateTransformation::Ecliptic2Equatorial(MoonPos.X, MoonPos.Y, CAANutation::TrueObliquityOfEcliptic(JD));
-    const CAA2DCoordinate Topo = CAAParallax::Equatorial2Topocentric(Equatorial.X, Equatorial.Y, MoonRad / 149597871, Longitude, Latitude, 0, JD);
-    const double AST = CAASidereal::ApparentGreenwichSiderealTime(JD);
-    const double LocalHourAngle = AST - LongtitudeAsHourAngle - Topo.X;
-    const CAA2DCoordinate Horizontal = CAACoordinateTransformation::Equatorial2Horizontal(LocalHourAngle, Topo.Y, Latitude);
-    const double h0 = RefractionAtHorizon - CAACoordinateTransformation::RadiansToDegrees(asin(1737.4 / MoonRad));
-    const double AltitudeForDetectingRiseSet = (Horizontal.Y - h0);
+    const CAA2DCoordinate Equatorial{CAACoordinateTransformation::Ecliptic2Equatorial(MoonPos.X, MoonPos.Y, CAANutation::TrueObliquityOfEcliptic(JD))};
+    const CAA2DCoordinate Topo{CAAParallax::Equatorial2Topocentric(Equatorial.X, Equatorial.Y, MoonRad/149597871, Longitude, Latitude, 0, JD)};
+    const double AST{CAASidereal::ApparentGreenwichSiderealTime(JD)};
+    const double LocalHourAngle{AST - LongtitudeAsHourAngle - Topo.X};
+    const CAA2DCoordinate Horizontal{CAACoordinateTransformation::Equatorial2Horizontal(LocalHourAngle, Topo.Y, Latitude)};
+    const double h0{RefractionAtHorizon - CAACoordinateTransformation::RadiansToDegrees(asin(1737.4/MoonRad))};
+    const double AltitudeForDetectingRiseSet{Horizontal.Y - h0};
 
     //Call the helper method to add any found events
     AddEvents(events, LastAltitudeForDetectingRiseSet, AltitudeForDetectingRiseSet, LastAltitudeForInterpolation, h0, Horizontal, LastJD, StepInterval, LastBearing, Object::MOON, 0, 0);
@@ -497,18 +499,18 @@ vector<CAARiseTransitSetDetails2> CAARiseTransitSet2::CalculateStationary(double
   //What will be the return value
   vector<CAARiseTransitSetDetails2> events;
 
-  const double LongtitudeAsHourAngle = CAACoordinateTransformation::DegreesToHours(Longitude);
-  double JD = StartJD;
-  double LastJD = 0;
-  double LastAltitudeForDetectingRiseSet = -90;
-  double LastAltitudeForInterpolation = -90;
-  double LastBearing = -1;
+  const double LongtitudeAsHourAngle{CAACoordinateTransformation::DegreesToHours(Longitude)};
+  double JD{StartJD};
+  double LastJD{0};
+  double LastAltitudeForDetectingRiseSet{-90};
+  double LastAltitudeForInterpolation{-90};
+  double LastBearing{-1};
   while (JD < EndJD)
   {
-    const double AST = CAASidereal::ApparentGreenwichSiderealTime(JD);
-    const double LocalHourAngle = AST - LongtitudeAsHourAngle - Alpha;
-    const CAA2DCoordinate Horizontal = CAACoordinateTransformation::Equatorial2Horizontal(LocalHourAngle, Delta, Latitude);
-    const double AltitudeForDetectingRiseSet = (Horizontal.Y - h0);
+    const double AST{CAASidereal::ApparentGreenwichSiderealTime(JD)};
+    const double LocalHourAngle{AST - LongtitudeAsHourAngle - Alpha};
+    const CAA2DCoordinate Horizontal{CAACoordinateTransformation::Equatorial2Horizontal(LocalHourAngle, Delta, Latitude)};
+    const double AltitudeForDetectingRiseSet{Horizontal.Y - h0};
 
     //Call the helper method to add any found event
     AddEvents(events, LastAltitudeForDetectingRiseSet, AltitudeForDetectingRiseSet, LastAltitudeForInterpolation, h0, Horizontal, LastJD, StepInterval, LastBearing, Object::STAR, 0, 0);

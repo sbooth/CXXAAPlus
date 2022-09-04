@@ -50,6 +50,8 @@ History: PJN / 24-05-2004 1. Fixed a missing break statement in CAAElliptical::C
          PJN / 03-10-2021 1. Renamed CAAElliptical::EllipticalObject type to Object.
          PJN / 19-06-2022 1. Updated all the code in AAElliptical.cpp to use C++ uniform initialization for all
                           variable declarations.
+         PJN / 28-08-2022 1. Fixed an issue in CAAElliptical::MinorPlanetMagnitude where brackets were missing. 
+                          Thanks to "Pavel" for reporting this issue.
 
 Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
@@ -404,5 +406,5 @@ double CAAElliptical::MinorPlanetMagnitude(double H, double delta, double G, dou
   const double phi1{exp(-3.33*pow(tan(PhaseAngle/2), 0.63))};
   const double phi2{exp(-1.87 * pow(tan(PhaseAngle / 2), 1.22))};
 
-  return H + (5*log10(r*delta)) - (2.5*log10((1 - G)*phi1) + (G*phi2));
+  return H + (5*log10(r*delta)) - (2.5*log10(((1 - G)*phi1) + (G*phi2)));
 }

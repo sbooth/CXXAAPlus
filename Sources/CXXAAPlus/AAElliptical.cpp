@@ -50,6 +50,21 @@ History: PJN / 24-05-2004 1. Fixed a missing break statement in CAAElliptical::C
          PJN / 03-10-2021 1. Renamed CAAElliptical::EllipticalObject type to Object.
          PJN / 19-06-2022 1. Updated all the code in AAElliptical.cpp to use C++ uniform initialization for all
                           variable declarations.
+         PJN / 28-08-2022 1. Fixed an issue in CAAElliptical::MinorPlanetMagnitude where brackets were missing. 
+                          Thanks to "Pavel" for reporting this issue.
+         PJN / 01-10-2022 1. Updated the CAAElliptical::Calculate method which takes a Object parameter to return 
+                          the following additional values: TrueGeocentricRectangularEcliptical, 
+                          TrueHeliocentricEclipticalLongitude, TrueHeliocentricEclipticalLatitude,
+                          TrueHeliocentricDistance, TrueGeocentricEclipticalLongitude, 
+                          TrueGeocentricEclipticalLatitude, TrueGeocentricDistance, TrueLightTime, 
+                          TrueGeocentricRA & TrueGeocentricDeclination.
+                          2. Fixed an issue in CAAElliptical::Calculate method which takes a Object parameter 
+                          when the Object parameter is the Sun and the code is attempting to calculate the apparent
+                          position of the Sun.
+                          3. Renamed CAAEllipticalPlanetaryDetails::ApparentGeocentricLongitude to 
+                          ApparentGeocentricEclipticalLongitude.
+                          4. Renamed CAAEllipticalPlanetaryDetails::ApparentGeocentricLatitude to 
+                          ApparentGeocentricEclipticalLatitude.
 
 Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
@@ -177,6 +192,7 @@ CAAEllipticalPlanetaryDetails CAAElliptical::Calculate(double JD, Object object,
         }
       }
 
+      bool bFirstCalc = false;
       if (!bFirstRecalc)
       {
         bRecalc = ((fabs(L - LPrevious) > 0.00001) || (fabs(B - BPrevious) > 0.00001) || (fabs(R - RPrevious) > 0.000001));
@@ -185,23 +201,75 @@ CAAEllipticalPlanetaryDetails CAAElliptical::Calculate(double JD, Object object,
         RPrevious = R;
       }
       else
+      {
+        bFirstCalc = true;
         bFirstRecalc = false;
+        details.TrueHeliocentricEclipticalLongitude = L;
+        details.TrueHeliocentricEclipticalLatitude = B;
+        details.TrueHeliocentricDistance = R;
+      }
 
-      //Calculate the new value
+      const double Lrad{CAACoordinateTransformation::DegreesToRadians(L)};
+      const double Brad{CAACoordinateTransformation::DegreesToRadians(B)};
+      const double cosB{cos(Brad)};
+      const double cosL{cos(Lrad)};
+      const double x{(R*cosB*cosL) - (R0*cosB0*cos(L0))};
+      const double y{(R*cosB*sin(Lrad)) - (R0*cosB0*sin(L0))};
+      const double z{(R*sin(Brad)) - (R0*sin(B0))};
+      const double distance{sqrt((x*x) + (y*y) + (z*z))};
+      if (bFirstCalc)
+      {
+        details.TrueGeocentricRectangularEcliptical.X = x;
+        details.TrueGeocentricRectangularEcliptical.Y = y;
+        details.TrueGeocentricRectangularEcliptical.Z = z;
+      }
+
+      //Prepare for the next loop around
       if (bRecalc)
+        JD0 = JD - CAAElliptical::DistanceToLightTime(distance);
+    }
+  }
+  else
+  {
+    bool bRecalc{true};
+    bool bFirstRecalc{true};
+    double LPrevious{0};
+    double BPrevious{0};
+    double RPrevious{0};
+    while (bRecalc)
+    {
+      L = CAAEarth::EclipticLongitude(JD0, bHighPrecision);
+      B = CAAEarth::EclipticLatitude(JD0, bHighPrecision);
+      R = CAAEarth::RadiusVector(JD0, bHighPrecision);
+
+      bool bFirstCalc = false;
+      if (!bFirstRecalc)
+      {
+        bRecalc = ((fabs(L - LPrevious) > 0.00001) || (fabs(B - BPrevious) > 0.00001) || (fabs(R - RPrevious) > 0.000001));
+        LPrevious = L;
+        BPrevious = B;
+        RPrevious = R;
+      }
+      else
+      {
+        bFirstCalc = true;
+        bFirstRecalc = false;
+      }
+
+      if (bFirstCalc)
       {
         const double Lrad{CAACoordinateTransformation::DegreesToRadians(L)};
         const double Brad{CAACoordinateTransformation::DegreesToRadians(B)};
         const double cosB{cos(Brad)};
         const double cosL{cos(Lrad)};
-        const double x{(R*cosB*cosL) - (R0*cosB0*cos(L0))};
-        const double y{(R*cosB*sin(Lrad)) - (R0*cosB0*sin(L0))};
-        const double z{(R*sin(Brad)) - (R0*sin(B0))};
-        const double distance{sqrt((x * x) + (y * y) + (z * z))};
-
-        //Prepare for the next loop around
-        JD0 = JD - CAAElliptical::DistanceToLightTime(distance);
+        details.TrueGeocentricRectangularEcliptical.X = -R*cosB*cosL;
+        details.TrueGeocentricRectangularEcliptical.Y = -R*cosB*sin(Lrad);
+        details.TrueGeocentricRectangularEcliptical.Z = -R*sin(Brad);
       }
+
+      //Prepare for the next loop around
+      if (bRecalc)
+        JD0 = JD - CAAElliptical::DistanceToLightTime(R);
     }
   }
 
@@ -221,37 +289,52 @@ CAAEllipticalPlanetaryDetails CAAElliptical::Calculate(double JD, Object object,
   }
   else
   {
-    x = -R0*cosB0*cos(L0);
-    y = -R0*cosB0*sin(L0);
-    z = -R0*sin(B0);
-  }
-  const double x2{x*x};
-  const double y2{y*y};
+    const double Lrad{CAACoordinateTransformation::DegreesToRadians(L)};
+    const double Brad{CAACoordinateTransformation::DegreesToRadians(B)};
+    const double cosB{cos(Brad)};
+    const double cosL{cos(Lrad)};
 
-  details.ApparentGeocentricLatitude = CAACoordinateTransformation::RadiansToDegrees(atan2(z, sqrt(x2 + y2)));
+    x = -R*cosB*cosL;
+    y = -R*cosB*sin(Lrad);
+    z = -R*sin(Brad);
+  }
+  double x2{x*x};
+  double y2{y*y};
+  details.ApparentGeocentricEclipticalLatitude = CAACoordinateTransformation::RadiansToDegrees(atan2(z, sqrt(x2 + y2)));
   details.ApparentGeocentricDistance = sqrt(x2 + y2 + (z*z));
-  details.ApparentGeocentricLongitude = CAACoordinateTransformation::MapTo0To360Range(CAACoordinateTransformation::RadiansToDegrees(atan2(y, x)));
+  details.ApparentGeocentricEclipticalLongitude = CAACoordinateTransformation::MapTo0To360Range(CAACoordinateTransformation::RadiansToDegrees(atan2(y, x)));
   details.ApparentLightTime = CAAElliptical::DistanceToLightTime(details.ApparentGeocentricDistance);
 
+  x2 = {details.TrueGeocentricRectangularEcliptical.X*details.TrueGeocentricRectangularEcliptical.X};
+  y2 = {details.TrueGeocentricRectangularEcliptical.Y*details.TrueGeocentricRectangularEcliptical.Y};
+  details.TrueGeocentricEclipticalLatitude = CAACoordinateTransformation::RadiansToDegrees(atan2(details.TrueGeocentricRectangularEcliptical.Z, sqrt(x2 + y2)));
+  details.TrueGeocentricDistance = sqrt(x2 + y2 + (details.TrueGeocentricRectangularEcliptical.Z*details.TrueGeocentricRectangularEcliptical.Z));
+  details.TrueGeocentricEclipticalLongitude = CAACoordinateTransformation::MapTo0To360Range(CAACoordinateTransformation::RadiansToDegrees(atan2(details.TrueGeocentricRectangularEcliptical.Y, details.TrueGeocentricRectangularEcliptical.X)));
+  details.TrueLightTime = CAAElliptical::DistanceToLightTime(details.TrueGeocentricDistance);
+
   //Adjust for Aberration
-  const CAA2DCoordinate Aberration{CAAAberration::EclipticAberration(details.ApparentGeocentricLongitude, details.ApparentGeocentricLatitude, JD, bHighPrecision)};
-  details.ApparentGeocentricLongitude += Aberration.X;
-  details.ApparentGeocentricLatitude += Aberration.Y;
+  const CAA2DCoordinate Aberration{CAAAberration::EclipticAberration(details.ApparentGeocentricEclipticalLongitude, details.ApparentGeocentricEclipticalLatitude, JD, bHighPrecision)};
+  details.ApparentGeocentricEclipticalLongitude += Aberration.X;
+  details.ApparentGeocentricEclipticalLatitude += Aberration.Y;
 
   //convert to the FK5 system
-  const double DeltaLong{CAAFK5::CorrectionInLongitude(details.ApparentGeocentricLongitude, details.ApparentGeocentricLatitude, JD)};
-  details.ApparentGeocentricLatitude += CAAFK5::CorrectionInLatitude(details.ApparentGeocentricLongitude, JD);
-  details.ApparentGeocentricLongitude += DeltaLong;
+  const double DeltaLong{CAAFK5::CorrectionInLongitude(details.ApparentGeocentricEclipticalLongitude, details.ApparentGeocentricEclipticalLatitude, JD)};
+  details.ApparentGeocentricEclipticalLatitude += CAAFK5::CorrectionInLatitude(details.ApparentGeocentricEclipticalLongitude, JD);
+  details.ApparentGeocentricEclipticalLongitude += DeltaLong;
 
   //Correct for nutation
   const double NutationInLongitude{CAANutation::NutationInLongitude(JD)};
-  details.ApparentGeocentricLongitude += CAACoordinateTransformation::DMSToDegrees(0, 0, NutationInLongitude);
+  details.ApparentGeocentricEclipticalLongitude += CAACoordinateTransformation::DMSToDegrees(0, 0, NutationInLongitude);
 
   //Convert to RA and Dec
   const double Epsilon{CAANutation::TrueObliquityOfEcliptic(JD)};
-  const CAA2DCoordinate ApparentEqu{CAACoordinateTransformation::Ecliptic2Equatorial(details.ApparentGeocentricLongitude, details.ApparentGeocentricLatitude, Epsilon)};
+  const CAA2DCoordinate ApparentEqu{CAACoordinateTransformation::Ecliptic2Equatorial(details.ApparentGeocentricEclipticalLongitude, details.ApparentGeocentricEclipticalLatitude, Epsilon)};
   details.ApparentGeocentricRA = ApparentEqu.X;
   details.ApparentGeocentricDeclination = ApparentEqu.Y;
+
+  const CAA2DCoordinate TrueEqu{CAACoordinateTransformation::Ecliptic2Equatorial(details.TrueGeocentricEclipticalLongitude, details.TrueGeocentricEclipticalLatitude, Epsilon)};
+  details.TrueGeocentricRA = TrueEqu.X;
+  details.TrueGeocentricDeclination = TrueEqu.Y;
 
   return details;
 }
@@ -404,5 +487,5 @@ double CAAElliptical::MinorPlanetMagnitude(double H, double delta, double G, dou
   const double phi1{exp(-3.33*pow(tan(PhaseAngle/2), 0.63))};
   const double phi2{exp(-1.87 * pow(tan(PhaseAngle / 2), 1.22))};
 
-  return H + (5*log10(r*delta)) - (2.5*log10((1 - G)*phi1) + (G*phi2));
+  return H + (5*log10(r*delta)) - (2.5*log10(((1 - G)*phi1) + (G*phi2)));
 }

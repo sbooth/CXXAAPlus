@@ -5,6 +5,8 @@ Created: PJN / 11-06-2020
 History: PJN / 11-06-2020 1. Initial implementation
          PJN / 04-07-2022 1. Updated all the code in AAPlanetaryPhenomena2.cpp to use C++ uniform initialization for
                           all variable declarations.
+         PJN / 01-20-2022 1. Added support to CAAPlanetaryPhenomena2::Calculate for MinimumDistance and 
+                          MaximumDistance event types.
 
 Copyright (c) 2020 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
@@ -52,6 +54,8 @@ vector<CAAPlanetaryPhenomenaDetails2> CAAPlanetaryPhenomena2::Calculate(double S
   double LastStationValueInEclipticLongitude1{-1};
   double LastStationValueInRA0{-1};
   double LastStationValueInRA1{-1};
+  double LastMinDistance0{-1};
+  double LastMinDistance1{-1};
   while (JD < EndJD)
   {
     const CAAEllipticalPlanetaryDetails SunDetails{CAAElliptical::Calculate(JD, CAAElliptical::Object::SUN, bHighPrecision)};
@@ -101,10 +105,10 @@ vector<CAAPlanetaryPhenomenaDetails2> CAAPlanetaryPhenomena2::Calculate(double S
     }
 
     double ConjuctionValueInEclipticLongitude{0};
-    if (ObjectDetails.ApparentGeocentricLongitude > SunDetails.ApparentGeocentricLongitude)
-      ConjuctionValueInEclipticLongitude = ObjectDetails.ApparentGeocentricLongitude - SunDetails.ApparentGeocentricLongitude;
+    if (ObjectDetails.ApparentGeocentricEclipticalLongitude > SunDetails.ApparentGeocentricEclipticalLongitude)
+      ConjuctionValueInEclipticLongitude = ObjectDetails.ApparentGeocentricEclipticalLongitude - SunDetails.ApparentGeocentricEclipticalLongitude;
     else
-      ConjuctionValueInEclipticLongitude = SunDetails.ApparentGeocentricLongitude - ObjectDetails.ApparentGeocentricLongitude;
+      ConjuctionValueInEclipticLongitude = SunDetails.ApparentGeocentricEclipticalLongitude - ObjectDetails.ApparentGeocentricEclipticalLongitude;
     if (ConjuctionValueInEclipticLongitude > 180)
       ConjuctionValueInEclipticLongitude = 360 - ConjuctionValueInEclipticLongitude;
     if ((LastConjuctionValueInEclipticLongitude0 != -1) && (LastConjuctionValueInEclipticLongitude1 != -1))
@@ -114,7 +118,7 @@ vector<CAAPlanetaryPhenomenaDetails2> CAAPlanetaryPhenomena2::Calculate(double S
         CAAPlanetaryPhenomenaDetails2 event;
         if ((object == Object::MERCURY) || (object == Object::VENUS))
         {
-          if (ObjectDetails.ApparentGeocentricLongitude < SunDetails.ApparentGeocentricLongitude)
+          if (ObjectDetails.ApparentGeocentricEclipticalLongitude < SunDetails.ApparentGeocentricEclipticalLongitude)
             event.type = CAAPlanetaryPhenomenaDetails2::Type::GreatestWesternElongationInEclipticLongitude;
           else
             event.type = CAAPlanetaryPhenomenaDetails2::Type::GreatestEasternElongationInEclipticLongitude;
@@ -158,7 +162,7 @@ vector<CAAPlanetaryPhenomenaDetails2> CAAPlanetaryPhenomena2::Calculate(double S
         CAAPlanetaryPhenomenaDetails2 event;
         if ((object == Object::MERCURY) || (object == Object::VENUS))
         {
-          if (ObjectDetails.ApparentGeocentricLongitude < SunDetails.ApparentGeocentricLongitude)
+          if (ObjectDetails.ApparentGeocentricEclipticalLongitude < SunDetails.ApparentGeocentricEclipticalLongitude)
             event.type = CAAPlanetaryPhenomenaDetails2::Type::GreatestWesternElongationInRA;
           else
             event.type = CAAPlanetaryPhenomenaDetails2::Type::GreatestEasternElongationInRA;
@@ -196,7 +200,7 @@ vector<CAAPlanetaryPhenomenaDetails2> CAAPlanetaryPhenomena2::Calculate(double S
         CAAPlanetaryPhenomenaDetails2 event;
         if ((object == Object::MERCURY) || (object == Object::VENUS))
         {
-          if (ObjectDetails.ApparentGeocentricLongitude < SunDetails.ApparentGeocentricLongitude)
+          if (ObjectDetails.ApparentGeocentricEclipticalLongitude < SunDetails.ApparentGeocentricEclipticalLongitude)
             event.type = CAAPlanetaryPhenomenaDetails2::Type::GreatestWesternElongationInAngularDistance;
           else
             event.type = CAAPlanetaryPhenomenaDetails2::Type::GreatestEasternElongationInAngularDistance;
@@ -249,8 +253,8 @@ vector<CAAPlanetaryPhenomenaDetails2> CAAPlanetaryPhenomena2::Calculate(double S
     {
       if (((LastConjuctionValueInEclipticLongitude0 < 90) && (ConjuctionValueInEclipticLongitude >= 90)) || ((LastConjuctionValueInEclipticLongitude0 > 90) && (ConjuctionValueInEclipticLongitude <= 90)))
       {
-        double SunApparentGeocentricEclipticLongitudeComparison{SunDetails.ApparentGeocentricLongitude};
-        double ObjectApparentGeocentricEclipticLongitudeComparison{ObjectDetails.ApparentGeocentricLongitude};
+        double SunApparentGeocentricEclipticLongitudeComparison{SunDetails.ApparentGeocentricEclipticalLongitude};
+        double ObjectApparentGeocentricEclipticLongitudeComparison{ObjectDetails.ApparentGeocentricEclipticalLongitude};
         if (fabs(ObjectApparentGeocentricEclipticLongitudeComparison - SunApparentGeocentricEclipticLongitudeComparison) > 180)
         {
           if (ObjectApparentGeocentricEclipticLongitudeComparison > SunApparentGeocentricEclipticLongitudeComparison)
@@ -273,8 +277,8 @@ vector<CAAPlanetaryPhenomenaDetails2> CAAPlanetaryPhenomena2::Calculate(double S
     {
       if (((LastElongationValue0 < 90) && (ElongationValue >= 90)) || ((LastElongationValue0 > 90) && (ElongationValue <= 90)))
       {
-        double SunApparentGeocentricLongitudeComparison{SunDetails.ApparentGeocentricLongitude};
-        double ObjectApparentGeocentricLongitudeComparison{ObjectDetails.ApparentGeocentricLongitude};
+        double SunApparentGeocentricLongitudeComparison{SunDetails.ApparentGeocentricEclipticalLongitude};
+        double ObjectApparentGeocentricLongitudeComparison{ObjectDetails.ApparentGeocentricEclipticalLongitude};
         if (fabs(ObjectApparentGeocentricLongitudeComparison - SunApparentGeocentricLongitudeComparison) > 180)
         {
           if (ObjectApparentGeocentricLongitudeComparison > SunApparentGeocentricLongitudeComparison)
@@ -293,7 +297,7 @@ vector<CAAPlanetaryPhenomenaDetails2> CAAPlanetaryPhenomena2::Calculate(double S
         events.push_back(event);
       }
     }
-    const double StationValueInEclipticLongitude{ObjectDetails.ApparentGeocentricLongitude};
+    const double StationValueInEclipticLongitude{ObjectDetails.ApparentGeocentricEclipticalLongitude};
     if ((LastStationValueInEclipticLongitude0 != -1) && (LastStationValueInEclipticLongitude1 != -1))
     {
       double LastStationValueForInterpolationInEclipticLongitude0{LastStationValueInEclipticLongitude0};
@@ -345,6 +349,28 @@ vector<CAAPlanetaryPhenomenaDetails2> CAAPlanetaryPhenomena2::Calculate(double S
         events.push_back(event);
       }
     }
+    const double MinDistance{ObjectDetails.TrueGeocentricDistance};
+    if ((LastMinDistance0 != -1) && (LastMinDistance1 != -1))
+    {
+      if ((LastMinDistance0 > MinDistance) && (LastMinDistance0 > LastMinDistance1))
+      {
+        CAAPlanetaryPhenomenaDetails2 event;
+        event.type = CAAPlanetaryPhenomenaDetails2::Type::MaximumDistance;
+        double fraction{0};
+        event.Value = CAAInterpolate::Extremum(LastMinDistance1, LastMinDistance0, MinDistance, fraction);
+        event.JD = LastJD + (fraction*StepInterval);
+        events.push_back(event);
+      }
+      else if ((LastMinDistance0 < MinDistance) && (LastMinDistance0 < LastMinDistance1))
+      {
+        CAAPlanetaryPhenomenaDetails2 event;
+        event.type = CAAPlanetaryPhenomenaDetails2::Type::MinimumDistance;
+        double fraction{0};
+        event.Value = CAAInterpolate::Extremum(LastMinDistance1, LastMinDistance0, MinDistance, fraction);
+        event.JD = LastJD + (fraction*StepInterval);
+        events.push_back(event);
+      }
+    }
 
     //Prepare for the next loop
     LastConjuctionValueInEclipticLongitude1 = LastConjuctionValueInEclipticLongitude0;
@@ -357,6 +383,8 @@ vector<CAAPlanetaryPhenomenaDetails2> CAAPlanetaryPhenomena2::Calculate(double S
     LastStationValueInEclipticLongitude0 = StationValueInEclipticLongitude;
     LastStationValueInRA1 = LastStationValueInRA0;
     LastStationValueInRA0 = StationValueInRA;
+    LastMinDistance1 = LastMinDistance0;
+    LastMinDistance0 = MinDistance;
     LastJD = JD;
     JD += StepInterval;
   }

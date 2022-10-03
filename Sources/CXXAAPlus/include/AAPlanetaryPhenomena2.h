@@ -74,7 +74,9 @@ public:
     WesternQuadratureInAngularDistance = 25,
     EasternQuadratureInEclipticLongitude = 26,
     EasternQuadratureInRA = 27,
-    EasternQuadratureInAngularDistance = 28
+    EasternQuadratureInAngularDistance = 28,
+    MaximumDistance = 29,
+    MinimumDistance = 30
   };
 
 //Member variables

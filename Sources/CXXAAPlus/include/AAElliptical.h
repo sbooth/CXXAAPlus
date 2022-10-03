@@ -56,12 +56,22 @@ class AAPLUS_EXT_CLASS CAAEllipticalPlanetaryDetails
 {
 public:
 //Member variables
-  double ApparentGeocentricLongitude{0};
-  double ApparentGeocentricLatitude{0};
+  double ApparentGeocentricEclipticalLongitude{0};
+  double ApparentGeocentricEclipticalLatitude{0};
   double ApparentGeocentricDistance{0};
   double ApparentLightTime{0};
   double ApparentGeocentricRA{0};
   double ApparentGeocentricDeclination{0};
+  CAA3DCoordinate TrueGeocentricRectangularEcliptical;
+  double TrueHeliocentricEclipticalLongitude{0};
+  double TrueHeliocentricEclipticalLatitude{0};
+  double TrueHeliocentricDistance{0};
+  double TrueGeocentricEclipticalLongitude{0};
+  double TrueGeocentricEclipticalLatitude{0};
+  double TrueGeocentricDistance{0};
+  double TrueLightTime{0};
+  double TrueGeocentricRA{0};
+  double TrueGeocentricDeclination{0};
 };
 
 class AAPLUS_EXT_CLASS CAAEllipticalObjectDetails

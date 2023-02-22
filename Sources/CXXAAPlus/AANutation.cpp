@@ -11,7 +11,7 @@ History: PJN / 10-05-2010 1. Removed the unused Delta parameter from the CAANuta
          PJN / 01-07-2022 1. Updated all the code in AANutation.cpp to use C++ uniform initialization for all
                           variable declarations.
 
-Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -33,7 +33,6 @@ to maintain a single distribution point for the source code.
 #include "AACoordinateTransformation.h"
 #include <cmath>
 #include <array>
-using namespace std;
 
 
 //////////////////// Macros / Defines /////////////////////////////////////////
@@ -55,7 +54,7 @@ struct NutationCoefficient
   double coscoeff2;
 };
 
-constexpr array<NutationCoefficient, 63> g_NutationCoefficients
+constexpr std::array<NutationCoefficient, 63> g_NutationCoefficients
 { {
   {  0,  0,  0,  0,  1, -171996,  -174.2,  92025,     8.9    },
   { -2,  0,  0,  2,  2,  -13187,    -1.6,   5736,    -3.1    },

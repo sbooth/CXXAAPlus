@@ -32,7 +32,7 @@ History: PJN / 12-11-2014 1. Fixed two transcription bugs in the CAAPrecession::
          PJN / 05-07-2022 1. Updated all the code in AAPrecession.cpp to use C++ uniform initialization for all
                           variable declarations.
 
-Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -52,7 +52,6 @@ to maintain a single distribution point for the source code.
 #include "stdafx.h"
 #include "AAPrecession.h"
 #include <cmath>
-using namespace std;
 
 
 //////////////////// Implementation ///////////////////////////////////////////

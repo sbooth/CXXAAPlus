@@ -5,7 +5,7 @@ Created: PJN / 15-01-2004
 History: PJN / 18-06-2022 1. Updated all the code in AADiameters.cpp to use C++ uniform initialization 
                           for all variable declarations.
 
-Copyright (c) 2004 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2004 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -26,7 +26,6 @@ to maintain a single distribution point for the source code.
 #include "AADiameters.h"
 #include "AAGlobe.h"
 #include <cmath>
-using namespace std;
 
 
 //////////////////// Implementation ///////////////////////////////////////////

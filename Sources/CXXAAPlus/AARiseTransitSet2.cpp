@@ -36,7 +36,7 @@ History: PJN / 13-07-2019 1. Initial implementation
          PJN / 06-07-2022 1. Updated all the code in AARiseTransitSet2.cpp to use C++ uniform initialization for
                           all variable declarations.
 
-Copyright (c) 2019 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2019 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -72,12 +72,11 @@ to maintain a single distribution point for the source code.
 #endif //#ifndef AAPLUS_NO_ELPMPP02
 #include <cmath>
 #include <cassert>
-using namespace std;
 
 
 //////////////////// Implementation ///////////////////////////////////////////
 
-void CAARiseTransitSet2::AddEvents(vector<CAARiseTransitSetDetails2>& events, double LastAltitudeForDetectingRiseSet, double AltitudeForDetectingRiseSet,
+void CAARiseTransitSet2::AddEvents(std::vector<CAARiseTransitSetDetails2>& events, double LastAltitudeForDetectingRiseSet, double AltitudeForDetectingRiseSet,
                                    double LastAltitudeForInterpolation, double h0, const CAA2DCoordinate& Horizontal, double LastJD, double StepInterval, double LastBearing, 
                                    Object object, double LastAltitudeForDetectingTwilight, double AltitudeForTwilight)
 {
@@ -300,10 +299,10 @@ void CAARiseTransitSet2::AddEvents(vector<CAARiseTransitSetDetails2>& events, do
   }
 }
 
-vector<CAARiseTransitSetDetails2> CAARiseTransitSet2::Calculate(double StartJD, double EndJD, Object object, double Longitude, double Latitude, double h0, double StepInterval, bool bHighPrecision)
+std::vector<CAARiseTransitSetDetails2> CAARiseTransitSet2::Calculate(double StartJD, double EndJD, Object object, double Longitude, double Latitude, double h0, double StepInterval, bool bHighPrecision)
 {
   //What will be the return value
-  vector<CAARiseTransitSetDetails2> events;
+  std::vector<CAARiseTransitSetDetails2> events;
 
   const double LongtitudeAsHourAngle{CAACoordinateTransformation::DegreesToHours(Longitude)};
   double JD{StartJD};
@@ -405,10 +404,10 @@ vector<CAARiseTransitSetDetails2> CAARiseTransitSet2::Calculate(double StartJD, 
 }
 
 //The higher accuracy version for the moon where the "standard altitude" is not treated as a constant
-vector<CAARiseTransitSetDetails2> CAARiseTransitSet2::CalculateMoon(double StartJD, double EndJD, double Longitude, double Latitude, double RefractionAtHorizon, double StepInterval, MoonAlgorithm algorithm)
+std::vector<CAARiseTransitSetDetails2> CAARiseTransitSet2::CalculateMoon(double StartJD, double EndJD, double Longitude, double Latitude, double RefractionAtHorizon, double StepInterval, MoonAlgorithm algorithm)
 {
   //What will be the return value
-  vector<CAARiseTransitSetDetails2> events;
+  std::vector<CAARiseTransitSetDetails2> events;
 
   const double LongtitudeAsHourAngle{CAACoordinateTransformation::DegreesToHours(Longitude)};
   double JD{StartJD};
@@ -494,10 +493,10 @@ vector<CAARiseTransitSetDetails2> CAARiseTransitSet2::CalculateMoon(double Start
 
 
 //A version for a stationary object such as a star
-vector<CAARiseTransitSetDetails2> CAARiseTransitSet2::CalculateStationary(double StartJD, double EndJD, double Alpha, double Delta, double Longitude, double Latitude, double h0, double StepInterval)
+std::vector<CAARiseTransitSetDetails2> CAARiseTransitSet2::CalculateStationary(double StartJD, double EndJD, double Alpha, double Delta, double Longitude, double Latitude, double h0, double StepInterval)
 {
   //What will be the return value
-  vector<CAARiseTransitSetDetails2> events;
+  std::vector<CAARiseTransitSetDetails2> events;
 
   const double LongtitudeAsHourAngle{CAACoordinateTransformation::DegreesToHours(Longitude)};
   double JD{StartJD};

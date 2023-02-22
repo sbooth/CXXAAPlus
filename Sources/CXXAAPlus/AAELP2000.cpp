@@ -26,7 +26,7 @@ History: PJN / 31-12-2015 1. Initial public release.
          PJN / 20-06-2022 1. Updated all the code in AAELP2000.cpp to use C++ uniform initialization for all
                           variable declarations.
 
-Copyright (c) 2015 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2015 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -51,7 +51,6 @@ to maintain a single distribution point for the source code.
 #include <cmath>
 #include <cassert>
 #include <array>
-using namespace std;
 
 
 //////////////////// Macros / Defines /////////////////////////////////////////
@@ -65,7 +64,7 @@ constexpr double g_AM{0.074801329518};
 constexpr double g_DTASM{0.022921886117733679}; //ALFA * 2.0 / (AM * 3.0) where ALFA .002571881335
 
 //Lunar arguments
-constexpr array<double, 15> g_W
+constexpr std::array<double, 15> g_W
 { {
   3.8103444305883079,      //CAACoordinateTransformation::DegreesToRadians(218 + 18/60.0 + 59.95571/3600.0),
   1.4547885323225087,      //CAACoordinateTransformation::DegreesToRadians(83 + 21/60.0 + 11.67475/3600.0),
@@ -84,7 +83,7 @@ constexpr array<double, 15> g_W
   -1.7385418604587960e-10  //-0.00003586"
 } };
 
-constexpr array<double, 5> g_EARTH
+constexpr std::array<double, 5> g_EARTH
 { {
   1.7534703431506580,     //CAACoordinateTransformation::DegreesToRadians(100 + 27/60.0 + 59.22059/3600.0)
   628.30758496215537,     //129597742.2758"
@@ -93,7 +92,7 @@ constexpr array<double, 5> g_EARTH
   7.2722052166430391e-13  //0.00000015"
 } };
 
-constexpr array<double, 5> g_PERI
+constexpr std::array<double, 5> g_PERI
 { {
   1.7965955233587829,      //CAACoordinateTransformation::DegreesToRadians(102 + 56/60.0 + 14.42753/3600.0),
   0.0056297936673156855,   //1161.2283"
@@ -103,7 +102,7 @@ constexpr array<double, 5> g_PERI
 } };
 
 //Planetary arguments
-constexpr array<array<double, 2>, 8> g_P
+constexpr std::array<std::array<double, 2>, 8> g_P
 { {
   { 4.4026088424029615,  2608.7903141574106 }, //CAACoordinateTransformation::DegreesToRadians(252 + 15/60.0 + 3.25986/3600.0),   538101628.68898"
   { 3.1761466969075944,  1021.3285546211089 }, //CAACoordinateTransformation::DegreesToRadians(181 + 58/60.0 + 47.28305/3600.0),  210664136.43355"
@@ -122,14 +121,14 @@ constexpr double g_DELG{-3.9105071518295170e-7}; //-0.08066"
 constexpr double g_DELNP{-3.7078095034525493e-11}; //-0.06424" / g_W[3]
 constexpr double g_DELEP{-6.2439153990097128e-7}; //-0.12879"
 
-constexpr array<double, 2> g_ZETA
+constexpr std::array<double, 2> g_ZETA
 { {
   3.8103444305883079, //g_W[0]
   8399.7091135222672  //g_W[3] + 5029.0966"
 } };
 
 //The main ELP2000-82b tables
-constexpr array<ELP2000MainProblemCoefficient, 1023> g_ELP1
+constexpr std::array<ELP2000MainProblemCoefficient, 1023> g_ELP1
 { {
  { {  0,  0,  0,  2 },   -411.60287, {    168.48, -18433.81,   -121.62,      0.40,     -0.18,      0.00 } },
  { {  0,  0,  0,  4 },      0.42034, {     -0.39,     37.65,      0.57,      0.00,      0.00,      0.00 } },
@@ -1156,7 +1155,7 @@ constexpr array<ELP2000MainProblemCoefficient, 1023> g_ELP1
  { { 10,  0,  0,  0 },      0.00002, {      0.00,      0.00,      0.00,      0.00,      0.00,      0.00 } }
 } };
 
-constexpr array<ELP2000MainProblemCoefficient, 918> g_ELP2
+constexpr std::array<ELP2000MainProblemCoefficient, 918> g_ELP2
 { {
  { {  0,  0,  0,  1 },  18461.40000, {      0.00, 412529.61,      0.00,      0.00,      0.00,      0.00 } },
  { {  0,  0,  0,  3 },     -6.29664, {      7.68,   -422.65,    -13.21,      0.02,     -0.02,      0.00 } },
@@ -2078,7 +2077,7 @@ constexpr array<ELP2000MainProblemCoefficient, 918> g_ELP2
  { { 10,  0, -1, -1 },      0.00002, {      0.00,      0.00,      0.00,      0.00,      0.00,      0.00 } }
 } };
 
-constexpr array<ELP2000MainProblemCoefficient, 704> g_ELP3
+constexpr std::array<ELP2000MainProblemCoefficient, 704> g_ELP3
 { {
  { {  0,  0,  0,  0 }, 385000.52719, {  -7992.63,    -11.06,  21578.08,     -4.53,     11.39,     -0.06 } },
  { {  0,  0,  0,  2 },     -3.14837, {   -204.48,   -138.94,    159.64,     -0.39,      0.12,      0.00 } },
@@ -2786,7 +2785,7 @@ constexpr array<ELP2000MainProblemCoefficient, 704> g_ELP3
  { { 10,  0, -1,  0 },     -0.00003, {      0.00,      0.00,      0.00,      0.00,      0.00,      0.00 } }
 } };
 
-constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 347> g_ELP4
+constexpr std::array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 347> g_ELP4
 { {
  {  0, {  0,  0,  0,  1 },    270.00000,   0.00003,     0.075 },
  {  0, {  0,  0,  0,  2 },      0.00000,   0.00037,     0.037 },
@@ -3137,7 +3136,7 @@ constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 3
  {  2, {  4,  0, -1, -2 },    180.00000,   0.00001,     0.028 }
 } };
 
-constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 316> g_ELP5
+constexpr std::array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 316> g_ELP5
 { {
  {  0, {  0,  0,  0,  3 },      0.00000,   0.00003,     0.025 },
  {  0, {  0,  0,  1, -3 },    180.00000,   0.00021,     0.037 },
@@ -3457,7 +3456,7 @@ constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 3
  {  2, {  4,  0, -1, -1 },      0.00000,   0.00001,     0.020 }
 } };
 
-constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 237> g_ELP6
+constexpr std::array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 237> g_ELP6
 { {
  {  0, {  0,  0,  0,  0 },     90.00000,   0.04301, 99999.999 },
  {  0, {  0,  0,  0,  1 },    180.00000,   0.00003,     0.075 },
@@ -3698,7 +3697,7 @@ constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 2
  {  2, {  2,  0,  1, -2 },     90.00000,   0.00005,     0.026 }
 } };
 
-constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 14> g_ELP7
+constexpr std::array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 14> g_ELP7
 { {
  {  1, { -2,  0,  0, -1 },    180.00000,   0.00003,     0.040 },
  {  1, { -2,  0,  0,  1 },    180.00000,   0.00002,     0.487 },
@@ -3716,7 +3715,7 @@ constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 1
  {  2, {  0,  0,  0, -2 },      0.00000,   0.00004,     9.307 }
 } };
 
-constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 11> g_ELP8
+constexpr std::array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 11> g_ELP8
 { {
  {  1, { -2,  0,  0,  0 },    180.00000,   0.00012,     0.088 },
  {  1, { -2,  0,  1,  0 },    180.00000,   0.00003,     0.530 },
@@ -3731,7 +3730,7 @@ constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 1
  {  2, {  0,  0,  0, -1 },    180.00000,   0.00009,     0.075 }
 } };
 
-constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 8> g_ELP9
+constexpr std::array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 8> g_ELP9
 { {
  {  0, {  0,  0,  0,  0 },    270.00000,   0.00004, 99999.999 },
  {  1, { -2,  0,  0, -1 },    270.00000,   0.00004,     0.040 },
@@ -3743,7 +3742,7 @@ constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 8
  {  1, {  2,  0,  0, -1 },     90.00000,   0.00004,     0.041 }
 } };
 
-constexpr array<ELP2000PlanetPertCoefficient, 14328> g_ELP10
+constexpr std::array<ELP2000PlanetPertCoefficient, 14328> g_ELP10
 { {
  { {   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   2 },    359.99831,   0.00020,     0.037 },
  { {   0,   0,   0,   0,   0,   0,   0,   0,   0,   1,  -2 },    359.98254,   0.00007,     0.074 },
@@ -18075,7 +18074,7 @@ constexpr array<ELP2000PlanetPertCoefficient, 14328> g_ELP10
  { {  17,   0, -22,   0,   0,   0,   0,   0,  -5,   1,   0 },    332.53824,   0.00002,   411.722 }
 } };
 
-constexpr array<ELP2000PlanetPertCoefficient, 5233> g_ELP11
+constexpr std::array<ELP2000PlanetPertCoefficient, 5233> g_ELP11
 { {
  { {   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   1 },    179.93197,   0.00068,     0.075 },
  { {   0,   0,   0,   0,   0,   0,   0,   0,   0,   1,  -1 },    359.92861,   0.00007,     5.997 },
@@ -23312,7 +23311,7 @@ constexpr array<ELP2000PlanetPertCoefficient, 5233> g_ELP11
  { {   7,   0,  -4,   0,   0,   0,   0,   0,  -2,   0,   1 },    138.00381,   0.00001,     0.073 }
 } };
 
-constexpr array<ELP2000PlanetPertCoefficient, 6631> g_ELP12
+constexpr std::array<ELP2000PlanetPertCoefficient, 6631> g_ELP12
 { {
  { {   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0 },     90.00000,   0.02045, 99999.999 },
  { {   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   2 },    270.01562,   0.00037,     0.037 },
@@ -29947,7 +29946,7 @@ constexpr array<ELP2000PlanetPertCoefficient, 6631> g_ELP12
  { {   5,   0,  -7,   0,   0,   0,   0,   0,   0,   0,   0 },     52.90780,   0.00003,     0.073 }
 } };
 
-constexpr array<ELP2000PlanetPertCoefficient, 4384> g_ELP13
+constexpr std::array<ELP2000PlanetPertCoefficient, 4384> g_ELP13
 { {
  { {   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0 },    270.00000,   0.00011, 99999.999 },
  { {   0,   0,   0,   0,   0,   0,   0,   0,   0,   1,   0 },    277.11719,   0.00002,     0.075 },
@@ -34335,7 +34334,7 @@ constexpr array<ELP2000PlanetPertCoefficient, 4384> g_ELP13
  { {  13,   0, -16,   0,   0,   0,   0,   0,  -2,  -1,   0 },    214.04379,   0.00001,    62.252 }
 } };
 
-constexpr array<ELP2000PlanetPertCoefficient, 833> g_ELP14
+constexpr std::array<ELP2000PlanetPertCoefficient, 833> g_ELP14
 { {
  { {   0,   0,   0,   0,   0,   0,   0,   0,   1,   0,   0 },     73.43578,   0.00010,     0.081 },
  { {   0,   0,   0,   0,   0,   0,   0,   0,   2,   0,  -1 },    277.11719,   0.00005,     0.088 },
@@ -35172,7 +35171,7 @@ constexpr array<ELP2000PlanetPertCoefficient, 833> g_ELP14
  { {   3,   0,  -1,   0,   0,   0,   0,   0,  -2,   1,   1 },    218.71494,   0.00001,     0.075 }
 } };
 
-constexpr array<ELP2000PlanetPertCoefficient, 1715> g_ELP15
+constexpr std::array<ELP2000PlanetPertCoefficient, 1715> g_ELP15
 { {
  { {   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0 },     90.00000,   0.00003, 99999.999 },
  { {   0,   0,   0,   0,   0,   0,   0,   0,   2,  -3,   0 },    277.41835,   0.00002,     0.067 },
@@ -36891,7 +36890,7 @@ constexpr array<ELP2000PlanetPertCoefficient, 1715> g_ELP15
  { {   3,   0,  -1,   0,   0,   0,   0,   0,  -2,   0,   0 },     63.34872,   0.00005,     0.075 }
 } };
 
-constexpr array<ELP2000PlanetPertCoefficient, 170> g_ELP16
+constexpr std::array<ELP2000PlanetPertCoefficient, 170> g_ELP16
 { {
  { {   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   2 },    180.00031,   0.00002,     0.037 },
  { {   0,   0,   0,   0,   0,   0,   0,   0,   0,   1,  -2 },    359.99968,   0.00012,     0.074 },
@@ -37065,7 +37064,7 @@ constexpr array<ELP2000PlanetPertCoefficient, 170> g_ELP16
  { {   0,   8, -13,   0,   0,   0,   0,   2,   0,   0,   0 },    234.68643,   0.00001,     0.040 }
 } };
 
-constexpr array<ELP2000PlanetPertCoefficient, 150> g_ELP17
+constexpr std::array<ELP2000PlanetPertCoefficient, 150> g_ELP17
 { {
  { {   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   1 },      0.00002,   0.00068,     0.075 },
  { {   0,   0,   0,   0,   0,   0,   0,   0,   0,   1,  -1 },    180.00000,   0.00041,     5.997 },
@@ -37219,7 +37218,7 @@ constexpr array<ELP2000PlanetPertCoefficient, 150> g_ELP17
  { {   0,   0,   1,   0,   0,   0,   0,   5,   0,   1,   0 },    275.13228,   0.00002,     0.013 }
 } };
 
-constexpr array<ELP2000PlanetPertCoefficient, 114> g_ELP18
+constexpr std::array<ELP2000PlanetPertCoefficient, 114> g_ELP18
 { {
  { {   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0 },    270.00000,   0.02702, 99999.999 },
  { {   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   2 },    270.00030,   0.00004,     0.037 },
@@ -37337,7 +37336,7 @@ constexpr array<ELP2000PlanetPertCoefficient, 114> g_ELP18
  { {   0,   8, -13,   0,   0,   0,   0,   2,   0,   0,   0 },    144.68611,   0.00003,     0.040 }
 } };
 
-constexpr array<ELP2000PlanetPertCoefficient, 226> g_ELP19
+constexpr std::array<ELP2000PlanetPertCoefficient, 226> g_ELP19
 { {
  { {   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   2 },    180.00000,   0.00002,     0.037 },
  { {   0,   0,   0,   0,   0,   0,   0,   0,   0,   1,  -2 },      0.00000,   0.00011,     0.074 },
@@ -37567,7 +37566,7 @@ constexpr array<ELP2000PlanetPertCoefficient, 226> g_ELP19
  { {   0,   0,   1,   0,   0,   0,   0,   3,   0,   0,  -1 },    194.81311,   0.00005,     0.041 }
 } };
 
-constexpr array<ELP2000PlanetPertCoefficient, 188> g_ELP20
+constexpr std::array<ELP2000PlanetPertCoefficient, 188> g_ELP20
 { {
  { {   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   1 },      0.00000,   0.00007,     0.075 },
  { {   0,   0,   0,   0,   0,   0,   0,   0,   0,   1,  -1 },      0.00000,   0.00008,     5.997 },
@@ -37759,7 +37758,7 @@ constexpr array<ELP2000PlanetPertCoefficient, 188> g_ELP20
  { {   0,   0,   1,   0,   0,   0,   0,   3,   0,   0,   0 },     14.81311,   0.00007,     0.026 }
 } };
 
-constexpr array<ELP2000PlanetPertCoefficient, 169> g_ELP21
+constexpr std::array<ELP2000PlanetPertCoefficient, 169> g_ELP21
 { {
  { {   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0 },    270.00000,   0.00149, 99999.999 },
  { {   0,   0,   0,   0,   0,   0,   0,   0,   0,   1,  -2 },     90.00000,   0.00010,     0.074 },
@@ -37932,26 +37931,26 @@ constexpr array<ELP2000PlanetPertCoefficient, 169> g_ELP21
  { {   0,   0,   1,   0,   0,   0,   0,   3,   0,   0,  -1 },    104.81311,   0.00004,     0.041 }
 } };
 
-constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 3> g_ELP22
+constexpr std::array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 3> g_ELP22
 { {
  {  0, {  1,  1, -1, -1 },    192.93665,   0.00004,     0.075 },
  {  0, {  1,  1,  0, -1 },    192.93665,   0.00082,    18.600 },
  {  0, {  1,  1,  1, -1 },    192.93665,   0.00004,     0.076 }
 } };
 
-constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 2> g_ELP23
+constexpr std::array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 2> g_ELP23
 { {
  {  0, {  1,  1,  0, -2 },    192.93663,   0.00004,     0.074 },
  {  0, {  1,  1,  0,  0 },    192.93664,   0.00004,     0.075 }
 } };
 
-constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 2> g_ELP24
+constexpr std::array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 2> g_ELP24
 { {
  {  0, {  1,  1, -1, -1 },    282.93665,   0.00004,     0.075 },
  {  0, {  1,  1,  1, -1 },    102.93665,   0.00004,     0.076 }
 } };
 
-constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 6> g_ELP25
+constexpr std::array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 6> g_ELP25
 { {
  {  0, {  0,  0,  1,  0 },      0.00000,   0.00058,     0.075 },
  {  0, {  0,  0,  2,  0 },      0.00000,   0.00004,     0.038 },
@@ -37961,7 +37960,7 @@ constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 6
  {  0, {  2,  0,  1,  0 },      0.00000,   0.00001,     0.026 }
 } };
 
-constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 4> g_ELP26
+constexpr std::array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 4> g_ELP26
 { {
  {  0, {  0,  0,  0,  1 },    180.00000,   0.00005,     0.075 },
  {  0, {  0,  0,  1, -1 },      0.00000,   0.00003,     5.997 },
@@ -37969,7 +37968,7 @@ constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 4
  {  0, {  2,  0,  0, -1 },      0.00000,   0.00001,     0.088 }
 } };
 
-constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 5> g_ELP27
+constexpr std::array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 5> g_ELP27
 { {
  {  0, {  0,  0,  0,  0 },     90.00000,   0.00356, 99999.999 },
  {  0, {  0,  0,  1,  0 },    270.00000,   0.00072,     0.075 },
@@ -37978,7 +37977,7 @@ constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 5
  {  0, {  2,  0,  0,  0 },    270.00000,   0.00013,     0.040 }
 } };
 
-constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 20> g_ELP28
+constexpr std::array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 20> g_ELP28
 { {
  {  0, {  0,  0,  0,  1 },    303.96185,   0.00004,     0.075 },
  {  0, {  0,  0,  1, -1 },    259.88393,   0.00016,     5.997 },
@@ -38002,7 +38001,7 @@ constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 2
  {  0, {  2,  1,  0,  0 },    359.99965,   0.00002,     0.039 }
 } };
 
-constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 12> g_ELP29
+constexpr std::array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 12> g_ELP29
 { {
  {  0, {  0,  0,  1, -1 },      0.02199,   0.00003,     5.997 },
  {  0, {  0,  0,  1,  0 },    245.99067,   0.00001,     0.075 },
@@ -38018,7 +38017,7 @@ constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 1
  {  0, {  2,  0,  0, -1 },    179.99478,   0.00005,     0.088 }
 } };
 
-constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 14> g_ELP30
+constexpr std::array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 14> g_ELP30
 { {
  {  0, {  0,  0,  0,  0 },     90.00000,   0.00130, 99999.999 },
  {  0, {  0,  0,  0,  1 },    213.95720,   0.00003,     0.075 },
@@ -38036,7 +38035,7 @@ constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 1
  {  0, {  2,  1,  0,  0 },    269.99982,   0.00003,     0.039 }
 } };
 
-constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 11> g_ELP31
+constexpr std::array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 11> g_ELP31
 { {
  {  0, {  0,  1, -1,  0 },    179.93473,   0.00006,     0.082 },
  {  0, {  0,  1,  0,  0 },    179.98532,   0.00081,     1.000 },
@@ -38051,7 +38050,7 @@ constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 1
  {  0, {  4,  0, -1,  0 },    180.00035,   0.00001,     0.028 }
 } };
 
-constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 4> g_ELP32
+constexpr std::array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 4> g_ELP32
 { {
  {  0, {  0,  1,  0, -1 },    179.99803,   0.00004,     0.081 },
  {  0, {  0,  1,  0,  1 },    179.99798,   0.00004,     0.069 },
@@ -38059,7 +38058,7 @@ constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 4
  {  0, {  2,  0,  0,  1 },    180.00026,   0.00002,     0.026 }
 } };
 
-constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 10> g_ELP33
+constexpr std::array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 10> g_ELP33
 { {
  {  0, {  0,  0,  0,  0 },    270.00000,   0.00828, 99999.999 },
  {  0, {  0,  0,  1,  0 },     89.99994,   0.00043,     0.075 },
@@ -38073,7 +38072,7 @@ constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 1
  {  0, {  2,  0,  1,  0 },     90.00010,   0.00008,     0.026 }
 } };
 
-constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 28> g_ELP34
+constexpr std::array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 28> g_ELP34
 { {
  {  0, {  0,  1, -2,  0 },      0.00000,   0.00007,     0.039 },
  {  0, {  0,  1, -1,  0 },      0.00000,   0.00108,     0.082 },
@@ -38105,7 +38104,7 @@ constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 2
  {  0, {  4, -1,  0,  0 },    180.00000,   0.00001,     0.021 }
 } };
 
-constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 13> g_ELP35
+constexpr std::array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 13> g_ELP35
 { {
  {  0, {  0,  1, -1, -1 },      0.00000,   0.00005,     0.039 },
  {  0, {  0,  1, -1,  1 },      0.00000,   0.00004,     0.857 },
@@ -38122,7 +38121,7 @@ constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 1
  {  0, {  2,  1,  0, -1 },      0.00000,   0.00009,     0.081 }
 } };
 
-constexpr array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 19> g_ELP36
+constexpr std::array<ELP2000EarthTidalMoonRelativisticSolarEccentricityCoefficient, 19> g_ELP36
 { {
  {  0, {  0,  1, -2,  0 },     90.00000,   0.00005,     0.039 },
  {  0, {  0,  1, -1,  0 },     90.00000,   0.00095,     0.082 },
@@ -38167,7 +38166,7 @@ double CAAELP2000::MoonMeanMeanLongitude(const double* pT, int nTSize) noexcept 
 double CAAELP2000::MoonMeanMeanLongitude(double JD) noexcept //Aka W1
 {
   //Calculate Julian centuries
-  array<double, 5> t;
+  std::array<double, 5> t;
   t[0] = 1;
   t[1] = (JD - 2451545)/36525;
   t[2] = t[1]*t[1];
@@ -38196,7 +38195,7 @@ double CAAELP2000::MeanLongitudeLunarPerigee(const double* pT, int nTSize) noexc
 double CAAELP2000::MeanLongitudeLunarPerigee(double JD) noexcept //Aka W2
 {
   //Calculate Julian centuries
-  array<double, 5> t;
+  std::array<double, 5> t;
   t[0] = 1;
   t[1] = (JD - 2451545)/36525;
   t[2] = t[1]*t[1];
@@ -38225,7 +38224,7 @@ double CAAELP2000::MeanLongitudeLunarAscendingNode(const double* pT, int nTSize)
 double CAAELP2000::MeanLongitudeLunarAscendingNode(double JD) noexcept //Aka W3
 {
   //Calculate Julian centuries
-  array<double, 5> t;
+  std::array<double, 5> t;
   t[0] = 1;
   t[1] = (JD - 2451545)/36525;
   t[2] = t[1]*t[1];
@@ -38254,7 +38253,7 @@ double CAAELP2000::MeanHeliocentricMeanLongitudeEarthMoonBarycentre(const double
 double CAAELP2000::MeanHeliocentricMeanLongitudeEarthMoonBarycentre(double JD) noexcept //Aka T
 {
   //Calculate Julian centuries
-  array<double, 5> t;
+  std::array<double, 5> t;
   t[0] = 1;
   t[1] = (JD - 2451545)/36525;
   t[2] = t[1]*t[1];
@@ -38283,7 +38282,7 @@ double CAAELP2000::MeanLongitudeOfPerilhelionOfEarthMoonBarycentre(const double*
 double CAAELP2000::MeanLongitudeOfPerilhelionOfEarthMoonBarycentre(double JD) noexcept //Aka Omega'
 {
   //Calculate Julian centuries
-  array<double, 5> t;
+  std::array<double, 5> t;
   t[0] = 1;
   t[1] = (JD - 2451545)/36525;
   t[2] = t[1]*t[1];
@@ -38302,7 +38301,7 @@ double CAAELP2000::MoonMeanSolarElongation(const double* pT, int nTSize) noexcep
 double CAAELP2000::MoonMeanSolarElongation(double JD) noexcept //Aka D
 {
   //Calculate Julian centuries
-  array<double, 5> t;
+  std::array<double, 5> t;
   t[0] = 1;
   t[1] = (JD - 2451545)/36525;
   t[2] = t[1]*t[1];
@@ -38321,7 +38320,7 @@ double CAAELP2000::SunMeanAnomaly(const double* pT, int nTSize) noexcept //Aka l
 double CAAELP2000::SunMeanAnomaly(double JD) noexcept //Aka l'
 {
   //Calculate Julian centuries
-  array<double, 5> t;
+  std::array<double, 5> t;
   t[0] = 1;
   t[1] = (JD - 2451545)/36525;
   t[2] = t[1]*t[1];
@@ -38340,7 +38339,7 @@ double CAAELP2000::MoonMeanAnomaly(const double* pT, int nTSize) noexcept //Aka 
 double CAAELP2000::MoonMeanAnomaly(double JD) noexcept //Aka l
 {
   //Calculate Julian centuries
-  array<double, 5> t;
+  std::array<double, 5> t;
   t[0] = 1;
   t[1] = (JD - 2451545)/36525;
   t[2] = t[1]*t[1];
@@ -38359,7 +38358,7 @@ double CAAELP2000::MoonMeanArgumentOfLatitude(const double* pT, int nTSize) noex
 double CAAELP2000::MoonMeanArgumentOfLatitude(double JD) noexcept //Aka F
 {
   //Calculate Julian centuries
-  array<double, 5> t;
+  std::array<double, 5> t;
   t[0] = 1;
   t[1] = (JD - 2451545)/36525;
   t[2] = t[1]*t[1];
@@ -38762,7 +38761,7 @@ double CAAELP2000::EclipticLongitude(const double* pT, int nTSize) noexcept
 double CAAELP2000::EclipticLongitude(double JD) noexcept
 {
   //Calculate Julian centuries
-  array<double, 5> t;
+  std::array<double, 5> t;
   t[0] = 1;
   t[1] = (JD - 2451545)/36525;
   t[2] = t[1]*t[1];
@@ -38820,7 +38819,7 @@ double CAAELP2000::EclipticLatitude(const double* pT, int nTSize) noexcept
 double CAAELP2000::EclipticLatitude(double JD) noexcept
 {
   //Calculate Julian centuries
-  array<double, 5> t;
+  std::array<double, 5> t;
   t[0] = 1;
   t[1] = (JD - 2451545)/36525;
   t[2] = t[1]*t[1];
@@ -38878,7 +38877,7 @@ double CAAELP2000::RadiusVector(const double* pT, int nTSize) noexcept
 double CAAELP2000::RadiusVector(double JD) noexcept
 {
   //Calculate Julian centuries
-  array<double, 5> t;
+  std::array<double, 5> t;
   t[0] = 1;
   t[1] = (JD - 2451545)/36525;
   t[2] = t[1]*t[1];
@@ -38906,7 +38905,7 @@ CAA3DCoordinate CAAELP2000::EclipticRectangularCoordinates(double JD) noexcept
 
 CAA3DCoordinate CAAELP2000::EclipticRectangularCoordinatesJ2000(double JD) noexcept
 {
-  array<double, 5> t{};
+  std::array<double, 5> t{};
   t[0] = 1;
   t[1] = (JD - 2451545)/36525;
   t[2] = t[1]*t[1];

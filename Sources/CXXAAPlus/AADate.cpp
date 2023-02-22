@@ -47,12 +47,12 @@ History: PJN / 10-11-2004 1. Fix for CAADate::Get so that it works correctly for
          PJN / 29-04-2020 1. Fixed a compilation issue on GCC where size_t was undefined in various modules. Thanks to
                           Bert Devlieghe for reporting this bug.
          PJN / 03-10-2021 1. Renamed CAADate::DAY_OF_WEEK type to DOW.
-         PJN / 22-03-2022 1. Fixed an issue in CAADate::DayOfWeek for dates which are close to or prior to the julian
+         PJN / 22-03-2022 1. Fixed an issue in CAADate::DayOfWeek for dates which are close to or prior to the Julian
                           day epoch. Thanks to "znight" for reporting this issue.
                           2. Updated all the code in the AADate.cpp to use C++ uniform initialization for all variable
                           declarations.
 
-Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -75,7 +75,6 @@ to maintain a single distribution point for the source code.
 #include <cassert>
 #include <cstddef>
 #include <array>
-using namespace std;
 
 
 //////////////////// Implementation ///////////////////////////////////////////
@@ -302,8 +301,8 @@ long CAADate::DaysInMonth(long Month, bool bLeap) noexcept
   __analysis_assume(Month >= 1 && Month <= 12);
 #endif //#ifdef _MSC_VER
 
-  static constexpr array<int, 12> g_NonLeapMonths{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-  static constexpr array<int, 12> g_LeapMonths{31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+  static constexpr std::array<int, 12> g_NonLeapMonths{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+  static constexpr std::array<int, 12> g_LeapMonths{31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
   if (bLeap)
   {

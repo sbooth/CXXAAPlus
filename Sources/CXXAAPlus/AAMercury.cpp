@@ -36,7 +36,7 @@ History: PJN / 16-11-2005 1. Fixed a transcription error in the second coefficie
          PJN / 26-06-2022 1. Updated all the code in AAMercury.cpp to use C++ uniform initialization for all
                           variable declarations.
 
-Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -62,7 +62,6 @@ to maintain a single distribution point for the source code.
 #endif //#ifndef AAPLUS_NO_VSOP87
 #include <cmath>
 #include <array>
-using namespace std;
 
 
 //////////////////// Macros / Defines /////////////////////////////////////////
@@ -78,7 +77,7 @@ struct VSOP87Coefficient
   double C;
 };
 
-constexpr array<VSOP87Coefficient, 38> g_L0MercuryCoefficients
+constexpr std::array<VSOP87Coefficient, 38> g_L0MercuryCoefficients
 { {
   { 440250710, 0,          0              },
   { 40989415,  1.48302034, 26087.90314157 },
@@ -120,7 +119,7 @@ constexpr array<VSOP87Coefficient, 38> g_L0MercuryCoefficients
   { 106,       4.206,      19804.827      }
 } };
 
-constexpr array<VSOP87Coefficient, 16> g_L1MercuryCoefficients
+constexpr std::array<VSOP87Coefficient, 16> g_L1MercuryCoefficients
 { {
   { 2608814706223.0, 0,         0             },
   { 1126008,         6.2170397, 26087.9031416 },
@@ -140,7 +139,7 @@ constexpr array<VSOP87Coefficient, 16> g_L1MercuryCoefficients
   { 27,              5.09,      234791.13     }
 } };
 
-constexpr array<VSOP87Coefficient, 10> g_L2MercuryCoefficients
+constexpr std::array<VSOP87Coefficient, 10> g_L2MercuryCoefficients
 { {
   { 53050, 0,       0           },
   { 16904, 4.69072, 26087.90314 },
@@ -154,7 +153,7 @@ constexpr array<VSOP87Coefficient, 10> g_L2MercuryCoefficients
   { 12,    0.79,    208703.23   }
 } };
 
-constexpr array<VSOP87Coefficient, 8> g_L3MercuryCoefficients
+constexpr std::array<VSOP87Coefficient, 8> g_L3MercuryCoefficients
 { {
   { 188, 0.035, 52175.806 },
   { 142, 3.125, 26087.903 },
@@ -166,7 +165,7 @@ constexpr array<VSOP87Coefficient, 8> g_L3MercuryCoefficients
   { 3,   2.57,  182615.32 }
 } };
 
-constexpr array<VSOP87Coefficient, 6> g_L4MercuryCoefficients
+constexpr std::array<VSOP87Coefficient, 6> g_L4MercuryCoefficients
 { {
   { 114, 3.1416, 0         },
   { 3,   2.03,   26087.90  },
@@ -176,12 +175,12 @@ constexpr array<VSOP87Coefficient, 6> g_L4MercuryCoefficients
   { 1,   1.27,   130439.52 }
 } };
 
-constexpr array<VSOP87Coefficient, 1> g_L5MercuryCoefficients
+constexpr std::array<VSOP87Coefficient, 1> g_L5MercuryCoefficients
 { {
   { 1, 3.14, 0 }
 } };
 
-constexpr array<VSOP87Coefficient, 14> g_B0MercuryCoefficients
+constexpr std::array<VSOP87Coefficient, 14> g_B0MercuryCoefficients
 { {
   { 11737529, 1.98357499, 26087.90314157 },
   { 2388077,  5.0373896,  52175.8062831  },
@@ -199,7 +198,7 @@ constexpr array<VSOP87Coefficient, 14> g_B0MercuryCoefficients
   { 100,      5.657,      20426.571      }
 } };
 
-constexpr array<VSOP87Coefficient, 11> g_B1MercuryCoefficients
+constexpr std::array<VSOP87Coefficient, 11> g_B1MercuryCoefficients
 { {
   { 429151, 3.501698, 26087.903142 },
   { 146234, 3.141593, 0            },
@@ -214,7 +213,7 @@ constexpr array<VSOP87Coefficient, 11> g_B1MercuryCoefficients
   { 26,     5.98,     234791.13    }
 } };
 
-constexpr array<VSOP87Coefficient, 9> g_B2MercuryCoefficients
+constexpr std::array<VSOP87Coefficient, 9> g_B2MercuryCoefficients
 { {
   { 11831, 4.79066, 26087.90314 },
   { 1914,  0,       0           },
@@ -227,7 +226,7 @@ constexpr array<VSOP87Coefficient, 9> g_B2MercuryCoefficients
   { 7,     1.43,    208703.23   }
 } };
 
-constexpr array<VSOP87Coefficient, 7> g_B3MercuryCoefficients
+constexpr std::array<VSOP87Coefficient, 7> g_B3MercuryCoefficients
 { {
   { 235, 0.354, 26087.903 },
   { 161, 0,     0         },
@@ -238,13 +237,13 @@ constexpr array<VSOP87Coefficient, 7> g_B3MercuryCoefficients
   { 2,   6.27,  156527.42 }
 } };
 
-constexpr array<VSOP87Coefficient, 2> g_B4MercuryCoefficients
+constexpr std::array<VSOP87Coefficient, 2> g_B4MercuryCoefficients
 { {
   { 4, 1.75, 26087.90 },
   { 1, 3.14, 0        }
 } };
 
-constexpr array<VSOP87Coefficient, 13> g_R0MercuryCoefficients
+constexpr std::array<VSOP87Coefficient, 13> g_R0MercuryCoefficients
 { {
   { 39528272, 0,         0             },
   { 7834132,  6.1923372, 26087.9031416 },
@@ -261,7 +260,7 @@ constexpr array<VSOP87Coefficient, 13> g_R0MercuryCoefficients
   { 100,      3.734,     21535.950     }
 } };
 
-constexpr array<VSOP87Coefficient, 8> g_R1MercuryCoefficients
+constexpr std::array<VSOP87Coefficient, 8> g_R1MercuryCoefficients
 { {
   { 217348, 4.656172, 26087.903142 },
   { 44142,  1.42386,  52175.80628  },
@@ -273,7 +272,7 @@ constexpr array<VSOP87Coefficient, 8> g_R1MercuryCoefficients
   { 39,     4.11,     182615.32    }
 } };
 
-constexpr array<VSOP87Coefficient, 7> g_R2MercuryCoefficients
+constexpr std::array<VSOP87Coefficient, 7> g_R2MercuryCoefficients
 { {
   { 3118, 3.0823, 26087.9031 },
   { 1245, 6.1518, 52175.8063 },
@@ -284,7 +283,7 @@ constexpr array<VSOP87Coefficient, 7> g_R2MercuryCoefficients
   { 13,   5.80,   156527.42  }
 } };
 
-constexpr array<VSOP87Coefficient, 5> g_R3MercuryCoefficients
+constexpr std::array<VSOP87Coefficient, 5> g_R3MercuryCoefficients
 { {
   { 33, 1.68, 26087.90  },
   { 24, 4.63, 52175.81  },

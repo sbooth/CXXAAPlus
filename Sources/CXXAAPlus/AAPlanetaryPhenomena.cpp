@@ -8,7 +8,7 @@ History: PJN / 08-05-2011 1. Fixed a compilation issue on GCC where size_t was u
                           issue when compiling AA+ on ARM.
          PJN / 22-07-2018 1. Fixed a number of gcc warnings in CAAPlanetaryPhenomena::K, CAAPlanetaryPhenomena::Mean,
                           CAAPlanetaryPhenomena::True &  CAAPlanetaryPhenomena::ElongationValue. Thanks to Todd Carnes 
-                          for reportying this issue.
+                          for reporting this issue.
          PJN / 24-07-2018 1. Fixed a number of GCC warnings in the methods CAAPlanetaryPhenomena::K, 
                           CAAPlanetaryPhenomena::Mean, CAAPlanetaryPhenomena::True & 
                           CAAPlanetaryPhenomena::ElongationValue. Thanks to Todd Carnes for reporting this issue.
@@ -25,7 +25,7 @@ History: PJN / 08-05-2011 1. Fixed a compilation issue on GCC where size_t was u
                           2. Fixed a transcription error in the lookup tables used to calculate the Station 1 values for
                           Mars.
 
-Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -49,7 +49,6 @@ to maintain a single distribution point for the source code.
 #include <cassert>
 #include <cstddef>
 #include <array>
-using namespace std;
 
 
 //////////////////// Macros / Defines /////////////////////////////////////////
@@ -62,7 +61,7 @@ struct PlanetaryPhenomenaCoefficient1
   double M1;
 };
 
-constexpr array<PlanetaryPhenomenaCoefficient1, 14> g_PlanetaryPhenomenaCoefficient1
+constexpr std::array<PlanetaryPhenomenaCoefficient1, 14> g_PlanetaryPhenomenaCoefficient1
 { {
   { 2451612.023, 115.8774771, 63.5867,  114.2088742 },
   { 2451554.084, 115.8774771, 6.4822,   114.2088742 },

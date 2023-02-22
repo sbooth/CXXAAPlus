@@ -1,12 +1,12 @@
 /*
-Module : AAEquinoxesAndSoltices2.cpp
+Module : AAEquinoxesAndSolstices2.cpp
 Purpose: Implementation for the algorithms to calculate the dates of the Equinoxes and Solstices (revised version)
 Created: PJN / 28-09-2019
 History: PJN / 28-09-2019 1. Initial implementation
          PJN / 22-06-2022 1. Updated all the code in AAEquinoxesAndSolstices2.cpp to use C++ uniform initialization for
                           all variable declarations.
 
-Copyright (c) 2019 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2019 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -30,15 +30,14 @@ to maintain a single distribution point for the source code.
 #include "AACoordinateTransformation.h"
 #include "AAInterpolate.h"
 #include <cmath>
-using namespace std;
 
 
 //////////////////// Implementation ///////////////////////////////////////////
 
-vector<CAAEquinoxSolsticeDetails2> CAAEquinoxesAndSolstices2::Calculate(double StartJD, double EndJD, double StepInterval, bool bHighPrecision)
+std::vector<CAAEquinoxSolsticeDetails2> CAAEquinoxesAndSolstices2::Calculate(double StartJD, double EndJD, double StepInterval, bool bHighPrecision)
 {
   //What will be the return value
-  vector<CAAEquinoxSolsticeDetails2> events;
+  std::vector<CAAEquinoxSolsticeDetails2> events;
 
   double JD{StartJD};
   double LastJD0{0};

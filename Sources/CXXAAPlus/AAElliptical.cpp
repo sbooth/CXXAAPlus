@@ -7,7 +7,7 @@ History: PJN / 24-05-2004 1. Fixed a missing break statement in CAAElliptical::C
                           2. Also fixed an issue with the calculation of the apparent distance to 
                           the Sun.
          PJN / 31-12-2004 1. Fix for CAAElliptical::MinorPlanetMagnitude where the phase angle was
-                          being incorrectly converted from Radians to Degress when it was already
+                          being incorrectly converted from Radians to Degrees when it was already
                           in degrees. Thanks to Martin Burri for reporting this problem.
          PJN / 05-06-2006 1. Fixed a bug in CAAElliptical::Calculate(double JD, EllipticalObject object)
                           where the correction for nutation was incorrectly using the Mean obliquity of
@@ -66,7 +66,7 @@ History: PJN / 24-05-2004 1. Fixed a missing break statement in CAAElliptical::C
                           4. Renamed CAAEllipticalPlanetaryDetails::ApparentGeocentricLatitude to 
                           ApparentGeocentricEclipticalLatitude.
 
-Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -102,7 +102,6 @@ to maintain a single distribution point for the source code.
 #include "AAKepler.h"
 #include <cmath>
 #include <cassert>
-using namespace std;
 
 
 //////////////////// Implementation ///////////////////////////////////////////

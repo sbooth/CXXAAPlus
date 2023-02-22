@@ -40,7 +40,7 @@ History: PJN / 15-10-2004 1. bValid variable is now correctly set in CAARiseTran
          PJN / 06-07-2022 1. Updated all the code in AARiseTransitSet.cpp to use C++ uniform initialization for
                           all variable declarations.
 
-Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -64,7 +64,6 @@ to maintain a single distribution point for the source code.
 #include "AADynamicalTime.h"
 #include "AAInterpolate.h"
 #include <cmath>
-using namespace std;
 
 
 //////////////////// Implementation ///////////////////////////////////////////
@@ -113,7 +112,7 @@ void CAARiseTransitSet::CalculateRiseSet(double M0, double cosH0, CAARiseTransit
 
 void CAARiseTransitSet::CorrectRAValuesForInterpolation(double& Alpha1, double& Alpha2, double& Alpha3) noexcept
 {
-  //Ensure the RA values are corrected for interpolation. Due to important Remark 2 by Meeus on Interopolation of RA values
+  //Ensure the RA values are corrected for interpolation. Due to important Remark 2 by Meeus on Interpolation of RA values
   Alpha1 = CAACoordinateTransformation::MapTo0To24Range(Alpha1);
   Alpha2 = CAACoordinateTransformation::MapTo0To24Range(Alpha2);
   Alpha3 = CAACoordinateTransformation::MapTo0To24Range(Alpha3);
@@ -252,7 +251,7 @@ CAARiseTransitSetDetails CAARiseTransitSet::Calculate(double JD, double Alpha1, 
   double M2{0};
   CalculateRiseSet(M0, cosH0, details, M1, M2);
 
-  //Ensure the RA values are corrected for interpolation. Due to important Remark 2 by Meeus on Interopolation of RA values
+  //Ensure the RA values are corrected for interpolation. Due to important Remark 2 by Meeus on Interpolation of RA values
   CorrectRAValuesForInterpolation(Alpha1, Alpha2, Alpha3);
 
   //Do the main work

@@ -26,7 +26,7 @@ History: PJN / 17-01-2007 1. Changed name of CAASun::ApparentEclipticLongtitude 
          PJN / 12-07-2022 1. Updated all the code in AASun.cpp to use C++ uniform initialization for all
                           variable declarations.
 
-Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -50,7 +50,6 @@ to maintain a single distribution point for the source code.
 #include "AAFK5.h"
 #include "AANutation.h"
 #include <cmath>
-using namespace std;
 
 
 //////////////////// Implementation ///////////////////////////////////////////
@@ -77,7 +76,7 @@ double CAASun::GeometricEclipticLatitudeJ2000(double JD, bool bHighPrecision) no
 
 double CAASun::GeometricFK5EclipticLongitude(double JD, bool bHighPrecision) noexcept
 {
-  //Convert to the FK5 stystem
+  //Convert to the FK5 system
   double Longitude{GeometricEclipticLongitude(JD, bHighPrecision)};
   const double Latitude{GeometricEclipticLatitude(JD, bHighPrecision)};
   Longitude += CAAFK5::CorrectionInLongitude(Longitude, Latitude, JD);
@@ -87,7 +86,7 @@ double CAASun::GeometricFK5EclipticLongitude(double JD, bool bHighPrecision) noe
 
 double CAASun::GeometricFK5EclipticLatitude(double JD, bool bHighPrecision) noexcept
 {
-  //Convert to the FK5 stystem
+  //Convert to the FK5 system
   const double Longitude{GeometricEclipticLongitude(JD, bHighPrecision)};
   double Latitude{GeometricEclipticLatitude(JD, bHighPrecision)};
   const double SunLatCorrection{CAAFK5::CorrectionInLatitude(Longitude, JD)};

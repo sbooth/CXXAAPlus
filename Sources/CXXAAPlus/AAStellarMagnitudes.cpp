@@ -1,12 +1,12 @@
 /*
 Module : AAStellarMagnitudes.cpp
-Purpose: Implementation for the algorithms which operate on the stellar magntidue system
+Purpose: Implementation for the algorithms which operate on the stellar magnitude system
 Created: PJN / 29-12-2003
 History: PJN / 12-02-2004 1. Fixed a number of level 4 warnings when the code is compiled in VC.Net 2003
          PJN / 11-07-2022 1. Updated all the code in AAStellarMagnitudes.cpp to use C++ uniform
                           initialization for all variable declarations.
 
-Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -27,7 +27,6 @@ to maintain a single distribution point for the source code.
 #include "AAStellarMagnitudes.h"
 #include <cmath>
 #include <cassert>
-using namespace std;
 
 
 //////////////////// Implementation ///////////////////////////////////////////

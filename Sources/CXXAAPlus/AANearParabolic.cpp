@@ -20,8 +20,10 @@ History: PJN / 16-03-2009 1. Fixed a bug in CAANearParabolic::Calculate(double J
          PJN / 18-08-2019 1. Fixed some further compiler warnings when using VC 2019 Preview v16.3.0 Preview 2.0
          PJN / 29-06-2022 1. Updated all the code in AANearParabolic.cpp to use C++ uniform initialization for
                           all variable declarations.
+         PJN / 28-01-2023 1. Renamed CAANearParabolic::CalculateTrueAnnomalyAndRadius to 
+                          CAANearParabolic::CalculateTrueAnomalyAndRadius.
 
-Copyright (c) 2006 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2006 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -45,7 +47,6 @@ to maintain a single distribution point for the source code.
 #include "AANutation.h"
 #include "AAElliptical.h"
 #include <cmath>
-using namespace std;
 
 
 //////////////////// Implementation ///////////////////////////////////////////
@@ -55,7 +56,7 @@ double CAANearParabolic::cbrt(double x) noexcept
   return pow(x, 1.0/3);
 }
 
-void CAANearParabolic::CalculateTrueAnnomalyAndRadius(double JD, const CAANearParabolicObjectElements& elements, double& v, double& r) noexcept
+void CAANearParabolic::CalculateTrueAnomalyAndRadius(double JD, const CAANearParabolicObjectElements& elements, double& v, double& r) noexcept
 {
   constexpr double k{0.01720209895};
   const double a{0.75*(JD - elements.T)*k*sqrt((1 + elements.e)/(elements.q*elements.q*elements.q))};
@@ -114,7 +115,7 @@ CAANearParabolicObjectDetails CAANearParabolic::Calculate(double JD, const CAANe
   {
     double v{0};
     double r{0};
-    CalculateTrueAnnomalyAndRadius(JD0, elements, v, r);
+    CalculateTrueAnomalyAndRadius(JD0, elements, v, r);
     const double r2{r*r};
 
     const double x{r*a*sin(A + w + v)};

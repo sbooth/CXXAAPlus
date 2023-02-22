@@ -30,7 +30,7 @@ History: PJN / 07-02-2009 1. Optimized the layout of the MoonCoefficient1 struct
          PJN / 27-06-2022 1. Updated all the code in AAMoon.cpp to use C++ uniform initialization for all
                           variable declarations.
 
-Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -56,7 +56,6 @@ to maintain a single distribution point for the source code.
 #include <cassert>
 #include <cstddef>
 #include <array>
-using namespace std;
 
 
 //////////////////// Macros / Defines /////////////////////////////////////////
@@ -79,7 +78,7 @@ struct MoonCoefficient2
   double B;
 };
 
-constexpr array<MoonCoefficient1, 60> g_MoonCoefficients1
+constexpr std::array<MoonCoefficient1, 60> g_MoonCoefficients1
 { {
   { 0,  0,  1,  0 },
   { 2,  0, -1,  0 },
@@ -143,7 +142,7 @@ constexpr array<MoonCoefficient1, 60> g_MoonCoefficients1
   { 2,  0, -1, -2 }
 } };
 
-constexpr array<MoonCoefficient2, 60> g_MoonCoefficients2
+constexpr std::array<MoonCoefficient2, 60> g_MoonCoefficients2
 { {
   {  6288774, -20905355 },
   {  1274027, -3699111  },
@@ -207,7 +206,7 @@ constexpr array<MoonCoefficient2, 60> g_MoonCoefficients2
   {  0,        8752     }
 } };
 
-constexpr array<MoonCoefficient1, 60> g_MoonCoefficients3
+constexpr std::array<MoonCoefficient1, 60> g_MoonCoefficients3
 { {
   { 0,  0,  0,  1 },
   { 0,  0,  1,  1 },
@@ -271,7 +270,7 @@ constexpr array<MoonCoefficient1, 60> g_MoonCoefficients3
   { 2, -2,  0,  1 }
 } };
 
-constexpr array<double, 60> g_MoonCoefficients4
+constexpr std::array<double, 60> g_MoonCoefficients4
 { {
   5128122,
   280602,

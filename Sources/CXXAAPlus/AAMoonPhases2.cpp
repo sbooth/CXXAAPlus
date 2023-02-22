@@ -6,7 +6,7 @@ History: PJN / 01-01-2020 1. Initial implementation
          PJN / 29-06-2022 1. Updated all the code in AAMoonPhases.cpp to use C++ uniform initialization for all
                           variable declarations.
 
-Copyright (c) 2020 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2020 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -36,15 +36,14 @@ to maintain a single distribution point for the source code.
 #endif //#ifndef AAPLUS_NO_ELPMPP02
 #include "AACoordinateTransformation.h"
 #include <cassert>
-using namespace std;
 
 
 //////////////////// Implementation ///////////////////////////////////////////
 
-vector<CAAMoonPhasesDetails2> CAAMoonPhases2::Calculate(double StartJD, double EndJD, double StepInterval, Algorithm algorithm)
+std::vector<CAAMoonPhasesDetails2> CAAMoonPhases2::Calculate(double StartJD, double EndJD, double StepInterval, Algorithm algorithm)
 {
   //What will be the return value
-  vector<CAAMoonPhasesDetails2> events;
+  std::vector<CAAMoonPhasesDetails2> events;
 
   double JD{StartJD};
   double LastJD0{0};

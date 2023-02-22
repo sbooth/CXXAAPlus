@@ -3,7 +3,7 @@ Module : AANearParabolic.h
 Purpose: Implementation for the algorithms for a near parabolic orbit
 Created: PJN / 29-12-2003
 
-Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -78,7 +78,7 @@ public:
 //Static methods
   static CAANearParabolicObjectDetails Calculate(double JD, const CAANearParabolicObjectElements& elements, bool bHighPrecision) noexcept;
   static double cbrt(double x) noexcept;
-  static void CalculateTrueAnnomalyAndRadius(double JD, const CAANearParabolicObjectElements& elements, double& v, double& r) noexcept;
+  static void CalculateTrueAnomalyAndRadius(double JD, const CAANearParabolicObjectElements& elements, double& v, double& r) noexcept;
 };
 
 

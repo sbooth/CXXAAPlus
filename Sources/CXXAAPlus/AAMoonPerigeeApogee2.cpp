@@ -6,7 +6,7 @@ History: PJN / 02-11-2019 1. Initial implementation
          PJN / 28-06-2022 1. Updated all the code in AAMoonPerigeeApogee2.cpp to use C++ uniform initialization for all
                           variable declarations.
 
-Copyright (c) 2019 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2019 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -34,15 +34,14 @@ to maintain a single distribution point for the source code.
 #endif //#ifndef AAPLUS_NO_ELPMPP02
 #include "AAInterpolate.h"
 #include <cassert>
-using namespace std;
 
 
 //////////////////// Implementation ///////////////////////////////////////////
 
-vector<CAAMoonPerigeeApogeeDetails2> CAAMoonPerigeeApogee2::Calculate(double StartJD, double EndJD, double StepInterval, Algorithm algorithm)
+std::vector<CAAMoonPerigeeApogeeDetails2> CAAMoonPerigeeApogee2::Calculate(double StartJD, double EndJD, double StepInterval, Algorithm algorithm)
 {
   //What will be the return value
-  vector<CAAMoonPerigeeApogeeDetails2> events;
+  std::vector<CAAMoonPerigeeApogeeDetails2> events;
 
   double JD{StartJD};
   double LastDistance0{0};

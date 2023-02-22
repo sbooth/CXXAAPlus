@@ -24,7 +24,7 @@ History: PJN / 31-05-2004 1) In CAASaturn::EclipticLongitude the g_L5SaturnCoeff
          PJN / 07-07-2022 1. Updated all the code in AASaturn.cpp to use C++ uniform initialization for all
                           variable declarations.
 
-Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -50,7 +50,6 @@ to maintain a single distribution point for the source code.
 #endif //#ifndef AAPLUS_NO_VSOP87
 #include <cmath>
 #include <array>
-using namespace std;
 
 
 //////////////////// Macros / Defines /////////////////////////////////////////
@@ -66,7 +65,7 @@ struct VSOP87Coefficient
   double C;
 };
 
-constexpr array<VSOP87Coefficient, 90> g_L0SaturnCoefficients
+constexpr std::array<VSOP87Coefficient, 90> g_L0SaturnCoefficients
 { {
   { 87401354, 0,          0            },
   { 11107660, 3.96205090, 213.29909544 },
@@ -160,7 +159,7 @@ constexpr array<VSOP87Coefficient, 90> g_L0SaturnCoefficients
   { 101,      4.965,      269.921      }
 } };
 
-constexpr array<VSOP87Coefficient, 79> g_L1SaturnCoefficients
+constexpr std::array<VSOP87Coefficient, 79> g_L1SaturnCoefficients
 { {
   { 21354295596.0, 0,         0           },
   { 1296855,       1.8282054, 213.2990954 },
@@ -243,7 +242,7 @@ constexpr array<VSOP87Coefficient, 79> g_L1SaturnCoefficients
   { 26,            4.51,      340.77      }
 } };
 
-constexpr array<VSOP87Coefficient, 63> g_L2SaturnCoefficients
+constexpr std::array<VSOP87Coefficient, 63> g_L2SaturnCoefficients
 { {
   { 116441, 1.179879, 7.113547  },
   { 91921,  0.07425,  213.29910 },
@@ -310,7 +309,7 @@ constexpr array<VSOP87Coefficient, 63> g_L2SaturnCoefficients
   { 6,      5.93,     405.26    }
 } };
 
-constexpr array<VSOP87Coefficient, 48> g_L3SaturnCoefficients
+constexpr std::array<VSOP87Coefficient, 48> g_L3SaturnCoefficients
 { {
   { 16039, 5.73945, 7.11355  },
   { 4250,  4.5854,  213.2991 },
@@ -362,7 +361,7 @@ constexpr array<VSOP87Coefficient, 48> g_L3SaturnCoefficients
   { 2,     3.07,    654.12   }
 } };
 
-constexpr array<VSOP87Coefficient, 27> g_L4SaturnCoefficients
+constexpr std::array<VSOP87Coefficient, 27> g_L4SaturnCoefficients
 { {
   { 1662, 3.9983, 7.1135  },
   { 257,  2.984,  220.413 },
@@ -393,7 +392,7 @@ constexpr array<VSOP87Coefficient, 27> g_L4SaturnCoefficients
   { 1,    1.55,   191.96  }
 } };
 
-constexpr array<VSOP87Coefficient, 12> g_L5SaturnCoefficients
+constexpr std::array<VSOP87Coefficient, 12> g_L5SaturnCoefficients
 { {
   { 124, 2.259, 7.114  },
   { 34,  2.16,  14.23  },
@@ -409,7 +408,7 @@ constexpr array<VSOP87Coefficient, 12> g_L5SaturnCoefficients
   { 1,   3.14,  0      }
 } };
 
-constexpr array<VSOP87Coefficient, 34> g_B0SaturnCoefficients
+constexpr std::array<VSOP87Coefficient, 34> g_B0SaturnCoefficients
 { {
   { 4330678, 3.6028443, 213.2990954 },
   { 240348,  2.852385,  426.598191  },
@@ -447,7 +446,7 @@ constexpr array<VSOP87Coefficient, 34> g_B0SaturnCoefficients
   { 114,     0.963,     210.118     }
 } };
 
-constexpr array<VSOP87Coefficient, 32> g_B1SaturnCoefficients
+constexpr std::array<VSOP87Coefficient, 32> g_B1SaturnCoefficients
 { {
   { 397555, 5.332900, 213.299095 },
   { 49479,  3.14159,  0          },
@@ -483,7 +482,7 @@ constexpr array<VSOP87Coefficient, 32> g_B1SaturnCoefficients
   { 27,     4.44,     11.05      }
 } };
 
-constexpr array<VSOP87Coefficient, 29> g_B2SaturnCoefficients
+constexpr std::array<VSOP87Coefficient, 29> g_B2SaturnCoefficients
 { {
   { 20630, 0.50482, 213.29910 },
   { 3720,  3.9983,  206.1855  },
@@ -516,7 +515,7 @@ constexpr array<VSOP87Coefficient, 29> g_B2SaturnCoefficients
   { 6,     3.61,    860.31    }
 } };
 
-constexpr array<VSOP87Coefficient, 21> g_B3SaturnCoefficients
+constexpr std::array<VSOP87Coefficient, 21> g_B3SaturnCoefficients
 { {
   { 666, 1.990, 213.299 },
   { 632, 5.698, 206.186 },
@@ -541,7 +540,7 @@ constexpr array<VSOP87Coefficient, 21> g_B3SaturnCoefficients
   { 2,   3.72,  216.48  }
 } };
 
-constexpr array<VSOP87Coefficient, 12> g_B4SaturnCoefficients
+constexpr std::array<VSOP87Coefficient, 12> g_B4SaturnCoefficients
 { {
   { 80, 1.12, 206.19 },
   { 32, 3.12, 213.30 },
@@ -557,13 +556,13 @@ constexpr array<VSOP87Coefficient, 12> g_B4SaturnCoefficients
   { 1,  6.18, 639.90 }
 } };
 
-constexpr array<VSOP87Coefficient, 2> g_B5SaturnCoefficients
+constexpr std::array<VSOP87Coefficient, 2> g_B5SaturnCoefficients
 { {
   { 8, 2.82, 206.19 },
   { 1, 0.51, 220.41 }
 } };
 
-constexpr array<VSOP87Coefficient, 44> g_R0SaturnCoefficients
+constexpr std::array<VSOP87Coefficient, 44> g_R0SaturnCoefficients
 { {
   { 955758136, 0,          0            },
   { 52921382,  2.39226220, 213.29909544 },
@@ -611,7 +610,7 @@ constexpr array<VSOP87Coefficient, 44> g_R0SaturnCoefficients
   { 2024,      5.0541,     11.0457      }
 } };
 
-constexpr array<VSOP87Coefficient, 38> g_R1SaturnCoefficients
+constexpr std::array<VSOP87Coefficient, 38> g_R1SaturnCoefficients
 { {
   { 6182981, 0.2584352, 213.2990954 },
   { 506578,  0.711147,  206.185548  },
@@ -653,7 +652,7 @@ constexpr array<VSOP87Coefficient, 38> g_R1SaturnCoefficients
   { 503,     2.130,     3.932       }
 } };
 
-constexpr array<VSOP87Coefficient, 32> g_R2SaturnCoefficients
+constexpr std::array<VSOP87Coefficient, 32> g_R2SaturnCoefficients
 { {
   { 436902, 4.786717, 213.299095 },
   { 71923,  2.50070,  206.18555  },
@@ -689,7 +688,7 @@ constexpr array<VSOP87Coefficient, 32> g_R2SaturnCoefficients
   { 132,    5.933,    309.278    }
 } };
 
-constexpr array<VSOP87Coefficient, 28> g_R3SaturnCoefficients
+constexpr std::array<VSOP87Coefficient, 28> g_R3SaturnCoefficients
 { {
   { 20315, 3.02187, 213.29910 },
   { 8924,  3.1914,  220.4126  },
@@ -721,7 +720,7 @@ constexpr array<VSOP87Coefficient, 28> g_R3SaturnCoefficients
   { 32,    4.01,    21.34     }
 } };
 
-constexpr array<VSOP87Coefficient, 23> g_R4SaturnCoefficients
+constexpr std::array<VSOP87Coefficient, 23> g_R4SaturnCoefficients
 { {
   { 1202, 1.4150, 220.4126 },
   { 708,  1.162,  213.299  },
@@ -748,7 +747,7 @@ constexpr array<VSOP87Coefficient, 23> g_R4SaturnCoefficients
   { 8,    1.27,   234.64   }
 } };
 
-constexpr array<VSOP87Coefficient, 18> g_R5SaturnCoefficients
+constexpr std::array<VSOP87Coefficient, 18> g_R5SaturnCoefficients
 { {
   { 129, 5.913, 220.413 },
   { 32,  0.69,  7.11    },

@@ -17,7 +17,7 @@ History: PJN / 09-02-2004 1. Updated the values used in the calculation of the a
          PJN / 11-07-2022 1. Updated all the code in AASaturnMoons.cpp to use C++ uniform initialization for
                           all variable declarations.
 
-Copyright (c) 2004 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2004 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -43,7 +43,6 @@ to maintain a single distribution point for the source code.
 #include "AACoordinateTransformation.h"
 #include "AAPrecession.h"
 #include <cmath>
-using namespace std;
 
 
 //////////////////// Implementation ///////////////////////////////////////////
@@ -127,7 +126,7 @@ CAASaturnMoonsDetails CAASaturnMoons::CalculateHelper(double JD, double sunlongr
   double beta0{atan(z/sqrt((x*x) + (y*y)))};
   beta0 = CAACoordinateTransformation::RadiansToDegrees(beta0);
 
-  //Precess the longtitude and Latitutude to B1950.0
+  //Precess the longitude and Latitude to B1950.0
   const CAA2DCoordinate Saturn1950{CAAPrecession::PrecessEcliptic(lambda0, beta0, JD, 2433282.4235)};
   lambda0 = Saturn1950.X;
   const double lambda0rad{CAACoordinateTransformation::DegreesToRadians(lambda0)};
@@ -462,7 +461,7 @@ CAASaturnMoonsDetails CAASaturnMoons::CalculateHelper(double JD, double sunlongr
   constexpr double Y9{0};
   constexpr double Z9{1};
 
-  //Now do the rotations, first for the ficticious 9th satellite, so that we can calculate D
+  //Now do the rotations, first for the fictitious 9th satellite, so that we can calculate D
   double A4{0};
   double B4{0};
   double C4{0};

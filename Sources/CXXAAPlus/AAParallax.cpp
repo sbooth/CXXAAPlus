@@ -9,7 +9,7 @@ History: PJN / 04-07-2010 Removed unnecessary "Longitude" parameter from method 
          PJN / 02-07-2022 1. Updated all the code in AAParallax.cpp to use C++ uniform initialization for all
                           variable declarations.
 
-Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -32,7 +32,6 @@ to maintain a single distribution point for the source code.
 #include "AACoordinateTransformation.h"
 #include "AASidereal.h"
 #include <cmath>
-using namespace std;
 
 
 //////////////////// Macros / Defines /////////////////////////////////////////

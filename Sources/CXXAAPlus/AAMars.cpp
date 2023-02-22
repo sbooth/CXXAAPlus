@@ -22,7 +22,7 @@ History: PJN / 18-03-2012 1. All global "g_*" tables are now const. Thanks to Ro
          PJN / 26-06-2022 1. Updated all the code in AAMars.cpp to use C++ uniform initialization for all
                           variable declarations.
 
-Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -48,7 +48,6 @@ to maintain a single distribution point for the source code.
 #endif //#ifndef AAPLUS_NO_VSOP87
 #include <cmath>
 #include <array>
-using namespace std;
 
 
 //////////////////// Macros / Defines /////////////////////////////////////////
@@ -64,7 +63,7 @@ struct VSOP87Coefficient
   double C;
 };
 
-constexpr array<VSOP87Coefficient, 69> g_L0MarsCoefficients
+constexpr std::array<VSOP87Coefficient, 69> g_L0MarsCoefficients
 { {
   { 620347712,  0,          0             },
   { 18656368,   5.05037100, 3340.61242670 },
@@ -137,7 +136,7 @@ constexpr array<VSOP87Coefficient, 69> g_L0MarsCoefficients
   { 100,        3.243,      11773.377     }
 } };
 
-constexpr array<VSOP87Coefficient, 46> g_L1MarsCoefficients
+constexpr std::array<VSOP87Coefficient, 46> g_L1MarsCoefficients
 { {
   { 334085627474.0, 0,          0            },
   { 1458227,        3.6042605,  3340.6124267 },
@@ -187,7 +186,7 @@ constexpr array<VSOP87Coefficient, 46> g_L1MarsCoefficients
   { 27,             5.11,       2700.72      }
 } };
 
-constexpr array<VSOP87Coefficient, 33> g_L2MarsCoefficients
+constexpr std::array<VSOP87Coefficient, 33> g_L2MarsCoefficients
 { {
   { 58016,  2.04979,  3340.61243 },
   { 54188,  0,        0          },
@@ -224,7 +223,7 @@ constexpr array<VSOP87Coefficient, 33> g_L2MarsCoefficients
   { 6,      2.34,     3097.88    }
 } };
 
-constexpr array<VSOP87Coefficient, 12> g_L3MarsCoefficients
+constexpr std::array<VSOP87Coefficient, 12> g_L3MarsCoefficients
 { {
   { 1482, 0.4443, 3340.6124 },
   { 662,  0.885,  6681.225  },
@@ -240,7 +239,7 @@ constexpr array<VSOP87Coefficient, 12> g_L3MarsCoefficients
   { 3,    0.65,   553.57    }
 } };
 
-constexpr array<VSOP87Coefficient, 8> g_L4MarsCoefficients
+constexpr std::array<VSOP87Coefficient, 8> g_L4MarsCoefficients
 { {
   { 114,  3.1416, 0        },
   { 29,   5.64,   6681.22  },
@@ -252,13 +251,13 @@ constexpr array<VSOP87Coefficient, 8> g_L4MarsCoefficients
   { 1,    1.32,   242.73   }
 } };
 
-constexpr array<VSOP87Coefficient, 2> g_L5MarsCoefficients
+constexpr std::array<VSOP87Coefficient, 2> g_L5MarsCoefficients
 { {
   { 1,  3.14, 0       },
   { 1,  4.04, 6681.22 }
 } };
 
-constexpr array<VSOP87Coefficient, 16> g_B0MarsCoefficients
+constexpr std::array<VSOP87Coefficient, 16> g_B0MarsCoefficients
 { {
   { 3197135,  3.7683204,  3340.6124267 },
   { 298033,   4.106170,   6681.224853  },
@@ -278,7 +277,7 @@ constexpr array<VSOP87Coefficient, 16> g_B0MarsCoefficients
   { 139,      2.418,      8962.455     }
 } };
 
-constexpr array<VSOP87Coefficient, 9> g_B1MarsCoefficients
+constexpr std::array<VSOP87Coefficient, 9> g_B1MarsCoefficients
 { {
   { 350069, 5.368478, 3340.612427 },
   { 14116,  3.14159,  0           },
@@ -291,7 +290,7 @@ constexpr array<VSOP87Coefficient, 9> g_B1MarsCoefficients
   { 26,     2.48,     2281.23     }
 } };
 
-constexpr array<VSOP87Coefficient, 7> g_B2MarsCoefficients
+constexpr std::array<VSOP87Coefficient, 7> g_B2MarsCoefficients
 { {
   { 16727,  0.60221,  3340.61243 },
   { 4987,   3.1416,   0          },
@@ -302,7 +301,7 @@ constexpr array<VSOP87Coefficient, 7> g_B2MarsCoefficients
   { 8,      2.25,     16703.06   }
 } };
 
-constexpr array<VSOP87Coefficient, 4> g_B3MarsCoefficients
+constexpr std::array<VSOP87Coefficient, 4> g_B3MarsCoefficients
 { {
   { 607,  1.981,  3340.612 },
   { 43,   0,      0        },
@@ -310,14 +309,14 @@ constexpr array<VSOP87Coefficient, 4> g_B3MarsCoefficients
   { 3,    3.45,   10021.84 }
 } };
 
-constexpr array<VSOP87Coefficient, 3> g_B4MarsCoefficients
+constexpr std::array<VSOP87Coefficient, 3> g_B4MarsCoefficients
 { {
   { 13, 0,    0       },
   { 11, 3.46, 3340.61 },
   { 1,  0.50, 6681.22 }
 } };
 
-constexpr array<VSOP87Coefficient, 45> g_R0MarsCoefficients
+constexpr std::array<VSOP87Coefficient, 45> g_R0MarsCoefficients
 { {
   { 153033488,  0,          0             },
   { 14184953,   3.47971284, 3340.61242670 },
@@ -366,7 +365,7 @@ constexpr array<VSOP87Coefficient, 45> g_R0MarsCoefficients
   { 164,        3.799,      4136.910      }
 } };
 
-constexpr array<VSOP87Coefficient, 27> g_R1MarsCoefficients
+constexpr std::array<VSOP87Coefficient, 27> g_R1MarsCoefficients
 { {
   { 1107433,  2.0325052,  3340.6124267 },
   { 103176,   2.370718,   6681.224853  },
@@ -397,7 +396,7 @@ constexpr array<VSOP87Coefficient, 27> g_R1MarsCoefficients
   { 39,       2.32,       4136.91      }
 } };
 
-constexpr array<VSOP87Coefficient, 11> g_R2MarsCoefficients
+constexpr std::array<VSOP87Coefficient, 11> g_R2MarsCoefficients
 { {
   { 44242,  0.47931,  3340.61243 },
   { 8138,   0.8700,   6681.2249  },
@@ -412,7 +411,7 @@ constexpr array<VSOP87Coefficient, 11> g_R2MarsCoefficients
   { 10,     0.42,     796.30     }
 } };
 
-constexpr array<VSOP87Coefficient, 6> g_R3MarsCoefficients
+constexpr std::array<VSOP87Coefficient, 6> g_R3MarsCoefficients
 { {
   { 1113, 5.1499, 3340.6124 },
   { 424,  5.613,  6681.225  },
@@ -422,7 +421,7 @@ constexpr array<VSOP87Coefficient, 6> g_R3MarsCoefficients
   { 3,    0.43,   16703.06  }
 } };
 
-constexpr array<VSOP87Coefficient, 4> g_R4MarsCoefficients
+constexpr std::array<VSOP87Coefficient, 4> g_R4MarsCoefficients
 { {
   { 20, 3.58, 3340.61  },
   { 16, 4.05, 6681.22  },

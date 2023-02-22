@@ -27,7 +27,7 @@ History: PJN / 31-05-2004 1) Added a missing coefficient to g_L1JupiterCoefficie
          PJN / 26-06-2022 1. Updated all the code in AAJupiter.cpp to use C++ uniform initialization for all
                           variable declarations.
 
-Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -53,7 +53,6 @@ to maintain a single distribution point for the source code.
 #endif //#ifndef AAPLUS_NO_VSOP87
 #include <cmath>
 #include <array>
-using namespace std;
 
 
 //////////////////// Macros / Defines /////////////////////////////////////////
@@ -69,7 +68,7 @@ struct VSOP87Coefficient
   double C;
 };
 
-constexpr array<VSOP87Coefficient, 64> g_L0JupiterCoefficients
+constexpr std::array<VSOP87Coefficient, 64> g_L0JupiterCoefficients
 { {
   { 59954691, 0,          0           },
   { 9695899,  5.0619179,  529.6909651 },
@@ -137,7 +136,7 @@ constexpr array<VSOP87Coefficient, 64> g_L0JupiterCoefficients
   { 106,      4.554,      526.510     }
 } };
 
-constexpr array<VSOP87Coefficient, 61> g_L1JupiterCoefficients
+constexpr std::array<VSOP87Coefficient, 61> g_L1JupiterCoefficients
 { {
   { 52993480757.0, 0,          0          },
   { 489741,        4.220667,   529.690965 },
@@ -202,7 +201,7 @@ constexpr array<VSOP87Coefficient, 61> g_L1JupiterCoefficients
   { 25,            1.61,       831.86     }
 } };
 
-constexpr array<VSOP87Coefficient, 57> g_L2JupiterCoefficients
+constexpr std::array<VSOP87Coefficient, 57> g_L2JupiterCoefficients
 { {
   { 47234,  4.32148,  7.11355   },
   { 38966,  0,        0         },
@@ -263,7 +262,7 @@ constexpr array<VSOP87Coefficient, 57> g_L2JupiterCoefficients
   { 6,      0.50,     949.18    }
 } };
 
-constexpr array<VSOP87Coefficient, 39> g_L3JupiterCoefficients
+constexpr std::array<VSOP87Coefficient, 39> g_L3JupiterCoefficients
 { {
   { 6502, 2.5986, 7.1135   },
   { 1357, 1.3464, 529.6910 },
@@ -306,7 +305,7 @@ constexpr array<VSOP87Coefficient, 39> g_L3JupiterCoefficients
   { 2,    2.36,   942.06   }
 } };
 
-constexpr array<VSOP87Coefficient, 19> g_L4JupiterCoefficients
+constexpr std::array<VSOP87Coefficient, 19> g_L4JupiterCoefficients
 { {
   { 669,  0.853,  7.114   },
   { 114,  3.142,  0       },
@@ -329,7 +328,7 @@ constexpr array<VSOP87Coefficient, 19> g_L4JupiterCoefficients
   { 1,    1.29,   1589.07 }
 } };
 
-constexpr array<VSOP87Coefficient, 5> g_L5JupiterCoefficients
+constexpr std::array<VSOP87Coefficient, 5> g_L5JupiterCoefficients
 { {
   { 50, 5.26, 7.11   },
   { 16, 5.25, 14.23  },
@@ -338,7 +337,7 @@ constexpr array<VSOP87Coefficient, 5> g_L5JupiterCoefficients
   { 1,  3.14, 0      }
 } };
 
-constexpr array<VSOP87Coefficient, 26> g_B0JupiterCoefficients
+constexpr std::array<VSOP87Coefficient, 26> g_B0JupiterCoefficients
 { {
   { 2268616,  3.5585261,  529.6909651 },
   { 110090,   0,          0           },
@@ -368,7 +367,7 @@ constexpr array<VSOP87Coefficient, 26> g_B0JupiterCoefficients
   { 102,      3.153,      1581.959    }
 } };
 
-constexpr array<VSOP87Coefficient, 22> g_B1JupiterCoefficients
+constexpr std::array<VSOP87Coefficient, 22> g_B1JupiterCoefficients
 { {
   { 177352, 5.701665, 529.690965 },
   { 3230,   5.7794,   1059.3819  },
@@ -394,7 +393,7 @@ constexpr array<VSOP87Coefficient, 22> g_B1JupiterCoefficients
   { 32,     4.92,     1581.96    }
 } };
 
-constexpr array<VSOP87Coefficient, 14> g_B2JupiterCoefficients
+constexpr std::array<VSOP87Coefficient, 14> g_B2JupiterCoefficients
 { {
   { 8094, 1.4632, 529.6910 },
   { 813,  3.1416, 0        },
@@ -412,7 +411,7 @@ constexpr array<VSOP87Coefficient, 14> g_B2JupiterCoefficients
   { 6,    6.21,   1045.15  }
 } };
 
-constexpr array<VSOP87Coefficient, 9> g_B3JupiterCoefficients
+constexpr std::array<VSOP87Coefficient, 9> g_B3JupiterCoefficients
 { {
   { 252,  3.381,  529.691 },
   { 122,  2.733,  522.577 },
@@ -425,7 +424,7 @@ constexpr array<VSOP87Coefficient, 9> g_B3JupiterCoefficients
   { 3,    3.14,   0       }
 } };
 
-constexpr array<VSOP87Coefficient, 6> g_B4JupiterCoefficients
+constexpr std::array<VSOP87Coefficient, 6> g_B4JupiterCoefficients
 { {
   { 15, 4.53, 522.58  },
   { 5,  4.47, 529.69  },
@@ -435,12 +434,12 @@ constexpr array<VSOP87Coefficient, 6> g_B4JupiterCoefficients
   { 1,  4.20, 1052.27 }
 } };
 
-constexpr array<VSOP87Coefficient, 1> g_B5JupiterCoefficients
+constexpr std::array<VSOP87Coefficient, 1> g_B5JupiterCoefficients
 { {
   { 1,  0.09, 522.58 }
 } };
 
-constexpr array<VSOP87Coefficient, 46> g_R0JupiterCoefficients
+constexpr std::array<VSOP87Coefficient, 46> g_R0JupiterCoefficients
 { {
   { 520887429,  0,          0            },
   { 25209327,   3.49108640, 529.69096509 },
@@ -490,7 +489,7 @@ constexpr array<VSOP87Coefficient, 46> g_R0JupiterCoefficients
   { 542,        0.284,      525.759      }
 } };
 
-constexpr array<VSOP87Coefficient, 43> g_R1JupiterCoefficients
+constexpr std::array<VSOP87Coefficient, 43> g_R1JupiterCoefficients
 { {
   { 1271802,2.6493751,  529.6909651 },
   { 61662,  3.00076,    1059.38193  },
@@ -537,7 +536,7 @@ constexpr array<VSOP87Coefficient, 43> g_R1JupiterCoefficients
   { 132,    4.512,      525.759     }
 } };
 
-constexpr array<VSOP87Coefficient, 36> g_R2JupiterCoefficients
+constexpr std::array<VSOP87Coefficient, 36> g_R2JupiterCoefficients
 { {
   { 79645,  1.35866,  529.69097 },
   { 8252,   5.7777,   522.5774  },
@@ -577,7 +576,7 @@ constexpr array<VSOP87Coefficient, 36> g_R2JupiterCoefficients
   { 40,     5.95,     95.98     }
 } };
 
-constexpr array<VSOP87Coefficient, 28> g_R3JupiterCoefficients
+constexpr std::array<VSOP87Coefficient, 28> g_R3JupiterCoefficients
 { {
   { 3519, 6.0580, 529.6910 },
   { 1073, 1.6732, 536.8045 },
@@ -609,7 +608,7 @@ constexpr array<VSOP87Coefficient, 28> g_R3JupiterCoefficients
   { 9,    3.45,   838.97   }
 } };
 
-constexpr array<VSOP87Coefficient, 15> g_R4JupiterCoefficients
+constexpr std::array<VSOP87Coefficient, 15> g_R4JupiterCoefficients
 { {
   { 129,  0.084,  536.805 },
   { 113,  4.249,  529.691 },
@@ -628,7 +627,7 @@ constexpr array<VSOP87Coefficient, 15> g_R4JupiterCoefficients
   { 3,    2.90,   426.60  }
 } };
 
-constexpr array<VSOP87Coefficient, 7> g_R5JupiterCoefficients
+constexpr std::array<VSOP87Coefficient, 7> g_R5JupiterCoefficients
 { {
   { 11, 4.75, 536.80  },
   { 4,  5.92, 522.58  },

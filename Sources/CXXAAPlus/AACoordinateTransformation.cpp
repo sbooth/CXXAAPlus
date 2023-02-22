@@ -17,7 +17,7 @@ History: PJN / 14-02-2004 1. Fixed a "minus zero" bug in the function CAACoordin
          PJN / 14-06-2022 1. Updated all the code in AACoordinateTransformation.cpp to use C++ uniform
                           initialization for all variable declarations.
 
-Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -38,7 +38,6 @@ to maintain a single distribution point for the source code.
 #include "AACoordinateTransformation.h"
 #include <cmath>
 #include <cassert>
-using namespace std;
 
 
 //////////////////// Implementation ///////////////////////////////////////////
@@ -99,7 +98,7 @@ CAA2DCoordinate CAACoordinateTransformation::Equatorial2Horizontal(double LocalH
 
 CAA2DCoordinate CAACoordinateTransformation::Horizontal2Equatorial(double Azimuth, double Altitude, double Latitude) noexcept
 {
-  //Convert from degress to radians
+  //Convert from degrees to radians
   Azimuth = DegreesToRadians(Azimuth);
   Altitude = DegreesToRadians(Altitude);
   Latitude = DegreesToRadians(Latitude);

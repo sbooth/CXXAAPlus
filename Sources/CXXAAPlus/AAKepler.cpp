@@ -6,7 +6,7 @@ History: PJN / 22-11-2021 1. Made some minor optimizations to the CAAKepler::Cal
          PJN / 26-06-2022 1. Updated all the code in AAKepler.cpp to use C++ uniform initialization for all
                           variable declarations.
 
-Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -27,7 +27,6 @@ to maintain a single distribution point for the source code.
 #include "AAKepler.h"
 #include "AACoordinateTransformation.h"
 #include <cmath>
-using namespace std;
 
 
 //////////////////// Implementation ///////////////////////////////////////////

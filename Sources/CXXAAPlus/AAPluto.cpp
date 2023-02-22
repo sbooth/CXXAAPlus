@@ -14,7 +14,7 @@ History: PJN / 07-02-2009 1. Optimized the layout of the PlutoCoefficient1 struc
          PJN / 04-07-2022 1. Updated all the code in AAPluto.cpp to use C++ uniform initialization for all
                           variable declarations.
 
-Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -37,7 +37,6 @@ to maintain a single distribution point for the source code.
 #include <cmath>
 #include <cstddef>
 #include <array>
-using namespace std;
 
 
 //////////////////// Macros / Defines /////////////////////////////////////////
@@ -59,7 +58,7 @@ struct PlutoCoefficient2
   double B;
 };
 
-constexpr array<PlutoCoefficient1, 43> g_PlutoArgumentCoefficients
+constexpr std::array<PlutoCoefficient1, 43> g_PlutoArgumentCoefficients
 { {
   { 0,   0,    1 },
   { 0,   0,    2 },
@@ -106,7 +105,7 @@ constexpr array<PlutoCoefficient1, 43> g_PlutoArgumentCoefficients
   { 3,   0,    0 }
 } };
 
-constexpr array<PlutoCoefficient2, 43> g_PlutoLongitudeCoefficients
+constexpr std::array<PlutoCoefficient2, 43> g_PlutoLongitudeCoefficients
 { {
   { -19799805, 19850055 },
   {  897144,  -4954829  },
@@ -153,7 +152,7 @@ constexpr array<PlutoCoefficient2, 43> g_PlutoLongitudeCoefficients
   {  0,        0        }
 } };
 
-constexpr array<PlutoCoefficient2, 43> g_PlutoLatitudeCoefficients
+constexpr std::array<PlutoCoefficient2, 43> g_PlutoLatitudeCoefficients
 { {
   { -5452852, -14974862 },
   {  3527812,  1672790  },
@@ -200,7 +199,7 @@ constexpr array<PlutoCoefficient2, 43> g_PlutoLatitudeCoefficients
   {  1,        0        }
 } };
 
-constexpr array<PlutoCoefficient2, 43> g_PlutoRadiusCoefficients
+constexpr std::array<PlutoCoefficient2, 43> g_PlutoRadiusCoefficients
 { {
   {  66865439,   68951812 },
   { -11827535,  -332538   },

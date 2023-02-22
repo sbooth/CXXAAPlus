@@ -9,7 +9,7 @@ History: PJN / 20-03-2016 1. Fixed a transcription error in the CAAGlobe::RhoSin
          PJN / 23-06-2022 1. Updated all the code in AAGlobe.cpp to use C++ uniform initialization for all 
                           variable declarations.
 
-Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -30,14 +30,13 @@ to maintain a single distribution point for the source code.
 #include "AAGlobe.h"
 #include "AACoordinateTransformation.h"
 #include <cmath>
-using namespace std;
 
 
 //////////////////// Implementation ///////////////////////////////////////////
 
 double CAAGlobe::RhoSinThetaPrime(double GeographicalLatitude, double Height) noexcept
 {
-  //Convert from degress to radians
+  //Convert from degrees to radians
   GeographicalLatitude = CAACoordinateTransformation::DegreesToRadians(GeographicalLatitude);
 
   const double U{atan(0.99664719*tan(GeographicalLatitude))};
@@ -46,7 +45,7 @@ double CAAGlobe::RhoSinThetaPrime(double GeographicalLatitude, double Height) no
 
 double CAAGlobe::RhoCosThetaPrime(double GeographicalLatitude, double Height) noexcept
 {
-  //Convert from degress to radians
+  //Convert from degrees to radians
   GeographicalLatitude = CAACoordinateTransformation::DegreesToRadians(GeographicalLatitude);
 
   const double U{atan(0.99664719*tan(GeographicalLatitude))};
@@ -55,7 +54,7 @@ double CAAGlobe::RhoCosThetaPrime(double GeographicalLatitude, double Height) no
 
 double CAAGlobe::RadiusOfParallelOfLatitude(double GeographicalLatitude) noexcept
 {
-  //Convert from degress to radians
+  //Convert from degrees to radians
   GeographicalLatitude = CAACoordinateTransformation::DegreesToRadians(GeographicalLatitude);
 
   const double sinGeo{sin(GeographicalLatitude)};
@@ -64,7 +63,7 @@ double CAAGlobe::RadiusOfParallelOfLatitude(double GeographicalLatitude) noexcep
 
 double CAAGlobe::RadiusOfCurvature(double GeographicalLatitude) noexcept
 {
-  //Convert from degress to radians
+  //Convert from degrees to radians
   GeographicalLatitude = CAACoordinateTransformation::DegreesToRadians(GeographicalLatitude);
 
   const double sinGeo{sin(GeographicalLatitude)};
@@ -73,7 +72,7 @@ double CAAGlobe::RadiusOfCurvature(double GeographicalLatitude) noexcept
 
 double CAAGlobe::DistanceBetweenPoints(double GeographicalLatitude1, double GeographicalLongitude1, double GeographicalLatitude2, double GeographicalLongitude2) noexcept
 {
-  //Convert from degress to radians
+  //Convert from degrees to radians
   GeographicalLatitude1 = CAACoordinateTransformation::DegreesToRadians(GeographicalLatitude1);
   GeographicalLatitude2 = CAACoordinateTransformation::DegreesToRadians(GeographicalLatitude2);
   GeographicalLongitude1 = CAACoordinateTransformation::DegreesToRadians(GeographicalLongitude1);

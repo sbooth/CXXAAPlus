@@ -26,7 +26,7 @@ History: PJN / 03-10-2009 1. Fixed a copy and paste gremlin in the CAAEarth::Ecl
          PJN / 18-06-2022 1. Updated all the code in AAEarth.cpp to use C++ uniform initialization for all variable 
                           declarations.
 
-Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -53,7 +53,6 @@ to maintain a single distribution point for the source code.
 #endif //#ifndef AAPLUS_NO_VSOP87
 #include <cmath>
 #include <array>
-using namespace std;
 
 
 //////////////////// Macros / Defines /////////////////////////////////////////
@@ -69,7 +68,7 @@ struct VSOP87Coefficient
   double C;
 };
 
-constexpr array<VSOP87Coefficient, 64> g_L0EarthCoefficients
+constexpr std::array<VSOP87Coefficient, 64> g_L0EarthCoefficients
 { {
   { 175347046, 0,         0            },
   { 3341656,   4.6692568, 6283.0758500 },
@@ -137,7 +136,7 @@ constexpr array<VSOP87Coefficient, 64> g_L0EarthCoefficients
   { 25,        3.16,      4690.48      }
 } };
 
-constexpr array<VSOP87Coefficient, 34> g_L1EarthCoefficients
+constexpr std::array<VSOP87Coefficient, 34> g_L1EarthCoefficients
 { {
   { 628331966747.0, 0,          0           },
   { 206059,         2.678235,   6283.075850 },
@@ -175,7 +174,7 @@ constexpr array<VSOP87Coefficient, 34> g_L1EarthCoefficients
   { 6,              4.67,       4690.48     }
 } };
 
-constexpr array<VSOP87Coefficient, 20> g_L2EarthCoefficients
+constexpr std::array<VSOP87Coefficient, 20> g_L2EarthCoefficients
 { {
   { 52919,  0,      0         },
   { 8720,   1.0721, 6283.0758 },
@@ -199,7 +198,7 @@ constexpr array<VSOP87Coefficient, 20> g_L2EarthCoefficients
   { 2,      3.75,   0.98      }
 } };
 
-constexpr array<VSOP87Coefficient, 7> g_L3EarthCoefficients
+constexpr std::array<VSOP87Coefficient, 7> g_L3EarthCoefficients
 { {
   { 289, 5.844, 6283.076 },
   { 35,  0,     0        },
@@ -210,19 +209,19 @@ constexpr array<VSOP87Coefficient, 7> g_L3EarthCoefficients
   { 1,   5.97,  242.73   }
 } };
 
-constexpr array<VSOP87Coefficient, 3> g_L4EarthCoefficients
+constexpr std::array<VSOP87Coefficient, 3> g_L4EarthCoefficients
 { {
   { 114, 3.142,  0        },
   { 8,   4.13,   6283.08  },
   { 1,   3.84,   12566.15 }
 } };
 
-constexpr array<VSOP87Coefficient, 1> g_L5EarthCoefficients
+constexpr std::array<VSOP87Coefficient, 1> g_L5EarthCoefficients
 { {
   { 1, 3.14, 0 }
 } };
 
-constexpr array<VSOP87Coefficient, 5> g_B0EarthCoefficients
+constexpr std::array<VSOP87Coefficient, 5> g_B0EarthCoefficients
 { {
   { 280, 3.199, 84334.662 },
   { 102, 5.422, 5507.553  },
@@ -231,13 +230,13 @@ constexpr array<VSOP87Coefficient, 5> g_B0EarthCoefficients
   { 32,  4.00,  1577.34   }
 } };
 
-constexpr array<VSOP87Coefficient, 2> g_B1EarthCoefficients
+constexpr std::array<VSOP87Coefficient, 2> g_B1EarthCoefficients
 { {
   { 9, 3.90, 5507.55 },
   { 6, 1.73, 5223.69 }
 } };
 
-constexpr array<VSOP87Coefficient, 40> g_R0EarthCoefficients
+constexpr std::array<VSOP87Coefficient, 40> g_R0EarthCoefficients
 { {
   { 100013989,  0,          0            },
   { 1670700,    3.0984635,  6283.0758500 },
@@ -281,7 +280,7 @@ constexpr array<VSOP87Coefficient, 40> g_R0EarthCoefficients
   { 26,         4.59,       10447.39     }
 } };
 
-constexpr array<VSOP87Coefficient, 10> g_R1EarthCoefficients
+constexpr std::array<VSOP87Coefficient, 10> g_R1EarthCoefficients
 { {
   { 103019, 1.107490, 6283.075850 },
   { 1721,   1.0644,   12566.1517  },
@@ -295,7 +294,7 @@ constexpr array<VSOP87Coefficient, 10> g_R1EarthCoefficients
   { 9,      0.27,     5486.78     }
 } };
 
-constexpr array<VSOP87Coefficient, 6> g_R2EarthCoefficients
+constexpr std::array<VSOP87Coefficient, 6> g_R2EarthCoefficients
 { {
   { 4359, 5.7846, 6283.0758 },
   { 124,  5.579,  12566.152 },
@@ -305,18 +304,18 @@ constexpr array<VSOP87Coefficient, 6> g_R2EarthCoefficients
   { 3,    5.47,   18849.23  }
 } };
 
-constexpr array<VSOP87Coefficient, 2> g_R3EarthCoefficients
+constexpr std::array<VSOP87Coefficient, 2> g_R3EarthCoefficients
 { {
   { 145,  4.273,  6283.076 },
   { 7,    3.92,   12566.15 }
 } };
 
-constexpr array<VSOP87Coefficient, 1> g_R4EarthCoefficients
+constexpr std::array<VSOP87Coefficient, 1> g_R4EarthCoefficients
 { {
   { 4, 2.56, 6283.08 }
 } };
 
-constexpr array<VSOP87Coefficient, 34> g_L1EarthCoefficientsJ2000
+constexpr std::array<VSOP87Coefficient, 34> g_L1EarthCoefficientsJ2000
 { {
   { 628307584999.0, 0,          0           },
   { 206059,         2.678235,   6283.075850 },
@@ -354,7 +353,7 @@ constexpr array<VSOP87Coefficient, 34> g_L1EarthCoefficientsJ2000
   { 6,              4.67,       4690.48     }
 } };
 
-constexpr array<VSOP87Coefficient, 20> g_L2EarthCoefficientsJ2000
+constexpr std::array<VSOP87Coefficient, 20> g_L2EarthCoefficientsJ2000
 { {
   { 8722, 1.0725, 6283.0758 },
   { 991,  3.1416, 0         },
@@ -378,7 +377,7 @@ constexpr array<VSOP87Coefficient, 20> g_L2EarthCoefficientsJ2000
   { 2,    3.75,   0.98      }
 } };
 
-constexpr array<VSOP87Coefficient, 7> g_L3EarthCoefficientsJ2000
+constexpr std::array<VSOP87Coefficient, 7> g_L3EarthCoefficientsJ2000
 { {
   { 289,  5.842,  6283.076 },
   { 21,   6.05,   12566.15 },
@@ -389,13 +388,13 @@ constexpr array<VSOP87Coefficient, 7> g_L3EarthCoefficientsJ2000
   { 1,    5.54,   18849.23 }
 } };
 
-constexpr array<VSOP87Coefficient, 2> g_L4EarthCoefficientsJ2000
+constexpr std::array<VSOP87Coefficient, 2> g_L4EarthCoefficientsJ2000
 { {
   { 8,  4.14, 6283.08  },
   { 1,  3.28, 12566.15 }
 } };
 
-constexpr array<VSOP87Coefficient, 7> g_B1EarthCoefficientsJ2000
+constexpr std::array<VSOP87Coefficient, 7> g_B1EarthCoefficientsJ2000
 { {
   { 227778, 3.413766, 6283.075850 },
   { 3806,   3.3706,   12566.1517  },
@@ -406,7 +405,7 @@ constexpr array<VSOP87Coefficient, 7> g_B1EarthCoefficientsJ2000
   { 6,      5.20,     2352.87     }
 } };
 
-constexpr array<VSOP87Coefficient, 4> g_B2EarthCoefficientsJ2000
+constexpr std::array<VSOP87Coefficient, 4> g_B2EarthCoefficientsJ2000
 { {
   { 9721, 5.1519, 6283.07585 },
   { 233,  3.1416, 0          },
@@ -414,14 +413,14 @@ constexpr array<VSOP87Coefficient, 4> g_B2EarthCoefficientsJ2000
   { 7,    1.07,   18849.23   }
 } };
 
-constexpr array<VSOP87Coefficient, 3> g_B3EarthCoefficientsJ2000
+constexpr std::array<VSOP87Coefficient, 3> g_B3EarthCoefficientsJ2000
 { {
   { 276,  0.595,  6283.076 },
   { 17,   3.14,   0        },
   { 4,    0.12,   12566.15 }
 } };
 
-constexpr array<VSOP87Coefficient, 2> g_B4EarthCoefficientsJ2000
+constexpr std::array<VSOP87Coefficient, 2> g_B4EarthCoefficientsJ2000
 { {
   { 6,  2.27, 6283.08 },
   { 1,  0,    0       }

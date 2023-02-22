@@ -23,7 +23,7 @@ History: PJN / 31-01-2005 1. Fixed a bug in CAAParabolic::Calculate where the JD
                           2. Updated methods in the CAAParabolic class to allow the epsilon value used to 
                           terminate iteration loops to be specified.
 
-Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -47,7 +47,6 @@ to maintain a single distribution point for the source code.
 #include "AANutation.h"
 #include "AAElliptical.h"
 #include <cmath>
-using namespace std;
 
 
 //////////////////// Implementation ///////////////////////////////////////////

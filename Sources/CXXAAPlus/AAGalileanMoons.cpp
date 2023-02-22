@@ -14,7 +14,7 @@ History: PJN / 08-05-2011 1. Fixed a bug in CAAGalileanMoons::CalculateHelper wh
          PJN / 24-06-2022 1. Updated all the code in AAGlobe.cpp to use C++ uniform initialization for all
                           variable declarations.
 
-Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -40,7 +40,6 @@ to maintain a single distribution point for the source code.
 #include "AACoordinateTransformation.h"
 #include "AAElementsPlanetaryOrbit.h"
 #include <cmath>
-using namespace std;
 
 
 //////////////////// Implementation ///////////////////////////////////////////
@@ -105,7 +104,7 @@ CAAGalileanMoonsDetails CAAGalileanMoons::CalculateHelper(double JD, double sunl
   const double pi3{CAACoordinateTransformation::DegreesToRadians(CAACoordinateTransformation::MapTo0To360Range(188.1840 + (0.00712734*t)))};
   const double pi4{CAACoordinateTransformation::DegreesToRadians(CAACoordinateTransformation::MapTo0To360Range(335.2868 + (0.00184000*t)))};
 
-  //Calculate the nodes on the equatorial plane of jupiter
+  //Calculate the nodes on the equatorial plane of Jupiter
   const double w1{312.3346 - (0.13279386*t)};
   const double w1rad{CAACoordinateTransformation::DegreesToRadians(w1)};
   const double w2{100.4411 - (0.03263064*t)};
@@ -303,7 +302,7 @@ CAAGalileanMoonsDetails CAAGalileanMoons::CalculateHelper(double JD, double sunl
                       -0.00019*sin(twol4rad - pi3 - pi4) +
                       -0.00018*sin(l4rad - pi4 + G) +
                       -0.00016*sin(l4rad + pi3 - twoPI - twoG)};
-  //There is no need to calculate a Sigma4rad as it is not used in any subsequent trignometric functions
+  //There is no need to calculate a Sigma4rad as it is not used in any subsequent trigonometric functions
 
   details.Satellite1.MeanLongitude = CAACoordinateTransformation::MapTo0To360Range(l1);
   details.Satellite1.TrueLongitude = CAACoordinateTransformation::MapTo0To360Range(l1 + Sigma1);
@@ -456,7 +455,7 @@ CAAGalileanMoonsDetails CAAGalileanMoons::CalculateHelper(double JD, double sunl
   const double Z4{details.Satellite4.r*sin(B4)};
   constexpr double Z5{1};
 
-  //Now do the rotations, first for the ficticious 5th satellite, so that we can calculate D
+  //Now do the rotations, first for the fictitious 5th satellite, so that we can calculate D
   const double omega{CAACoordinateTransformation::DegreesToRadians(CAAElementsPlanetaryOrbit::JupiterLongitudeAscendingNode(JD))};
   const double i{CAACoordinateTransformation::DegreesToRadians(CAAElementsPlanetaryOrbit::JupiterInclination(JD))};
   double A6{0};
@@ -623,7 +622,7 @@ void CAAGalileanMoons::Rotations(double X, double Y, double Z, double I, double 
   const double B1{(Y*cosI) - (Z*sinI)};
   const double C1{(Y*sinI) + (Z*cosI)};
 
-  //Rotation towards the ascending node of the orbit of jupiter
+  //Rotation towards the ascending node of the orbit of Jupiter
   const double cosphi{cos(phi)};
   const double sinphi{sin(phi)};
   const double A2{(A1*cosphi) - (B1*sinphi)};

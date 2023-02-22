@@ -13,7 +13,7 @@ History: PJN / 18-03-2012 1. All global "g_*" tables are now const. Thanks to Ro
          PJN / 09-07-2022 1. Updated all the code in AAUranus.cpp to use C++ uniform initialization for all
                           variable declarations.
 
-Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -39,7 +39,6 @@ to maintain a single distribution point for the source code.
 #endif //#ifndef AAPLUS_NO_VSOP87
 #include <cmath>
 #include <array>
-using namespace std;
 
 
 //////////////////// Macros / Defines /////////////////////////////////////////
@@ -55,7 +54,7 @@ struct VSOP87Coefficient
   double C;
 };
 
-constexpr array<VSOP87Coefficient, 91> g_L0UranusCoefficients
+constexpr std::array<VSOP87Coefficient, 91> g_L0UranusCoefficients
 { {
   { 548129294, 0,         0          },
   { 9260408,   0.8910642, 74.7815986 },
@@ -150,7 +149,7 @@ constexpr array<VSOP87Coefficient, 91> g_L0UranusCoefficients
   { 103,       0.681,     14.978     }
 } };
 
-constexpr array<VSOP87Coefficient, 57> g_L1UranusCoefficients
+constexpr std::array<VSOP87Coefficient, 57> g_L1UranusCoefficients
 { {
   { 7502543122.0, 0,        0         },
   { 154458,       5.242017, 74.781599 },
@@ -211,7 +210,7 @@ constexpr array<VSOP87Coefficient, 57> g_L1UranusCoefficients
   { 25,           5.74,     380.13    }
 } };
 
-constexpr array<VSOP87Coefficient, 35> g_L2UranusCoefficients
+constexpr std::array<VSOP87Coefficient, 35> g_L2UranusCoefficients
 { {
   { 53033, 0,      0       },
   { 2358,  2.2601, 74.7816 },
@@ -250,7 +249,7 @@ constexpr array<VSOP87Coefficient, 35> g_L2UranusCoefficients
   { 6,     5.73,   462.02  }
 } };
 
-constexpr array<VSOP87Coefficient, 18> g_L3UranusCoefficients
+constexpr std::array<VSOP87Coefficient, 18> g_L3UranusCoefficients
 { {
   { 121, 0.024, 74.782 },
   { 68,  4.12,  3.93   },
@@ -272,7 +271,7 @@ constexpr array<VSOP87Coefficient, 18> g_L3UranusCoefficients
   { 2,   5.66,  9.56   }
 } };
 
-constexpr array<VSOP87Coefficient, 4> g_L4UranusCoefficients
+constexpr std::array<VSOP87Coefficient, 4> g_L4UranusCoefficients
 { {
   { 114, 3.142, 0     },
   { 6,   4.58,  74.78 },
@@ -280,7 +279,7 @@ constexpr array<VSOP87Coefficient, 4> g_L4UranusCoefficients
   { 1,   3.42,  56.62 }
 } };
 
-constexpr array<VSOP87Coefficient, 28> g_B0UranusCoefficients
+constexpr std::array<VSOP87Coefficient, 28> g_B0UranusCoefficients
 { {
   { 1346278, 2.6187781, 74.7815986 },
   { 62341,   5.08111,   149.56320  },
@@ -312,7 +311,7 @@ constexpr array<VSOP87Coefficient, 28> g_B0UranusCoefficients
   { 102,     2.619,     78.714     }
 } };
 
-constexpr array<VSOP87Coefficient, 20> g_B1UranusCoefficients
+constexpr std::array<VSOP87Coefficient, 20> g_B1UranusCoefficients
 { {
   { 206366, 4.123943, 74.781599 },
   { 8563,   0.3382,   149.5632  },
@@ -336,7 +335,7 @@ constexpr array<VSOP87Coefficient, 20> g_B1UranusCoefficients
   { 26,     0.42,     380.13    }
 } };
 
-constexpr array<VSOP87Coefficient, 11> g_B2UranusCoefficients
+constexpr std::array<VSOP87Coefficient, 11> g_B2UranusCoefficients
 { {
   { 9212, 5.8004, 74.7816 },
   { 557,  0,      0       },
@@ -351,7 +350,7 @@ constexpr array<VSOP87Coefficient, 11> g_B2UranusCoefficients
   { 8,    6.27,   78.71   }
 } };
 
-constexpr array<VSOP87Coefficient, 4> g_B3UranusCoefficients
+constexpr std::array<VSOP87Coefficient, 4> g_B3UranusCoefficients
 { {
   { 268, 1.251, 74.782 },
   { 11,  3.14,  0      },
@@ -359,12 +358,12 @@ constexpr array<VSOP87Coefficient, 4> g_B3UranusCoefficients
   { 3,   5.78,  73.30  }
 } };
 
-constexpr array<VSOP87Coefficient, 1> g_B4UranusCoefficients
+constexpr std::array<VSOP87Coefficient, 1> g_B4UranusCoefficients
 { {
   { 6,  2.85, 74.78 }
 } };
 
-constexpr array<VSOP87Coefficient, 59> g_R0UranusCoefficients
+constexpr std::array<VSOP87Coefficient, 59> g_R0UranusCoefficients
 { {
   { 1921264848, 0,          0           },
   { 88784984,   5.60377527, 74.78159857 },
@@ -427,7 +426,7 @@ constexpr array<VSOP87Coefficient, 59> g_R0UranusCoefficients
   { 2183,       2.9404,     305.3462    }
 } };
 
-constexpr array<VSOP87Coefficient, 35> g_R1UranusCoefficients
+constexpr std::array<VSOP87Coefficient, 35> g_R1UranusCoefficients
 { {
   { 1479896, 3.6720571, 74.7815986 },
   { 71212,   6.22601,   63.73590   },
@@ -466,7 +465,7 @@ constexpr array<VSOP87Coefficient, 35> g_R1UranusCoefficients
   { 528,     5.151,     2.969      }
 } };
 
-constexpr array<VSOP87Coefficient, 18> g_R2UranusCoefficients
+constexpr std::array<VSOP87Coefficient, 18> g_R2UranusCoefficients
 { {
   { 22440, 0.69953, 74.78160 },
   { 4727,  1.6990,  63.7359  },
@@ -488,7 +487,7 @@ constexpr array<VSOP87Coefficient, 18> g_R2UranusCoefficients
   { 129,   2.081,   3.181    }
 } };
 
-constexpr array<VSOP87Coefficient, 10> g_R3UranusCoefficients
+constexpr std::array<VSOP87Coefficient, 10> g_R3UranusCoefficients
 { {
   { 1164, 4.7345, 74.7816 },
   { 212,  3.343,  63.736  },
@@ -502,7 +501,7 @@ constexpr array<VSOP87Coefficient, 10> g_R3UranusCoefficients
   { 32,   3.60,   131.40  }
 } };
 
-constexpr array<VSOP87Coefficient, 2> g_R4UranusCoefficients
+constexpr std::array<VSOP87Coefficient, 2> g_R4UranusCoefficients
 { {
   { 53, 3.01, 74.78 },
   { 10, 1.91, 56.62 }

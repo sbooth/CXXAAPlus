@@ -6,7 +6,7 @@ History: PJN / 02-06-2020 1. Initial implementation
          PJN / 04-07-2022 1. Updated all the code in AAPlanetPerihelionAphelion2.cpp to use C++ uniform initialization for 
                           all variable declarations.
 
-Copyright (c) 2020 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2020 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -36,15 +36,14 @@ to maintain a single distribution point for the source code.
 #include "AAPluto.h"
 #include "AAInterpolate.h"
 #include <cassert>
-using namespace std;
 
 
 //////////////////// Implementation ///////////////////////////////////////////
 
-vector<CAAPlanetPerihelionAphelionDetails2> CAAPlanetPerihelionAphelion2::Calculate(double StartJD, double EndJD, Object object, double StepInterval, bool bHighPrecision)
+std::vector<CAAPlanetPerihelionAphelionDetails2> CAAPlanetPerihelionAphelion2::Calculate(double StartJD, double EndJD, Object object, double StepInterval, bool bHighPrecision)
 {
   //What will be the return value
-  vector<CAAPlanetPerihelionAphelionDetails2> events;
+  std::vector<CAAPlanetPerihelionAphelionDetails2> events;
 
   double JD{StartJD};
   double LastDistance0{0};

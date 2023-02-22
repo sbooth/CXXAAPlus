@@ -9,7 +9,7 @@ History: PJN / 16-09-2015 1. CAAPhysicalMars::Calculate now includes a "bool bHi
          PJN / 03-07-2022 1. Updated all the code in AAPhysicalMars.cpp to use C++ uniform initialization for
                           all variable declarations.
 
-Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -37,7 +37,6 @@ to maintain a single distribution point for the source code.
 #include "AAMoonIlluminatedFraction.h"
 #include "AAIlluminatedFraction.h"
 #include <cmath>
-using namespace std;
 
 
 //////////////////// Implementation ///////////////////////////////////////////
@@ -94,7 +93,7 @@ CAAPhysicalMarsDetails CAAPhysicalMars::Calculate(double JD, bool bHighPrecision
     LightTravelTime = CAAElliptical::DistanceToLightTime(DELTA);
 
     //Prepare for the next loop around
-    bIterate = (fabs(LightTravelTime - PreviousLightTravelTime) > 2e-6); //2e-6 correponds to 0.17 of a second
+    bIterate = (fabs(LightTravelTime - PreviousLightTravelTime) > 2e-6); //2e-6 corresponds to 0.17 of a second
     if (bIterate)
       PreviousLightTravelTime = LightTravelTime;
   }

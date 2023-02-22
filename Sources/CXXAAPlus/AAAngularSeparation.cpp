@@ -5,7 +5,7 @@ Created: PJN / 29-12-2003
 History: PJN / 16-05-2022 1. Updated all the code in AAAngularSeparation.cpp to use C++ uniform initialization
                           for all variable declarations.
 
-Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -26,7 +26,6 @@ to maintain a single distribution point for the source code.
 #include "AAAngularSeparation.h"
 #include "AACoordinateTransformation.h"
 #include <cmath>
-using namespace std;
 
 
 //////////////////// Implementation ///////////////////////////////////////////

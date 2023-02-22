@@ -27,7 +27,7 @@ History: PJN / 07-02-2009 1. Fixed a seemingly copy and paste bug in CAAMoonPeri
          PJN / 28-06-2022 1. Updated all the code in AAMoonPerigeeApogee.cpp to use C++ uniform initialization for all
                           variable declarations.
 
-Copyright (c) 2003 - 2022 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -49,7 +49,6 @@ to maintain a single distribution point for the source code.
 #include "AACoordinateTransformation.h"
 #include <cmath>
 #include <array>
-using namespace std;
 
 
 //////////////////// Macros / Defines /////////////////////////////////////////
@@ -67,7 +66,7 @@ struct MoonPerigeeApogeeCoefficient
   double T;
 };
 
-constexpr array<MoonPerigeeApogeeCoefficient, 60> g_MoonPerigeeApogeeCoefficients1
+constexpr std::array<MoonPerigeeApogeeCoefficient, 60> g_MoonPerigeeApogeeCoefficients1
 { {
   { 2,  0,  0,  -1.6769,  0        },
   { 4,  0,  0,  0.4589,   0        },
@@ -131,7 +130,7 @@ constexpr array<MoonPerigeeApogeeCoefficient, 60> g_MoonPerigeeApogeeCoefficient
   { 1,  -1, 0,  -0.0004,  0        }
 } };
 
-constexpr array<MoonPerigeeApogeeCoefficient, 32> g_MoonPerigeeApogeeCoefficients2
+constexpr std::array<MoonPerigeeApogeeCoefficient, 32> g_MoonPerigeeApogeeCoefficients2
 { {
   { 2,  0,  0,  0.4392,   0        },
   { 4,  0,  0,  0.0684,   0        },
@@ -167,7 +166,7 @@ constexpr array<MoonPerigeeApogeeCoefficient, 32> g_MoonPerigeeApogeeCoefficient
   { 1,  -1, 0,  -0.0003,  0        }
 } };
 
-constexpr array<MoonPerigeeApogeeCoefficient, 46> g_MoonPerigeeApogeeCoefficients3
+constexpr std::array<MoonPerigeeApogeeCoefficient, 46> g_MoonPerigeeApogeeCoefficients3
 { {
   { 2,  0,  0,   63.224,   0        },
   { 4,  0,  0,   -6.990,   0        },
@@ -217,7 +216,7 @@ constexpr array<MoonPerigeeApogeeCoefficient, 46> g_MoonPerigeeApogeeCoefficient
   { 20, 0,  0,   -0.010,   0        }
 } };
 
-constexpr array<MoonPerigeeApogeeCoefficient, 17> g_MoonPerigeeApogeeCoefficients4
+constexpr std::array<MoonPerigeeApogeeCoefficient, 17> g_MoonPerigeeApogeeCoefficients4
 { {
   { 2,  0,  0,  -9.147,     0      },
   { 1,  0,  0,  -0.841,     0      },

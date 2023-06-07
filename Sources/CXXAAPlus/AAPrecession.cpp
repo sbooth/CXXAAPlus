@@ -31,6 +31,9 @@ History: PJN / 12-11-2014 1. Fixed two transcription bugs in the CAAPrecession::
          PJN / 18-08-2019 1. Fixed some further compiler warnings when using VC 2019 Preview v16.3.0 Preview 2.0
          PJN / 05-07-2022 1. Updated all the code in AAPrecession.cpp to use C++ uniform initialization for all
                           variable declarations.
+         PJN / 16-04-2023 1. Fixed a bug in CAAPrecession::AdjustPositionUsingMotionInSpace in the calculation of the DeltaX, DeltaY &
+                          DeltaZ variables. This issue was introduced in July 2022 when C++ uniform initialization for all variable 
+                          declarations was introduced. Thanks to "Pavel" for reporting this issue.
 
 Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
@@ -75,22 +78,21 @@ CAA2DCoordinate CAAPrecession::AdjustPositionUsingMotionInSpace(double r, double
   //Convert from seconds of arc to Radians / Year
   PMDelta /= 206265;
 
-  const double rDeltaR{r*DeltaR};
-
   //Now convert to radians
   Alpha = CAACoordinateTransformation::HoursToRadians(Alpha);
   const double cosAlpha{cos(Alpha)};
   const double sinAlpha{sin(Alpha)};
   Delta = CAACoordinateTransformation::DegreesToRadians(Delta);
   const double cosDelta{cos(Delta)};
+  const double rCosDelta{r*cosDelta};
 
-  double x{r*cosDelta*cosAlpha};
-  double y{r*cosDelta*sinAlpha};
+  double x{rCosDelta*cosAlpha};
+  double y{rCosDelta*sinAlpha};
   double z{r*sin(Delta)};
 
-  const double DeltaX{(x/rDeltaR) - (z*PMDelta*cosAlpha) - (y*PMAlpha)};
-  const double DeltaY{(y/rDeltaR) - (z*PMDelta*sinAlpha) + (x*PMAlpha)};
-  const double DeltaZ{(z/rDeltaR) + (r*PMDelta*cosDelta)};
+  const double DeltaX{((x/r)*DeltaR) - (z*PMDelta*cosAlpha) - (y*PMAlpha)};
+  const double DeltaY{((y/r)*DeltaR) - (z*PMDelta*sinAlpha) + (x*PMAlpha)};
+  const double DeltaZ{((z/r)*DeltaR) + (r*PMDelta*cosDelta)};
 
   x += t*DeltaX;
   y += t*DeltaY;

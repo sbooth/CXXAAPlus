@@ -87,8 +87,8 @@ public:
   static double MeanLongitudeLunarAscendingNode(double JD) noexcept;
   static double MeanHeliocentricMeanLongitudeEarthMoonBarycentre(const double* pT, int nTSize) noexcept;
   static double MeanHeliocentricMeanLongitudeEarthMoonBarycentre(double JD) noexcept;
-  static double MeanLongitudeOfPerilhelionOfEarthMoonBarycentre(const double* pT, int nTSize) noexcept;
-  static double MeanLongitudeOfPerilhelionOfEarthMoonBarycentre(double JD) noexcept;
+  static double MeanLongitudeOfPerihelionOfEarthMoonBarycentre(const double* pT, int nTSize) noexcept;
+  static double MeanLongitudeOfPerihelionOfEarthMoonBarycentre(double JD) noexcept;
   static double MoonMeanSolarElongation(const double* pT, int nTSize) noexcept;
   static double MoonMeanSolarElongation(double JD) noexcept;
   static double SunMeanAnomaly(const double* pT, int nTSize) noexcept;

@@ -74,7 +74,7 @@ CAASaturnRingDetails CAASaturnRings::Calculate(double JD, bool bHighPrecision) n
   const double b0rad{CAACoordinateTransformation::DegreesToRadians(b0)};
   const double R{CAAEarth::RadiusVector(JD, bHighPrecision)};
 
-  //Step 3. Calculate the corresponding coordinates l,b,r for Saturn but for the instance t-lightraveltime
+  //Step 3. Calculate the corresponding coordinates l,b,r for Saturn but for the instance t-lighttraveltime
   double DELTA{9};
   double PreviousEarthLightTravelTime{0};
   double EarthLightTravelTime{CAAElliptical::DistanceToLightTime(DELTA)};

@@ -25,6 +25,8 @@ History: PJN / 31-12-2015 1. Initial public release.
                           CAAELP2000::MeanLongitudeOfPerilhelionOfEarthMoonBarycentre
          PJN / 20-06-2022 1. Updated all the code in AAELP2000.cpp to use C++ uniform initialization for all
                           variable declarations.
+         PJN / 26-02-2023 1. Renamed CAAELP2000::MeanLongitudeOfPerilhelionOfEarthMoonBarycentre to
+                          CAAELP2000::MeanLongitudeOfPerihelionOfEarthMoonBarycentre.
 
 Copyright (c) 2015 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
@@ -38263,7 +38265,7 @@ double CAAELP2000::MeanHeliocentricMeanLongitudeEarthMoonBarycentre(double JD) n
   return MeanHeliocentricMeanLongitudeEarthMoonBarycentre(t.data(), 5);
 }
 
-double CAAELP2000::MeanLongitudeOfPerilhelionOfEarthMoonBarycentre(const double* pT, int nTSize) noexcept //Aka Omega'
+double CAAELP2000::MeanLongitudeOfPerihelionOfEarthMoonBarycentre(const double* pT, int nTSize) noexcept //Aka Omega'
 {
   //Validate our parameters
   assert(pT);
@@ -38279,7 +38281,7 @@ double CAAELP2000::MeanLongitudeOfPerilhelionOfEarthMoonBarycentre(const double*
   return fValue;
 }
 
-double CAAELP2000::MeanLongitudeOfPerilhelionOfEarthMoonBarycentre(double JD) noexcept //Aka Omega'
+double CAAELP2000::MeanLongitudeOfPerihelionOfEarthMoonBarycentre(double JD) noexcept //Aka Omega'
 {
   //Calculate Julian centuries
   std::array<double, 5> t;
@@ -38289,7 +38291,7 @@ double CAAELP2000::MeanLongitudeOfPerilhelionOfEarthMoonBarycentre(double JD) no
   t[3] = t[2]*t[1];
   t[4] = t[3]*t[1];
 
-  return MeanLongitudeOfPerilhelionOfEarthMoonBarycentre(t.data(), 5);
+  return MeanLongitudeOfPerihelionOfEarthMoonBarycentre(t.data(), 5);
 }
 
 double CAAELP2000::MoonMeanSolarElongation(const double* pT, int nTSize) noexcept //Aka D
@@ -38314,7 +38316,7 @@ double CAAELP2000::MoonMeanSolarElongation(double JD) noexcept //Aka D
 double CAAELP2000::SunMeanAnomaly(const double* pT, int nTSize) noexcept //Aka l'
 {
   //Implement l' in terms of T and Omega'
-  return MeanHeliocentricMeanLongitudeEarthMoonBarycentre(pT, nTSize) - MeanLongitudeOfPerilhelionOfEarthMoonBarycentre(pT, nTSize);
+  return MeanHeliocentricMeanLongitudeEarthMoonBarycentre(pT, nTSize) - MeanLongitudeOfPerihelionOfEarthMoonBarycentre(pT, nTSize);
 }
 
 double CAAELP2000::SunMeanAnomaly(double JD) noexcept //Aka l'

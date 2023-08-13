@@ -45,42 +45,42 @@ public:
 //Static methods
   constexpr static double SunSemidiameterA(double Delta)
   {
-    return 959.63 / Delta;
+    return 959.63/Delta;
   }
 
   constexpr static double MercurySemidiameterA(double Delta)
   {
-    return 3.34 / Delta;
+    return 3.34/Delta;
   }
 
   constexpr static double VenusSemidiameterA(double Delta)
   {
-    return 8.41 / Delta;
+    return 8.41/Delta;
   }
 
   constexpr static double MarsSemidiameterA(double Delta)
   {
-    return 4.68 / Delta;
+    return 4.68/Delta;
   }
 
   constexpr static double JupiterEquatorialSemidiameterA(double Delta)
   {
-    return 98.47 / Delta;
+    return 98.47/Delta;
   }
 
   constexpr static double JupiterPolarSemidiameterA(double Delta)
   {
-    return 91.91 / Delta;
+    return 91.91/Delta;
   }
 
   constexpr static double SaturnEquatorialSemidiameterA(double Delta)
   {
-    return 83.33 / Delta;
+    return 83.33/Delta;
   }
 
   constexpr static double SaturnPolarSemidiameterA(double Delta)
   {
-    return 74.57 / Delta;
+    return 74.57/Delta;
   }
 
   constexpr static double UranusSemidiameterA(double Delta)
@@ -130,29 +130,25 @@ public:
 
   constexpr static double UranusSemidiameterB(double Delta)
   {
-    return 35.02 / Delta;
+    return 35.02/Delta;
   }
 
   constexpr static double NeptuneSemidiameterB(double Delta)
   {
-    return 33.50 / Delta;
+    return 33.50/Delta;
   }
 
   constexpr static double PlutoSemidiameterB(double Delta)
   {
-    return 2.07 / Delta;
-  }
-
-  constexpr static double GeocentricMoonSemidiameter(double Delta)
-  {
-    return CAACoordinateTransformation::RadiansToDegrees(0.272481 * 6378.14 / Delta) * 3600;
+    return 2.07/Delta;
   }
 
   constexpr static double ApparentAsteroidDiameter(double Delta, double d)
   {
-    return (0.0013788*d) / Delta;
+    return (0.0013788*d)/Delta;
   }
 
+  static double GeocentricMoonSemidiameter(double Delta) noexcept;
   static double ApparentSaturnPolarSemidiameterA(double Delta, double B) noexcept;
   static double ApparentSaturnPolarSemidiameterB(double Delta, double B) noexcept;
   static double TopocentricMoonSemidiameter(double DistanceDelta, double Delta, double H, double Latitude, double Height) noexcept;

@@ -8,6 +8,9 @@ History: PJN / 04-07-2010 Removed unnecessary "Longitude" parameter from method 
          PJN / 18-08-2019 1. Fixed some further compiler warnings when using VC 2019 Preview v16.3.0 Preview 2.0
          PJN / 02-07-2022 1. Updated all the code in AAParallax.cpp to use C++ uniform initialization for all
                           variable declarations.
+         PJN / 12-07-2023 1. Updated AAParallax.cpp to use a more accurate value of the Solar Parallax constant of 
+                          8.794148" instead of 8.794". This newer value was adopted in 1977 by the IAU. Thanks to 
+                          "Pavel" for reporting this issue.
 
 Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
@@ -36,7 +39,7 @@ to maintain a single distribution point for the source code.
 
 //////////////////// Macros / Defines /////////////////////////////////////////
 
-constexpr double g_AAParallax_C1 = 4.2634515103856459e-05; //sin(CAACoordinateTransformation::DegreesToRadians(CAACoordinateTransformation::DMSToDegrees(0, 0, 8.794)));
+constexpr double g_AAParallax_C1 = 4.2635232628103847e-05; //sin(CAACoordinateTransformation::DegreesToRadians(CAACoordinateTransformation::DMSToDegrees(0, 0, 8.794148)));
 
 
 //////////////////// Implementation ///////////////////////////////////////////

@@ -15,6 +15,10 @@ History: PJN / 19-02-2004 1. The optical libration in longitude is now returned 
                           issue.
          PJN / 03-07-2022 1. Updated all the code in AAPhysicalMoon.cpp to use C++ uniform initialization for
                           all variable declarations.
+         PJN / 11-07-2023 1. Fixed a bug in the calculation of the return value in the 
+                          CAAPhysicalMoon::AltitudeOfSun method. Thanks to "Pavel" for reporting this issue.
+         PJN / 12-07-2023 1. Fixed another bug in the calculation of the return value in the
+                          CAAPhysicalMoon::AltitudeOfSun method. Thanks to "Pavel" for reporting this issue.
 
 Copyright (c) 2004 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
@@ -273,7 +277,8 @@ double CAAPhysicalMoon::AltitudeOfSun(double JD, double Longitude, double Latitu
   selenographicDetails.b0 = CAACoordinateTransformation::DegreesToRadians(selenographicDetails.b0);
   selenographicDetails.c0 = CAACoordinateTransformation::DegreesToRadians(selenographicDetails.c0);
 
-  return CAACoordinateTransformation::RadiansToDegrees(asin(sin((selenographicDetails.b0)*sin(Latitude)) + (cos(selenographicDetails.b0)*cos(Latitude)*sin(selenographicDetails.c0 + Longitude))));
+  return CAACoordinateTransformation::RadiansToDegrees(asin((sin(selenographicDetails.b0)*sin(Latitude)) + 
+                                                            (cos(selenographicDetails.b0)*cos(Latitude)*sin(selenographicDetails.c0 + Longitude))));
 }
 
 double CAAPhysicalMoon::SunriseSunsetHelper(double JD, double Longitude, double Latitude, bool bSunrise, bool bHighPrecision) noexcept

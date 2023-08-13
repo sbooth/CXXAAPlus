@@ -24,6 +24,12 @@ to maintain a single distribution point for the source code.
 #pragma once
 #endif //#if _MSC_VER > 1000
 
+#ifdef _MSC_VER
+#if _MSVC_LANG < 201703
+#error AA++ requires a minimum C++ language standard of /std:c++17
+#endif //#if _MSVC_LANG < 201703
+#endif //#ifdef _MSC_VER
+
 #ifndef __AAPLUS_H__
 #define __AAPLUS_H__
 

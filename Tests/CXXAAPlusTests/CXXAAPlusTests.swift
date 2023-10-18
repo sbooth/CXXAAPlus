@@ -19,21 +19,21 @@ final class CXXAAPlusTests: XCTestCase {
 		let j2000_utc_tt = CAADynamicalTime.UTC2TT(j2000_utc.Julian())
 		let j2000_tt_utc = CAADynamicalTime.TT2UTC(j2000_tt.Julian())
 
-		XCTAssert(j2000_utc_tt == j2000_tt.Julian())
-		XCTAssert(j2000_tt_utc == j2000_utc.Julian())
+		XCTAssertEqual(j2000_utc_tt, j2000_tt.Julian())
+		XCTAssertEqual(j2000_tt_utc, j2000_utc.Julian())
 	}
 
 	func testDate() {
 		// The Unix epoch is 00:00:00 UTC on 1 January, 1970
 		let unixEpoch = CAADate(1970, 1, 1, true)
-		XCTAssert(unixEpoch.InGregorianCalendar())
-		XCTAssert(unixEpoch.Year() == 1970)
-		XCTAssert(unixEpoch.Month() == 1)
-		XCTAssert(unixEpoch.Day() == 1)
-		XCTAssert(unixEpoch.Hour() == 0)
-		XCTAssert(unixEpoch.Minute() == 0)
-		XCTAssert(unixEpoch.Second() == 0)
-		XCTAssert(unixEpoch.Julian() == 2440587.5)
+		XCTAssertTrue(unixEpoch.InGregorianCalendar())
+		XCTAssertEqual(unixEpoch.Year(), 1970)
+		XCTAssertEqual(unixEpoch.Month(), 1)
+		XCTAssertEqual(unixEpoch.Day(), 1)
+		XCTAssertEqual(unixEpoch.Hour(), 0)
+		XCTAssertEqual(unixEpoch.Minute(), 0)
+		XCTAssertEqual(unixEpoch.Second(), 0)
+		XCTAssertEqual(unixEpoch.Julian(), 2440587.5)
 	}
 #endif
 }

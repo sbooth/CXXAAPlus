@@ -3,7 +3,7 @@ Module : AADate.h
 Purpose: Implementation for the algorithms which convert between the Gregorian and Julian calendars and the Julian Day
 Created: PJN / 29-12-2003
 
-Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2024 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -30,11 +30,6 @@ to maintain a single distribution point for the source code.
 #ifndef AAPLUS_EXT_CLASS
 #define AAPLUS_EXT_CLASS
 #endif //#ifndef AAPLUS_EXT_CLASS
-
-
-//////////////////// Includes /////////////////////////////////////////////////
-
-#include "AADefines.h"
 
 
 //////////////////// Classes //////////////////////////////////////////////////

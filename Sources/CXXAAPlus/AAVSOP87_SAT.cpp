@@ -9,7 +9,7 @@ History: PJN / 13-09-2015 1. Initial public release.
                           false, the values returned are now in exact agreement with the vsop87.chk test
                           values. Thanks to Cao Yu for reporting this issue.
 
-Copyright (c) 2015 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2015 - 2024 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -29,7 +29,6 @@ to maintain a single distribution point for the source code.
 #include "stdafx.h"
 #include "AAVSOP87.h"
 #include "AAVSOP87_SAT.h"
-#include <cmath>
 #include <array>
 
 

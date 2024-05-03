@@ -14,7 +14,7 @@ History: PJN / 07-02-2009 1. Optimized the layout of the PlutoCoefficient1 struc
          PJN / 04-07-2022 1. Updated all the code in AAPluto.cpp to use C++ uniform initialization for all
                           variable declarations.
 
-Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2024 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -35,7 +35,6 @@ to maintain a single distribution point for the source code.
 #include "AAPluto.h"
 #include "AACoordinateTransformation.h"
 #include <cmath>
-#include <cstddef>
 #include <array>
 
 

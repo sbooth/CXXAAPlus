@@ -52,7 +52,7 @@ History: PJN / 10-11-2004 1. Fix for CAADate::Get so that it works correctly for
                           2. Updated all the code in the AADate.cpp to use C++ uniform initialization for all variable
                           declarations.
 
-Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2024 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -73,7 +73,6 @@ to maintain a single distribution point for the source code.
 #include "AADate.h"
 #include <cmath>
 #include <cassert>
-#include <cstddef>
 #include <array>
 
 

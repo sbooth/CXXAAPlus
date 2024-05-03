@@ -3,7 +3,7 @@ Module : AAPhysicalMoon.h
 Purpose: Implementation for the algorithms which obtain the physical parameters of the Moon
 Created: PJN / 17-01-2004
 
-Copyright (c) 2004 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2004 - 2024 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -34,7 +34,7 @@ to maintain a single distribution point for the source code.
 
 //////////////////// Includes /////////////////////////////////////////////////
 
-#include "AACoordinateTransformation.h"
+#include "AA2DCoordinate.h"
 
 
 //////////////////// Classes //////////////////////////////////////////////////

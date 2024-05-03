@@ -3,7 +3,7 @@ Module : AADiameters.h
 Purpose: Implementation for the algorithms for the semi diameters of the Sun, Moon, Planets, and Asteroids
 Created: PJN / 15-01-2004
 
-Copyright (c) 2004 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2004 - 2024 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -30,11 +30,6 @@ to maintain a single distribution point for the source code.
 #ifndef AAPLUS_EXT_CLASS
 #define AAPLUS_EXT_CLASS
 #endif //#ifndef AAPLUS_EXT_CLASS
-
-
-//////////////////// Includes /////////////////////////////////////////////////
-
-#include "AACoordinateTransformation.h"
 
 
 //////////////////// Classes //////////////////////////////////////////////////

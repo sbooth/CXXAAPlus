@@ -6,7 +6,7 @@ History: PJN / 02-06-2020 1. Initial implementation
          PJN / 04-07-2022 1. Updated all the code in AAPlanetPerihelionAphelion2.cpp to use C++ uniform initialization for 
                           all variable declarations.
 
-Copyright (c) 2020 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2020 - 2024 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 

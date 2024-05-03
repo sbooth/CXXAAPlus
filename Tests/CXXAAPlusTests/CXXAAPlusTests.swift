@@ -1,5 +1,5 @@
 //
-// Copyright © 2021-2023 Stephen F. Booth <me@sbooth.org>
+// Copyright © 2021-2024 Stephen F. Booth <me@sbooth.org>
 // Part of https://github.com/sbooth/CXXAAPlus
 // MIT license
 //
@@ -34,6 +34,13 @@ final class CXXAAPlusTests: XCTestCase {
 		XCTAssertEqual(unixEpoch.Minute(), 0)
 		XCTAssertEqual(unixEpoch.Second(), 0)
 		XCTAssertEqual(unixEpoch.Julian(), 2440587.5)
+	}
+
+	func testSolarEclipse() {
+		let d = CAADate(2024, 4, 8, 0, 0, 0, true)
+		let k = CAAMoonPhases.K(d.FractionalYear())
+		let details = CAAEclipses.CalculateSolar(k.rounded())
+		XCTAssertEqual(details.Flags & 0x01 /*CAASolarEclipseDetails.TOTAL_ECLIPSE*/, 0x01)
 	}
 #endif
 }

@@ -13,7 +13,7 @@ History: PJN / 18-03-2012 1. All global "g_*" tables are now const. Thanks to Ro
          PJN / 09-07-2022 1. Updated all the code in AAUranus.cpp to use C++ uniform initialization for all
                           variable declarations.
 
-Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2024 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -33,7 +33,6 @@ to maintain a single distribution point for the source code.
 #include "stdafx.h"
 #include "AAUranus.h"
 #include "AACoordinateTransformation.h"
-#include "AADefines.h"
 #ifndef AAPLUS_NO_VSOP87
 #include "AAVSOP87D_URA.h"
 #endif //#ifndef AAPLUS_NO_VSOP87

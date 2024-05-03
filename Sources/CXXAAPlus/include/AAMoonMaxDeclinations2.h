@@ -3,7 +3,7 @@ Module : AAMoonMaxDeclinations2.h
 Purpose: Implementation for the algorithms to calculate the dates and values for maximum declination of the Moon (revised version)
 Created: PJN / 22-10-2019
 
-Copyright (c) 2019 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2019 - 2024 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -34,7 +34,6 @@ to maintain a single distribution point for the source code.
 
 //////////////////// Includes /////////////////////////////////////////////////
 
-#include "AA2DCoordinate.h"
 #include <vector>
 
 

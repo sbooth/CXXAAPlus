@@ -26,7 +26,7 @@ History: PJN / 03-10-2009 1. Fixed a copy and paste gremlin in the CAAEarth::Ecl
          PJN / 18-06-2022 1. Updated all the code in AAEarth.cpp to use C++ uniform initialization for all variable 
                           declarations.
 
-Copyright (c) 2003 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2003 - 2024 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -46,7 +46,6 @@ to maintain a single distribution point for the source code.
 #include "stdafx.h"
 #include "AAEarth.h"
 #include "AACoordinateTransformation.h"
-#include "AADefines.h"
 #ifndef AAPLUS_NO_VSOP87
 #include "AAVSOP87D_EAR.h"
 #include "AAVSOP87B_EAR.h"

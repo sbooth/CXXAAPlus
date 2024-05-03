@@ -16,7 +16,7 @@ History: PJN / 18-06-2022 1. Updated all the code in AADiameters.cpp to use C++ 
                           3. Improved the k value in the CAADiameters::ApparentSaturnPolarSemidiameterB
                           method. Thanks to "Pavel" for reporting this issue.
 
-Copyright (c) 2004 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2004 - 2024 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -36,6 +36,7 @@ to maintain a single distribution point for the source code.
 #include "stdafx.h"
 #include "AADiameters.h"
 #include "AAGlobe.h"
+#include "AACoordinateTransformation.h"
 #include <cmath>
 
 

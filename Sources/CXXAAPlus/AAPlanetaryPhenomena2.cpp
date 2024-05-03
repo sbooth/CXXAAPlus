@@ -10,7 +10,7 @@ History: PJN / 11-06-2020 1. Initial implementation
          PJN / 28-01-2023 1. Fixed a number of spelling mistakes in the CAAPlanetaryPhenomena2::Calculate
                           method.
 
-Copyright (c) 2020 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2020 - 2024 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 

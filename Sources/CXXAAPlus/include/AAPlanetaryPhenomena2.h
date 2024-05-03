@@ -3,7 +3,7 @@ Module : AAPlanetaryPhenomena2.h
 Purpose: Implementation for the algorithms which obtain the dates of various planetary phenomena (revised version)
 Created: PJN / 11-06-2020
 
-Copyright (c) 2020 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2020 - 2024 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -34,7 +34,6 @@ to maintain a single distribution point for the source code.
 
 //////////////////// Includes /////////////////////////////////////////////////
 
-#include "AA2DCoordinate.h"
 #include <vector>
 
 

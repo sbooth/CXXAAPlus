@@ -5,7 +5,7 @@ Created: PJN / 13-09-2015
 History: PJN / 13-09-2015 1. Initial public release.
          PJN / 22-04-2020 1. Reworked C arrays to use std::array.
 
-Copyright (c) 2015 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2015 - 2024 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -25,7 +25,6 @@ to maintain a single distribution point for the source code.
 #include "stdafx.h"
 #include "AAVSOP87.h"
 #include "AAVSOP87A_MAR.h"
-#include <cmath>
 #include <array>
 
 

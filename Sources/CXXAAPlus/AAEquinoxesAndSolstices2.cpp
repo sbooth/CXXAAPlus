@@ -6,7 +6,7 @@ History: PJN / 28-09-2019 1. Initial implementation
          PJN / 22-06-2022 1. Updated all the code in AAEquinoxesAndSolstices2.cpp to use C++ uniform initialization for
                           all variable declarations.
 
-Copyright (c) 2019 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2019 - 2024 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -29,7 +29,6 @@ to maintain a single distribution point for the source code.
 #include "AANutation.h"
 #include "AACoordinateTransformation.h"
 #include "AAInterpolate.h"
-#include <cmath>
 
 
 //////////////////// Implementation ///////////////////////////////////////////

@@ -5,7 +5,7 @@ Created: PJN / 01-08-2021
 History: PJN / 12-06-2022 1. Updated all the code in AAVSOP2013.cpp to use C++ uniform initialization for all
                           variable declarations.
 
-Copyright (c) 2021 - 2023 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2021 - 2024 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -114,7 +114,7 @@ bool CAAVSOP2013EphemeridesFile::ReadTextFile(const std::filesystem::path::value
   {
     if (!std::getline(file, sLine))
       return false;
-    std::array<double, COEFFICIENTS_PER_TABLE + 2> table;
+    std::array<double, COEFFICIENTS_PER_TABLE + 2> table{};
 #ifdef _MSC_VER
     if (sscanf_s(sLine.c_str(), "%lf %lf",
 #else
@@ -196,7 +196,7 @@ struct AAPLUS_EXT_CLASS CVSOP2013FILEDeleter
 
 
 //A function which writes out an int32_t to a FILE* in big endian format
-size_t fwrite_int32_t(int32_t nValue, FILE* f) noexcept
+static size_t fwrite_int32_t(int32_t nValue, FILE* f) noexcept
 {
   const uint32_t nTemp{htonl(nValue)};
   return fwrite(&nTemp, sizeof(nTemp), 1, f);
@@ -204,7 +204,7 @@ size_t fwrite_int32_t(int32_t nValue, FILE* f) noexcept
 
 
 //A function to convert a big endian uint32_t to a host endian int32_t
-inline int32_t convert_read_int32_t(const uint32_t& nValue) noexcept
+static inline int32_t convert_read_int32_t(const uint32_t& nValue) noexcept
 {
   const uint32_t nTemp{ntohl(nValue)};
   if (nTemp > INT32_MAX)
@@ -218,7 +218,7 @@ inline int32_t convert_read_int32_t(const uint32_t& nValue) noexcept
 
 
 //A function which reads in an int32_t from a FILE* in big endian format
-size_t fread_int32_t(int32_t& nValue, FILE* f) noexcept
+static size_t fread_int32_t(int32_t& nValue, FILE* f) noexcept
 {
   uint32_t nTemp{0};
   const auto nRead{fread(&nTemp, sizeof(nTemp), 1, f)};
@@ -672,7 +672,7 @@ CAAVSOP2013Orbit CAAVSOP2013::CalculateOrbit(Planet planet, double JD)
     }
     assert(serie.m_it < 21);
     fSum *= T[serie.m_it];
-    r[serie.m_iv - 1] += fSum;
+    r[static_cast<size_t>(serie.m_iv) - 1] += fSum;
   }
 
   CAAVSOP2013Orbit orbit;

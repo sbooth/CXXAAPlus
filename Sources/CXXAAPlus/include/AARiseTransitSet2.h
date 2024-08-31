@@ -109,7 +109,7 @@ public:
 protected:
   static void AddEvents(std::vector<CAARiseTransitSetDetails2>& events, double LastAltitudeForDetectingRiseSet, double AltitudeForDetectingRiseSet,
                         double LastAltitudeForInterpolation, double h0, const CAA2DCoordinate& Horizontal, double LastJD, double StepInterval, double LastBearing,
-                        Object object, double LastAltitudeForDetectingTwilight, double AltitudeForTwilight);
+                        Object object, double LastAltitudeForDetectingTwilight, double AltitudeForTwilight, double EndJD);
 };
 
 

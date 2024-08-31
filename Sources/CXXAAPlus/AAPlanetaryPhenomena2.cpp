@@ -9,6 +9,11 @@ History: PJN / 11-06-2020 1. Initial implementation
                           MaximumDistance event types.
          PJN / 28-01-2023 1. Fixed a number of spelling mistakes in the CAAPlanetaryPhenomena2::Calculate
                           method.
+         PJN / 24-07-2024 1. Fixed an edge case bug in all the Calculate function of CAAPlanetaryPhenomena2 where the main loop
+                          iterates from StartJD by StepInterval until JD < EndJD. That means that events happening closer than
+                          StepInterval to EndJD get lost because the step where we can catch it is outside of StartJD...EndJD
+                          interval. Now the code iterates from StartJD by StepInterval until JD < 
+                          (EndJD+StepInterval+StepInterval). Thanks to Alexander Vasenin for reporting this issue.
 
 Copyright (c) 2020 - 2024 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
@@ -57,7 +62,8 @@ std::vector<CAAPlanetaryPhenomenaDetails2> CAAPlanetaryPhenomena2::Calculate(dou
   double LastStationValueInRA1{-1};
   double LastMinDistance0{-1};
   double LastMinDistance1{-1};
-  while (JD < EndJD)
+  const double localEndJD{EndJD + StepInterval + StepInterval}; //Make sure we do not miss any possible events near to EndJD
+  while (JD < localEndJD)
   {
     const CAAEllipticalPlanetaryDetails SunDetails{CAAElliptical::Calculate(JD, CAAElliptical::Object::SUN, bHighPrecision)};
     CAAEllipticalPlanetaryDetails ObjectDetails;
@@ -133,7 +139,8 @@ std::vector<CAAPlanetaryPhenomenaDetails2> CAAPlanetaryPhenomena2::Calculate(dou
         else
           event.Value = 180;
         event.JD = LastJD + (fraction*StepInterval);
-        events.push_back(event);
+        if (event.JD < EndJD)
+          events.push_back(event);
       }
       else if ((LastConjunctionValueInEclipticLongitude0 < ConjunctionValueInEclipticLongitude) && (LastConjunctionValueInEclipticLongitude0 < LastConjunctionValueInEclipticLongitude1))
       {
@@ -146,7 +153,8 @@ std::vector<CAAPlanetaryPhenomenaDetails2> CAAPlanetaryPhenomena2::Calculate(dou
         event.Value = 0;
         CAAInterpolate::Extremum(LastConjunctionValueInEclipticLongitude1, LastConjunctionValueInEclipticLongitude0, ConjunctionValueInEclipticLongitude, fraction);
         event.JD = LastJD + (fraction*StepInterval);
-        events.push_back(event);
+        if (event.JD < EndJD)
+          events.push_back(event);
       }
     }
     double ConjunctionValueInRA{0};
@@ -177,7 +185,8 @@ std::vector<CAAPlanetaryPhenomenaDetails2> CAAPlanetaryPhenomena2::Calculate(dou
         else
           event.Value = 12;
         event.JD = LastJD + (fraction*StepInterval);
-        events.push_back(event);
+        if (event.JD < EndJD)
+          events.push_back(event);
       }
       else if ((LastConjunctionValueInRA0 < ConjunctionValueInRA) && (LastConjunctionValueInRA0 < LastConjunctionValueInRA1))
       {
@@ -190,7 +199,8 @@ std::vector<CAAPlanetaryPhenomenaDetails2> CAAPlanetaryPhenomena2::Calculate(dou
         event.Value = 0;
         CAAInterpolate::Extremum(LastConjunctionValueInRA1, LastConjunctionValueInRA0, ConjunctionValueInRA, fraction);
         event.JD = LastJD + (fraction*StepInterval);
-        events.push_back(event);
+        if (event.JD < EndJD)
+          events.push_back(event);
       }
     }
     const double ElongationValue{CAAAngularSeparation::Separation(SunDetails.ApparentGeocentricRA, SunDetails.ApparentGeocentricDeclination, ObjectDetails.ApparentGeocentricRA, ObjectDetails.ApparentGeocentricDeclination)};
@@ -211,7 +221,8 @@ std::vector<CAAPlanetaryPhenomenaDetails2> CAAPlanetaryPhenomena2::Calculate(dou
         double fraction{0};
         event.Value = CAAInterpolate::Extremum(LastElongationValue1, LastElongationValue0, ElongationValue, fraction);
         event.JD = LastJD + (fraction*StepInterval);
-        events.push_back(event);
+        if (event.JD < EndJD)
+          events.push_back(event);
       }
       else if ((LastElongationValue0 < ElongationValue) && (LastElongationValue0 < LastElongationValue1))
       {
@@ -223,7 +234,8 @@ std::vector<CAAPlanetaryPhenomenaDetails2> CAAPlanetaryPhenomena2::Calculate(dou
         double fraction{0};
         event.Value = CAAInterpolate::Extremum(LastElongationValue1, LastElongationValue0, ElongationValue, fraction);
         event.JD = LastJD + (fraction*StepInterval);
-        events.push_back(event);
+        if (event.JD < EndJD)
+          events.push_back(event);
       }
     }
     if (LastConjunctionValueInRA0 != -1)
@@ -247,7 +259,8 @@ std::vector<CAAPlanetaryPhenomenaDetails2> CAAPlanetaryPhenomena2::Calculate(dou
         const double fraction{(6 - LastConjunctionValueInRA0)/(ConjunctionValueInRA - LastConjunctionValueInRA0)};
         event.JD = LastJD + (fraction*StepInterval);
         event.Value = 6;
-        events.push_back(event);
+        if (event.JD < EndJD)
+          events.push_back(event);
       }
     }
     if (LastConjunctionValueInEclipticLongitude0 != -1)
@@ -271,7 +284,8 @@ std::vector<CAAPlanetaryPhenomenaDetails2> CAAPlanetaryPhenomena2::Calculate(dou
         const double fraction{(90 - LastConjunctionValueInEclipticLongitude0)/(ConjunctionValueInEclipticLongitude - LastConjunctionValueInEclipticLongitude0)};
         event.JD = LastJD + (fraction*StepInterval);
         event.Value = 90;
-        events.push_back(event);
+        if (event.JD < EndJD)
+          events.push_back(event);
       }
     }
     if (LastElongationValue0 != -1)
@@ -295,7 +309,8 @@ std::vector<CAAPlanetaryPhenomenaDetails2> CAAPlanetaryPhenomena2::Calculate(dou
         const double fraction{(90 - LastElongationValue0)/(ElongationValue - LastElongationValue0)};
         event.JD = LastJD + (fraction*StepInterval);
         event.Value = 90;
-        events.push_back(event);
+        if (event.JD < EndJD)
+          events.push_back(event);
       }
     }
     const double StationValueInEclipticLongitude{ObjectDetails.ApparentGeocentricEclipticalLongitude};
@@ -312,7 +327,8 @@ std::vector<CAAPlanetaryPhenomenaDetails2> CAAPlanetaryPhenomena2::Calculate(dou
         double fraction{0};
         event.Value = CAACoordinateTransformation::MapTo0To360Range(CAAInterpolate::Extremum(LastStationValueForInterpolationInEclipticLongitude1, LastStationValueForInterpolationInEclipticLongitude0, StationValueForInterpolationInEclipticLongitude, fraction));
         event.JD = LastJD + (fraction*StepInterval);
-        events.push_back(event);
+        if (event.JD < EndJD)
+          events.push_back(event);
       }
       else if ((LastStationValueForInterpolationInEclipticLongitude0 < StationValueForInterpolationInEclipticLongitude) && (LastStationValueForInterpolationInEclipticLongitude0 < LastStationValueForInterpolationInEclipticLongitude1))
       {
@@ -321,7 +337,8 @@ std::vector<CAAPlanetaryPhenomenaDetails2> CAAPlanetaryPhenomena2::Calculate(dou
         double fraction{0};
         event.Value = CAACoordinateTransformation::MapTo0To360Range(CAAInterpolate::Extremum(LastStationValueForInterpolationInEclipticLongitude1, LastStationValueForInterpolationInEclipticLongitude0, StationValueForInterpolationInEclipticLongitude, fraction));
         event.JD = LastJD + (fraction*StepInterval);
-        events.push_back(event);
+        if (event.JD < EndJD)
+          events.push_back(event);
       }
     }
     const double StationValueInRA{ObjectDetails.ApparentGeocentricRA};
@@ -338,7 +355,8 @@ std::vector<CAAPlanetaryPhenomenaDetails2> CAAPlanetaryPhenomena2::Calculate(dou
         double fraction{0};
         event.Value = CAACoordinateTransformation::MapTo0To24Range(CAAInterpolate::Extremum(LastStationValueForInterpolationInRA1, LastStationValueForInterpolationInRA0, StationValueForInterpolationInRA, fraction));
         event.JD = LastJD + (fraction*StepInterval);
-        events.push_back(event);
+        if (event.JD < EndJD)
+          events.push_back(event);
       }
       else if ((LastStationValueForInterpolationInRA0 < StationValueForInterpolationInRA) && (LastStationValueForInterpolationInRA0 < LastStationValueForInterpolationInRA1))
       {
@@ -347,7 +365,8 @@ std::vector<CAAPlanetaryPhenomenaDetails2> CAAPlanetaryPhenomena2::Calculate(dou
         double fraction{0};
         event.Value = CAACoordinateTransformation::MapTo0To24Range(CAAInterpolate::Extremum(LastStationValueForInterpolationInRA1, LastStationValueForInterpolationInRA0, StationValueForInterpolationInRA, fraction));
         event.JD = LastJD + (fraction*StepInterval);
-        events.push_back(event);
+        if (event.JD < EndJD)
+          events.push_back(event);
       }
     }
     const double MinDistance{ObjectDetails.TrueGeocentricDistance};
@@ -360,7 +379,8 @@ std::vector<CAAPlanetaryPhenomenaDetails2> CAAPlanetaryPhenomena2::Calculate(dou
         double fraction{0};
         event.Value = CAAInterpolate::Extremum(LastMinDistance1, LastMinDistance0, MinDistance, fraction);
         event.JD = LastJD + (fraction*StepInterval);
-        events.push_back(event);
+        if (event.JD < EndJD)
+          events.push_back(event);
       }
       else if ((LastMinDistance0 < MinDistance) && (LastMinDistance0 < LastMinDistance1))
       {
@@ -369,7 +389,8 @@ std::vector<CAAPlanetaryPhenomenaDetails2> CAAPlanetaryPhenomena2::Calculate(dou
         double fraction{0};
         event.Value = CAAInterpolate::Extremum(LastMinDistance1, LastMinDistance0, MinDistance, fraction);
         event.JD = LastJD + (fraction*StepInterval);
-        events.push_back(event);
+        if (event.JD < EndJD)
+          events.push_back(event);
       }
     }
 

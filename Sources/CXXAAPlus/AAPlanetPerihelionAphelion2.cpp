@@ -5,6 +5,11 @@ Created: PJN / 02-06-2020
 History: PJN / 02-06-2020 1. Initial implementation
          PJN / 04-07-2022 1. Updated all the code in AAPlanetPerihelionAphelion2.cpp to use C++ uniform initialization for 
                           all variable declarations.
+         PJN / 24-07-2024 1. Fixed an edge case bug in the Calculate function of CAAPlanetPerihelionAphelion2 where the main loop
+                          iterates from StartJD by StepInterval until JD < EndJD. That means that events happening closer than
+                          StepInterval to EndJD get lost because the step where we can catch it is outside of StartJD...EndJD
+                          interval. Now the code iterates from StartJD by StepInterval until JD < 
+                          (EndJD+StepInterval+StepInterval). Thanks to Alexander Vasenin for reporting this issue.
 
 Copyright (c) 2020 - 2024 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
@@ -48,7 +53,8 @@ std::vector<CAAPlanetPerihelionAphelionDetails2> CAAPlanetPerihelionAphelion2::C
   double JD{StartJD};
   double LastDistance0{0};
   double LastDistance1{0};
-  while (JD < EndJD)
+  const double localEndJD{EndJD + StepInterval + StepInterval}; //Make sure we do not miss any possible events near to EndJD
+  while (JD < localEndJD)
   {
     double Distance{0};
     switch (object)
@@ -114,7 +120,8 @@ std::vector<CAAPlanetPerihelionAphelionDetails2> CAAPlanetPerihelionAphelion2::C
         double fraction{0};
         event.Value = CAAInterpolate::Extremum(LastDistance1, LastDistance0, Distance, fraction);
         event.JD = JD - StepInterval + (fraction*StepInterval);
-        events.push_back(event);
+        if (event.JD < EndJD)
+          events.push_back(event);
       }
       else if ((LastDistance0 < Distance) && (LastDistance0 < LastDistance1))
       {
@@ -123,7 +130,8 @@ std::vector<CAAPlanetPerihelionAphelionDetails2> CAAPlanetPerihelionAphelion2::C
         double fraction{0};
         event.Value = CAAInterpolate::Extremum(LastDistance1, LastDistance0, Distance, fraction);
         event.JD = JD - StepInterval + (fraction*StepInterval);
-        events.push_back(event);
+        if (event.JD < EndJD)
+          events.push_back(event);
       }
     }
 

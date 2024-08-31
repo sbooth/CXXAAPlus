@@ -5,6 +5,11 @@ Created: PJN / 22-10-2009
 History: PJN / 22-10-2019 1. Initial implementation
          PJN / 27-06-2022 1. Updated all the code in AAMoonMaxDeclinations2.cpp to use C++ uniform initialization
                           for all variable declarations.
+         PJN / 24-07-2024 1. Fixed an edge case bug in the Calculate function of CAAMoonMaxDeclinations2 where the main loop
+                          iterates from StartJD by StepInterval until JD < EndJD. That means that events happening closer than
+                          StepInterval to EndJD get lost because the step where we can catch it is outside of StartJD...EndJD
+                          interval. Now the code iterates from StartJD by StepInterval until JD <
+                          (EndJD+StepInterval+StepInterval). Thanks to Alexander Vasenin for reporting this issue.
 
 Copyright (c) 2019 - 2024 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
@@ -52,7 +57,8 @@ std::vector<CAAMoonMaxDeclinationsDetails2> CAAMoonMaxDeclinations2::Calculate(d
   double LastLatitude1{-90};
   double LastRA0{0};
   double LastRA1{0};
-  while (JD < EndJD)
+  const double localEndJD{EndJD + StepInterval + StepInterval}; //Make sure we do not miss any possible events near to EndJD
+  while (JD < localEndJD)
   {
     double MoonLong{0};
     double MoonLat{0};
@@ -124,7 +130,8 @@ std::vector<CAAMoonMaxDeclinationsDetails2> CAAMoonMaxDeclinations2::Calculate(d
         event.Declination = CAAInterpolate::Extremum(LastLatitude1, LastLatitude0, Equatorial.Y, fraction);
         event.RA = CAACoordinateTransformation::MapTo0To24Range(CAAInterpolate::Interpolate(fraction, tempLastRA1, tempLastRA0, tempRA));
         event.JD = JD - StepInterval + (fraction*StepInterval);
-        events.push_back(event);
+        if (event.JD < EndJD)
+          events.push_back(event);
       }
       else if ((LastLatitude0 < Equatorial.Y) && (LastLatitude0 < LastLatitude1))
       {
@@ -134,7 +141,8 @@ std::vector<CAAMoonMaxDeclinationsDetails2> CAAMoonMaxDeclinations2::Calculate(d
         event.Declination = CAAInterpolate::Extremum(LastLatitude1, LastLatitude0, Equatorial.Y, fraction);
         event.RA = CAACoordinateTransformation::MapTo0To24Range(CAAInterpolate::Interpolate(fraction, tempLastRA1, tempLastRA0, tempRA));
         event.JD = JD - StepInterval + (fraction*StepInterval);
-        events.push_back(event);
+        if (event.JD < EndJD)
+          events.push_back(event);
       }
     }
 

@@ -55,7 +55,6 @@ public:
 //Member variables
   Type type{Type::NotDefined}; //The type of the event which has occurred
   double JD{0}; //When the event occurred in TT
-  double Declination{0}; //Applicable for solstices only, the apparent declination of the Sun
 };
 
 class AAPLUS_EXT_CLASS CAAEquinoxesAndSolstices2

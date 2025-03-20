@@ -5,7 +5,7 @@ Created: PJN / 01-08-2021
 History: PJN / 12-06-2022 1. Updated all the code in AAVSOP2013.cpp to use C++ uniform initialization for all
                           variable declarations.
 
-Copyright (c) 2021 - 2024 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2021 - 2025 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 

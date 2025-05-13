@@ -63,7 +63,7 @@ public:
   double TrueGeocentricDeclination{0};
   double TrueGeocentricDistance{0};
   double TrueGeocentricLightTime{0};
-  double AstrometricGeocenticRA{0};
+  double AstrometricGeocentricRA{0};
   double AstrometricGeocentricDeclination{0};
   double AstrometricGeocentricDistance{0};
   double AstrometricGeocentricLightTime{0};

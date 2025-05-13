@@ -22,6 +22,8 @@ History: PJN / 31-01-2005 1. Fixed a bug in CAAParabolic::Calculate where the JD
                           variable declarations.
                           2. Updated methods in the CAAParabolic class to allow the epsilon value used to 
                           terminate iteration loops to be specified.
+         PJN / 10-04-2025 1. Renamed CAAParabolicObjectDetails::AstrometricGeocenticRA member variable to 
+                          "AstrometricGeocentricRA". Thanks to "znight" for reporting this issue.
 
 Copyright (c) 2003 - 2025 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
@@ -152,7 +154,7 @@ CAAParabolicObjectDetails CAAParabolic::Calculate(double JD, const CAAParabolicO
     }
     else
     {
-      details.AstrometricGeocenticRA = CAACoordinateTransformation::MapTo0To24Range(Alpha/15);
+      details.AstrometricGeocentricRA = CAACoordinateTransformation::MapTo0To24Range(Alpha/15);
       details.AstrometricGeocentricDeclination = Delta;
       details.AstrometricGeocentricDistance = Distance;
       details.AstrometricGeocentricLightTime = CAAElliptical::DistanceToLightTime(Distance);

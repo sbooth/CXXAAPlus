@@ -1,38 +1,11 @@
 /*
-Module : AAParabolic.cpp
-Purpose: Implementation for the algorithms for a parabolic orbit
-Created: PJN / 29-12-2003
-History: PJN / 31-01-2005 1. Fixed a bug in CAAParabolic::Calculate where the JD value was being used incorrectly
-                          in the loop. Thanks to Mika Heiskanen for reporting this problem.
-         PJN / 16-03-2008 1. Fixed a bug in CAAParabolic::Calculate(double JD, 
-                          const CAAParabolicObjectElements& elements) in the calculation of the 
-                          heliocentric rectangular ecliptical, the heliocentric ecliptical latitude and 
-                          the heliocentric ecliptical longitude coordinates. The code incorrectly used the 
-                          value "omega" instead of "w" in its calculation of the value "u". Unfortunately 
-                          there is no worked examples in Jean Meeus's book for these particular values, 
-                          hence resulting in my coding errors. Thanks to Jay Borseth for reporting this bug.
-         PJN / 08-09-2013 1. Fixed a bug in the calculation of HeliocentricEclipticLongitude and 
-                          HeliocentricEclipticLatitude in CAAParabolic::Calculate. Thanks to Joe Novak for 
-                          reporting this problem.
-         PJN / 16-09-2015 1. CAAParabolic::Calculate now includes a "bool bHighPrecision" parameter which if 
-                          set to true means the code uses the full VSOP87 theory rather than the truncated 
-                          theory as presented in Meeus's book.
-         PJN / 18-08-2019 1. Fixed some further compiler warnings when using VC 2019 Preview v16.3.0 Preview 2.0
-         PJN / 02-07-2022 1. Updated all the code in AAParabolic.cpp to use C++ uniform initialization for all
-                          variable declarations.
-                          2. Updated methods in the CAAParabolic class to allow the epsilon value used to 
-                          terminate iteration loops to be specified.
-         PJN / 10-04-2025 1. Renamed CAAParabolicObjectDetails::AstrometricGeocenticRA member variable to 
-                          "AstrometricGeocentricRA". Thanks to "znight" for reporting this issue.
-         PJN / 04-12-2025 1. Optimized the code in CAAParabolic::Calculate.
-                          2. Fixed a bug in CAAParabolic::Calculate in the calculation of the "W" variable. The
-                          worked example of 34.a from the book now produces the same results using AA+. AATest.cpp
-                          now includes worked examples of this example from the book using CAAParabolic, 
-                          CAANearParabolic and the new CAAHyperbolic class. All three classes now produce 
-                          similar values for this example.
-         PJN / 07-12-2025 1. Updated CAAParabolic::Calculate to return the radius vector and the true anomaly
+Module : AAHyperbolic.cpp
+Purpose: Implementation for the algorithms for a Hyperbolic orbit
+Created: PJN / 03-12-2025
+History: PJN / 28-12-2025 1. Initial creation.
+         PJN / 07-12-2025 1. Updated CAAHyperbolic::Calculate to return the radius vector and the true anomaly.
 
-Copyright (c) 2003 - 2026 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2025 - 2026 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -50,7 +23,7 @@ to maintain a single distribution point for the source code.
 //////////////////// Includes /////////////////////////////////////////////////
 
 #include "stdafx.h"
-#include "AAParabolic.h"
+#include "AAHyperbolic.h"
 #include "AACoordinateTransformation.h"
 #include "AASun.h"
 #include "AANutation.h"
@@ -60,30 +33,39 @@ to maintain a single distribution point for the source code.
 
 //////////////////// Implementation ///////////////////////////////////////////
 
-double CAAParabolic::CalculateBarkers(double W, double epsilon) noexcept
+double CAAHyperbolic::CalculateKeplers(double M, double e, double epsilon) noexcept
 {
-  double S{W/3};
   bool bRecalc{true};
+  double Hk{M};
   while (bRecalc)
   {
-    const double S2{S*S};
-    const double NextS{((2*S2*S) + W)/(3*(S2 + 1))};
+    const double Hk1{Hk - ((e*sinh(Hk) - Hk - M)/((e*cosh(Hk)) - 1))};
 
     //Prepare for the next loop around
-    bRecalc = (fabs(NextS - S) > epsilon);
-    S = NextS;
+    bRecalc = (fabs(Hk1 - Hk) > epsilon);
+    Hk = Hk1;
   }
 
-  return S;
+  return Hk;
 }
 
-CAAParabolicObjectDetails CAAParabolic::Calculate(double JD, const CAAParabolicObjectElements& elements, bool bHighPrecision, double epsilon) noexcept
+void CAAHyperbolic::CalculateTrueAnomalyAndRadius(double JD, const CAAHyperbolicObjectElements& elements, double& v, double& r, double epsilon) noexcept
+{
+  const double a{elements.q/(elements.e - 1)};
+  const double n{sqrt(0.0002959122082855911025/pow(fabs(a), 3))};
+  const double M{(JD - elements.T)*n};
+  const double H{CalculateKeplers(M, elements.e, epsilon)};
+  v = 2*atan(sqrt((elements.e + 1)/(elements.e - 1))*tanh(H/2));
+  r = fabs(a)*(elements.e*cosh(H) - 1);
+}
+
+CAAHyperbolicObjectDetails CAAHyperbolic::Calculate(double JD, const CAAHyperbolicObjectElements& elements, bool bHighPrecision, double epsilon) noexcept
 {
   double Epsilon{CAANutation::MeanObliquityOfEcliptic(elements.JDEquinox)};
   double JD0{JD};
 
   //What will be the return value
-  CAAParabolicObjectDetails details;
+  CAAHyperbolicObjectDetails details;
 
   Epsilon = CAACoordinateTransformation::DegreesToRadians(Epsilon);
   const double omega{CAACoordinateTransformation::DegreesToRadians(elements.omega)};
@@ -113,10 +95,9 @@ CAAParabolicObjectDetails CAAParabolic::Calculate(double JD, const CAAParabolicO
   const CAA3DCoordinate SunCoord{CAASun::EquatorialRectangularCoordinatesAnyEquinox(JD, elements.JDEquinox, bHighPrecision)};
   for (int j{0}; j<2; j++)
   {
-    const double W{0.03649116245/(elements.q*sqrt(elements.q))*(JD0 - elements.T)};
-    const double s{CalculateBarkers(W, epsilon)};
-    const double v{2*atan(s)};
-    const double r{elements.q*(1 + (s*s))};
+    double v{0};
+    double r{0};
+    CalculateTrueAnomalyAndRadius(JD0, elements, v, r, epsilon);
     const double x{r*a*sin(A + w + v)};
     const double y{r*b*sin(B + w + v)};
     const double z{r*c*sin(C + w + v)};
@@ -173,8 +154,8 @@ CAAParabolicObjectDetails CAAParabolic::Calculate(double JD, const CAAParabolicO
       const double RES2{RES*RES};
       const double r2{r*r};
 
-      details.Elongation = CAACoordinateTransformation::RadiansToDegrees(acos((RES2 + Distance2 - r2)/(2*RES*Distance)));
-      details.PhaseAngle = CAACoordinateTransformation::RadiansToDegrees(acos((r2 + Distance2 - RES2)/(2*r*Distance)));
+      details.Elongation = CAACoordinateTransformation::RadiansToDegrees(acos((RES2 + Distance2 - r2) / (2*RES*Distance)));
+      details.PhaseAngle = CAACoordinateTransformation::RadiansToDegrees(acos((r2 + Distance2 - RES2) / (2*r*Distance)));
     }
 
     if (j == 0) //Prepare for the next loop around

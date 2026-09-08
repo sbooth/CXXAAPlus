@@ -12,8 +12,10 @@ History: PJN / 22-02-2004 1. Fixed a bug in the calculation of the phase type fr
          PJN / 18-08-2019 1. Fixed some further compiler warnings when using VC 2019 Preview v16.3.0 Preview 2.0
          PJN / 29-06-2022 1. Updated all the code in AAMoonPhases.cpp to use C++ uniform initialization for all
                           variable declarations.
+         PJN / 30-05-2026 1. Fixed a bug in the CAAMoonPhases::TruePhase method where a full-moon coefficient should
+                          have been -0.00515 and not -0.00514. Thanks to Buenyamin Olgun for reporting this issue.
 
-Copyright (c) 2004 - 2025 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2004 - 2026 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -92,7 +94,7 @@ double CAAMoonPhases::TruePhase(double k) noexcept
 
   //convert to radians
   double kint{0};
-  double kfrac{modf(k, &kint)};
+  double kfrac{std::modf(k, &kint)};
   if (kfrac < 0)
     kfrac = 1 + kfrac;
 
@@ -172,7 +174,7 @@ double CAAMoonPhases::TruePhase(double k) noexcept
                          ( 0.01614*sin(twoMdash)) +
                          ( 0.01043*sin(twoF)) +
                          ( 0.00734*E*sin(Mdash - M)) +
-                         (-0.00514*E*sin(Mdash + M)) +
+                         (-0.00515*E*sin(Mdash + M)) +
                          ( 0.00209*E2*sin(twoM)) +
                          (-0.00111*sin(Mdash - twoF)) +
                          (-0.00057*sin(Mdash + twoF)) +

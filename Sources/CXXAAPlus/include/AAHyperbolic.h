@@ -1,9 +1,9 @@
 /*
 Module : AANearParabolic.h
-Purpose: Implementation for the algorithms for a near parabolic orbit
-Created: PJN / 29-12-2003
+Purpose: Implementation for the algorithms for a Hyperbolic orbit
+Created: PJN / 03-12-2025
 
-Copyright (c) 2003 - 2026 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
+Copyright (c) 2025 - 2026 by PJ Naughter (Web: www.naughter.com, Email: pjna@naughter.com)
 
 All rights reserved.
 
@@ -24,8 +24,8 @@ to maintain a single distribution point for the source code.
 #pragma once
 #endif //#if _MSC_VER > 1000
 
-#ifndef __AANEARPARABOLIC_H__
-#define __AANEARPARABOLIC_H__
+#ifndef __AAHYPERBOLIC_H__
+#define __AAHYPERBOLIC_H__
 
 #ifndef AAPLUS_EXT_CLASS
 #define AAPLUS_EXT_CLASS
@@ -39,7 +39,7 @@ to maintain a single distribution point for the source code.
 
 //////////////////// Classes //////////////////////////////////////////////////
 
-class AAPLUS_EXT_CLASS CAANearParabolicObjectElements
+class AAPLUS_EXT_CLASS CAAHyperbolicObjectElements
 {
 public:
 //Member variables
@@ -52,7 +52,7 @@ public:
   double e{0};
 };
 
-class AAPLUS_EXT_CLASS CAANearParabolicObjectDetails
+class AAPLUS_EXT_CLASS CAAHyperbolicObjectDetails
 {
 public:
 //Member variables
@@ -74,14 +74,14 @@ public:
   double PhaseAngle{0};
 };
 
-class AAPLUS_EXT_CLASS CAANearParabolic
+class AAPLUS_EXT_CLASS CAAHyperbolic
 {
 public:
 //Static methods
-  [[nodiscard]] static CAANearParabolicObjectDetails Calculate(double JD, const CAANearParabolicObjectElements& elements, bool bHighPrecision) noexcept;
-  [[nodiscard]] static double cbrt(double x) noexcept;
-  static void CalculateTrueAnomalyAndRadius(double JD, const CAANearParabolicObjectElements& elements, double& v, double& r) noexcept;
+  [[nodiscard]] static double CalculateKeplers(double M, double e, double epsilon = 0.000001) noexcept;
+  [[nodiscard]] static CAAHyperbolicObjectDetails Calculate(double JD, const CAAHyperbolicObjectElements& elements, bool bHighPrecision, double epsilon = 0.000001) noexcept;
+  static void CalculateTrueAnomalyAndRadius(double JD, const CAAHyperbolicObjectElements& elements, double& v, double& r, double epsilon = 0.000001) noexcept;
 };
 
 
-#endif //#ifndef __AANEARPARABOLIC_H__
+#endif //#ifndef __AAHYPERBOLIC_H__
